@@ -1,4 +1,7 @@
+using System.Text.Json.Serialization;
 using Backend.Models.Data;
+using Backend.Models.Interfaces;
+using Backend.Models.Repositories;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,6 +12,12 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+//Dependency injection for my database services
+builder.Services.AddScoped<IUserRepository,UserRepository>();
+builder.Services.AddScoped<IJobOfferRepository,JobOfferRepository>();
+builder.Services.AddScoped<ICourseRepository,CourseRepository>();
+builder.Services.AddScoped<IAssignedJobRepository,AssignedJobRepository>();
+//Database connection
 builder.Services.AddDbContext<AppDbContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
