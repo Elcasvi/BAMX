@@ -12,6 +12,6 @@ namespace Backend.Models.Entities
         public DateTime Created { get; set; }
         public string Enterprise { get; set; }
         public string Status { get; set; }
-        public ICollection<UserJobOffer> UserJobOffers { get; set; }
+        public ICollection<UserJobOffer>? UserJobOffers { get; set; }
     }
 }

@@ -1,4 +1,3 @@
-using System.Text.Json.Serialization;
 using Backend.Models.Data;
 using Backend.Models.Interfaces;
 using Backend.Models.Repositories;
@@ -12,6 +11,8 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+//Automapper
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 //Dependency injection for my database services
 builder.Services.AddScoped<IUserRepository,UserRepository>();
 builder.Services.AddScoped<IJobOfferRepository,JobOfferRepository>();

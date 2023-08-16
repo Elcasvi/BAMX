@@ -11,6 +11,6 @@ namespace Backend.Models.Entities
         public string Description { get; set; }
         public string Skill { get; set; }
         public string Link { get; set; }
-        public ICollection<UserCourse> UserCourses { get; set; }
+        public ICollection<UserCourse>? UserCourses { get; set; }
     }
 }

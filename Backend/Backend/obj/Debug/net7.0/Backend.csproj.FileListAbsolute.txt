@@ -79,3 +79,5 @@ C:\React Native\BAMX\Backend\Backend\bin\Debug\net7.0\runtimes\win\lib\net6.0\Sy
 C:\React Native\BAMX\Backend\Backend\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
 C:\React Native\BAMX\Backend\Backend\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
 C:\React Native\BAMX\Backend\Backend\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
+C:\React Native\BAMX\Backend\Backend\bin\Debug\net7.0\AutoMapper.dll
+C:\React Native\BAMX\Backend\Backend\bin\Debug\net7.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
