@@ -1,83 +1,166 @@
-C:\React Native\BAMX\Backend\Backend\bin\Debug\net7.0\appsettings.Development.json
-C:\React Native\BAMX\Backend\Backend\bin\Debug\net7.0\appsettings.json
-C:\React Native\BAMX\Backend\Backend\bin\Debug\net7.0\Backend.exe
-C:\React Native\BAMX\Backend\Backend\bin\Debug\net7.0\Backend.deps.json
-C:\React Native\BAMX\Backend\Backend\bin\Debug\net7.0\Backend.runtimeconfig.json
-C:\React Native\BAMX\Backend\Backend\bin\Debug\net7.0\Backend.dll
-C:\React Native\BAMX\Backend\Backend\bin\Debug\net7.0\Backend.pdb
-C:\React Native\BAMX\Backend\Backend\bin\Debug\net7.0\Microsoft.AspNetCore.OpenApi.dll
-C:\React Native\BAMX\Backend\Backend\bin\Debug\net7.0\Microsoft.OpenApi.dll
-C:\React Native\BAMX\Backend\Backend\bin\Debug\net7.0\Swashbuckle.AspNetCore.Swagger.dll
-C:\React Native\BAMX\Backend\Backend\bin\Debug\net7.0\Swashbuckle.AspNetCore.SwaggerGen.dll
-C:\React Native\BAMX\Backend\Backend\bin\Debug\net7.0\Swashbuckle.AspNetCore.SwaggerUI.dll
-C:\React Native\BAMX\Backend\Backend\obj\Debug\net7.0\Backend.csproj.AssemblyReference.cache
-C:\React Native\BAMX\Backend\Backend\obj\Debug\net7.0\Backend.GeneratedMSBuildEditorConfig.editorconfig
-C:\React Native\BAMX\Backend\Backend\obj\Debug\net7.0\Backend.AssemblyInfoInputs.cache
-C:\React Native\BAMX\Backend\Backend\obj\Debug\net7.0\Backend.AssemblyInfo.cs
-C:\React Native\BAMX\Backend\Backend\obj\Debug\net7.0\Backend.csproj.CoreCompileInputs.cache
-C:\React Native\BAMX\Backend\Backend\obj\Debug\net7.0\Backend.MvcApplicationPartsAssemblyInfo.cs
-C:\React Native\BAMX\Backend\Backend\obj\Debug\net7.0\Backend.MvcApplicationPartsAssemblyInfo.cache
-C:\React Native\BAMX\Backend\Backend\obj\Debug\net7.0\staticwebassets\msbuild.Backend.Microsoft.AspNetCore.StaticWebAssets.props
-C:\React Native\BAMX\Backend\Backend\obj\Debug\net7.0\staticwebassets\msbuild.build.Backend.props
-C:\React Native\BAMX\Backend\Backend\obj\Debug\net7.0\staticwebassets\msbuild.buildMultiTargeting.Backend.props
-C:\React Native\BAMX\Backend\Backend\obj\Debug\net7.0\staticwebassets\msbuild.buildTransitive.Backend.props
-C:\React Native\BAMX\Backend\Backend\obj\Debug\net7.0\staticwebassets.pack.json
-C:\React Native\BAMX\Backend\Backend\obj\Debug\net7.0\staticwebassets.build.json
-C:\React Native\BAMX\Backend\Backend\obj\Debug\net7.0\staticwebassets.development.json
-C:\React Native\BAMX\Backend\Backend\obj\Debug\net7.0\scopedcss\bundle\Backend.styles.css
-C:\React Native\BAMX\Backend\Backend\obj\Debug\net7.0\Backend.csproj.CopyComplete
-C:\React Native\BAMX\Backend\Backend\obj\Debug\net7.0\Backend.dll
-C:\React Native\BAMX\Backend\Backend\obj\Debug\net7.0\refint\Backend.dll
-C:\React Native\BAMX\Backend\Backend\obj\Debug\net7.0\Backend.pdb
-C:\React Native\BAMX\Backend\Backend\obj\Debug\net7.0\Backend.genruntimeconfig.cache
-C:\React Native\BAMX\Backend\Backend\obj\Debug\net7.0\ref\Backend.dll
-C:\React Native\BAMX\Backend\Backend\bin\Debug\net7.0\Azure.Core.dll
-C:\React Native\BAMX\Backend\Backend\bin\Debug\net7.0\Azure.Identity.dll
-C:\React Native\BAMX\Backend\Backend\bin\Debug\net7.0\Humanizer.dll
-C:\React Native\BAMX\Backend\Backend\bin\Debug\net7.0\Microsoft.AspNetCore.Authorization.dll
-C:\React Native\BAMX\Backend\Backend\bin\Debug\net7.0\Microsoft.AspNetCore.Components.dll
-C:\React Native\BAMX\Backend\Backend\bin\Debug\net7.0\Microsoft.AspNetCore.Metadata.dll
-C:\React Native\BAMX\Backend\Backend\bin\Debug\net7.0\Microsoft.Bcl.AsyncInterfaces.dll
-C:\React Native\BAMX\Backend\Backend\bin\Debug\net7.0\Microsoft.Data.SqlClient.dll
-C:\React Native\BAMX\Backend\Backend\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.dll
-C:\React Native\BAMX\Backend\Backend\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Abstractions.dll
-C:\React Native\BAMX\Backend\Backend\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Design.dll
-C:\React Native\BAMX\Backend\Backend\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Relational.dll
-C:\React Native\BAMX\Backend\Backend\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.SqlServer.dll
-C:\React Native\BAMX\Backend\Backend\bin\Debug\net7.0\Microsoft.Extensions.DependencyModel.dll
-C:\React Native\BAMX\Backend\Backend\bin\Debug\net7.0\Microsoft.Extensions.Logging.Abstractions.dll
-C:\React Native\BAMX\Backend\Backend\bin\Debug\net7.0\Microsoft.Extensions.Options.dll
-C:\React Native\BAMX\Backend\Backend\bin\Debug\net7.0\Microsoft.Identity.Client.dll
-C:\React Native\BAMX\Backend\Backend\bin\Debug\net7.0\Microsoft.Identity.Client.Extensions.Msal.dll
-C:\React Native\BAMX\Backend\Backend\bin\Debug\net7.0\Microsoft.IdentityModel.Abstractions.dll
-C:\React Native\BAMX\Backend\Backend\bin\Debug\net7.0\Microsoft.IdentityModel.JsonWebTokens.dll
-C:\React Native\BAMX\Backend\Backend\bin\Debug\net7.0\Microsoft.IdentityModel.Logging.dll
-C:\React Native\BAMX\Backend\Backend\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.dll
-C:\React Native\BAMX\Backend\Backend\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
-C:\React Native\BAMX\Backend\Backend\bin\Debug\net7.0\Microsoft.IdentityModel.Tokens.dll
-C:\React Native\BAMX\Backend\Backend\bin\Debug\net7.0\Microsoft.SqlServer.Server.dll
-C:\React Native\BAMX\Backend\Backend\bin\Debug\net7.0\Microsoft.Win32.SystemEvents.dll
-C:\React Native\BAMX\Backend\Backend\bin\Debug\net7.0\Mono.TextTemplating.dll
-C:\React Native\BAMX\Backend\Backend\bin\Debug\net7.0\System.CodeDom.dll
-C:\React Native\BAMX\Backend\Backend\bin\Debug\net7.0\System.Configuration.ConfigurationManager.dll
-C:\React Native\BAMX\Backend\Backend\bin\Debug\net7.0\System.Drawing.Common.dll
-C:\React Native\BAMX\Backend\Backend\bin\Debug\net7.0\System.IdentityModel.Tokens.Jwt.dll
-C:\React Native\BAMX\Backend\Backend\bin\Debug\net7.0\System.Memory.Data.dll
-C:\React Native\BAMX\Backend\Backend\bin\Debug\net7.0\System.Runtime.Caching.dll
-C:\React Native\BAMX\Backend\Backend\bin\Debug\net7.0\System.Security.Cryptography.ProtectedData.dll
-C:\React Native\BAMX\Backend\Backend\bin\Debug\net7.0\System.Security.Permissions.dll
-C:\React Native\BAMX\Backend\Backend\bin\Debug\net7.0\System.Windows.Extensions.dll
-C:\React Native\BAMX\Backend\Backend\bin\Debug\net7.0\runtimes\unix\lib\net6.0\Microsoft.Data.SqlClient.dll
-C:\React Native\BAMX\Backend\Backend\bin\Debug\net7.0\runtimes\win\lib\net6.0\Microsoft.Data.SqlClient.dll
-C:\React Native\BAMX\Backend\Backend\bin\Debug\net7.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
-C:\React Native\BAMX\Backend\Backend\bin\Debug\net7.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
-C:\React Native\BAMX\Backend\Backend\bin\Debug\net7.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
-C:\React Native\BAMX\Backend\Backend\bin\Debug\net7.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
-C:\React Native\BAMX\Backend\Backend\bin\Debug\net7.0\runtimes\win\lib\net6.0\Microsoft.Win32.SystemEvents.dll
-C:\React Native\BAMX\Backend\Backend\bin\Debug\net7.0\runtimes\unix\lib\net6.0\System.Drawing.Common.dll
-C:\React Native\BAMX\Backend\Backend\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll
-C:\React Native\BAMX\Backend\Backend\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
-C:\React Native\BAMX\Backend\Backend\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
-C:\React Native\BAMX\Backend\Backend\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
-C:\React Native\BAMX\Backend\Backend\bin\Debug\net7.0\AutoMapper.dll
-C:\React Native\BAMX\Backend\Backend\bin\Debug\net7.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:/React Native/BAMX/Backend/Backend/bin/Debug/net7.0/appsettings.Development.json
+C:/React Native/BAMX/Backend/Backend/bin/Debug/net7.0/appsettings.json
+C:/React Native/BAMX/Backend/Backend/bin/Debug/net7.0/Backend.exe
+C:/React Native/BAMX/Backend/Backend/bin/Debug/net7.0/Backend.deps.json
+C:/React Native/BAMX/Backend/Backend/bin/Debug/net7.0/Backend.runtimeconfig.json
+C:/React Native/BAMX/Backend/Backend/bin/Debug/net7.0/Backend.dll
+C:/React Native/BAMX/Backend/Backend/bin/Debug/net7.0/Backend.pdb
+C:/React Native/BAMX/Backend/Backend/bin/Debug/net7.0/Microsoft.AspNetCore.OpenApi.dll
+C:/React Native/BAMX/Backend/Backend/bin/Debug/net7.0/Microsoft.OpenApi.dll
+C:/React Native/BAMX/Backend/Backend/bin/Debug/net7.0/Swashbuckle.AspNetCore.Swagger.dll
+C:/React Native/BAMX/Backend/Backend/bin/Debug/net7.0/Swashbuckle.AspNetCore.SwaggerGen.dll
+C:/React Native/BAMX/Backend/Backend/bin/Debug/net7.0/Swashbuckle.AspNetCore.SwaggerUI.dll
+C:/React Native/BAMX/Backend/Backend/obj/Debug/net7.0/Backend.csproj.AssemblyReference.cache
+C:/React Native/BAMX/Backend/Backend/obj/Debug/net7.0/Backend.GeneratedMSBuildEditorConfig.editorconfig
+C:/React Native/BAMX/Backend/Backend/obj/Debug/net7.0/Backend.AssemblyInfoInputs.cache
+C:/React Native/BAMX/Backend/Backend/obj/Debug/net7.0/Backend.AssemblyInfo.cs
+C:/React Native/BAMX/Backend/Backend/obj/Debug/net7.0/Backend.csproj.CoreCompileInputs.cache
+C:/React Native/BAMX/Backend/Backend/obj/Debug/net7.0/Backend.MvcApplicationPartsAssemblyInfo.cs
+C:/React Native/BAMX/Backend/Backend/obj/Debug/net7.0/Backend.MvcApplicationPartsAssemblyInfo.cache
+C:/React Native/BAMX/Backend/Backend/obj/Debug/net7.0/staticwebassets/msbuild.Backend.Microsoft.AspNetCore.StaticWebAssets.props
+C:/React Native/BAMX/Backend/Backend/obj/Debug/net7.0/staticwebassets/msbuild.build.Backend.props
+C:/React Native/BAMX/Backend/Backend/obj/Debug/net7.0/staticwebassets/msbuild.buildMultiTargeting.Backend.props
+C:/React Native/BAMX/Backend/Backend/obj/Debug/net7.0/staticwebassets/msbuild.buildTransitive.Backend.props
+C:/React Native/BAMX/Backend/Backend/obj/Debug/net7.0/staticwebassets.pack.json
+C:/React Native/BAMX/Backend/Backend/obj/Debug/net7.0/staticwebassets.build.json
+C:/React Native/BAMX/Backend/Backend/obj/Debug/net7.0/staticwebassets.development.json
+C:/React Native/BAMX/Backend/Backend/obj/Debug/net7.0/scopedcss/bundle/Backend.styles.css
+C:/React Native/BAMX/Backend/Backend/obj/Debug/net7.0/Backend.csproj.CopyComplete
+C:/React Native/BAMX/Backend/Backend/obj/Debug/net7.0/Backend.dll
+C:/React Native/BAMX/Backend/Backend/obj/Debug/net7.0/refint/Backend.dll
+C:/React Native/BAMX/Backend/Backend/obj/Debug/net7.0/Backend.pdb
+C:/React Native/BAMX/Backend/Backend/obj/Debug/net7.0/Backend.genruntimeconfig.cache
+C:/React Native/BAMX/Backend/Backend/obj/Debug/net7.0/ref/Backend.dll
+C:/React Native/BAMX/Backend/Backend/bin/Debug/net7.0/Azure.Core.dll
+C:/React Native/BAMX/Backend/Backend/bin/Debug/net7.0/Azure.Identity.dll
+C:/React Native/BAMX/Backend/Backend/bin/Debug/net7.0/Humanizer.dll
+C:/React Native/BAMX/Backend/Backend/bin/Debug/net7.0/Microsoft.AspNetCore.Authorization.dll
+C:/React Native/BAMX/Backend/Backend/bin/Debug/net7.0/Microsoft.AspNetCore.Components.dll
+C:/React Native/BAMX/Backend/Backend/bin/Debug/net7.0/Microsoft.AspNetCore.Metadata.dll
+C:/React Native/BAMX/Backend/Backend/bin/Debug/net7.0/Microsoft.Bcl.AsyncInterfaces.dll
+C:/React Native/BAMX/Backend/Backend/bin/Debug/net7.0/Microsoft.Data.SqlClient.dll
+C:/React Native/BAMX/Backend/Backend/bin/Debug/net7.0/Microsoft.EntityFrameworkCore.dll
+C:/React Native/BAMX/Backend/Backend/bin/Debug/net7.0/Microsoft.EntityFrameworkCore.Abstractions.dll
+C:/React Native/BAMX/Backend/Backend/bin/Debug/net7.0/Microsoft.EntityFrameworkCore.Design.dll
+C:/React Native/BAMX/Backend/Backend/bin/Debug/net7.0/Microsoft.EntityFrameworkCore.Relational.dll
+C:/React Native/BAMX/Backend/Backend/bin/Debug/net7.0/Microsoft.EntityFrameworkCore.SqlServer.dll
+C:/React Native/BAMX/Backend/Backend/bin/Debug/net7.0/Microsoft.Extensions.DependencyModel.dll
+C:/React Native/BAMX/Backend/Backend/bin/Debug/net7.0/Microsoft.Extensions.Logging.Abstractions.dll
+C:/React Native/BAMX/Backend/Backend/bin/Debug/net7.0/Microsoft.Extensions.Options.dll
+C:/React Native/BAMX/Backend/Backend/bin/Debug/net7.0/Microsoft.Identity.Client.dll
+C:/React Native/BAMX/Backend/Backend/bin/Debug/net7.0/Microsoft.Identity.Client.Extensions.Msal.dll
+C:/React Native/BAMX/Backend/Backend/bin/Debug/net7.0/Microsoft.IdentityModel.Abstractions.dll
+C:/React Native/BAMX/Backend/Backend/bin/Debug/net7.0/Microsoft.IdentityModel.JsonWebTokens.dll
+C:/React Native/BAMX/Backend/Backend/bin/Debug/net7.0/Microsoft.IdentityModel.Logging.dll
+C:/React Native/BAMX/Backend/Backend/bin/Debug/net7.0/Microsoft.IdentityModel.Protocols.dll
+C:/React Native/BAMX/Backend/Backend/bin/Debug/net7.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:/React Native/BAMX/Backend/Backend/bin/Debug/net7.0/Microsoft.IdentityModel.Tokens.dll
+C:/React Native/BAMX/Backend/Backend/bin/Debug/net7.0/Microsoft.SqlServer.Server.dll
+C:/React Native/BAMX/Backend/Backend/bin/Debug/net7.0/Microsoft.Win32.SystemEvents.dll
+C:/React Native/BAMX/Backend/Backend/bin/Debug/net7.0/Mono.TextTemplating.dll
+C:/React Native/BAMX/Backend/Backend/bin/Debug/net7.0/System.CodeDom.dll
+C:/React Native/BAMX/Backend/Backend/bin/Debug/net7.0/System.Configuration.ConfigurationManager.dll
+C:/React Native/BAMX/Backend/Backend/bin/Debug/net7.0/System.Drawing.Common.dll
+C:/React Native/BAMX/Backend/Backend/bin/Debug/net7.0/System.IdentityModel.Tokens.Jwt.dll
+C:/React Native/BAMX/Backend/Backend/bin/Debug/net7.0/System.Memory.Data.dll
+C:/React Native/BAMX/Backend/Backend/bin/Debug/net7.0/System.Runtime.Caching.dll
+C:/React Native/BAMX/Backend/Backend/bin/Debug/net7.0/System.Security.Cryptography.ProtectedData.dll
+C:/React Native/BAMX/Backend/Backend/bin/Debug/net7.0/System.Security.Permissions.dll
+C:/React Native/BAMX/Backend/Backend/bin/Debug/net7.0/System.Windows.Extensions.dll
+C:/React Native/BAMX/Backend/Backend/bin/Debug/net7.0/runtimes/unix/lib/net6.0/Microsoft.Data.SqlClient.dll
+C:/React Native/BAMX/Backend/Backend/bin/Debug/net7.0/runtimes/win/lib/net6.0/Microsoft.Data.SqlClient.dll
+C:/React Native/BAMX/Backend/Backend/bin/Debug/net7.0/runtimes/win-arm/native/Microsoft.Data.SqlClient.SNI.dll
+C:/React Native/BAMX/Backend/Backend/bin/Debug/net7.0/runtimes/win-arm64/native/Microsoft.Data.SqlClient.SNI.dll
+C:/React Native/BAMX/Backend/Backend/bin/Debug/net7.0/runtimes/win-x64/native/Microsoft.Data.SqlClient.SNI.dll
+C:/React Native/BAMX/Backend/Backend/bin/Debug/net7.0/runtimes/win-x86/native/Microsoft.Data.SqlClient.SNI.dll
+C:/React Native/BAMX/Backend/Backend/bin/Debug/net7.0/runtimes/win/lib/net6.0/Microsoft.Win32.SystemEvents.dll
+C:/React Native/BAMX/Backend/Backend/bin/Debug/net7.0/runtimes/unix/lib/net6.0/System.Drawing.Common.dll
+C:/React Native/BAMX/Backend/Backend/bin/Debug/net7.0/runtimes/win/lib/net6.0/System.Drawing.Common.dll
+C:/React Native/BAMX/Backend/Backend/bin/Debug/net7.0/runtimes/win/lib/net6.0/System.Runtime.Caching.dll
+C:/React Native/BAMX/Backend/Backend/bin/Debug/net7.0/runtimes/win/lib/net6.0/System.Security.Cryptography.ProtectedData.dll
+C:/React Native/BAMX/Backend/Backend/bin/Debug/net7.0/runtimes/win/lib/net6.0/System.Windows.Extensions.dll
+C:/React Native/BAMX/Backend/Backend/bin/Debug/net7.0/AutoMapper.dll
+C:/React Native/BAMX/Backend/Backend/bin/Debug/net7.0/AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+/Users/carlos/Code/ReactNative/BAMX/Backend/Backend/bin/Debug/net7.0/appsettings.Development.json
+/Users/carlos/Code/ReactNative/BAMX/Backend/Backend/bin/Debug/net7.0/appsettings.json
+/Users/carlos/Code/ReactNative/BAMX/Backend/Backend/bin/Debug/net7.0/Backend
+/Users/carlos/Code/ReactNative/BAMX/Backend/Backend/bin/Debug/net7.0/Backend.deps.json
+/Users/carlos/Code/ReactNative/BAMX/Backend/Backend/bin/Debug/net7.0/Backend.runtimeconfig.json
+/Users/carlos/Code/ReactNative/BAMX/Backend/Backend/bin/Debug/net7.0/Backend.dll
+/Users/carlos/Code/ReactNative/BAMX/Backend/Backend/bin/Debug/net7.0/Backend.pdb
+/Users/carlos/Code/ReactNative/BAMX/Backend/Backend/bin/Debug/net7.0/AutoMapper.dll
+/Users/carlos/Code/ReactNative/BAMX/Backend/Backend/bin/Debug/net7.0/AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+/Users/carlos/Code/ReactNative/BAMX/Backend/Backend/bin/Debug/net7.0/Azure.Core.dll
+/Users/carlos/Code/ReactNative/BAMX/Backend/Backend/bin/Debug/net7.0/Azure.Identity.dll
+/Users/carlos/Code/ReactNative/BAMX/Backend/Backend/bin/Debug/net7.0/Humanizer.dll
+/Users/carlos/Code/ReactNative/BAMX/Backend/Backend/bin/Debug/net7.0/Microsoft.AspNetCore.Authorization.dll
+/Users/carlos/Code/ReactNative/BAMX/Backend/Backend/bin/Debug/net7.0/Microsoft.AspNetCore.Components.dll
+/Users/carlos/Code/ReactNative/BAMX/Backend/Backend/bin/Debug/net7.0/Microsoft.AspNetCore.Metadata.dll
+/Users/carlos/Code/ReactNative/BAMX/Backend/Backend/bin/Debug/net7.0/Microsoft.AspNetCore.OpenApi.dll
+/Users/carlos/Code/ReactNative/BAMX/Backend/Backend/bin/Debug/net7.0/Microsoft.Bcl.AsyncInterfaces.dll
+/Users/carlos/Code/ReactNative/BAMX/Backend/Backend/bin/Debug/net7.0/Microsoft.Data.SqlClient.dll
+/Users/carlos/Code/ReactNative/BAMX/Backend/Backend/bin/Debug/net7.0/Microsoft.EntityFrameworkCore.dll
+/Users/carlos/Code/ReactNative/BAMX/Backend/Backend/bin/Debug/net7.0/Microsoft.EntityFrameworkCore.Abstractions.dll
+/Users/carlos/Code/ReactNative/BAMX/Backend/Backend/bin/Debug/net7.0/Microsoft.EntityFrameworkCore.Design.dll
+/Users/carlos/Code/ReactNative/BAMX/Backend/Backend/bin/Debug/net7.0/Microsoft.EntityFrameworkCore.Relational.dll
+/Users/carlos/Code/ReactNative/BAMX/Backend/Backend/bin/Debug/net7.0/Microsoft.EntityFrameworkCore.SqlServer.dll
+/Users/carlos/Code/ReactNative/BAMX/Backend/Backend/bin/Debug/net7.0/Microsoft.Extensions.DependencyModel.dll
+/Users/carlos/Code/ReactNative/BAMX/Backend/Backend/bin/Debug/net7.0/Microsoft.Extensions.Logging.Abstractions.dll
+/Users/carlos/Code/ReactNative/BAMX/Backend/Backend/bin/Debug/net7.0/Microsoft.Extensions.Options.dll
+/Users/carlos/Code/ReactNative/BAMX/Backend/Backend/bin/Debug/net7.0/Microsoft.Identity.Client.dll
+/Users/carlos/Code/ReactNative/BAMX/Backend/Backend/bin/Debug/net7.0/Microsoft.Identity.Client.Extensions.Msal.dll
+/Users/carlos/Code/ReactNative/BAMX/Backend/Backend/bin/Debug/net7.0/Microsoft.IdentityModel.Abstractions.dll
+/Users/carlos/Code/ReactNative/BAMX/Backend/Backend/bin/Debug/net7.0/Microsoft.IdentityModel.JsonWebTokens.dll
+/Users/carlos/Code/ReactNative/BAMX/Backend/Backend/bin/Debug/net7.0/Microsoft.IdentityModel.Logging.dll
+/Users/carlos/Code/ReactNative/BAMX/Backend/Backend/bin/Debug/net7.0/Microsoft.IdentityModel.Protocols.dll
+/Users/carlos/Code/ReactNative/BAMX/Backend/Backend/bin/Debug/net7.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+/Users/carlos/Code/ReactNative/BAMX/Backend/Backend/bin/Debug/net7.0/Microsoft.IdentityModel.Tokens.dll
+/Users/carlos/Code/ReactNative/BAMX/Backend/Backend/bin/Debug/net7.0/Microsoft.OpenApi.dll
+/Users/carlos/Code/ReactNative/BAMX/Backend/Backend/bin/Debug/net7.0/Microsoft.SqlServer.Server.dll
+/Users/carlos/Code/ReactNative/BAMX/Backend/Backend/bin/Debug/net7.0/Microsoft.Win32.SystemEvents.dll
+/Users/carlos/Code/ReactNative/BAMX/Backend/Backend/bin/Debug/net7.0/Mono.TextTemplating.dll
+/Users/carlos/Code/ReactNative/BAMX/Backend/Backend/bin/Debug/net7.0/Swashbuckle.AspNetCore.Swagger.dll
+/Users/carlos/Code/ReactNative/BAMX/Backend/Backend/bin/Debug/net7.0/Swashbuckle.AspNetCore.SwaggerGen.dll
+/Users/carlos/Code/ReactNative/BAMX/Backend/Backend/bin/Debug/net7.0/Swashbuckle.AspNetCore.SwaggerUI.dll
+/Users/carlos/Code/ReactNative/BAMX/Backend/Backend/bin/Debug/net7.0/System.CodeDom.dll
+/Users/carlos/Code/ReactNative/BAMX/Backend/Backend/bin/Debug/net7.0/System.Configuration.ConfigurationManager.dll
+/Users/carlos/Code/ReactNative/BAMX/Backend/Backend/bin/Debug/net7.0/System.Drawing.Common.dll
+/Users/carlos/Code/ReactNative/BAMX/Backend/Backend/bin/Debug/net7.0/System.IdentityModel.Tokens.Jwt.dll
+/Users/carlos/Code/ReactNative/BAMX/Backend/Backend/bin/Debug/net7.0/System.Memory.Data.dll
+/Users/carlos/Code/ReactNative/BAMX/Backend/Backend/bin/Debug/net7.0/System.Runtime.Caching.dll
+/Users/carlos/Code/ReactNative/BAMX/Backend/Backend/bin/Debug/net7.0/System.Security.Cryptography.ProtectedData.dll
+/Users/carlos/Code/ReactNative/BAMX/Backend/Backend/bin/Debug/net7.0/System.Security.Permissions.dll
+/Users/carlos/Code/ReactNative/BAMX/Backend/Backend/bin/Debug/net7.0/System.Windows.Extensions.dll
+/Users/carlos/Code/ReactNative/BAMX/Backend/Backend/bin/Debug/net7.0/runtimes/unix/lib/net6.0/Microsoft.Data.SqlClient.dll
+/Users/carlos/Code/ReactNative/BAMX/Backend/Backend/bin/Debug/net7.0/runtimes/win/lib/net6.0/Microsoft.Data.SqlClient.dll
+/Users/carlos/Code/ReactNative/BAMX/Backend/Backend/bin/Debug/net7.0/runtimes/win-arm/native/Microsoft.Data.SqlClient.SNI.dll
+/Users/carlos/Code/ReactNative/BAMX/Backend/Backend/bin/Debug/net7.0/runtimes/win-arm64/native/Microsoft.Data.SqlClient.SNI.dll
+/Users/carlos/Code/ReactNative/BAMX/Backend/Backend/bin/Debug/net7.0/runtimes/win-x64/native/Microsoft.Data.SqlClient.SNI.dll
+/Users/carlos/Code/ReactNative/BAMX/Backend/Backend/bin/Debug/net7.0/runtimes/win-x86/native/Microsoft.Data.SqlClient.SNI.dll
+/Users/carlos/Code/ReactNative/BAMX/Backend/Backend/bin/Debug/net7.0/runtimes/win/lib/net6.0/Microsoft.Win32.SystemEvents.dll
+/Users/carlos/Code/ReactNative/BAMX/Backend/Backend/bin/Debug/net7.0/runtimes/unix/lib/net6.0/System.Drawing.Common.dll
+/Users/carlos/Code/ReactNative/BAMX/Backend/Backend/bin/Debug/net7.0/runtimes/win/lib/net6.0/System.Drawing.Common.dll
+/Users/carlos/Code/ReactNative/BAMX/Backend/Backend/bin/Debug/net7.0/runtimes/win/lib/net6.0/System.Runtime.Caching.dll
+/Users/carlos/Code/ReactNative/BAMX/Backend/Backend/bin/Debug/net7.0/runtimes/win/lib/net6.0/System.Security.Cryptography.ProtectedData.dll
+/Users/carlos/Code/ReactNative/BAMX/Backend/Backend/bin/Debug/net7.0/runtimes/win/lib/net6.0/System.Windows.Extensions.dll
+/Users/carlos/Code/ReactNative/BAMX/Backend/Backend/obj/Debug/net7.0/Backend.csproj.AssemblyReference.cache
+/Users/carlos/Code/ReactNative/BAMX/Backend/Backend/obj/Debug/net7.0/Backend.GeneratedMSBuildEditorConfig.editorconfig
+/Users/carlos/Code/ReactNative/BAMX/Backend/Backend/obj/Debug/net7.0/Backend.AssemblyInfoInputs.cache
+/Users/carlos/Code/ReactNative/BAMX/Backend/Backend/obj/Debug/net7.0/Backend.AssemblyInfo.cs
+/Users/carlos/Code/ReactNative/BAMX/Backend/Backend/obj/Debug/net7.0/Backend.csproj.CoreCompileInputs.cache
+/Users/carlos/Code/ReactNative/BAMX/Backend/Backend/obj/Debug/net7.0/Backend.MvcApplicationPartsAssemblyInfo.cs
+/Users/carlos/Code/ReactNative/BAMX/Backend/Backend/obj/Debug/net7.0/Backend.MvcApplicationPartsAssemblyInfo.cache
+/Users/carlos/Code/ReactNative/BAMX/Backend/Backend/obj/Debug/net7.0/staticwebassets/msbuild.Backend.Microsoft.AspNetCore.StaticWebAssets.props
+/Users/carlos/Code/ReactNative/BAMX/Backend/Backend/obj/Debug/net7.0/staticwebassets/msbuild.build.Backend.props
+/Users/carlos/Code/ReactNative/BAMX/Backend/Backend/obj/Debug/net7.0/staticwebassets/msbuild.buildMultiTargeting.Backend.props
+/Users/carlos/Code/ReactNative/BAMX/Backend/Backend/obj/Debug/net7.0/staticwebassets/msbuild.buildTransitive.Backend.props
+/Users/carlos/Code/ReactNative/BAMX/Backend/Backend/obj/Debug/net7.0/staticwebassets.pack.json
+/Users/carlos/Code/ReactNative/BAMX/Backend/Backend/obj/Debug/net7.0/staticwebassets.build.json
+/Users/carlos/Code/ReactNative/BAMX/Backend/Backend/obj/Debug/net7.0/staticwebassets.development.json
+/Users/carlos/Code/ReactNative/BAMX/Backend/Backend/obj/Debug/net7.0/scopedcss/bundle/Backend.styles.css
+/Users/carlos/Code/ReactNative/BAMX/Backend/Backend/obj/Debug/net7.0/Backend.csproj.CopyComplete
+/Users/carlos/Code/ReactNative/BAMX/Backend/Backend/obj/Debug/net7.0/Backend.dll
+/Users/carlos/Code/ReactNative/BAMX/Backend/Backend/obj/Debug/net7.0/refint/Backend.dll
+/Users/carlos/Code/ReactNative/BAMX/Backend/Backend/obj/Debug/net7.0/Backend.pdb
+/Users/carlos/Code/ReactNative/BAMX/Backend/Backend/obj/Debug/net7.0/Backend.genruntimeconfig.cache
+/Users/carlos/Code/ReactNative/BAMX/Backend/Backend/obj/Debug/net7.0/ref/Backend.dll

@@ -7,12 +7,12 @@ namespace Backend.Models.Interfaces
     {
         public User Get(int id);
         public User Get(string email,string password);
-        public ICollection<User>GetUsers();
+        public ICollection<User>GetAll();
         public EntityEntry<User> Add(User user);
         public EntityEntry<User> Delete(User user);
         public EntityEntry<User> Update(User user);
-        public bool UserExists(string email,string password);
-        public bool UserExists(int id);
+        public bool Exists(string email,string password);
+        public bool Exists(int id);
         public bool Save();
 
     }

@@ -9,6 +9,7 @@ namespace Backend.Models.Helper
         public MappingProfiles()
         {
             CreateMap<User, UserDto>();
+            CreateMap<JobOffer, JobOfferDto>();
         }
     }
 }

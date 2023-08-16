@@ -21,7 +21,7 @@ namespace Backend.Models.Repositories
         {
             return _dbContext.Users.Where(userE => userE.Email == email).Where(userP => userP.Password == password).FirstOrDefault();
         }
-        public ICollection<User> GetUsers()
+        public ICollection<User> GetAll()
         {
             return _dbContext.Users.ToList();
         }
@@ -46,7 +46,7 @@ namespace Backend.Models.Repositories
             return updatedUser;
         }
 
-        public bool UserExists(string email, string password)
+        public bool Exists(string email, string password)
         {
             var user=_dbContext.Users.Where(userE => userE.Email == email).Where(userP => userP.Password == password).FirstOrDefault();
             if(user!=null)
@@ -55,7 +55,7 @@ namespace Backend.Models.Repositories
             }
             return false;
         }
-        public bool UserExists(int id)
+        public bool Exists(int id)
         {
             return _dbContext.Users.Any(user => user.Id == id);
         }

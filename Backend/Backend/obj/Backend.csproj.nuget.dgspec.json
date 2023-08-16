@@ -1,33 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "C:\\React Native\\BAMX\\Backend\\Backend\\Backend.csproj": {}
+    "/Users/carlos/Code/ReactNative/BAMX/Backend/Backend/Backend.csproj": {}
   },
   "projects": {
-    "C:\\React Native\\BAMX\\Backend\\Backend\\Backend.csproj": {
+    "/Users/carlos/Code/ReactNative/BAMX/Backend/Backend/Backend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\React Native\\BAMX\\Backend\\Backend\\Backend.csproj",
+        "projectUniqueName": "/Users/carlos/Code/ReactNative/BAMX/Backend/Backend/Backend.csproj",
         "projectName": "Backend",
-        "projectPath": "C:\\React Native\\BAMX\\Backend\\Backend\\Backend.csproj",
-        "packagesPath": "C:\\Users\\carlos\\.nuget\\packages\\",
-        "outputPath": "C:\\React Native\\BAMX\\Backend\\Backend\\obj\\",
+        "projectPath": "/Users/carlos/Code/ReactNative/BAMX/Backend/Backend/Backend.csproj",
+        "packagesPath": "/Users/carlos/.nuget/packages/",
+        "outputPath": "/Users/carlos/Code/ReactNative/BAMX/Backend/Backend/obj/",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\carlos\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/Users/carlos/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
-          "C:\\Program Files\\dotnet\\sdk\\7.0.306\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
+          "/usr/local/share/dotnet/library-packs": {},
+          "/usr/local/share/dotnet/sdk/7.0.306/Sdks/Microsoft.NET.Sdk.Web/library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -104,7 +98,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.306/RuntimeIdentifierGraph.json"
         }
       }
     }
