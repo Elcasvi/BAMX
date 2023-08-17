@@ -11,8 +11,8 @@ namespace Backend.Controllers;
 [Route("[Controller]")]
 public class UserController:ControllerBase
 {
-    private IUserRepository _userRepository;
-    private IMapper _mapper;
+    private readonly IUserRepository _userRepository;
+    private readonly IMapper _mapper;
     private Hash _hash=new Hash();
 
     public UserController(IUserRepository userRepository,IMapper mapper)
@@ -54,6 +54,39 @@ public class UserController:ControllerBase
         return Ok(users);
     }
 
+    [HttpGet("jobOffers/{userId}")]
+    public IActionResult GetAllJobOffers(int userId)
+    {
+        var jobOffers = _mapper.Map<List<JobOfferDto>>(_userRepository.GetAllJobOffersByUserId(userId));
+        if(!ModelState.IsValid)
+        {
+            return BadRequest(ModelState);
+        }
+        return Ok(jobOffers);
+    }
+    
+    [HttpGet("courses/{userId}")]
+    public IActionResult GetAllCourses(int userId)
+    {
+        var courses = _mapper.Map<List<CourseDto>>(_userRepository.GetAllCoursesByUserId(userId));
+        if(!ModelState.IsValid)
+        {
+            return BadRequest(ModelState);
+        }
+        return Ok(courses);
+    }
+    
+    [HttpGet("assignedJobs/{userId}")]
+    public IActionResult GetAllAssignedJobs(int userId)
+    {
+        var assignedJobs = _mapper.Map<List<AssignedJobDto>>(_userRepository.GetAllAssignedJobsByUserId(userId));
+        if(!ModelState.IsValid)
+        {
+            return BadRequest(ModelState);
+        }
+        return Ok(assignedJobs);
+    }
+    
     [HttpPost]
     public IActionResult Add([FromBody]User user)
     {

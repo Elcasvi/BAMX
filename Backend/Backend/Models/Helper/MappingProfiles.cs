@@ -10,6 +10,8 @@ namespace Backend.Models.Helper
         {
             CreateMap<User, UserDto>();
             CreateMap<JobOffer, JobOfferDto>();
+            CreateMap<Course,CourseDto>();
+            CreateMap<AssignedJob,AssignedJobDto>();
         }
     }
 }

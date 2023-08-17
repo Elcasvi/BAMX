@@ -10,8 +10,8 @@ namespace Backend.Controllers;
 [Route("[Controller]")]
 public class JobOfferController:ControllerBase
 {
-    private IJobOfferRepository _jobOfferRepository;
-    private IMapper _mapper;
+    private readonly IJobOfferRepository _jobOfferRepository;
+    private readonly IMapper _mapper;
 
     public JobOfferController(IJobOfferRepository jobOfferRepository, IMapper mapper)
     {
@@ -33,14 +33,24 @@ public class JobOfferController:ControllerBase
     [HttpGet]
     public IActionResult GetAll()
     {
-        var jobOffers=_mapper.Map<List<JobOfferDto>>(_jobOfferRepository.GetJobOffers());//This convert the users form the database into userDto objects
+        var jobOffers=_mapper.Map<List<JobOfferDto>>(_jobOfferRepository.GetAll());//This convert the users form the database into userDto objects
         if(!ModelState.IsValid)
         {
             return BadRequest(ModelState);
         }
         return Ok(jobOffers);
     }
-    
+
+    [HttpGet("users/{jobOfferId}")]
+    public IActionResult GetAllUsers(int jobOfferId)
+    {
+       var users=_mapper.Map<List<JobOfferDto>>(_jobOfferRepository.GetAllUsersByJobOfferId(jobOfferId));
+       if(!ModelState.IsValid)
+       {
+           return BadRequest(ModelState);
+       }
+       return Ok(users);
+    }
     
     [HttpPost]
     public IActionResult Add(JobOffer jobOffer)

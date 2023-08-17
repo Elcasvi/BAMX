@@ -6,7 +6,7 @@ namespace Backend.Models.Repositories
 {
     public class JobOfferRepository : IJobOfferRepository
     {
-        private AppDbContext _dbContext;
+        private readonly AppDbContext _dbContext;
 
         public JobOfferRepository(AppDbContext dbContext)
         {
@@ -19,11 +19,15 @@ namespace Backend.Models.Repositories
             return _dbContext.JobOffers.FirstOrDefault(jobOffer => jobOffer.Id == id);
         }
 
-        public ICollection<JobOffer> GetJobOffers()
+        public ICollection<JobOffer> GetAll()
         {
             return _dbContext.JobOffers.ToList();
         }
 
+        public ICollection<User> GetAllUsersByJobOfferId(int jobOfferId)
+        {
+            return _dbContext.UserJobOffers.Where(uj => uj.JobOfferId == jobOfferId).Select(u => u.User).ToList();
+        }
         public EntityEntry<JobOffer> Add(JobOffer jobOffer)
         {
             var newJobOffer=_dbContext.JobOffers.Add(jobOffer);

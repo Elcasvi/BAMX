@@ -7,7 +7,7 @@ namespace Backend.Models.Repositories
 {
     public class UserRepository : IUserRepository
     {
-        private AppDbContext _dbContext;
+        private readonly AppDbContext _dbContext;
         public UserRepository(AppDbContext dbContext)
         {
             _dbContext = dbContext;
@@ -25,6 +25,20 @@ namespace Backend.Models.Repositories
         {
             return _dbContext.Users.ToList();
         }
+
+        public ICollection<JobOffer> GetAllJobOffersByUserId(int userId)
+        {
+            return _dbContext.UserJobOffers.Where(uj => uj.UserId == userId).Select(j => j.JobOffer).ToList();
+        }
+        public ICollection<Course> GetAllCoursesByUserId(int userId)
+        {
+            return _dbContext.UserCourses.Where(uc => uc.UserId == userId).Select(c => c.Course).ToList();
+        }
+        public ICollection<AssignedJob> GetAllAssignedJobsByUserId(int userId)
+        {
+            return _dbContext.AssignedJobs.Where(assignedJob => assignedJob.User.Id == userId).ToList();
+        }
+        
         public EntityEntry<User> Add(User user)
         {
             var newUser=_dbContext.Users.Add(user);

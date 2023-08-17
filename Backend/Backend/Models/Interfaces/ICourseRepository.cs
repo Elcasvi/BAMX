@@ -7,11 +7,11 @@ namespace Backend.Models.Interfaces
     public interface ICourseRepository
     {
         public Course Get(int id);
-        public Course Get(string email,string password);
-        public ICollection<Course>GetCourses();
-        public EntityEntry<Course> Add(Course Course);
-        public EntityEntry<Course> Delete(Course Course);
-        public EntityEntry<Course> Update(Course Course);
+        public ICollection<Course>GetAll();
+        public ICollection<User>GetAllUsersByCourseId(int courseId);
+        public EntityEntry<Course> Add(Course course);
+        public EntityEntry<Course> Delete(Course course);
+        public EntityEntry<Course> Update(Course course);
         public bool Exists(int id);
         public bool Save();
     }

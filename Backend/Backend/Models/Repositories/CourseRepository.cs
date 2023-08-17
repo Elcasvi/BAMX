@@ -1,49 +1,65 @@
-﻿using Backend.Models.Entities;
+﻿using Backend.Models.Data;
+using Backend.Models.Entities;
 using Backend.Models.Interfaces;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 
 namespace Backend.Models.Repositories
 {
+    
+    
     public class CourseRepository : ICourseRepository
     {
+        private readonly AppDbContext _dbContext;
+
+        public CourseRepository(AppDbContext dbContext)
+        {
+            _dbContext = dbContext;
+        }
+
         public Course Get(int id)
         {
-            throw new NotImplementedException();
+            return _dbContext.Courses.FirstOrDefault(course=>course.Id==id);
+        }
+        public ICollection<Course> GetAll()
+        {
+            return _dbContext.Courses.ToList();
         }
 
-        public Course Get(string email, string password)
+        public ICollection<User> GetAllUsersByCourseId(int courseId)
         {
-            throw new NotImplementedException();
+            return _dbContext.UserCourses.Where(uc => uc.CourseId == courseId).Select(u => u.User).ToList();
         }
 
-        public ICollection<Course> GetCourses()
+        public EntityEntry<Course> Add(Course course)
         {
-            throw new NotImplementedException();
+            var addedCourse= _dbContext.Courses.Add(course);
+            Save();
+            return addedCourse;
         }
 
-        public EntityEntry<Course> Add(Course Course)
+        public EntityEntry<Course> Delete(Course course)
         {
-            throw new NotImplementedException();
+            var deletedCourse= _dbContext.Courses.Remove(course);
+            Save();
+            return deletedCourse;
         }
 
-        public EntityEntry<Course> Delete(Course Course)
+        public EntityEntry<Course> Update(Course course)
         {
-            throw new NotImplementedException();
-        }
-
-        public EntityEntry<Course> Update(Course Course)
-        {
-            throw new NotImplementedException();
+            var updatedCourse= _dbContext.Courses.Update(course);
+            Save();
+            return updatedCourse;
         }
 
         public bool Exists(int id)
         {
-            throw new NotImplementedException();
+            return _dbContext.Courses.Any(course => course.Id == id);
         }
 
         public bool Save()
         {
-            throw new NotImplementedException();
+            var saved = _dbContext.SaveChanges();
+            return saved >0 ? true : false;
         }
     }
 }
