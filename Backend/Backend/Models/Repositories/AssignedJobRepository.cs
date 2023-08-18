@@ -50,7 +50,7 @@ namespace Backend.Models.Repositories
             return updatedAssignedJob;
         }
 
-        public bool AssignedJobExists(int id)
+        public bool Exists(int id)
         {
             return _dbContext.AssignedJobs.Any(assignedJob => assignedJob.Id == id);
         }

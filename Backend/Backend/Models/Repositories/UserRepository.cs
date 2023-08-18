@@ -1,6 +1,8 @@
 ﻿using Backend.Models.Data;
 using Backend.Models.Entities;
+using Backend.Models.Entities.JoinTables;
 using Backend.Models.Interfaces;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 
 namespace Backend.Models.Repositories
@@ -55,6 +57,36 @@ namespace Backend.Models.Repositories
 
         public EntityEntry<User> Update(User user)
         {
+            var updatedUser=_dbContext.Users.Update(user);
+            Save();
+            return updatedUser;
+        }
+        public EntityEntry<User> UpdateUserJobOffer(int jobOfferId,User user)
+        {
+            var jobOffer = _dbContext.JobOffers.FirstOrDefault(j => j.Id == jobOfferId);
+            UserJobOffer userJobOffer = new UserJobOffer()
+            {
+                User = user,
+                UserId = user.Id,
+                JobOffer = jobOffer,
+                JobOfferId = jobOffer.Id
+            };
+            _dbContext.UserJobOffers.Add(userJobOffer);
+            var updatedUser=_dbContext.Users.Update(user);
+            Save();
+            return updatedUser;
+        }
+        public EntityEntry<User> UpdateUserCourse(int courseId,User user)
+        {
+            var course = _dbContext.Courses.FirstOrDefault(c => c.Id == courseId);
+            UserCourse userCourse = new UserCourse()
+            {
+                User = user,
+                UserId = user.Id,
+                Course = course,
+                CourseId = course.Id
+            };
+            _dbContext.UserCourses.Add(userCourse);
             var updatedUser=_dbContext.Users.Update(user);
             Save();
             return updatedUser;

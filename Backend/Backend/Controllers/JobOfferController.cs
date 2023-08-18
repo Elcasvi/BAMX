@@ -22,7 +22,7 @@ public class JobOfferController:ControllerBase
     [HttpGet("{id}")]
     public IActionResult GetById(int id)
     {
-        if (!_jobOfferRepository.JobOfferExists(id))
+        if (!_jobOfferRepository.Exists(id))
         {
             return NotFound();
         }
@@ -53,13 +53,31 @@ public class JobOfferController:ControllerBase
     }
     
     [HttpPost]
-    public IActionResult Add(JobOffer jobOffer)
+    public IActionResult Add(JobOfferDto jobOfferDto)
     {
-        if (!_jobOfferRepository.JobOfferExists(jobOffer.Id))
+        if (jobOfferDto==null)
         {
             return BadRequest();
         }
-        var newJobOffer = _mapper.Map<List<UserDto>>(_jobOfferRepository.Add(jobOffer));
+        /*
+        if (_jobOfferRepository.Exists())
+        {
+            ModelState.AddModelError("","User already exists");
+            return StatusCode(422, ModelState);
+        }
+        */
+        if (!ModelState.IsValid)
+        {
+            return BadRequest(ModelState);
+        }
+
+        var jobOfferMap = _mapper.Map<JobOffer>(jobOfferDto);
+        JobOffer newJobOffer = _jobOfferRepository.Add(jobOfferMap).Entity;
+        if (newJobOffer == null)
+        {
+            ModelState.AddModelError("","Something went wrong while saving");
+            return StatusCode(500, ModelState);
+        }
         return Ok(newJobOffer);
     }
 }

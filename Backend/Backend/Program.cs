@@ -1,6 +1,8 @@
+using System.Text.Json.Serialization;
 using Backend.Models.Data;
 using Backend.Models.Interfaces;
 using Backend.Models.Repositories;
+using Backend.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -14,6 +16,9 @@ builder.Services.AddSwaggerGen();
 //Automapper
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 //Dependency injection for my database services
+builder.Services.AddSingleton<Hash>();
+builder.Services.AddControllers()
+    .AddJsonOptions(x => x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);//For many to many relationships
 builder.Services.AddScoped<IUserRepository,UserRepository>();
 builder.Services.AddScoped<IJobOfferRepository,JobOfferRepository>();
 builder.Services.AddScoped<ICourseRepository,CourseRepository>();

@@ -49,11 +49,11 @@ namespace Backend.Models.Repositories
             return updatedJobOffer;
         }
 
-        public bool JobOfferExists(int id)
+        public bool Exists(int id)
         {
             return _dbContext.JobOffers.Any(J => J.Id == id);
         }
-
+        
         public bool Save()
         {
             var saved = _dbContext.SaveChanges();

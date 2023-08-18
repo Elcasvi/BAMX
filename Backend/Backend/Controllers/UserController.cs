@@ -12,13 +12,16 @@ namespace Backend.Controllers;
 public class UserController:ControllerBase
 {
     private readonly IUserRepository _userRepository;
+    private readonly IJobOfferRepository _jobOfferRepository;
     private readonly IMapper _mapper;
-    private Hash _hash=new Hash();
+    private readonly Hash _hash;
 
-    public UserController(IUserRepository userRepository,IMapper mapper)
+    public UserController(IUserRepository userRepository,IJobOfferRepository jobOfferRepository,IMapper mapper,Hash hash)
     {
         _userRepository = userRepository;
+        _jobOfferRepository = jobOfferRepository;
         _mapper = mapper;
+        _hash = hash;
     }
 
     [HttpGet("{id}")]
@@ -57,6 +60,10 @@ public class UserController:ControllerBase
     [HttpGet("jobOffers/{userId}")]
     public IActionResult GetAllJobOffers(int userId)
     {
+        if (!_userRepository.Exists(userId))
+        {
+            return NotFound();
+        }
         var jobOffers = _mapper.Map<List<JobOfferDto>>(_userRepository.GetAllJobOffersByUserId(userId));
         if(!ModelState.IsValid)
         {
@@ -68,6 +75,10 @@ public class UserController:ControllerBase
     [HttpGet("courses/{userId}")]
     public IActionResult GetAllCourses(int userId)
     {
+        if (!_userRepository.Exists(userId))
+        {
+            return NotFound();
+        }
         var courses = _mapper.Map<List<CourseDto>>(_userRepository.GetAllCoursesByUserId(userId));
         if(!ModelState.IsValid)
         {
@@ -79,6 +90,10 @@ public class UserController:ControllerBase
     [HttpGet("assignedJobs/{userId}")]
     public IActionResult GetAllAssignedJobs(int userId)
     {
+        if (!_userRepository.Exists(userId))
+        {
+            return NotFound();
+        }
         var assignedJobs = _mapper.Map<List<AssignedJobDto>>(_userRepository.GetAllAssignedJobsByUserId(userId));
         if(!ModelState.IsValid)
         {
@@ -88,20 +103,67 @@ public class UserController:ControllerBase
     }
     
     [HttpPost]
-    public IActionResult Add([FromBody]User user)
+    public IActionResult Add([FromBody]UserDto userDto)
     {
-        if (!_userRepository.Exists(user.Email,user.Password))
+        if (userDto==null)
         {
-            return BadRequest();
+            return BadRequest(ModelState);
         }
-        var newUser = _mapper.Map<List<UserDto>>(_userRepository.Add(user));
+
+        if (_userRepository.Exists(userDto.Email,userDto.Password))
+        {
+            ModelState.AddModelError("","User already exists");
+            return StatusCode(422, ModelState);
+        }
+
+        if (!ModelState.IsValid)
+        {
+            return BadRequest(ModelState);
+        }
+
+        var userMap = _mapper.Map<User>(userDto);
+        User newUser = _userRepository.Add(userMap).Entity;
+        if (newUser == null)
+        {
+            ModelState.AddModelError("","Something went wrong while saving");
+            return StatusCode(500, ModelState);
+        }
         return Ok(newUser);
     }
-
+    
+    [HttpPut("{jobOfferId}")]
+    public IActionResult UpdateUserJobOffer(int jobOfferId,[FromBody] UserDto userDto)
+    {
+        if (userDto==null)
+        {
+            return BadRequest(ModelState);
+        }
+        if (!_userRepository.Exists(userDto.Email,userDto.Password))
+        {
+            ModelState.AddModelError("","User does not exists");
+            return StatusCode(422, ModelState);
+        }
+        if (!_jobOfferRepository.Exists(jobOfferId))
+        {
+            ModelState.AddModelError("","Job offer does not exists");
+            return StatusCode(422, ModelState);
+        }
+        var userMap = _mapper.Map<User>(userDto);
+        userMap.Id = 1;
+        User updatedUser=_userRepository.UpdateUserJobOffer(jobOfferId, userMap).Entity;
+        if (updatedUser == null)
+        {
+            ModelState.AddModelError("","Something went wrong while saving");
+            return StatusCode(500, ModelState);
+        }
+        return Ok(updatedUser);
+    }
+    
     [HttpPost("{password}")]
-    public IActionResult hash(string password)
+    public IActionResult HashString(string password)
     {
         return Ok(_hash.HashPassword(password));
     }
+    
     
 }
