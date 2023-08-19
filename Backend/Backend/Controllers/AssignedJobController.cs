@@ -61,26 +61,27 @@ public class AssignedJobController : ControllerBase
     }
 
     [HttpPost("{userId}")]
-    public IActionResult Add(int userId,[FromBody] AssignedJobDto assignedJobDto)
+    public IActionResult Add(int userId,[FromBody]JobOfferDto jobOfferDto)
     {
-        if (assignedJobDto==null)
+        if (jobOfferDto==null)
         {
             return BadRequest();
         }
-        /*
-        if (_jobOfferRepository.Exists())
+        
+        if (!_userRepository.Exists(userId))
         {
-            ModelState.AddModelError("","User already exists");
+            ModelState.AddModelError("","User does not exists");
             return StatusCode(422, ModelState);
         }
-        */
+        
         if (!ModelState.IsValid)
         {
             return BadRequest(ModelState);
         }
 
-        var assignedJobMap = _mapper.Map<AssignedJob>(assignedJobDto);
+        var assignedJobMap = _mapper.Map<AssignedJob>(jobOfferDto);
         assignedJobMap.User = _userRepository.Get(userId);
+        Console.WriteLine("Assigned before entering the db: "+assignedJobMap);
         AssignedJob newAssignedJob = _assignedJobRepository.Add(assignedJobMap).Entity;
         if (newAssignedJob == null)
         {

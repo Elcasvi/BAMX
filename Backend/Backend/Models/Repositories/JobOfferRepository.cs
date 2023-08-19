@@ -2,6 +2,8 @@
 using Backend.Models.Interfaces;
 using Backend.Models.Entities;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
+
+
 namespace Backend.Models.Repositories
 {
     public class JobOfferRepository : IJobOfferRepository
@@ -48,7 +50,6 @@ namespace Backend.Models.Repositories
             Save();
             return updatedJobOffer;
         }
-
         public bool Exists(int id)
         {
             return _dbContext.JobOffers.Any(J => J.Id == id);
@@ -59,7 +60,5 @@ namespace Backend.Models.Repositories
             var saved = _dbContext.SaveChanges();
             return saved >0 ? true : false;
         }
-        
-        
     }
 }

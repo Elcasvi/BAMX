@@ -64,7 +64,7 @@ public class UserController:ControllerBase
         {
             return NotFound();
         }
-        var jobOffers = _mapper.Map<List<JobOfferDto>>(_userRepository.GetAllJobOffersByUserId(userId));
+        var jobOffers = _userRepository.GetAllJobOffersByUserId(userId);
         if(!ModelState.IsValid)
         {
             return BadRequest(ModelState);
@@ -79,7 +79,7 @@ public class UserController:ControllerBase
         {
             return NotFound();
         }
-        var courses = _mapper.Map<List<CourseDto>>(_userRepository.GetAllCoursesByUserId(userId));
+        var courses = _userRepository.GetAllCoursesByUserId(userId);
         if(!ModelState.IsValid)
         {
             return BadRequest(ModelState);
@@ -131,7 +131,7 @@ public class UserController:ControllerBase
         return Ok(newUser);
     }
     
-    [HttpPut("{jobOfferId}")]
+    [HttpPost("update/{jobOfferId}")]
     public IActionResult UpdateUserJobOffer(int jobOfferId,[FromBody] UserDto userDto)
     {
         if (userDto==null)
@@ -149,8 +149,7 @@ public class UserController:ControllerBase
             return StatusCode(422, ModelState);
         }
         var userMap = _mapper.Map<User>(userDto);
-        userMap.Id = 1;
-        User updatedUser=_userRepository.UpdateUserJobOffer(jobOfferId, userMap).Entity;
+        var updatedUser=_userRepository.AddUserJobOffer(jobOfferId, userMap).Entity;
         if (updatedUser == null)
         {
             ModelState.AddModelError("","Something went wrong while saving");

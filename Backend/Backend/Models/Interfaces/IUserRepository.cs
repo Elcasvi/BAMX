@@ -1,4 +1,5 @@
 ﻿using Backend.Models.Entities;
+using Backend.Models.Entities.JoinTables;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 
 namespace Backend.Models.Interfaces
@@ -14,8 +15,8 @@ namespace Backend.Models.Interfaces
         public EntityEntry<User> Add(User user);
         public EntityEntry<User> Delete(User user);
         public EntityEntry<User> Update(User user);
-        public EntityEntry<User> UpdateUserJobOffer(int jobOfferId, User user);
-        public EntityEntry<User> UpdateUserCourse(int courseId, User user);
+        public EntityEntry<UserJobOffer> AddUserJobOffer(int jobOfferId, User user);
+        public EntityEntry<User> AddUserCourse(int courseId, User user);
         public bool Exists(string email,string password);
         public bool Exists(int id);
         public bool Save();

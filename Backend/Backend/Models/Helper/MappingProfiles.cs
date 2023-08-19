@@ -19,6 +19,12 @@ namespace Backend.Models.Helper
             
             CreateMap<AssignedJob,AssignedJobDto>();
             CreateMap<AssignedJobDto,AssignedJob>();
+
+
+           
+            CreateMap<JobOfferDto,AssignedJob>();
+
         }
+
     }
 }

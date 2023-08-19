@@ -61,35 +61,37 @@ namespace Backend.Models.Repositories
             Save();
             return updatedUser;
         }
-        public EntityEntry<User> UpdateUserJobOffer(int jobOfferId,User user)
+        public EntityEntry<UserJobOffer> AddUserJobOffer(int jobOfferId,User user)
         {
             var jobOffer = _dbContext.JobOffers.FirstOrDefault(j => j.Id == jobOfferId);
+            var userId = Get(user.Email, user.Password).Id;
             UserJobOffer userJobOffer = new UserJobOffer()
             {
+                UserId = userId,
                 User = user,
-                UserId = user.Id,
+                JobOfferId = jobOfferId,
                 JobOffer = jobOffer,
-                JobOfferId = jobOffer.Id
+                
             };
-            _dbContext.UserJobOffers.Add(userJobOffer);
-            var updatedUser=_dbContext.Users.Update(user);
+            var newUserJobOffer=_dbContext.Add(userJobOffer);
             Save();
-            return updatedUser;
+            return newUserJobOffer;
         }
-        public EntityEntry<User> UpdateUserCourse(int courseId,User user)
+        public EntityEntry<User> AddUserCourse(int courseId,User user)
         {
             var course = _dbContext.Courses.FirstOrDefault(c => c.Id == courseId);
+            var userId = Get(user.Email, user.Password).Id;
             UserCourse userCourse = new UserCourse()
             {
                 User = user,
-                UserId = user.Id,
+                UserId = userId,
                 Course = course,
-                CourseId = course.Id
+                CourseId = courseId
             };
             _dbContext.UserCourses.Add(userCourse);
-            var updatedUser=_dbContext.Users.Update(user);
+            var newUserCourse=_dbContext.Users.Add(user);
             Save();
-            return updatedUser;
+            return newUserCourse;
         }
 
         public bool Exists(string email, string password)
