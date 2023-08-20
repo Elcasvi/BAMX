@@ -4,6 +4,7 @@ using Backend.Models.Interfaces;
 using Backend.Models.Repositories;
 using Backend.Services;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Azure;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,6 +17,7 @@ builder.Services.AddSwaggerGen();
 //Automapper
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 //Dependency injection for my database services
+builder.Services.AddScoped<BlobStorageService>();
 builder.Services.AddSingleton<Hash>();
 builder.Services.AddControllers()
     .AddJsonOptions(x => x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);//For many to many relationships
@@ -27,6 +29,15 @@ builder.Services.AddScoped<IAssignedJobRepository,AssignedJobRepository>();
 builder.Services.AddDbContext<AppDbContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("DbConnection"));
+});
+
+//Azure blob storage connection
+var storageConnection = builder.Configuration.GetConnectionString("StorageConnection");
+
+//This helps me to configure all tthe azure sdks in one spot
+builder.Services.AddAzureClients(azureBuilder =>
+{
+    azureBuilder.AddBlobServiceClient(storageConnection);
 });
 var app = builder.Build();
 

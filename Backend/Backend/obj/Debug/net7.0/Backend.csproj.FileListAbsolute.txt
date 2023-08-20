@@ -247,3 +247,7 @@ C:\React Native\BAMX\Backend\Backend\obj\Debug\net7.0\refint\Backend.dll
 C:\React Native\BAMX\Backend\Backend\obj\Debug\net7.0\Backend.pdb
 C:\React Native\BAMX\Backend\Backend\obj\Debug\net7.0\Backend.genruntimeconfig.cache
 C:\React Native\BAMX\Backend\Backend\obj\Debug\net7.0\ref\Backend.dll
+C:\React Native\BAMX\Backend\Backend\bin\Debug\net7.0\Azure.Storage.Blobs.dll
+C:\React Native\BAMX\Backend\Backend\bin\Debug\net7.0\Azure.Storage.Common.dll
+C:\React Native\BAMX\Backend\Backend\bin\Debug\net7.0\Microsoft.Extensions.Azure.dll
+C:\React Native\BAMX\Backend\Backend\bin\Debug\net7.0\System.IO.Hashing.dll
