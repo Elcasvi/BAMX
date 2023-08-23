@@ -1,0 +1,12 @@
+import * as React from 'react';
+import {Button, Text, View} from "react-native";
+
+export default function JobsFeedScreen({navigation}) {
+    return (
+        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+            <Text>Jobs Feed!</Text>
+            <Button title="Go to user profile" onPress={() => navigation.navigate('UserProfile')}></Button>
+        </View>
+    );
+}
+

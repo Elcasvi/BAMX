@@ -3,61 +3,30 @@ import {Button, Text, View} from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import {createNativeStackNavigator} from "@react-navigation/native-stack";
-
-function DetailsScreen() {
-    return (
-        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-            <Text>Details!</Text>
-        </View>
-    );
-}
-
-function HomeScreen({ navigation }) {
-    return (
-        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-            <Text>Home screen</Text>
-            <Button
-                title="Go to Details"
-                onPress={() => navigation.navigate('Details')}
-            />
-        </View>
-    );
-}
-
-function SettingsScreen({ navigation }) {
-    return (
-        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-            <Text>Settings screen</Text>
-            <Button
-                title="Go to Details"
-                onPress={() => navigation.navigate('Details')}
-            />
-        </View>
-    );
-}
-
+import JobsFeedScreen from "../screens/JobFeedScreen";
+import UserProfileScreen from "../screens/UserProfileScreen";
+import CoursesFeedScreen from "../screens/CoursesFeedScreen";
 
 //Sub navigations
-const HomeStack = createNativeStackNavigator();
-function HomeStackScreen() {
+const JobFeedStack = createNativeStackNavigator();
+function JobFeedStackScreen() {
     return (
-        <HomeStack.Navigator>
-            <HomeStack.Screen name="Home" component={HomeScreen} />
-            <HomeStack.Screen name="Details" component={DetailsScreen} />
-        </HomeStack.Navigator>
+        <JobFeedStack.Navigator>
+            <JobFeedStack.Screen name="JobsFeed" component={JobsFeedScreen} />
+            <JobFeedStack.Screen name="UserProfile" component={UserProfileScreen} />
+        </JobFeedStack.Navigator>
     );
 }
 
-const SettingsStack = createNativeStackNavigator();
-
-function SettingsStackScreen() {
+const CourseFeedStack = createNativeStackNavigator();
+function CourseFeedStackScreen() {
     return (
-        <SettingsStack.Navigator>
-            <SettingsStack.Screen name="Settings" component={SettingsScreen} />
-            <SettingsStack.Screen name="Details" component={DetailsScreen} />
-        </SettingsStack.Navigator>
+        <CourseFeedStack.Navigator>
+            <CourseFeedStack.Screen name="CoursesFeed" component={CoursesFeedScreen} />
+        </CourseFeedStack.Navigator>
     );
 }
+
 
 
 
@@ -67,8 +36,8 @@ const MyTab=()=>
 {
     return(
             <Tab.Navigator screenOptions={{ headerShown: false }}>
-                <Tab.Screen name="Home" component={HomeStackScreen} />
-                <Tab.Screen name="Settings" component={SettingsStackScreen} />
+                <Tab.Screen name="JobsFeed" component={JobFeedStackScreen}></Tab.Screen>
+                <Tab.Screen name="CoursesFeed" component={CourseFeedStackScreen}></Tab.Screen>
             </Tab.Navigator>
     )
 }
