@@ -6,6 +6,7 @@ import JobsFeed from "../screens/JobsFeed";
 import UserProfile from "../screens/UserProfile";
 import CoursesFeed from "../screens/CoursesFeed";
 import {createDrawerNavigator} from "@react-navigation/drawer";
+import { Entypo , Foundation } from '@expo/vector-icons';
 
 
 //Sub navigations
@@ -47,8 +48,11 @@ const MyTab=()=>
 {
     return(
             <Tab.Navigator screenOptions={{ headerShown: false }}>
-                <Tab.Screen name="JobsFeed" component={JobFeedStackScreen}></Tab.Screen>
-                <Tab.Screen name="CoursesFeed" component={CourseFeedStackScreen}></Tab.Screen>
+                <Tab.Screen name="JobsFeed" component={JobFeedStackScreen}
+                            options={{tabBarIcon:()=><Foundation name="home" size={24} color="black" />}}></Tab.Screen>
+                <Tab.Screen name="CoursesFeed" component={CourseFeedStackScreen}
+                            options={{tabBarIcon:()=><Entypo name="book" size={24} color="black" />
+                }}></Tab.Screen>
             </Tab.Navigator>
     )
 }
@@ -58,7 +62,7 @@ const MyTab=()=>
 export default function AppNavigation() {
     return (
         <NavigationContainer>
-            <DrawerNav/>
+            <MyTab/>
         </NavigationContainer>
     );
 }
