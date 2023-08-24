@@ -1,19 +1,20 @@
 import * as React from 'react';
-import {Button, Text, View} from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import {createNativeStackNavigator} from "@react-navigation/native-stack";
-import JobsFeedScreen from "../screens/JobFeedScreen";
-import UserProfileScreen from "../screens/UserProfileScreen";
-import CoursesFeedScreen from "../screens/CoursesFeedScreen";
+import JobsFeed from "../screens/JobsFeed";
+import UserProfile from "../screens/UserProfile";
+import CoursesFeed from "../screens/CoursesFeed";
+import {createDrawerNavigator} from "@react-navigation/drawer";
+
 
 //Sub navigations
 const JobFeedStack = createNativeStackNavigator();
 function JobFeedStackScreen() {
     return (
         <JobFeedStack.Navigator>
-            <JobFeedStack.Screen name="JobsFeed" component={JobsFeedScreen} />
-            <JobFeedStack.Screen name="UserProfile" component={UserProfileScreen} />
+            <JobFeedStack.Screen name="JobsFeed" component={JobsFeed} />
+            <JobFeedStack.Screen name="UserProfile" component={UserProfile} />
         </JobFeedStack.Navigator>
     );
 }
@@ -22,14 +23,24 @@ const CourseFeedStack = createNativeStackNavigator();
 function CourseFeedStackScreen() {
     return (
         <CourseFeedStack.Navigator>
-            <CourseFeedStack.Screen name="CoursesFeed" component={CoursesFeedScreen} />
+            <CourseFeedStack.Screen name="CoursesFeed" component={CoursesFeed} />
         </CourseFeedStack.Navigator>
     );
 }
 
 
+const Drawer = createDrawerNavigator();
 
+const DrawerNav=()=>
+{
+    return(
+        <Drawer.Navigator initialRouteName="JobsFeed">
+            <Drawer.Screen name="JobFeedStackScreen" component={JobFeedStackScreen}/>
+            <Drawer.Screen name="CourseFeedStackScreen" component={CourseFeedStackScreen}/>
+        </Drawer.Navigator>
+    )
 
+}
 //Tab navigation
 const Tab = createBottomTabNavigator();
 const MyTab=()=>
@@ -41,10 +52,13 @@ const MyTab=()=>
             </Tab.Navigator>
     )
 }
-export default function TabNavigation() {
+
+//const Drawer = createDrawerNavigator();
+
+export default function AppNavigation() {
     return (
         <NavigationContainer>
-            <MyTab/>
+            <DrawerNav/>
         </NavigationContainer>
     );
 }

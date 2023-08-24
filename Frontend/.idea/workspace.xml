@@ -7,9 +7,14 @@
     <list default="true" id="4d695a77-b978-4f13-8366-bf2b95423c61" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navigation/TabNavigation.js" beforeDir="false" afterPath="$PROJECT_DIR$/navigation/TabNavigation.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screens/CoursesFeed.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/CoursesFeedScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screens/JobFeed.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/JobFeedScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.json" beforeDir="false" afterPath="$PROJECT_DIR$/app.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/babel.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/babel.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navigation/TabNavigation.js" beforeDir="false" afterPath="$PROJECT_DIR$/navigation/AppNavigation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screens/CoursesFeedScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/CoursesFeed.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screens/JobFeedScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/JobsFeed.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screens/UserProfileScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/UserProfile.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,6 +68,9 @@
       <workItem from="1692797220313" duration="2630000" />
       <workItem from="1692800875341" duration="4006000" />
       <workItem from="1692829835189" duration="1668000" />
+      <workItem from="1692839607611" duration="170000" />
+      <workItem from="1692839790145" duration="1680000" />
+      <workItem from="1692841559306" duration="1022000" />
     </task>
     <servers />
   </component>
