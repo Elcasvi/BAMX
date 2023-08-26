@@ -7,7 +7,7 @@ import UserProfile from "../screens/UserProfile";
 import CoursesFeed from "../screens/CoursesFeed";
 import {createDrawerNavigator} from "@react-navigation/drawer";
 import {Ionicons} from '@expo/vector-icons';
-import {red} from "react-native-reanimated/src";
+import JobDetailsScreen from "../screens/JobDetailsScreen";
 
 
 //Sub navigations
@@ -15,7 +15,10 @@ const JobFeedStack = createNativeStackNavigator();
 function JobFeedStackGroup() {
     return (
         <JobFeedStack.Navigator>
-            <JobFeedStack.Screen name="JobsFeed" component={JobsFeed} />
+            <JobFeedStack.Screen name="JobsFeed" component={JobsFeed}
+            options={{headerTitle:"Trabajos"}}/>
+            <JobFeedStack.Screen name="JobDetailsScreen" component={JobDetailsScreen}
+            options={{presentation:"modal"}}/>
             <JobFeedStack.Screen name="UserProfile" component={UserProfile} />
         </JobFeedStack.Navigator>
     );
@@ -25,7 +28,8 @@ const CourseFeedStack = createNativeStackNavigator();
 function CourseFeedStackGroup() {
     return (
         <CourseFeedStack.Navigator>
-            <CourseFeedStack.Screen name="CoursesFeed" component={CoursesFeed} />
+            <CourseFeedStack.Screen name="CoursesFeed" component={CoursesFeed}
+                                    options={{headerTitle:"Cursos"}}/>
         </CourseFeedStack.Navigator>
     );
 }
@@ -45,18 +49,18 @@ const DrawerNav=()=>
 }
 //Tab navigation
 const Tab = createBottomTabNavigator();
-const MyTab=()=>
+const TabGroup=()=>
 {
     return(
             <Tab.Navigator
                 screenOptions={({route,navigation})=>({
                     tabBarIcon:({color,focused,size})=>{
                         let iconName;
-                        if(route.name==="JobsFeed")
+                        if(route.name==="JobFeedStackGroup")
                         {
                             iconName="home";
                         }
-                        else if(route.name==="CoursesFeed")
+                        else if(route.name==="CourseFeedStackGroup")
                         {
                             iconName="book";
                         }
@@ -65,9 +69,9 @@ const MyTab=()=>
                     tabBarActiveTintColor:"#1DA1F2",
                     tabBarInactiveTintColor:"gray"
                 })}>
-                <Tab.Screen name="JobsFeed" component={JobFeedStackGroup}
+                <Tab.Screen name="JobFeedStackGroup" component={JobFeedStackGroup}
                             options={{headerShown: false,tabBarLabel:"Trabajos"}}></Tab.Screen>
-                <Tab.Screen name="CoursesFeed" component={CourseFeedStackGroup}
+                <Tab.Screen name="CourseFeedStackGroup" component={CourseFeedStackGroup}
                             options={{headerShown: false,tabBarLabel:"Cursos"}}></Tab.Screen>
             </Tab.Navigator>
     )
@@ -78,7 +82,7 @@ const MyTab=()=>
 export default function AppNavigation() {
     return (
         <NavigationContainer>
-            <MyTab/>
+            <TabGroup/>
         </NavigationContainer>
     );
 }
