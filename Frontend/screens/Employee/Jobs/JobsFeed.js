@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {FlatList, Pressable, SafeAreaView, Text} from "react-native";
-import {JobsDummy} from "../data/JobsDummy";
-import Job from "../components/Job";
+import {JobsDummy} from "../../../data/JobsDummy";
+import Job from "../../../components/Employee/Jobs/Job";
 import {useNavigation} from "@react-navigation/native";
 import {useLayoutEffect} from "react";
 export default function JobsFeedScreen() {
