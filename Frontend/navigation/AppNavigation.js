@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
+import {DarkTheme, DefaultTheme, NavigationContainer} from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import {createNativeStackNavigator} from "@react-navigation/native-stack";
 import JobsFeed from "../screens/JobsFeed";
@@ -8,8 +8,22 @@ import CoursesFeed from "../screens/CoursesFeed";
 import {createDrawerNavigator} from "@react-navigation/drawer";
 import {Ionicons} from '@expo/vector-icons';
 import JobDetailsScreen from "../screens/JobDetailsScreen";
+import {createMaterialTopTabNavigator} from "@react-navigation/material-top-tabs";
+import {useColorScheme} from "react-native";
+import {StatusBar} from "expo-status-bar";
 
-
+/*
+//Top Tabs
+const TopTabs=createMaterialTopTabNavigator();
+function TopTabsGroup()
+{
+    return(
+        <TopTabs.Navigator>
+            <TopTabs.Screen name={}
+        </TopTabs.Navigator>
+    )
+}
+ */
 
 //Sub navigations
 const JobFeedStack = createNativeStackNavigator();
@@ -79,8 +93,11 @@ const DrawerNav=()=>
 }
 
 export default function AppNavigation() {
+    const currentTheme=useColorScheme();
     return (
-        <NavigationContainer>
+        <NavigationContainer
+        theme={currentTheme=="dark"?DarkTheme:DefaultTheme}>
+            <StatusBar style="auto"/>
             <DrawerNav/>
         </NavigationContainer>
     );

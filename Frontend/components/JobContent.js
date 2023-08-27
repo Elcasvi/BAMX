@@ -1,10 +1,11 @@
-import {Text, View} from "react-native";
+import {Text, useColorScheme, View} from "react-native";
 
 export default function JobContent({job}) {
+    const theme=useColorScheme();
     return(
         <View>
-            <Text>{job.name}</Text>
-            <Text>{job.description}</Text>
+            <Text style={[{color:theme==="dark"?"#FFF":"#000"}]}>{job.name}</Text>
+            <Text style={[{color:theme==="dark"?"#FFF":"#000"}]}>{job.description}</Text>
         </View>
     );
 }

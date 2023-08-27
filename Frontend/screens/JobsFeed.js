@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Button, FlatList, Pressable, SafeAreaView, Text, View} from "react-native";
+import {FlatList, Pressable, SafeAreaView, Text} from "react-native";
 import {JobsDummy} from "../data/JobsDummy";
 import Job from "../components/Job";
 import {useNavigation} from "@react-navigation/native";
