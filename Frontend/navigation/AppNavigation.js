@@ -10,6 +10,7 @@ import {Ionicons} from '@expo/vector-icons';
 import JobDetailsScreen from "../screens/JobDetailsScreen";
 
 
+
 //Sub navigations
 const JobFeedStack = createNativeStackNavigator();
 function JobFeedStackGroup() {
@@ -35,18 +36,7 @@ function CourseFeedStackGroup() {
 }
 
 
-const Drawer = createDrawerNavigator();
 
-const DrawerNav=()=>
-{
-    return(
-        <Drawer.Navigator initialRouteName="JobsFeed">
-            <Drawer.Screen name="JobFeedStackScreen" component={JobFeedStackGroup} />
-            <Drawer.Screen name="CourseFeedStackScreen" component={CourseFeedStackGroup} options={{headerShown: false}}/>
-        </Drawer.Navigator>
-    )
-
-}
 //Tab navigation
 const Tab = createBottomTabNavigator();
 const TabGroup=()=>
@@ -77,12 +67,21 @@ const TabGroup=()=>
     )
 }
 
-//const Drawer = createDrawerNavigator();
+const Drawer = createDrawerNavigator();
+const DrawerNav=()=>
+{
+    return(
+        <Drawer.Navigator initialRouteName="TabGroup" screenOptions={{headerShown:false}}>
+            <Drawer.Screen name="TabGroup" component={TabGroup} />
+            <Drawer.Screen name="UserProfile" component={UserProfile} options={{headerShown:true}}/>
+        </Drawer.Navigator>
+    )
+}
 
 export default function AppNavigation() {
     return (
         <NavigationContainer>
-            <TabGroup/>
+            <DrawerNav/>
         </NavigationContainer>
     );
 }
