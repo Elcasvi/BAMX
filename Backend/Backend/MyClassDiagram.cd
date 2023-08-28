@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Backend.Models.Entities.AssignedJob">
+    <Position X="0.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAADAAAEAAAgAEAAAAAAAAAAAAAEAAQAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Entities\AssignedJob.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Backend.Models.Entities.Course">
+    <Position X="2.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAACAAAAAAAgAEAAAAAAAAAAAAAABAAAAAAAQAAAAAA=</HashCode>
+      <FileName>Models\Entities\Course.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Backend.Models.Entities.JobOffer">
+    <Position X="0.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAEAAAgAEAgAAAAAAAAAAAEAAQAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Entities\JobOffer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Backend.Models.Entities.User">
+    <Position X="2.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACACAAACAAAACgEAAAAAQAAAQABAECAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Entities\User.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Backend.Models.Entities.JoinTables.UserCourse">
+    <Position X="4.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAFAAAAAAAAAAAAAIAAAAgAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Entities\JoinTables\UserCourse.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Backend.Models.Entities.JoinTables.UserJobOffer">
+    <Position X="6.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAgAAAAAAAAAAAgAAAAAAAAAAAIAAAAAAAA=</HashCode>
+      <FileName>Models\Entities\JoinTables\UserJobOffer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Consolas" Size="7" />
+</ClassDiagram>
