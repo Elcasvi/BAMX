@@ -163,6 +163,11 @@ public class UserController:ControllerBase
     {
         return Ok(_hash.HashPassword(password));
     }
-    
-    
+
+    [HttpPost("{inputPassword}/{passwordHash}")]
+    public IActionResult CompareHashedString(string inputPassword, string passwordHash)
+    {
+        return Ok(_hash.Verify(inputPassword, passwordHash));
+    }
+
 }

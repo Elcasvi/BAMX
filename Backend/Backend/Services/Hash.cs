@@ -1,11 +1,18 @@
 using System.Security.Cryptography;
+using System.Text;
 using Microsoft.AspNetCore.Cryptography.KeyDerivation;
 
 namespace Backend.Services;
 
 public class Hash
 {
+    private readonly int saltSize = 128 / 8;
+    private readonly int keySize = 256/8;
+    private readonly int iterations = 100000;
+    private readonly HashAlgorithmName hashAlgorithm = HashAlgorithmName.SHA256;
+    private const char delimiter= ';';
     
+
     public Hash()
     {
         
@@ -13,20 +20,29 @@ public class Hash
 
     public string HashPassword(string password)
     {
-        // Generate a 128-bit salt using a sequence of
-        // cryptographically strong random bytes.
-        byte[] salt = RandomNumberGenerator.GetBytes(128 / 8); // divide by 8 to convert bits to bytes
-        Console.WriteLine($"Salt: {Convert.ToBase64String(salt)}");
+        var salt=RandomNumberGenerator.GetBytes(saltSize);
+       
+        var hash = Rfc2898DeriveBytes.Pbkdf2(
+            password,
+            salt,
+            iterations,
+            hashAlgorithm,
+            keySize);
 
-        // derive a 256-bit subkey (use HMACSHA256 with 100,000 iterations)
-        string hashed = Convert.ToBase64String(KeyDerivation.Pbkdf2(
-            password: password!,
-            salt: salt,
-            prf: KeyDerivationPrf.HMACSHA256,
-            iterationCount: 100000,
-            numBytesRequested: 256 / 8));
+        return string.Join(delimiter, Convert.ToBase64String(salt).Replace('/','7'), Convert.ToBase64String(hash).Replace('/', '7'));
+    }
 
-        Console.WriteLine($"Hashed: {hashed}");
-        return hashed;
+    public bool Verify(string inputPassword, string passwordHash)
+    {
+        var elements = passwordHash.Split(delimiter);
+        string ele1 =elements[0];
+        string ele2 =elements[1];
+        var salt = Convert.FromBase64String(elements[0]);
+        var hash = Convert.FromBase64String(elements[1]);
+
+        var hashInput = Rfc2898DeriveBytes.Pbkdf2(inputPassword, salt, iterations, hashAlgorithm, keySize);
+        string hashInputStr=Convert.ToBase64String(hashInput).Replace('/', '7');
+
+        return CryptographicOperations.FixedTimeEquals(hash, Convert.FromBase64String(hashInputStr));
     }
 }
