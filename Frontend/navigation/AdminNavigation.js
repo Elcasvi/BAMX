@@ -2,33 +2,24 @@ import {createNativeStackNavigator} from "@react-navigation/native-stack";
 import {createBottomTabNavigator} from "@react-navigation/bottom-tabs";
 import {createDrawerNavigator} from "@react-navigation/drawer";
 import UserProfile from "../screens/Employee/UserProfile";
-import JobsFeed from "../screens/Employee/Jobs/JobsFeed";
-import CoursesFeed from "../screens/Employee/Courses/CoursesFeed";
-import JobDetailsScreen from "../screens/Employee/Jobs/JobDetailsScreen";
 import {Ionicons} from "@expo/vector-icons";
+import JobsFeed from "../screens/Employee/Jobs/JobsFeed"
+import CoursesFeed from "../screens/Employee/Courses/CoursesFeed"
+import CreateJobScreen from "../screens/Admin/Jobs/CreateJobScreen";
+import CreateCourseScreen from "../screens/Admin/Courses/CreateCourseScreen";
+import JobDetailsScreen from "../screens/Employee/Jobs/JobDetailsScreen";
+import CourseDetailsScreen from "../screens/Employee/Courses/CourseDetailsScreen";
 
 
-/*
-//Top Tabs
-const TopTabs=createMaterialTopTabNavigator();
-function TopTabsGroup()
-{
-    return(
-        <TopTabs.Navigator>
-            <TopTabs.Screen name={}
-        </TopTabs.Navigator>
-    )
-}
- */
 
 //Sub navigations
-
-
 const JobFeedStack = createNativeStackNavigator();
 function JobFeedStackGroup() {
     return (
         <JobFeedStack.Navigator>
             <JobFeedStack.Screen name="JobsFeed" component={JobsFeed}
+                                 options={{headerTitle:"Trabajos"}}/>
+            <JobFeedStack.Screen name="CreateJobScreen" component={CreateJobScreen}
                                  options={{headerTitle:"Trabajos"}}/>
             <JobFeedStack.Screen name="JobDetailsScreen" component={JobDetailsScreen}
                                  options={{presentation:"modal"}}/>
@@ -43,9 +34,14 @@ function CourseFeedStackGroup() {
         <CourseFeedStack.Navigator>
             <CourseFeedStack.Screen name="CoursesFeed" component={CoursesFeed}
                                     options={{headerTitle:"Cursos"}}/>
+            <JobFeedStack.Screen name="CreateCourseScreen" component={CreateCourseScreen}
+                                 options={{headerTitle:"Trabajos"}}/>
+            <JobFeedStack.Screen name="CourseDetailsScreen" component={CourseDetailsScreen}
+                                 options={{headerTitle:"Trabajos"}}/>
         </CourseFeedStack.Navigator>
     );
 }
+
 
 
 
