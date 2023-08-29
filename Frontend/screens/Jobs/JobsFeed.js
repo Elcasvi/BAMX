@@ -1,7 +1,7 @@
 import * as React from 'react';
-import {FlatList, Pressable, SafeAreaView, Text} from "react-native";
-import {JobsDummy} from "../../../data/JobsDummy";
-import Job from "../../../components/Employee/Jobs/Job";
+import {FlatList, Image, Pressable, SafeAreaView, Text} from "react-native";
+import {JobsDummy} from "../../data/JobsDummy";
+import Job from "../../components/Jobs/Job";
 import {useNavigation} from "@react-navigation/native";
 import {useLayoutEffect} from "react";
 export default function JobsFeedScreen() {
@@ -11,7 +11,10 @@ export default function JobsFeedScreen() {
         navigation.setOptions({
             headerRight:()=>(
                 <Pressable onPress={()=> navigation.openDrawer()}>
-                    <Text>Image</Text>
+                    <Image
+                        source={require("../../assets/profile.jpeg")}
+                        style={{ width: 40, height: 40, borderRadius: 100, marginLeft: 15 }}
+                    />
                 </Pressable>
             ),
         });

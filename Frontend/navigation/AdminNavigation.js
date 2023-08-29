@@ -1,14 +1,14 @@
 import {createNativeStackNavigator} from "@react-navigation/native-stack";
 import {createBottomTabNavigator} from "@react-navigation/bottom-tabs";
 import {createDrawerNavigator} from "@react-navigation/drawer";
-import UserProfile from "../screens/Employee/UserProfile";
+import UserProfile from "../screens/UserProfile";
 import {Ionicons} from "@expo/vector-icons";
-import JobsFeed from "../screens/Employee/Jobs/JobsFeed"
-import CoursesFeed from "../screens/Employee/Courses/CoursesFeed"
+import JobsFeed from "../screens/Jobs/JobsFeed"
+import CoursesFeed from "../screens/Courses/CoursesFeed"
 import CreateJobScreen from "../screens/Admin/Jobs/CreateJobScreen";
 import CreateCourseScreen from "../screens/Admin/Courses/CreateCourseScreen";
-import JobDetailsScreen from "../screens/Employee/Jobs/JobDetailsScreen";
-import CourseDetailsScreen from "../screens/Employee/Courses/CourseDetailsScreen";
+import JobDetailsScreen from "../screens/Jobs/JobDetailsScreen";
+import CourseDetailsScreen from "../screens/Courses/CourseDetailsScreen";
 
 
 
@@ -38,6 +38,7 @@ function CourseFeedStackGroup() {
                                  options={{headerTitle:"Trabajos"}}/>
             <JobFeedStack.Screen name="CourseDetailsScreen" component={CourseDetailsScreen}
                                  options={{headerTitle:"Trabajos"}}/>
+            <JobFeedStack.Screen name="UserProfile" component={UserProfile} />
         </CourseFeedStack.Navigator>
     );
 }

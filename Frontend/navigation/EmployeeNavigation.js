@@ -1,12 +1,12 @@
 import {createNativeStackNavigator} from "@react-navigation/native-stack";
 import {createBottomTabNavigator} from "@react-navigation/bottom-tabs";
 import {createDrawerNavigator} from "@react-navigation/drawer";
-import UserProfile from "../screens/Employee/UserProfile";
-import JobsFeed from "../screens/Employee/Jobs/JobsFeed";
-import CoursesFeed from "../screens/Employee/Courses/CoursesFeed";
-import JobDetailsScreen from "../screens/Employee/Jobs/JobDetailsScreen";
+import UserProfile from "../screens/UserProfile";
+import JobsFeed from "../screens/Jobs/JobsFeed";
+import CoursesFeed from "../screens/Courses/CoursesFeed";
+import JobDetailsScreen from "../screens/Jobs/JobDetailsScreen";
 import {Ionicons} from "@expo/vector-icons";
-import CourseDetailsScreen from "../screens/Employee/Courses/CourseDetailsScreen";
+import CourseDetailsScreen from "../screens/Courses/CourseDetailsScreen";
 
 /*
 //Top Tabs

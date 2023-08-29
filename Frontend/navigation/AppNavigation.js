@@ -13,7 +13,7 @@ export default function AppNavigation() {
     const currentTheme=useColorScheme();
     return (
         <NavigationContainer
-        theme={currentTheme=="dark"?DarkTheme:DefaultTheme}>
+        theme={currentTheme==="dark"?DarkTheme:DefaultTheme}>
             <StatusBar style="auto"/>
             {user.role==="employee"?<EmployeeNavigation/>:<AdminNavigation/>}
         </NavigationContainer>

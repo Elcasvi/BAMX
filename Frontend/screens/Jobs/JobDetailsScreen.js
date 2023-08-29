@@ -1,6 +1,6 @@
 import {SafeAreaView, Text, View} from "react-native";
 import {useNavigation, useRoute} from "@react-navigation/native";
-import JobContent from "../../../components/Employee/Jobs/JobContent";
+import JobContent from "../../components/Jobs/JobContent";
 import {useLayoutEffect} from "react";
 
 export default function JobDetailsScreen() {
