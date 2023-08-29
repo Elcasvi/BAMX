@@ -1,5 +1,5 @@
 export const UserDummy={
-    role:"admin",
+    role: "employee",
     name:"Carlos",
     picture:""
 }

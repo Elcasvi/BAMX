@@ -1,10 +1,12 @@
 import * as React from 'react';
-import {FlatList, Image, Pressable, SafeAreaView, Text} from "react-native";
+import {Button, FlatList, Image, Pressable, SafeAreaView, Text} from "react-native";
 import {JobsDummy} from "../../data/JobsDummy";
 import Job from "../../components/Jobs/Job";
 import {useNavigation} from "@react-navigation/native";
 import {useLayoutEffect} from "react";
+import {UserDummy} from "../../data/UserDummy";
 export default function JobsFeedScreen() {
+    const USER=UserDummy
     const DATA=JobsDummy
     const navigation=useNavigation();
     useLayoutEffect(()=>{
@@ -22,7 +24,12 @@ export default function JobsFeedScreen() {
 
     return (
         <SafeAreaView style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-            <Text>Jobs Feed!</Text>
+            {USER.role==="admin"?
+            <Button
+                title="New Job"
+                onPress={()=>navigation.navigate("CreateJobScreen")}
+            />:<></>
+            }
             <FlatList
                 data={DATA}
                 renderItem={({item}) => <Job job={item}/>}

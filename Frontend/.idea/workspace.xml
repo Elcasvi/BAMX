@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4d695a77-b978-4f13-8366-bf2b95423c61" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/navigation/adminNavigation/AdminJobStackNavigation.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Backend/Backend/obj/Backend.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/Backend/obj/Backend.csproj.nuget.dgspec.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Backend/Backend/obj/Backend.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/Backend/obj/Backend.csproj.nuget.g.props" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Backend/Backend/obj/Backend.csproj.nuget.g.targets" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/Backend/obj/Backend.csproj.nuget.g.targets" afterDir="false" />
@@ -18,24 +19,12 @@
       <change beforePath="$PROJECT_DIR$/../Backend/Backend/obj/rider.project.model.nuget.info" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/Backend/obj/rider.project.model.nuget.info" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Backend/Backend/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/Backend/obj/rider.project.restore.info" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Admin/AdminJob.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Admin/AdminJobContent.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Courses/AdminCourse.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Courses/AdminCourseContent.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Employee/Courses/Course.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/Courses/Course.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Employee/Courses/CourseContent.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/Courses/CourseContent.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Employee/Jobs/Job.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/Jobs/Job.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Employee/Jobs/JobContent.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/Jobs/JobContent.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navigation/AdminNavigation.js" beforeDir="false" afterPath="$PROJECT_DIR$/navigation/AdminNavigation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/UserDummy.js" beforeDir="false" afterPath="$PROJECT_DIR$/data/UserDummy.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navigation/AdminNavigation.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/navigation/AppNavigation.js" beforeDir="false" afterPath="$PROJECT_DIR$/navigation/AppNavigation.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navigation/EmployeeNavigation.js" beforeDir="false" afterPath="$PROJECT_DIR$/navigation/EmployeeNavigation.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screens/Admin/Courses/AdminCourseDetailScreen.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/screens/Admin/Courses/AdminCoursesFeed.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/screens/Employee/Courses/CourseDetailsScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/Courses/CourseDetailsScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screens/Employee/Courses/CoursesFeed.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/Courses/CoursesFeed.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screens/Employee/Jobs/JobDetailsScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/Jobs/JobDetailsScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screens/Employee/Jobs/JobsFeed.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/Jobs/JobsFeed.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screens/Employee/UserProfile.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/UserProfile.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navigation/EmployeeNavigation.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/screens/Courses/CoursesFeed.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/Courses/CoursesFeed.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screens/Jobs/JobsFeed.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/Jobs/JobsFeed.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,31 +49,32 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/React Native/BAMX/Frontend/components/Admin&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "/Users/carlos/Code/ReactNative/BAMX/Frontend/navigation/employeeNavigation",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/navigation/employeeNavigation" />
       <recent name="C:\React Native\BAMX\Frontend\components\Admin" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/navigation/adminNavigation" />
       <recent name="$PROJECT_DIR$/assets" />
       <recent name="$PROJECT_DIR$/components" />
       <recent name="$PROJECT_DIR$/screens" />
       <recent name="C:\React Native\BAMX\Frontend\components\Courses" />
-      <recent name="C:\React Native\BAMX\Frontend\screens\Admin\Courses" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -110,7 +100,7 @@
       <workItem from="1693096068740" duration="5041000" />
       <workItem from="1693101837284" duration="2297000" />
       <workItem from="1693155329988" duration="14452000" />
-      <workItem from="1693318882692" duration="1700000" />
+      <workItem from="1693318882692" duration="4720000" />
     </task>
     <servers />
   </component>
