@@ -11,6 +11,7 @@ namespace Backend.Models.Entities
         public string Description { get; set; }
         public DateTime Created { get; set; }
         public string Enterprise { get; set; }
+        public string? JobOfferPicture { get; set; }
         public ICollection<UserJobOffer>? UserJobOffers { get; set; }
     }
 }

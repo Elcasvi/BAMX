@@ -12,8 +12,8 @@ namespace Backend.Models.Entities
         public string Password { get; set; }
         public string Role { get; set; }
         public string Gender { get; set; }
-        public string ProfilePic { get; set; }
         public float Rating { get; set; }
+        public string? ProfilePicture { get; set; }
         public ICollection<AssignedJob>?AssignedJobs { get; set; }
         public ICollection<UserCourse>?UserCourses { get; set; }
         public ICollection<UserJobOffer>?UserJobOffers { get; set; }
