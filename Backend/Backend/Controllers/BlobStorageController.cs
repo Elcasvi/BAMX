@@ -33,13 +33,18 @@ namespace Backend.Controllers
             return File(imageFileStream,$"image/{fileType}");
         }
 
-        /*
-        [HttpGet("url/{userId}/{fileName}")]
-        public IActionResult GetUrl(int userId, string fileName)
+
+        [HttpDelete("{userId}/{fileName}")]
+        public IActionResult RemoveFile(int userId, string fileName)
         {
-            var imageFileStream = _blobStorageService.GetUrl(userId, fileName);
-            return Ok(imageFileStream);
+            return Ok(_blobStorageService.DeleteBlob(userId, fileName));
         }
-        */
+        
+        [HttpDelete("{userId}")]
+        public IActionResult RemoveContainer(int userId)
+        {
+            return Ok(_blobStorageService.DeleteContainer(userId));
+        }
+        
     }
 }

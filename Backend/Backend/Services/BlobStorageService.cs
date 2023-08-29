@@ -60,10 +60,8 @@ namespace Backend.Services
             var downloadContent = blobInstance.Download();
             return downloadContent.Value.Content;
         }
-
-       
-
-        public Stream DeleteBlob(int userId,string fileName)
+        
+        public int DeleteBlob(int userId,string fileName)
         {
             //string loggedInUser = _userRepository.Get(userId).Name;
             string loggedInUser = "carlos";
@@ -72,16 +70,17 @@ namespace Backend.Services
 
 
             var deletedContent = blobInstance.Delete();
-            return deletedContent.ContentStream;
+            return deletedContent.Status;
         }
 
-        public Stream DeleteContainer(int userId)
+        public int DeleteContainer(int userId)
         {
             //string loggedInUser = _userRepository.Get(userId).Name;
-            string loggedInUser = "carlos";
+            string loggedInUser = "test";
             var containerClient = _blobServiceClient.GetBlobContainerClient(loggedInUser);
+            
             var deletedContainer=containerClient.Delete();
-            return deletedContainer.ContentStream;
+            return deletedContainer.Status;
         }
     }
 }
