@@ -1,7 +1,10 @@
-﻿using Backend.Models.Data;
+﻿using AutoMapper;
+using Backend.Models.Data;
 using Backend.Models.Entities;
 using Backend.Models.Entities.JoinTables;
 using Backend.Models.Interfaces;
+using Backend.Services;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 
@@ -10,18 +13,25 @@ namespace Backend.Models.Repositories
     public class UserRepository : IUserRepository
     {
         private readonly AppDbContext _dbContext;
-        public UserRepository(AppDbContext dbContext)
+        private readonly Hash _hash;
+        public UserRepository(AppDbContext dbContext,Hash hash)
         {
             _dbContext = dbContext;
+            _hash = hash;
         }
         
         public User Get(int id)
         {
             return _dbContext.Users.Where(user => user.Id == id).FirstOrDefault();
         }
-        public User Get(string email,string password)
+        public User Get(string email, string password)
         {
-            return _dbContext.Users.Where(userE => userE.Email == email).Where(userP => userP.Password == password).FirstOrDefault();
+            var user = _dbContext.Users.FirstOrDefault(userE => userE.Email == email);
+            if (user != null && _hash.Verify(password, user.Password))
+            {
+                return user;
+            }
+            return null;
         }
         public ICollection<User> GetAll()
         {
@@ -43,6 +53,8 @@ namespace Backend.Models.Repositories
         
         public EntityEntry<User> Add(User user)
         {
+            string hashedPassword= _hash.HashPassword(user.Password);
+            user.Password = hashedPassword;
             var newUser=_dbContext.Users.Add(user);
             Save();
             return newUser;
@@ -96,8 +108,9 @@ namespace Backend.Models.Repositories
 
         public bool Exists(string email, string password)
         {
-            var user=_dbContext.Users.Where(userE => userE.Email == email).Where(userP => userP.Password == password).FirstOrDefault();
-            if(user!=null)
+            //var user=_dbContext.Users.Where(userE => userE.Email == email).Where(userP=>userP.Password==password).FirstOrDefault();
+            var user=_dbContext.Users.Where(userE => userE.Email == email).FirstOrDefault();
+            if (user != null && _hash.Verify(password, user.Password))
             {
                 return true;
             }

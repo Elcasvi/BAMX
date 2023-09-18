@@ -35,8 +35,6 @@ public class Hash
     public bool Verify(string inputPassword, string passwordHash)
     {
         var elements = passwordHash.Split(delimiter);
-        string ele1 =elements[0];
-        string ele2 =elements[1];
         var salt = Convert.FromBase64String(elements[0]);
         var hash = Convert.FromBase64String(elements[1]);
 

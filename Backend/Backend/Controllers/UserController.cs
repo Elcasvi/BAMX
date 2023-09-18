@@ -2,7 +2,6 @@
 using Backend.Models.Dtos;
 using Backend.Models.Entities;
 using Backend.Models.Interfaces;
-using Backend.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Backend.Controllers;
@@ -14,14 +13,14 @@ public class UserController:ControllerBase
     private readonly IUserRepository _userRepository;
     private readonly IJobOfferRepository _jobOfferRepository;
     private readonly IMapper _mapper;
-    private readonly Hash _hash;
 
-    public UserController(IUserRepository userRepository,IJobOfferRepository jobOfferRepository,IMapper mapper,Hash hash)
+
+
+    public UserController(IUserRepository userRepository,IJobOfferRepository jobOfferRepository,IMapper mapper)
     {
         _userRepository = userRepository;
         _jobOfferRepository = jobOfferRepository;
-        _mapper = mapper;
-        _hash = hash;
+        _mapper = mapper; 
     }
 
     [HttpGet("{id}")]
@@ -158,6 +157,7 @@ public class UserController:ControllerBase
         return Ok(updatedUser);
     }
     
+    /*
     [HttpPost("{password}")]
     public IActionResult HashString(string password)
     {
@@ -169,5 +169,6 @@ public class UserController:ControllerBase
     {
         return Ok(_hash.Verify(inputPassword, passwordHash));
     }
-
+    
+*/
 }
