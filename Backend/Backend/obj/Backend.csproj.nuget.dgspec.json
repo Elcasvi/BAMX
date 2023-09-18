@@ -57,6 +57,14 @@
               "target": "Package",
               "version": "[12.18.0, )"
             },
+            "Azure.Storage.Files.Shares": {
+              "target": "Package",
+              "version": "[12.1.0, )"
+            },
+            "Azure.Storage.Queues": {
+              "target": "Package",
+              "version": "[12.11.1, )"
+            },
             "Microsoft.AspNetCore.Components": {
               "target": "Package",
               "version": "[7.0.11, )"

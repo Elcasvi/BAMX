@@ -1,0 +1,34 @@
+{
+  "dependencies": {
+    "mssql1": {
+      "restored": true,
+      "restoreTime": "2023-09-18T01:38:58.1747683Z"
+    },
+    "storage1": {
+      "restored": true,
+      "restoreTime": "2023-09-18T01:40:14.0058771Z"
+    }
+  },
+  "parameters": {
+    "mssql1.subscriptionId": {
+      "Name": "mssql1.subscriptionId",
+      "Type": "subscription",
+      "Value": "bd4cb9cd-5173-46ce-b51f-7263dad9b6f7"
+    },
+    "mssql1.resourceGroupName": {
+      "Name": "mssql1.resourceGroupName",
+      "Type": "resourceGroup",
+      "Value": "rg-BAMX"
+    },
+    "storage1.resourceGroupName": {
+      "Name": "storage1.resourceGroupName",
+      "Type": "resourceGroup",
+      "Value": "rg-BAMX"
+    },
+    "storage1.subscriptionId": {
+      "Name": "storage1.subscriptionId",
+      "Type": "subscription",
+      "Value": "bd4cb9cd-5173-46ce-b51f-7263dad9b6f7"
+    }
+  }
+}

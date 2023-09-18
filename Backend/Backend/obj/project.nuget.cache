@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "hz8mlXw8IZD7DFGG7EqIuXVI3JZLmfHm3PsSKeM1h7K1bV+DlKsSTiYQ1GyJowz/o52/LCeVHSRAqLSvlHwtTA==",
+  "dgSpecHash": "F+5UXQqovgYG2c+0d6vqpPP27kE+guj6uE8lzR92kQQX0kQSQ6jRW+MztNzEHF+RBe2TbqjO7+8hETaH6FVTnw==",
   "success": true,
   "projectFilePath": "C:\\React Native\\BAMX\\Backend\\Backend\\Backend.csproj",
   "expectedPackageFiles": [
@@ -10,6 +10,8 @@
     "C:\\Users\\carlos\\.nuget\\packages\\azure.identity\\1.9.0\\azure.identity.1.9.0.nupkg.sha512",
     "C:\\Users\\carlos\\.nuget\\packages\\azure.storage.blobs\\12.18.0\\azure.storage.blobs.12.18.0.nupkg.sha512",
     "C:\\Users\\carlos\\.nuget\\packages\\azure.storage.common\\12.17.0\\azure.storage.common.12.17.0.nupkg.sha512",
+    "C:\\Users\\carlos\\.nuget\\packages\\azure.storage.files.shares\\12.1.0\\azure.storage.files.shares.12.1.0.nupkg.sha512",
+    "C:\\Users\\carlos\\.nuget\\packages\\azure.storage.queues\\12.11.1\\azure.storage.queues.12.11.1.nupkg.sha512",
     "C:\\Users\\carlos\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\carlos\\.nuget\\packages\\microsoft.aspnetcore.authorization\\7.0.11\\microsoft.aspnetcore.authorization.7.0.11.nupkg.sha512",
     "C:\\Users\\carlos\\.nuget\\packages\\microsoft.aspnetcore.components\\7.0.11\\microsoft.aspnetcore.components.7.0.11.nupkg.sha512",

@@ -1,0 +1,20 @@
+{
+  "dependencies": {
+    "mssql1": {
+      "serviceConnectorResourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Web/sites/BAMX/providers/Microsoft.ServiceLinker/linkers/ConnectionStringsDbConnection_FF76C44A16",
+      "secretStore": "AzureAppSettings",
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Sql/servers/bamxdbserver/databases/BAMXDB",
+      "type": "mssql.azure",
+      "connectionId": "ConnectionStrings:DbConnection",
+      "dynamicId": null
+    },
+    "storage1": {
+      "serviceConnectorResourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Web/sites/BAMX/providers/Microsoft.ServiceLinker/linkers/ConnectionStringsStorageConnection_6B2DEDDB26, /subscriptions/bd4cb9cd-5173-46ce-b51f-7263dad9b6f7/resourceGroups/rg-BAMX/providers/Microsoft.Web/sites/BAMX/providers/Microsoft.ServiceLinker/linkers/ConnectionStringsStorageConnection_CD104C9653",
+      "secretStore": "AzureAppSettings",
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Storage/storageAccounts/stbamx",
+      "type": "storage.azure",
+      "connectionId": "ConnectionStrings:StorageConnection",
+      "dynamicId": null
+    }
+  }
+}

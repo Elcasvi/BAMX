@@ -109,6 +109,42 @@
           }
         }
       },
+      "Azure.Storage.Files.Shares/12.1.0": {
+        "type": "package",
+        "dependencies": {
+          "Azure.Core": "1.0.2",
+          "Azure.Storage.Common": "12.2.0",
+          "System.Text.Json": "4.6.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/Azure.Storage.Files.Shares.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/Azure.Storage.Files.Shares.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Azure.Storage.Queues/12.11.1": {
+        "type": "package",
+        "dependencies": {
+          "Azure.Storage.Common": "12.12.0",
+          "System.Memory.Data": "1.0.2",
+          "System.Text.Json": "4.7.2"
+        },
+        "compile": {
+          "lib/netstandard2.1/Azure.Storage.Queues.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.1/Azure.Storage.Queues.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Humanizer.Core/2.14.1": {
         "type": "package",
         "compile": {
@@ -1481,6 +1517,40 @@
         "lib/net6.0/Azure.Storage.Common.xml",
         "lib/netstandard2.0/Azure.Storage.Common.dll",
         "lib/netstandard2.0/Azure.Storage.Common.xml"
+      ]
+    },
+    "Azure.Storage.Files.Shares/12.1.0": {
+      "sha512": "qF0nsCNh+SqUvRyx0zG8teJsEImeFlO5uqpcWtursupvhyG+kBJOuSRjUQDoK1Uw4tS2IxkrTV1R5vXP03KGcA==",
+      "type": "package",
+      "path": "azure.storage.files.shares/12.1.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "CHANGELOG.md",
+        "README.md",
+        "azure.storage.files.shares.12.1.0.nupkg.sha512",
+        "azure.storage.files.shares.nuspec",
+        "lib/netstandard2.0/Azure.Storage.Files.Shares.dll",
+        "lib/netstandard2.0/Azure.Storage.Files.Shares.xml",
+        "pkgicon.png"
+      ]
+    },
+    "Azure.Storage.Queues/12.11.1": {
+      "sha512": "bvVjNP136ZukujHczlAqTyoknWcr6JNb/qpWPjTOV2wYtjRDYPuhPRWcAYrHWsr6BDLtgofg4cFg+knqoOBXNg==",
+      "type": "package",
+      "path": "azure.storage.queues/12.11.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "CHANGELOG.md",
+        "README.md",
+        "azure.storage.queues.12.11.1.nupkg.sha512",
+        "azure.storage.queues.nuspec",
+        "azureicon.png",
+        "lib/netstandard2.0/Azure.Storage.Queues.dll",
+        "lib/netstandard2.0/Azure.Storage.Queues.xml",
+        "lib/netstandard2.1/Azure.Storage.Queues.dll",
+        "lib/netstandard2.1/Azure.Storage.Queues.xml"
       ]
     },
     "Humanizer.Core/2.14.1": {
@@ -3799,6 +3869,8 @@
       "AutoMapper >= 12.0.1",
       "AutoMapper.Extensions.Microsoft.DependencyInjection >= 12.0.1",
       "Azure.Storage.Blobs >= 12.18.0",
+      "Azure.Storage.Files.Shares >= 12.1.0",
+      "Azure.Storage.Queues >= 12.11.1",
       "Microsoft.AspNetCore.Components >= 7.0.11",
       "Microsoft.AspNetCore.OpenApi >= 7.0.11",
       "Microsoft.Data.SqlClient >= 5.1.1",
@@ -3865,6 +3937,14 @@
           "Azure.Storage.Blobs": {
             "target": "Package",
             "version": "[12.18.0, )"
+          },
+          "Azure.Storage.Files.Shares": {
+            "target": "Package",
+            "version": "[12.1.0, )"
+          },
+          "Azure.Storage.Queues": {
+            "target": "Package",
+            "version": "[12.11.1, )"
           },
           "Microsoft.AspNetCore.Components": {
             "target": "Package",
