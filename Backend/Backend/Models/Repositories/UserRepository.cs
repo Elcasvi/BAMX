@@ -4,8 +4,6 @@ using Backend.Models.Entities;
 using Backend.Models.Entities.JoinTables;
 using Backend.Models.Interfaces;
 using Backend.Services;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 
 namespace Backend.Models.Repositories

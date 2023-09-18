@@ -16,13 +16,13 @@ namespace Backend.Controllers
         }
 
         [HttpPost("{userId}")]
-        public IActionResult AddFile(int userId,[FromForm]FileModel fileModel)
+        public IActionResult UploadFile(int userId,[FromForm]FileModel fileModel)
         {
             return Ok(_blobStorageService.AddBlobContent(userId, fileModel));    
         }
 
         [HttpGet("{userId}/{fileName}")]
-        public async Task<IActionResult> GetFile(int userId,string fileName)
+        public async Task<IActionResult> DownloadFile(int userId,string fileName)
         {
             var imageFileStream=_blobStorageService.Get(userId, fileName);
             string fileType = "jpg";
@@ -35,13 +35,13 @@ namespace Backend.Controllers
 
 
         [HttpDelete("{userId}/{fileName}")]
-        public IActionResult RemoveFile(int userId, string fileName)
+        public IActionResult DeleteFile(int userId, string fileName)
         {
             return Ok(_blobStorageService.DeleteBlob(userId, fileName));
         }
         
         [HttpDelete("{userId}")]
-        public IActionResult RemoveContainer(int userId)
+        public IActionResult DeleteContainer(int userId)
         {
             return Ok(_blobStorageService.DeleteContainer(userId));
         }

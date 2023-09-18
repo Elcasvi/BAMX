@@ -24,7 +24,7 @@ public class UserController:ControllerBase
     }
 
     [HttpGet("{id}")]
-    public IActionResult GetById(int id)
+    public IActionResult GetUser(int id)
     {
         if (!_userRepository.Exists(id))
         {
@@ -35,7 +35,7 @@ public class UserController:ControllerBase
     }
     
     [HttpGet("{email}/{password}")]
-    public IActionResult GetByEmailAndPassword(string email, string password)
+    public IActionResult GetUserByEmailAndPassword(string email, string password)
     {
         if (!_userRepository.Exists(email,password))
         {
@@ -46,7 +46,7 @@ public class UserController:ControllerBase
     }
 
     [HttpGet]
-    public IActionResult GetAllUsers()
+    public IActionResult GetUsers()
     {
         var users=_mapper.Map<List<UserDto>>(_userRepository.GetAll());//This convert the users form the database into userDto objects
         if(!ModelState.IsValid)
@@ -57,7 +57,7 @@ public class UserController:ControllerBase
     }
 
     [HttpGet("jobOffers/{userId}")]
-    public IActionResult GetAllJobOffers(int userId)
+    public IActionResult GetUserJobOffers(int userId)
     {
         if (!_userRepository.Exists(userId))
         {
@@ -72,7 +72,7 @@ public class UserController:ControllerBase
     }
     
     [HttpGet("courses/{userId}")]
-    public IActionResult GetAllCourses(int userId)
+    public IActionResult GetUserCourses(int userId)
     {
         if (!_userRepository.Exists(userId))
         {
@@ -87,7 +87,7 @@ public class UserController:ControllerBase
     }
     
     [HttpGet("assignedJobs/{userId}")]
-    public IActionResult GetAllAssignedJobs(int userId)
+    public IActionResult GetAssignedJobs(int userId)
     {
         if (!_userRepository.Exists(userId))
         {
@@ -102,7 +102,7 @@ public class UserController:ControllerBase
     }
     
     [HttpPost]
-    public IActionResult Add([FromBody]UserDto userDto)
+    public IActionResult CreateUser([FromBody]UserDto userDto)
     {
         if (userDto==null)
         {

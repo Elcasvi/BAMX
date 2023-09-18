@@ -20,7 +20,7 @@ public class CourseController:ControllerBase
     }
 
     [HttpGet("{id}")]
-    public IActionResult GetById(int id)
+    public IActionResult GetCourse(int id)
     {
         if (!_courseRepository.Exists(id))
         {
@@ -31,7 +31,7 @@ public class CourseController:ControllerBase
     }
 
     [HttpGet]
-    public IActionResult GetAll()
+    public IActionResult GetCourses()
     {
         var courses = _mapper.Map<List<CourseDto>>(_courseRepository.GetAll());
         if (!ModelState.IsValid)
@@ -42,7 +42,7 @@ public class CourseController:ControllerBase
     }
 
     [HttpGet("users/{courseId}")]
-    public IActionResult GetAllusers(int courseId)
+    public IActionResult GetUsersForCourse(int courseId)
     {
         if (!_courseRepository.Exists(courseId))
         {
@@ -57,7 +57,7 @@ public class CourseController:ControllerBase
     }
 
     [HttpPost]
-    public IActionResult Add([FromBody]CourseDto courseDto)
+    public IActionResult CreateCourse([FromBody]CourseDto courseDto)
     {
         if (courseDto==null)
         {

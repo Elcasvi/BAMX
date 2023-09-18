@@ -22,7 +22,7 @@ public class AssignedJobController : ControllerBase
         _mapper = mapper;
     }
     [HttpGet("{id}")]
-    public IActionResult GetById(int id)
+    public IActionResult GetAssignedJob(int id)
     {
         if (!_assignedJobRepository.Exists(id))
         {
@@ -33,7 +33,7 @@ public class AssignedJobController : ControllerBase
     }
 
     [HttpGet]
-    public IActionResult GetAll()
+    public IActionResult GetAssignedJobs()
     {
         var courses = _mapper.Map<List<AssignedJobDto>>(_assignedJobRepository.GetAll());
         if (!ModelState.IsValid)
@@ -44,7 +44,7 @@ public class AssignedJobController : ControllerBase
     }
 
     [HttpGet("users/{assignedJobId}")]
-    public IActionResult GetAllUsers(int assignedJobId)
+    public IActionResult GetUsersForAssignedJob(int assignedJobId)
     {
         if (!_assignedJobRepository.Exists(assignedJobId))
         {
@@ -61,7 +61,7 @@ public class AssignedJobController : ControllerBase
     }
 
     [HttpPost("{userId}")]
-    public IActionResult Add(int userId,[FromBody]JobOfferDto jobOfferDto)
+    public IActionResult AssignJobToUser(int userId,[FromBody]JobOfferDto jobOfferDto)
     {
         if (jobOfferDto==null)
         {

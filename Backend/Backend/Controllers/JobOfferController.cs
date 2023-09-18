@@ -20,7 +20,7 @@ public class JobOfferController:ControllerBase
     }
     
     [HttpGet("{id}")]
-    public IActionResult GetById(int id)
+    public IActionResult GetJobOffer(int id)
     {
         if (!_jobOfferRepository.Exists(id))
         {
@@ -31,7 +31,7 @@ public class JobOfferController:ControllerBase
     }
     
     [HttpGet]
-    public IActionResult GetAll()
+    public IActionResult GetJobOffers()
     {
         var jobOffers=_mapper.Map<List<JobOfferDto>>(_jobOfferRepository.GetAll());//This convert the users form the database into userDto objects
         if(!ModelState.IsValid)
@@ -42,7 +42,7 @@ public class JobOfferController:ControllerBase
     }
 
     [HttpGet("users/{jobOfferId}")]
-    public IActionResult GetAllUsers(int jobOfferId)
+    public IActionResult GetUsersForJobOffer(int jobOfferId)
     {
        var users=_mapper.Map<List<JobOfferDto>>(_jobOfferRepository.GetAllUsersByJobOfferId(jobOfferId));
        if(!ModelState.IsValid)
@@ -53,7 +53,7 @@ public class JobOfferController:ControllerBase
     }
     
     [HttpPost]
-    public IActionResult Add(JobOfferDto jobOfferDto)
+    public IActionResult CreateJobOffer(JobOfferDto jobOfferDto)
     {
         if (jobOfferDto==null)
         {
