@@ -1,6 +1,6 @@
 import {useNavigation, useRoute} from "@react-navigation/native";
 import {useLayoutEffect} from "react";
-import {SafeAreaView} from "react-native";
+import {SafeAreaView,View} from "react-native";
 import CourseContent from "../../components/Courses/CourseContent";
 
 export default function CourseDetailsScreen() {

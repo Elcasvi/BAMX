@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {DarkTheme, DefaultTheme, NavigationContainer} from '@react-navigation/native';
+import {DarkTheme, DefaultTheme, NavigationContainer, useNavigation} from '@react-navigation/native';
 import {useColorScheme} from "react-native";
 import {StatusBar} from "expo-status-bar";
 import {UserDummy} from "../data/UserDummy";
@@ -11,6 +11,7 @@ import AdminJobStackNavigation from "./adminNavigation/AdminJobStackNavigation";
 import AdminCourseStackNavigation from "./adminNavigation/AdminCourseStackNavigation";
 import EmployeeJobStackNavigation from "./employeeNavigation/EmployeeJobStackNavigation";
 import EmployeeCourseStackNavigation from "./employeeNavigation/EmployeeCourseStackNavigation";
+import {useState} from "react";
 
 
 
@@ -68,11 +69,14 @@ const DrawerNav=()=>
 }
 
 export default function AppNavigation() {
+    const [isUserLogedIn,setuserLogedIn]=useState()
+
     const currentTheme=useColorScheme();
     return (
         <NavigationContainer
         theme={currentTheme==="dark"?DarkTheme:DefaultTheme}>
             <StatusBar style="auto"/>
+
             <DrawerNav/>
         </NavigationContainer>
     );
