@@ -1,6 +1,5 @@
 import 'react-native-gesture-handler';
 import AppNavigation from "./navigation/AppNavigation";
-import Login from "./screens/Login";
 import {DarkTheme, DefaultTheme, NavigationContainer} from "@react-navigation/native";
 import {StatusBar} from "expo-status-bar";
 import LoginScreenStackNavigator from "./navigation/LoginScreenStackNavigator";
