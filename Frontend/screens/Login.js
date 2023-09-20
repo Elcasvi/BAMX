@@ -1,20 +1,25 @@
-import {Button, SafeAreaView, Text, useColorScheme, View} from "react-native";
+import {Button, SafeAreaView, Text, TextInput, useColorScheme, View} from "react-native";
 import {useEffect, useState} from "react";
 import AsyncStorageNative from "@react-native-async-storage/async-storage/src/AsyncStorage.native";
 
 export default function Login()
 {
     const theme=useColorScheme();
-    const url = "https://bamx.azurewebsites.net/user/"+"casvi.sanchez@gmail.com/"+"admin"
     const[user,setUser]=useState({})
     const [loading,setLoading]=useState(false)
+    const [email,setEmail]=useState("")
+    const [password,setPassword]=useState("")
 
     function handleLoginBtn() {
+        console.log("Email: "+email)
+        console.log("Password: "+password)
+        const url = "https://bamx.azurewebsites.net/user/"+email+"/"+password
         console.log("Hi console");
         fetch(url)
             .then((resp) => {
                 if (!resp.ok) {
-                    throw new Error("Network response was not ok");
+                    alert("Email or password not correct")
+                    //throw new Error("Network response was not ok");
                 }
                 return resp.json();
             })
@@ -49,13 +54,20 @@ export default function Login()
                 setLoading(false);
             });
     }
+    const goToRegister=()=>
+    {
 
-
+        console.log("in register")
+    }
     return (
         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
             <Text style={[{color:theme==="dark"?"#FFF":"#000"}]}>Login</Text>
             <Text style={[{color:theme==="dark"?"#FFF":"#000"}]}>{user.name}</Text>
+            <TextInput placeholder={"email"} onChangeText={setEmail} value={email}/>
+            <TextInput placeholder={"password"} onChangeText={setPassword} value={password}/>
             <Button title="Log In" onPress={handleLoginBtn}/>
+
+            <Button title="Register" onPress={goToRegister}/>
         </View>
     );
 };
