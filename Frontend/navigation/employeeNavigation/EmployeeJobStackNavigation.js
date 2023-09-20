@@ -2,6 +2,7 @@ import {createNativeStackNavigator} from "@react-navigation/native-stack";
 import UserProfile from "../../screens/UserProfile";
 import JobsFeed from "../../screens/Jobs/JobsFeed"
 import JobDetailsScreen from "../../screens/Jobs/JobDetailsScreen";
+import CustomNavigationBar from "../CustomNavigationBar";
 
 
 
@@ -9,7 +10,11 @@ import JobDetailsScreen from "../../screens/Jobs/JobDetailsScreen";
 const JobFeedStack = createNativeStackNavigator();
 export default function EmployeeJobStackNavigation() {
     return(
-        <JobFeedStack.Navigator>
+        <JobFeedStack.Navigator
+        screenOptions={{
+            header: (props) => <CustomNavigationBar {...props} />,
+          }}
+        >
             <JobFeedStack.Screen name="JobsFeed" component={JobsFeed}
                                  options={{headerTitle:"Trabajos"}}/>
             <JobFeedStack.Screen name="JobDetailsScreen" component={JobDetailsScreen}

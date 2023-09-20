@@ -6,6 +6,7 @@ import CreateJobScreen from "../../screens/Admin/Jobs/CreateJobScreen";
 import CreateCourseScreen from "../../screens/Admin/Courses/CreateCourseScreen";
 import JobDetailsScreen from "../../screens/Jobs/JobDetailsScreen";
 import CourseDetailsScreen from "../../screens/Courses/CourseDetailsScreen";
+import CustomNavigationBar from "../CustomNavigationBar";
 
 //Sub navigations
 
@@ -14,7 +15,11 @@ import CourseDetailsScreen from "../../screens/Courses/CourseDetailsScreen";
 const JobFeedStack = createNativeStackNavigator();
 export default function AdminJobStackNavigation() {
     return(
-        <JobFeedStack.Navigator>
+        <JobFeedStack.Navigator
+        screenOptions={{
+            header: (props) => <CustomNavigationBar {...props} />,
+          }}
+        >
             <JobFeedStack.Screen name="JobsFeed" component={JobsFeed}
                                  options={{headerTitle:"Trabajos"}}/>
             <JobFeedStack.Screen name="CreateJobScreen" component={CreateJobScreen}

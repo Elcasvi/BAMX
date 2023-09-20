@@ -4,8 +4,7 @@ import {useColorScheme} from "react-native";
 import {StatusBar} from "expo-status-bar";
 import {UserDummy} from "../data/UserDummy";
 import {Ionicons} from "@expo/vector-icons";
-import {createBottomTabNavigator} from "@react-navigation/bottom-tabs";
-import {createDrawerNavigator} from "@react-navigation/drawer";
+import { createMaterialBottomTabNavigator } from 'react-native-paper/react-navigation';
 import UserProfile from "../screens/UserProfile";
 import AdminJobStackNavigation from "./adminNavigation/AdminJobStackNavigation";
 import AdminCourseStackNavigation from "./adminNavigation/AdminCourseStackNavigation";
@@ -13,12 +12,13 @@ import EmployeeJobStackNavigation from "./employeeNavigation/EmployeeJobStackNav
 import EmployeeCourseStackNavigation from "./employeeNavigation/EmployeeCourseStackNavigation";
 import {useState} from "react";
 import LoginScreenStackNavigator from "./LoginScreenStackNavigator";
+import { createDrawerNavigator } from '@react-navigation/drawer';
 
 
 
 const user=UserDummy;
 //Tab navigation
-const Tab = createBottomTabNavigator();
+const Tab = createMaterialBottomTabNavigator();
 const TabGroup=()=>
 {
     return(
@@ -34,10 +34,8 @@ const TabGroup=()=>
                     {
                         iconName="book";
                     }
-                    return <Ionicons name={iconName} size={size} color={color}/>
+                    return <Ionicons name={iconName} size={24} color={color}/>
                 },
-                tabBarActiveTintColor:"#1DA1F2",
-                tabBarInactiveTintColor:"gray"
             })}>
             {user.role==="admin"?
                 <Tab.Screen name="JobFeedStackGroup" component={AdminJobStackNavigation}
