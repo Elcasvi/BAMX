@@ -12,6 +12,7 @@ import AdminCourseStackNavigation from "./adminNavigation/AdminCourseStackNaviga
 import EmployeeJobStackNavigation from "./employeeNavigation/EmployeeJobStackNavigation";
 import EmployeeCourseStackNavigation from "./employeeNavigation/EmployeeCourseStackNavigation";
 import {useState} from "react";
+import LoginScreenStackNavigator from "./LoginScreenStackNavigator";
 
 
 
@@ -69,15 +70,7 @@ const DrawerNav=()=>
 }
 
 export default function AppNavigation() {
-    const [isUserLogedIn,setuserLogedIn]=useState()
-
-    const currentTheme=useColorScheme();
     return (
-        <NavigationContainer
-        theme={currentTheme==="dark"?DarkTheme:DefaultTheme}>
-            <StatusBar style="auto"/>
-
-            <DrawerNav/>
-        </NavigationContainer>
+       <DrawerNav/>
     );
 }
