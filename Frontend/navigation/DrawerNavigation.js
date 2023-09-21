@@ -10,17 +10,18 @@ import AdminJobStackNavigation from "./adminNavigation/AdminJobStackNavigation";
 import AdminCourseStackNavigation from "./adminNavigation/AdminCourseStackNavigation";
 import EmployeeJobStackNavigation from "./employeeNavigation/EmployeeJobStackNavigation";
 import EmployeeCourseStackNavigation from "./employeeNavigation/EmployeeCourseStackNavigation";
-import {useState} from "react";
+import {useContext, useState} from "react";
 import LoginScreenStackNavigator from "./LoginScreenStackNavigator";
 import { createDrawerNavigator } from '@react-navigation/drawer';
+import {AuthContext} from "../context/AuthContext";
 
 
 
-const user=UserDummy;
 //Tab navigation
 const Tab = createMaterialBottomTabNavigator();
 const TabGroup=()=>
 {
+    const{userInformation}=useContext(AuthContext)
     return(
         <Tab.Navigator
             screenOptions={({route,navigation})=>({
@@ -37,14 +38,14 @@ const TabGroup=()=>
                     return <Ionicons name={iconName} size={24} color={color}/>
                 },
             })}>
-            {user.role==="admin"?
+            {userInformation.role==="admin"?
                 <Tab.Screen name="JobFeedStackGroup" component={AdminJobStackNavigation}
                             options={{headerShown: false,tabBarLabel:"Trabajos"}}></Tab.Screen>
                 :
                 <Tab.Screen name="JobFeedStackGroup" component={EmployeeJobStackNavigation}
                             options={{headerShown: false,tabBarLabel:"Trabajos"}}></Tab.Screen>
             }
-            {user.role==="admin"?
+            {userInformation.role==="admin"?
                 <Tab.Screen name="CourseFeedStackGroup" component={AdminCourseStackNavigation}
                             options={{headerShown: false,tabBarLabel:"Cursos"}}></Tab.Screen>
                 :

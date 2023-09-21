@@ -3,11 +3,16 @@ import {Button, FlatList, Image, Pressable, SafeAreaView, Text} from "react-nati
 import {JobsDummy} from "../../data/JobsDummy";
 import Job from "../../components/Jobs/Job";
 import {useNavigation} from "@react-navigation/native";
-import {useLayoutEffect} from "react";
+import {useContext, useEffect, useLayoutEffect, useState} from "react";
 import {UserDummy} from "../../data/UserDummy";
+import {BASE_URL} from "../../config";
+import axios from "axios";
+import AsyncStorageNative from "@react-native-async-storage/async-storage/src/AsyncStorage.native";
+import {AuthContext} from "../../context/AuthContext";
 export default function JobsFeedScreen() {
     const USER=UserDummy
-    const DATA=JobsDummy
+    const[jobOffers,setJobOffers]=useState(null)
+    const {userInformation} = useContext(AuthContext)
     const navigation=useNavigation();
     useLayoutEffect(()=>{
         navigation.setOptions({
@@ -22,16 +27,32 @@ export default function JobsFeedScreen() {
         });
     },[]);
 
+    useEffect(() => {
+        getJobOffers()
+    }, []);
+    const getJobOffers=()=>
+    {
+        const url=BASE_URL+"/JobOffer"
+        axios.get(url)
+            .then(res => {
+                setJobOffers(res.data)
+                console.log(res.data)
+            })
+            .catch((error) => {
+                alert("Error: "+error)
+            })
+    }
+
     return (
         <SafeAreaView style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-            {USER.role==="admin"?
+            {userInformation.role==="admin"?
             <Button
                 title="New Job"
                 onPress={()=>navigation.navigate("CreateJobScreen")}
             />:<></>
             }
             <FlatList
-                data={DATA}
+                data={jobOffers}
                 renderItem={({item}) => <Job job={item}/>}
                 keyExtractor={item => item.id}
             />

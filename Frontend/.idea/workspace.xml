@@ -5,11 +5,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4d695a77-b978-4f13-8366-bf2b95423c61" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../Backend/.vs/Backend/DesignTimeBuild/.dtbcache.v2" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/.vs/Backend/DesignTimeBuild/.dtbcache.v2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/.vs/Backend/FileContentIndex/3d9574d8-11ef-434c-8612-2767fdbbdd05.vsidx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/.vs/Backend/FileContentIndex/3ede155a-176a-4bbc-a586-8932e981666f.vsidx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/.vs/Backend/FileContentIndex/a1332e80-c48c-4d31-b555-5a1941553d2e.vsidx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/.vs/Backend/FileContentIndex/a3468a55-43ae-4c63-bb0a-8bdc6b9c481c.vsidx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/.vs/Backend/FileContentIndex/de2a651d-be3d-4a9c-9998-6ed62d8ff91f.vsidx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/.vs/Backend/v17/.suo" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/.vs/Backend/v17/.suo" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/Backend/Controllers/UserController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/Backend/Controllers/UserController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/Backend/Properties/PublishProfiles/BAMX - Web Deploy.pubxml.user" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/Backend/Properties/PublishProfiles/BAMX - Web Deploy.pubxml.user" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/Backend/bin/Release/net7.0/Backend.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/Backend/bin/Release/net7.0/Backend.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/Backend/bin/Release/net7.0/Backend.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/Backend/bin/Release/net7.0/Backend.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/Backend/obj/Release/net7.0/Backend.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/Backend/obj/Release/net7.0/Backend.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/Backend/obj/Release/net7.0/Backend.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/Backend/obj/Release/net7.0/Backend.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/Backend/obj/Release/net7.0/PubTmp/Out/Backend.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/Backend/obj/Release/net7.0/PubTmp/Out/Backend.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/Backend/obj/Release/net7.0/PubTmp/Out/Backend.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/Backend/obj/Release/net7.0/PubTmp/Out/Backend.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/context/AuthContext.js" beforeDir="false" afterPath="$PROJECT_DIR$/context/AuthContext.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navigation/AppNavigation.js" beforeDir="false" afterPath="$PROJECT_DIR$/navigation/AppNavigation.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screens/Register.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/Register.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Jobs/JobContent.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/Jobs/JobContent.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Async.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/navigation/DrawerNavigation.js" beforeDir="false" afterPath="$PROJECT_DIR$/navigation/DrawerNavigation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screens/Admin/Jobs/CreateJobScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/Admin/Jobs/CreateJobScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screens/Jobs/JobsFeed.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/Jobs/JobsFeed.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screens/UserProfile.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/UserProfile.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,7 +110,7 @@
       <workItem from="1695218671840" duration="7084000" />
       <workItem from="1695242978195" duration="10765000" />
       <workItem from="1695306713009" duration="9604000" />
-      <workItem from="1695326757742" duration="4236000" />
+      <workItem from="1695326757742" duration="7812000" />
     </task>
     <servers />
   </component>
