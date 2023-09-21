@@ -9,7 +9,7 @@ import DrawerNavigation from "./DrawerNavigation";
 
 export default function AppNavigation()
 {
-    const {isLoading,userToken}=useContext(AuthContext);
+    const {isLoading,userInformation}=useContext(AuthContext);
     if(isLoading){
         return(
             <View style={{flex:1,justifyContent:"center",alignItems:"center"}}>
@@ -19,7 +19,7 @@ export default function AppNavigation()
     }
     return(
         <NavigationContainer>
-            {userToken!==null?<DrawerNavigation/>:<LoginScreenStackNavigator/>}
+            {userInformation!==null?<DrawerNavigation/>:<LoginScreenStackNavigator/>}
         </NavigationContainer>
     );
 }

@@ -1,11 +1,13 @@
 import {Button, SafeAreaView, Text, TextInput, useColorScheme, View} from "react-native";
-import {useEffect, useState} from "react";
+import {useContext, useEffect, useState} from "react";
 import AsyncStorageNative from "@react-native-async-storage/async-storage/src/AsyncStorage.native";
 import {useNavigation} from "@react-navigation/native";
+import {AuthContext} from "../context/AuthContext";
 
 
 export default function Register()
 {
+    const{register}=useContext(AuthContext);
     const navigation=useNavigation();
     const theme=useColorScheme();
     const[user,setUser]=useState({})
@@ -15,7 +17,7 @@ export default function Register()
     const [password,setPassword]=useState("")
 
     function handleRegisterBtn() {
-        const requestBody={
+        const userBody={
             Name:name,
             email: email,
             password: password,
@@ -23,66 +25,15 @@ export default function Register()
             Gender:"Male",
             Rating:0
         };
-        const requestOptions = {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json', // Specify JSON as the content type
-                // You can include additional headers here if needed
-            },
-            body: JSON.stringify(requestBody), // Convert the JavaScript object to JSON
-        };
-
-
-        const url = "https://bamx.azurewebsites.net/user/"
-        console.log("Hi console");
-        fetch(url,requestOptions)
-            .then(response=>{
-                if(!response.ok) {
-                    alert("Email or password not correct")
-                    throw new Error(`HTTP error! Status: ${response.status}`);
-                }
-                return response.json();
-            })
-            .then((data) => {
-                AsyncStorageNative.setItem("KeepLoggedIn", JSON.stringify(true))
-                    .then(() => {
-                        // Code to execute after successfully setting the item
-                        console.log("KeepLoggedIn item set successfully");
-                    })
-                    .catch((error) => {
-                        // Handle any errors that occur during the set operation
-                        console.error("Error setting KeepLoggedIn item:", error);
-                    });
-
-                AsyncStorageNative.setItem('token', JSON.stringify(data))
-                    .then(() => {
-                        // Code to execute after successfully setting the 'token' item
-                        console.log("'token' item set successfully");
-                    })
-                    .catch((error) => {
-                        // Handle any errors that occur during the set operation
-                        console.error("Error setting 'token' item:", error);
-                    });
-
-                setUser(data);
-                navigation.navigate("Drawer")
-            })
-            .catch((error) => {
-                // Handle fetch errors
-
-                console.error("Fetch error:", error);
-            })
-            .finally(() => {
-                setLoading(false);
-            });
+        register({userBody})
     }
     return(
         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-            <Text style={[{color:theme==="dark"?"#FFF":"#000"}]}>Register</Text>
-            <TextInput placeholder={"name"} onChangeText={setName} value={name}/>
+            <Text style={[{color:theme==="dark"?"#FFF":"#000"}]}>Login</Text>
             <TextInput placeholder={"email"} onChangeText={setEmail} value={email}/>
             <TextInput placeholder={"password"} onChangeText={setPassword} value={password}/>
-            <Button title="Register" onPress={handleRegisterBtn}/>
+            <TextInput placeholder={"name"} onChangeText={setName} value={name}/>
+            <Button title="Get Started!" onPress={handleRegisterBtn}/>
         </View>
     );
 };

@@ -19,22 +19,6 @@ const theming = {
   };
 
 export default function App() {
-    const[isLogged,setIsLogged]=useState(false)
-    const retrieveData=async ()=>
-    {
-        try {
-            const data=await AsyncStorageNative.getItem("KeepLoggedIn")
-            console.log("data: "+data)
-            setIsLogged(data)
-        }
-        catch (error){
-
-        }
-    }
-    useEffect(()=>{
-        //retrieveData();
-    },[])
-
   const currentTheme=useColorScheme();
   return (
       <AuthProvider>
