@@ -11,7 +11,6 @@ export default function LoginScreenStackNavigator()
         <LoginStack.Navigator>
             <LoginStack.Screen name="Login" component={Login}/>
             <LoginStack.Screen name="Register" component={Register}/>
-            <LoginStack.Screen name="Drawer" component={AppNavigation} options={{headerShown:false}}/>
         </LoginStack.Navigator>
     )
 }

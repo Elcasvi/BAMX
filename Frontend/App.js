@@ -11,6 +11,7 @@ import {
     PaperProvider,
   } from 'react-native-paper';
 import theme from './lib/theme.json'
+import {AuthProvider} from "./context/AuthContext";
 
 const theming = {
     ...DefaultTheme,
@@ -31,17 +32,13 @@ export default function App() {
         }
     }
     useEffect(()=>{
-        retrieveData();
+        //retrieveData();
     },[])
 
   const currentTheme=useColorScheme();
   return (
-    <PaperProvider theme={theming}>
-      <NavigationContainer
-          theme={currentTheme==="dark"?DarkTheme:DefaultThemeReact}>
-        <StatusBar style="auto"/>
-          {isLogged?(<AppNavigation/>):(<LoginScreenStackNavigator/>)}
-      </NavigationContainer>
-    </PaperProvider>
+      <AuthProvider>
+        <AppNavigation/>
+      </AuthProvider>
 );
 }
