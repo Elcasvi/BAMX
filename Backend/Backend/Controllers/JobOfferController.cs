@@ -33,8 +33,9 @@ public class JobOfferController:ControllerBase
     [HttpGet]
     public IActionResult GetJobOffers()
     {
-        var jobOffers=_mapper.Map<List<JobOfferDto>>(_jobOfferRepository.GetAll());//This convert the users form the database into userDto objects
-        if(!ModelState.IsValid)
+        //var jobOffers=_mapper.Map<List<JobOfferDto>>(_jobOfferRepository.GetAll());//This convert the users form the database into userDto objects
+        var jobOffers=_jobOfferRepository.GetAll();
+        if (!ModelState.IsValid)
         {
             return BadRequest(ModelState);
         }
@@ -53,7 +54,7 @@ public class JobOfferController:ControllerBase
     }
     
     [HttpPost]
-    public IActionResult CreateJobOffer(JobOfferDto jobOfferDto)
+    public IActionResult CreateJobOffer([FromBody]JobOfferDto jobOfferDto)
     {
         if (jobOfferDto==null)
         {

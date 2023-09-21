@@ -30,7 +30,8 @@ public class UserController:ControllerBase
         {
             return NotFound();
         }
-        var user = _mapper.Map<UserDto>(_userRepository.Get(id));
+        //var user = _mapper.Map<UserDto>(_userRepository.Get(id));
+        var user = _userRepository.Get(id);
         return Ok(user);
     }
     
@@ -41,7 +42,8 @@ public class UserController:ControllerBase
         {
             return NotFound();
         }
-        var user = _mapper.Map<UserDto>(_userRepository.Get(email,password));
+        //var user = _mapper.Map<UserDto>(_userRepository.Get(email,password));
+        var user = _userRepository.Get(email, password);
         return Ok(user);
     }
 
