@@ -1,9 +1,7 @@
-import JobsFeed from "../screens/Jobs/JobsFeed";
-import JobDetailsScreen from "../screens/Jobs/JobDetailsScreen";
-import UserProfile from "../screens/UserProfile";
 import {createNativeStackNavigator} from "@react-navigation/native-stack";
 import Login from "../screens/Login";
 import Register from "../screens/Register";
+import AppNavigation from "./AppNavigation";
 
 
 const LoginStack = createNativeStackNavigator();
@@ -13,6 +11,7 @@ export default function LoginScreenStackNavigator()
         <LoginStack.Navigator>
             <LoginStack.Screen name="Login" component={Login}/>
             <LoginStack.Screen name="Register" component={Register}/>
+            <LoginStack.Screen name="Drawer" component={AppNavigation} options={{headerShown:false}}/>
         </LoginStack.Navigator>
     )
 }

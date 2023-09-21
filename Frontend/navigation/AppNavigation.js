@@ -63,6 +63,7 @@ const DrawerNav=()=>
         <Drawer.Navigator initialRouteName="TabGroup" screenOptions={{headerShown:false}}>
             <Drawer.Screen name="TabGroup" component={TabGroup} />
             <Drawer.Screen name="UserProfile" component={UserProfile} options={{headerShown:true}}/>
+            <Drawer.Screen name="Login" component={LoginScreenStackNavigator} options={{headerShown:false}}/>
         </Drawer.Navigator>
     )
 }

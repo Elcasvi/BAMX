@@ -20,6 +20,7 @@ export default function UserProfile({navigation}) {
         console.log("log out")
         AsyncStorageNative.setItem("KeepLoggedIn","")
         AsyncStorageNative.setItem("token","")
+        navigation.navigate("Login")
     }
 
     return (
