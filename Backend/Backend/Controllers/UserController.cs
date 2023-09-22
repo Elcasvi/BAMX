@@ -139,7 +139,7 @@ public class UserController:ControllerBase
         {
             return BadRequest(ModelState);
         }
-        if (!_userRepository.Exists(userDto.Email,userDto.Password))
+        if (!_userRepository.Exists(1))
         {
             ModelState.AddModelError("","User does not exists");
             return StatusCode(422, ModelState);

@@ -33,7 +33,8 @@ public class CourseController:ControllerBase
     [HttpGet]
     public IActionResult GetCourses()
     {
-        var courses = _mapper.Map<List<CourseDto>>(_courseRepository.GetAll());
+        //var courses = _mapper.Map<List<CourseDto>>(_courseRepository.GetAll());
+        var courses=_courseRepository.GetAll();
         if (!ModelState.IsValid)
         {
             return BadRequest(ModelState);
@@ -63,13 +64,6 @@ public class CourseController:ControllerBase
         {
             return BadRequest();
         }
-        /*
-        if (_jobOfferRepository.Exists())
-        {
-            ModelState.AddModelError("","User already exists");
-            return StatusCode(422, ModelState);
-        }
-        */
         if (!ModelState.IsValid)
         {
             return BadRequest(ModelState);
