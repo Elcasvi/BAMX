@@ -36,7 +36,6 @@ export default function JobsFeedScreen() {
         axios.get(url)
             .then(res => {
                 setJobOffers(res.data)
-                console.log(res.data)
             })
             .catch((error) => {
                 alert("Error: "+error)
