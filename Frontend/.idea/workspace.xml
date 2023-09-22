@@ -5,11 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4d695a77-b978-4f13-8366-bf2b95423c61" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../Backend/.vs/Backend/DesignTimeBuild/.dtbcache.v2" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/.vs/Backend/DesignTimeBuild/.dtbcache.v2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/.vs/Backend/FileContentIndex/52a4c530-4dd6-4b42-ba29-474f6cecaa83.vsidx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/.vs/Backend/FileContentIndex/69c68dab-1870-4f0b-99dd-f2a407b023c1.vsidx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/.vs/Backend/FileContentIndex/72647b15-fc43-4398-8c30-cdf1b64faca1.vsidx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/.vs/Backend/FileContentIndex/d56fc835-3b39-4ef5-9672-8d6d39831602.vsidx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/.vs/Backend/FileContentIndex/e8bc7df9-5ca1-4181-bf5a-b8ee36d85d94.vsidx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/.vs/Backend/v17/.suo" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/.vs/Backend/v17/.suo" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/Backend/Controllers/CourseController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/Backend/Controllers/CourseController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/Backend/Properties/PublishProfiles/BAMX - Web Deploy.pubxml.user" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/Backend/Properties/PublishProfiles/BAMX - Web Deploy.pubxml.user" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/Backend/bin/Release/net7.0/Backend.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/Backend/bin/Release/net7.0/Backend.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/Backend/bin/Release/net7.0/Backend.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/Backend/bin/Release/net7.0/Backend.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/Backend/obj/Release/net7.0/Backend.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/Backend/obj/Release/net7.0/Backend.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/Backend/obj/Release/net7.0/Backend.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/Backend/obj/Release/net7.0/Backend.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/Backend/obj/Release/net7.0/PubTmp/Out/Backend.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/Backend/obj/Release/net7.0/PubTmp/Out/Backend.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/Backend/obj/Release/net7.0/PubTmp/Out/Backend.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/Backend/obj/Release/net7.0/PubTmp/Out/Backend.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Courses/CourseContent.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/Courses/CourseContent.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screens/Admin/Courses/CreateCourseScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/Admin/Courses/CreateCourseScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screens/Courses/CoursesFeed.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/Courses/CoursesFeed.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screens/Jobs/JobsFeed.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/Jobs/JobsFeed.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screens/Jobs/JobDetailsScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/Jobs/JobDetailsScreen.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,7 +106,7 @@
       <workItem from="1695242978195" duration="10765000" />
       <workItem from="1695306713009" duration="9604000" />
       <workItem from="1695326757742" duration="7812000" />
-      <workItem from="1695337427281" duration="2315000" />
+      <workItem from="1695337427281" duration="4719000" />
     </task>
     <servers />
   </component>
