@@ -1,11 +1,14 @@
-import {Text, useColorScheme, View} from "react-native";
+import { useColorScheme, View} from "react-native";
+import { Card, Text } from "react-native-paper";
 
 export default function JobContent({job}) {
     const theme=useColorScheme();
     return(
-        <View>
-            <Text style={[{color:theme==="dark"?"#FFF":"#000"}]}>{job.title}</Text>
-            <Text style={[{color:theme==="dark"?"#FFF":"#000"}]}>{job.description}</Text>
-        </View>
+        <Card style={{ margin: 2 }} mode="outlined">
+            <Card.Title title={job.title} />
+            <Card.Content>
+                <Text variant="bodyMedium">{job.description}</Text>
+            </Card.Content>
+        </Card>
     );
 }

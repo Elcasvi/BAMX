@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Button, FlatList, Image, Pressable, SafeAreaView, Text} from "react-native";
+import {FlatList, Image, Pressable, SafeAreaView, Text} from "react-native";
 import {JobsDummy} from "../../data/JobsDummy";
 import Job from "../../components/Jobs/Job";
 import {useNavigation} from "@react-navigation/native";
@@ -9,6 +9,7 @@ import {BASE_URL} from "../../config";
 import axios from "axios";
 import AsyncStorageNative from "@react-native-async-storage/async-storage/src/AsyncStorage.native";
 import {AuthContext} from "../../context/AuthContext";
+import { Button } from 'react-native-paper';
 export default function JobsFeedScreen() {
     const USER=UserDummy
     const[jobOffers,setJobOffers]=useState(null)
@@ -44,11 +45,12 @@ export default function JobsFeedScreen() {
 
     return (
         <SafeAreaView style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-            {userInformation.role==="admin"?
+            {userInformation.role==="admin" && 
             <Button
-                title="New Job"
+                style={{ margin: 10 }}
+                mode='contained'
                 onPress={()=>navigation.navigate("CreateJobScreen")}
-            />:<></>
+            >New Job</Button>
             }
             <FlatList
                 data={jobOffers}

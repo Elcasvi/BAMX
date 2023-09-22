@@ -1,4 +1,5 @@
-import {Button, SafeAreaView, Text, TextInput, useColorScheme, View} from "react-native";
+import { SafeAreaView, useColorScheme, View} from "react-native";
+import { Text, TextInput, Button } from 'react-native-paper';
 import {useContext, useEffect, useState} from "react";
 import AsyncStorageNative from "@react-native-async-storage/async-storage/src/AsyncStorage.native";
 import {useNavigation} from "@react-navigation/native";
@@ -28,12 +29,12 @@ export default function Register()
         register({userBody})
     }
     return(
-        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-            <Text style={[{color:theme==="dark"?"#FFF":"#000"}]}>Login</Text>
-            <TextInput placeholder={"email"} onChangeText={setEmail} value={email}/>
-            <TextInput placeholder={"password"} onChangeText={setPassword} value={password}/>
-            <TextInput placeholder={"name"} onChangeText={setName} value={name}/>
-            <Button title="Get Started!" onPress={handleRegisterBtn}/>
+        <View style={{ flex: 1, alignItems: 'center', padding: 40 }}>
+            <Text variant="displayMedium">Register</Text>
+            <TextInput style={{width: "100%", margin: 20 }} mode="outlined" placeholder={"email"} onChangeText={setEmail} value={email}/>
+            <TextInput secureTextEntry={true} style={{width: "100%" }} mode="outlined" placeholder={"password"} onChangeText={setPassword} value={password}/>
+            <TextInput style={{width: "100%", margin: 20 }} mode="outlined" placeholder={"name"} onChangeText={setName} value={name}/>
+            <Button style={{width: "40%" }} mode="contained-tonal" onPress={handleRegisterBtn}>Register</Button>
         </View>
     );
 };

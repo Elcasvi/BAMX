@@ -1,7 +1,8 @@
-import {Button, SafeAreaView, Text, TextInput, View} from "react-native";
+import {View} from "react-native";
 import {BASE_URL} from "../../../config";
 import axios from "axios";
 import {useState} from "react";
+import { Button, Text, TextInput } from "react-native-paper";
 
 export default function CreateJobScreen()
 {
@@ -26,11 +27,11 @@ export default function CreateJobScreen()
             })
     }
     return(
-        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-            <Text>Create Job</Text>
-            <TextInput placeholder={"Title"} onChangeText={setTitle} value={title}/>
-            <TextInput placeholder={"Description"} onChangeText={setDescription} value={description}/>
-            <Button title="Create!" onPress={createJob}/>
+        <View style={{ flex: 1, alignItems: 'center', padding: 40 }}>
+            <Text variant="displayMedium">Create Job</Text>
+            <TextInput style={{width: "100%", margin: 20 }} mode="outlined" placeholder={"Title"} onChangeText={setTitle} value={title}/>
+            <TextInput style={{width: "100%" }} mode="outlined" placeholder={"Description"} onChangeText={setDescription} value={description}/>
+            <Button style={{width: "40%", margin: 10 }} mode="contained-tonal" onPress={createJob}>Create Job</Button>
         </View>
     );
 }
