@@ -28,26 +28,29 @@ namespace Backend.Models.Data
             modelBuilder.Entity<UserCourse>()
                 .HasOne(user => user.User)
                 .WithMany(usercourse => usercourse.UserCourses)
-                .HasForeignKey(course => course.CourseId);
-            
+                .HasForeignKey(user => user.UserId);
+
             modelBuilder.Entity<UserCourse>()
                 .HasOne(course => course.Course)
                 .WithMany(usercourse => usercourse.UserCourses)
-                .HasForeignKey(user => user.UserId);
-            
-            
-            
+                .HasForeignKey(course => course.CourseId);
+
+
+
             modelBuilder.Entity<UserJobOffer>().HasKey(userjoboffer => new { userjoboffer.UserId, userjoboffer.JobOfferId });
             
             modelBuilder.Entity<UserJobOffer>()
                 .HasOne(user => user.User)
                 .WithMany(userjoboffer => userjoboffer.UserJobOffers)
-                .HasForeignKey(joboffer => joboffer.JobOfferId);
-            
+                .HasForeignKey(user => user.UserId);
+                //.HasForeignKey(joboffer => joboffer.JobOfferId);
+
+
             modelBuilder.Entity<UserJobOffer>()
                 .HasOne(joboffer => joboffer.JobOffer)
                 .WithMany(userjoboffer => userjoboffer.UserJobOffers)
-                .HasForeignKey(user => user.UserId);
+                .HasForeignKey(joboffer => joboffer.JobOfferId);
+                //.HasForeignKey(user => user.UserId);
 
         }
     }

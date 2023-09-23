@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Backend.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20230917231150_InitAzureDB")]
-    partial class InitAzureDB
+    [Migration("20230923004916_InitAzureSqlDB")]
+    partial class InitAzureSqlDB
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -200,13 +200,13 @@ namespace Backend.Migrations
 
             modelBuilder.Entity("Backend.Models.Entities.JoinTables.UserCourse", b =>
                 {
-                    b.HasOne("Backend.Models.Entities.User", "User")
+                    b.HasOne("Backend.Models.Entities.Course", "Course")
                         .WithMany("UserCourses")
                         .HasForeignKey("CourseId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Backend.Models.Entities.Course", "Course")
+                    b.HasOne("Backend.Models.Entities.User", "User")
                         .WithMany("UserCourses")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -219,13 +219,13 @@ namespace Backend.Migrations
 
             modelBuilder.Entity("Backend.Models.Entities.JoinTables.UserJobOffer", b =>
                 {
-                    b.HasOne("Backend.Models.Entities.User", "User")
+                    b.HasOne("Backend.Models.Entities.JobOffer", "JobOffer")
                         .WithMany("UserJobOffers")
                         .HasForeignKey("JobOfferId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Backend.Models.Entities.JobOffer", "JobOffer")
+                    b.HasOne("Backend.Models.Entities.User", "User")
                         .WithMany("UserJobOffers")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)

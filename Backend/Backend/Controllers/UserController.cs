@@ -2,6 +2,7 @@
 using Backend.Models.Dtos;
 using Backend.Models.Entities;
 using Backend.Models.Interfaces;
+using Backend.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Backend.Controllers;
@@ -13,14 +14,16 @@ public class UserController:ControllerBase
     private readonly IUserRepository _userRepository;
     private readonly IJobOfferRepository _jobOfferRepository;
     private readonly IMapper _mapper;
+    private readonly Hash _hash;
 
 
 
-    public UserController(IUserRepository userRepository,IJobOfferRepository jobOfferRepository,IMapper mapper)
+    public UserController(IUserRepository userRepository,IJobOfferRepository jobOfferRepository,IMapper mapper,Hash hash)
     {
         _userRepository = userRepository;
         _jobOfferRepository = jobOfferRepository;
         _mapper = mapper; 
+        _hash = hash;
     }
 
     [HttpGet("{id}")]
@@ -132,14 +135,11 @@ public class UserController:ControllerBase
         return Ok(newUser);
     }
     
-    [HttpPost("update/{jobOfferId}")]
-    public IActionResult UpdateUserJobOffer(int jobOfferId,[FromBody] UserDto userDto)
+    [HttpPost("update/{jobOfferId}/{userId}")]
+    public IActionResult UpdateUserJobOffer(int jobOfferId,int userId)
     {
-        if (userDto==null)
-        {
-            return BadRequest(ModelState);
-        }
-        if (!_userRepository.Exists(1))
+        
+        if (!_userRepository.Exists(userId))
         {
             ModelState.AddModelError("","User does not exists");
             return StatusCode(422, ModelState);
@@ -149,8 +149,8 @@ public class UserController:ControllerBase
             ModelState.AddModelError("","Job offer does not exists");
             return StatusCode(422, ModelState);
         }
-        var userMap = _mapper.Map<User>(userDto);
-        var updatedUser=_userRepository.AddUserJobOffer(jobOfferId, userMap).Entity;
+        //var userMap = _mapper.Map<User>(userDto);
+        var updatedUser=_userRepository.AddUserJobOffer(jobOfferId, userId).Entity;
         if (updatedUser == null)
         {
             ModelState.AddModelError("","Something went wrong while saving");
@@ -159,7 +159,7 @@ public class UserController:ControllerBase
         return Ok(updatedUser);
     }
     
-    /*
+    
     [HttpPost("{password}")]
     public IActionResult HashString(string password)
     {
@@ -172,5 +172,5 @@ public class UserController:ControllerBase
         return Ok(_hash.Verify(inputPassword, passwordHash));
     }
     
-*/
+
 }

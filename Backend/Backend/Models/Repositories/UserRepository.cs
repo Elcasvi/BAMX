@@ -71,10 +71,10 @@ namespace Backend.Models.Repositories
             Save();
             return updatedUser;
         }
-        public EntityEntry<UserJobOffer> AddUserJobOffer(int jobOfferId,User user)
+        public EntityEntry<UserJobOffer> AddUserJobOffer(int jobOfferId,int userId)
         {
             var jobOffer = _dbContext.JobOffers.FirstOrDefault(j => j.Id == jobOfferId);
-            var userId = Get(user.Email, user.Password).Id;
+            var user = Get(userId);
             UserJobOffer userJobOffer = new UserJobOffer()
             {
                 UserId = userId,

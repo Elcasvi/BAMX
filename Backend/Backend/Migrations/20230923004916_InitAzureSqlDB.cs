@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Backend.Migrations
 {
     /// <inheritdoc />
-    public partial class InitAzureDB : Migration
+    public partial class InitAzureSqlDB : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -97,14 +97,14 @@ namespace Backend.Migrations
                 {
                     table.PrimaryKey("PK_UserCourses", x => new { x.UserId, x.CourseId });
                     table.ForeignKey(
-                        name: "FK_UserCourses_Courses_UserId",
-                        column: x => x.UserId,
+                        name: "FK_UserCourses_Courses_CourseId",
+                        column: x => x.CourseId,
                         principalTable: "Courses",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_UserCourses_Users_CourseId",
-                        column: x => x.CourseId,
+                        name: "FK_UserCourses_Users_UserId",
+                        column: x => x.UserId,
                         principalTable: "Users",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -121,14 +121,14 @@ namespace Backend.Migrations
                 {
                     table.PrimaryKey("PK_UserJobOffers", x => new { x.UserId, x.JobOfferId });
                     table.ForeignKey(
-                        name: "FK_UserJobOffers_JobOffers_UserId",
-                        column: x => x.UserId,
+                        name: "FK_UserJobOffers_JobOffers_JobOfferId",
+                        column: x => x.JobOfferId,
                         principalTable: "JobOffers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_UserJobOffers_Users_JobOfferId",
-                        column: x => x.JobOfferId,
+                        name: "FK_UserJobOffers_Users_UserId",
+                        column: x => x.UserId,
                         principalTable: "Users",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);

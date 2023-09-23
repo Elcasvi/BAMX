@@ -197,13 +197,13 @@ namespace Backend.Migrations
 
             modelBuilder.Entity("Backend.Models.Entities.JoinTables.UserCourse", b =>
                 {
-                    b.HasOne("Backend.Models.Entities.User", "User")
+                    b.HasOne("Backend.Models.Entities.Course", "Course")
                         .WithMany("UserCourses")
                         .HasForeignKey("CourseId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Backend.Models.Entities.Course", "Course")
+                    b.HasOne("Backend.Models.Entities.User", "User")
                         .WithMany("UserCourses")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -216,13 +216,13 @@ namespace Backend.Migrations
 
             modelBuilder.Entity("Backend.Models.Entities.JoinTables.UserJobOffer", b =>
                 {
-                    b.HasOne("Backend.Models.Entities.User", "User")
+                    b.HasOne("Backend.Models.Entities.JobOffer", "JobOffer")
                         .WithMany("UserJobOffers")
                         .HasForeignKey("JobOfferId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Backend.Models.Entities.JobOffer", "JobOffer")
+                    b.HasOne("Backend.Models.Entities.User", "User")
                         .WithMany("UserJobOffers")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
