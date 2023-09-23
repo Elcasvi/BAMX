@@ -23,7 +23,10 @@ export default function JobDetailsScreen() {
     const handelApplyBtn=()=>
     {
         console.log("in handleApplyBtn")
+        console.log("Id= "+userInformation.id)
+
         const userBody={
+            Id:userInformation.id,
             Name:userInformation.name,
             Email:userInformation.email,
             Password:userInformation.password,
@@ -32,8 +35,8 @@ export default function JobDetailsScreen() {
             Rating:userInformation.rating,
             ProfilePic:userInformation.profilePic
         }
-        const url=BASE_URL+"/update/"+params.job.id
-        axios.post(url,userBody)
+        const url=BASE_URL+"/User/update/"+params.job.id+"/"+userInformation.id
+        axios.post(url)
             .then(res => {
                 console.log(res.data)
             })
