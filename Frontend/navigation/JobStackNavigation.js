@@ -6,6 +6,8 @@ import UserProfile from "../screens/UserProfile";
 import {TopTabGroup} from "./DrawerNavigation";
 import {Image, Pressable} from "react-native";
 import {useNavigation} from "@react-navigation/native";
+import AppliedJobs from "../screens/Jobs/AppliedJobs";
+import AssignedJobs from "../screens/Jobs/AssignedJobs";
 
 const JobFeedStack = createNativeStackNavigator();
 export default function JobStackNavigation() {
@@ -26,6 +28,8 @@ export default function JobStackNavigation() {
             <JobFeedStack.Screen name="JobDetailsScreen" component={JobDetailsScreen}
                                  options={{presentation:"modal"}}/>
             <JobFeedStack.Screen name="UserProfile" component={UserProfile} />
+            <JobFeedStack.Screen name="AssignedJobs" component={AssignedJobs} />
+            <JobFeedStack.Screen name="AppliedJobs" component={AppliedJobs} />
         </JobFeedStack.Navigator>
     )
 }

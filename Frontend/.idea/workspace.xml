@@ -5,17 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4d695a77-b978-4f13-8366-bf2b95423c61" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../Backend/.vs/Backend/v17/.futdcache.v2" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/.vs/Backend/v17/.futdcache.v2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Backend/.vs/Backend/v17/.suo" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/.vs/Backend/v17/.suo" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Backend/.vs/ProjectEvaluation/backend.metadata.v7.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/.vs/ProjectEvaluation/backend.metadata.v7.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Backend/.vs/ProjectEvaluation/backend.projects.v7.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/.vs/ProjectEvaluation/backend.projects.v7.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navigation/DrawerNavigation.js" beforeDir="false" afterPath="$PROJECT_DIR$/navigation/DrawerNavigation.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navigation/adminNavigation/AdminCourseStackNavigation.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/navigation/adminNavigation/AdminJobStackNavigation.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/navigation/employeeNavigation/EmployeeCourseStackNavigation.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/navigation/employeeNavigation/EmployeeJobStackNavigation.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/screens/Admin/Jobs/CreateJobScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/Admin/Jobs/CreateJobScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navigation/JobStackNavigation.js" beforeDir="false" afterPath="$PROJECT_DIR$/navigation/JobStackNavigation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screens/Jobs/AppliedJobs.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/Jobs/AppliedJobs.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screens/Jobs/AssignedJobs.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/Jobs/AssignedJobs.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/screens/Jobs/JobsFeed.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/Jobs/JobsFeed.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -105,6 +98,7 @@
       <workItem from="1695426206976" duration="4080000" />
       <workItem from="1695600119189" duration="627000" />
       <workItem from="1695601841348" duration="7887000" />
+      <workItem from="1695653557570" duration="4708000" />
     </task>
     <servers />
   </component>

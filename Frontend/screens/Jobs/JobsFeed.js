@@ -11,6 +11,7 @@ export default function JobsFeedScreen() {
     const[jobOffers,setJobOffers]=useState(null)
     const {userInformation} = useContext(AuthContext)
     const navigation=useNavigation();
+    /*
     useLayoutEffect(()=>{
         navigation.setOptions({
             headerRight:()=>(
@@ -23,7 +24,7 @@ export default function JobsFeedScreen() {
             ),
         });
     },[]);
-
+*/
 
 
     useEffect(() => {
