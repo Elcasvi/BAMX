@@ -7,9 +7,10 @@
     <list default="true" id="4d695a77-b978-4f13-8366-bf2b95423c61" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/navigation/JobStackNavigation.js" beforeDir="false" afterPath="$PROJECT_DIR$/navigation/JobStackNavigation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/screens/Jobs/AppliedJobs.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/Jobs/AppliedJobs.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screens/Jobs/AssignedJobs.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/Jobs/AssignedJobs.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screens/Jobs/JobsFeed.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/Jobs/JobsFeed.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screens/Jobs/JobDetailsScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/Jobs/JobDetailsScreen.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,11 +57,11 @@
       <recent name="C:\React Native\BAMX\Frontend\components\Admin" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\React Native\BAMX\Frontend\components\Users" />
       <recent name="$PROJECT_DIR$/navigation/adminNavigation" />
       <recent name="$PROJECT_DIR$/assets" />
       <recent name="$PROJECT_DIR$/components" />
       <recent name="$PROJECT_DIR$/screens" />
-      <recent name="C:\React Native\BAMX\Frontend\components\Courses" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -99,6 +100,7 @@
       <workItem from="1695600119189" duration="627000" />
       <workItem from="1695601841348" duration="7887000" />
       <workItem from="1695653557570" duration="4708000" />
+      <workItem from="1695680527346" duration="4561000" />
     </task>
     <servers />
   </component>

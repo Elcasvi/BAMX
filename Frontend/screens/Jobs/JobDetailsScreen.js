@@ -9,22 +9,22 @@ import axios from "axios";
 export default function JobDetailsScreen() {
     const {userInformation}=useContext(AuthContext)
     const navigation=useNavigation();
+    const {navigate}=useNavigation();
+
     const route=useRoute();
     const{params}=route;
+    const job=params.job;
 
     useLayoutEffect(()=>
         {
             navigation.setOptions({
-                headerTitle:params.job.name
+                headerTitle:job.name
             })
         }
         ,[])
 
     const handelApplyBtn=()=>
     {
-        console.log("in handleApplyBtn")
-        console.log("Id= "+userInformation.id)
-
         const userBody={
             Id:userInformation.id,
             Name:userInformation.name,
@@ -35,7 +35,7 @@ export default function JobDetailsScreen() {
             Rating:userInformation.rating,
             ProfilePic:userInformation.profilePic
         }
-        const url=BASE_URL+"/User/update/"+params.job.id+"/"+userInformation.id
+        const url=BASE_URL+"/User/update/"+job.id+"/"+userInformation.id
         axios.post(url)
             .then(res => {
                 console.log(res.data)
@@ -47,11 +47,11 @@ export default function JobDetailsScreen() {
 
     return(
         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-            <Text>{params.job.id}</Text>
-            <JobContent job={params.job}/>
+            <Text>{job.id}</Text>
+            <JobContent job={job}/>
 
             {userInformation.role==="admin"?
-                <Button title="See users apliying"/>:
+                <Button title="See users apliying" onPress={()=>{navigate("UsersApplyingToJob",{job});}}/>:
                 <Button title="Aply" onPress={handelApplyBtn}/>}
         </View>
     )

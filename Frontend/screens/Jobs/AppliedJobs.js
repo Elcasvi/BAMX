@@ -4,6 +4,7 @@ import {BASE_URL} from "../../config";
 import axios from "axios";
 import {useContext, useEffect, useState} from "react";
 import {AuthContext} from "../../context/AuthContext";
+import Job from "../../components/Jobs/Job";
 
 export default function AppliedJobs()
 {
@@ -25,7 +26,7 @@ export default function AppliedJobs()
         <View>
             <Text>AppliedJobs Screen</Text>
             <FlatList data={jobOffers}
-                      renderItem={({item})=><Text>{item.title}</Text>}
+                      renderItem={({item})=><Job job={item}/>}
             />
         </View>
     )
