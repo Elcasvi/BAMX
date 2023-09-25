@@ -45,7 +45,7 @@ public class JobOfferController:ControllerBase
     [HttpGet("users/{jobOfferId}")]
     public IActionResult GetUsersForJobOffer(int jobOfferId)
     {
-       var users=_mapper.Map<List<JobOfferDto>>(_jobOfferRepository.GetAllUsersByJobOfferId(jobOfferId));
+        ICollection<User> users= _jobOfferRepository.GetAllUsersByJobOfferId(jobOfferId);
        if(!ModelState.IsValid)
        {
            return BadRequest(ModelState);
