@@ -3,9 +3,11 @@ import {BASE_URL} from "../../../config";
 import axios from "axios";
 import {useState} from "react";
 import { Button, Text, TextInput } from "react-native-paper";
+import {useNavigation} from "@react-navigation/native";
 
 export default function CreateJobScreen()
 {
+    const navigation=useNavigation()
     const[title,setTitle]=useState("")
     const[description,setDescription]=useState("")
     const createJob=()=>
@@ -21,6 +23,8 @@ export default function CreateJobScreen()
         axios.post(url,jobOfferBody)
             .then(res => {
                 console.log(res.data)
+                navigation.navigate("JobsFeed")
+
             })
             .catch((error) => {
                 alert("Error: "+error)

@@ -1,17 +1,13 @@
 import * as React from 'react';
 import {FlatList, Image, Pressable, SafeAreaView, Text} from "react-native";
-import {JobsDummy} from "../../data/JobsDummy";
 import Job from "../../components/Jobs/Job";
 import {useNavigation} from "@react-navigation/native";
 import {useContext, useEffect, useLayoutEffect, useState} from "react";
-import {UserDummy} from "../../data/UserDummy";
 import {BASE_URL} from "../../config";
 import axios from "axios";
-import AsyncStorageNative from "@react-native-async-storage/async-storage/src/AsyncStorage.native";
 import {AuthContext} from "../../context/AuthContext";
 import { Button } from 'react-native-paper';
 export default function JobsFeedScreen() {
-    const USER=UserDummy
     const[jobOffers,setJobOffers]=useState(null)
     const {userInformation} = useContext(AuthContext)
     const navigation=useNavigation();
@@ -27,6 +23,8 @@ export default function JobsFeedScreen() {
             ),
         });
     },[]);
+
+
 
     useEffect(() => {
         getJobOffers()

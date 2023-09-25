@@ -10,7 +10,13 @@
       <change beforePath="$PROJECT_DIR$/../Backend/.vs/ProjectEvaluation/backend.metadata.v7.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/.vs/ProjectEvaluation/backend.metadata.v7.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Backend/.vs/ProjectEvaluation/backend.projects.v7.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/.vs/ProjectEvaluation/backend.projects.v7.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screens/Jobs/JobDetailsScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/Jobs/JobDetailsScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navigation/DrawerNavigation.js" beforeDir="false" afterPath="$PROJECT_DIR$/navigation/DrawerNavigation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navigation/adminNavigation/AdminCourseStackNavigation.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/navigation/adminNavigation/AdminJobStackNavigation.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/navigation/employeeNavigation/EmployeeCourseStackNavigation.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/navigation/employeeNavigation/EmployeeJobStackNavigation.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/screens/Admin/Jobs/CreateJobScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/Admin/Jobs/CreateJobScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screens/Jobs/JobsFeed.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/Jobs/JobsFeed.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,7 +102,9 @@
       <workItem from="1695306713009" duration="9604000" />
       <workItem from="1695326757742" duration="7812000" />
       <workItem from="1695337427281" duration="5447000" />
-      <workItem from="1695426206976" duration="3310000" />
+      <workItem from="1695426206976" duration="4080000" />
+      <workItem from="1695600119189" duration="627000" />
+      <workItem from="1695601841348" duration="7887000" />
     </task>
     <servers />
   </component>
