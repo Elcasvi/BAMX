@@ -118,6 +118,13 @@ namespace Backend.Models.Repositories
         {
             return _dbContext.Users.Any(user => user.Id == id);
         }
+        
+        public User UpdateUser(User user)
+        {
+            User updatedUser=_dbContext.Users.Update(user).Entity;
+            Save();
+            return updatedUser;
+        }
         public bool Save()
         {
             var saved = _dbContext.SaveChanges();

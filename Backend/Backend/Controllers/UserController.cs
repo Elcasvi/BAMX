@@ -4,6 +4,7 @@ using Backend.Models.Entities;
 using Backend.Models.Interfaces;
 using Backend.Services;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 
 namespace Backend.Controllers;
 
@@ -171,6 +172,40 @@ public class UserController:ControllerBase
     {
         return Ok(_hash.Verify(inputPassword, passwordHash));
     }
-    
 
+    [HttpPut("/update/{userId}")]
+    [ProducesResponseType(400)]
+    [ProducesResponseType(404)]
+    [ProducesResponseType(200)]
+    public IActionResult UpdateUser(int userId,User updatedUser)
+    {
+        if (updatedUser == null)
+        {
+            return BadRequest(ModelState);
+        }
+
+        if (userId != updatedUser.Id)
+        {
+            return BadRequest(ModelState);
+        }
+
+        if (!_userRepository.Exists(userId))
+        {
+            return NotFound();
+        }
+
+        if (!ModelState.IsValid)
+        {
+            return BadRequest();
+        }
+
+        User returnedUpdatedUser = _userRepository.UpdateUser(updatedUser);
+        if (returnedUpdatedUser==null)
+        {
+            ModelState.AddModelError("","Something went wrong updating the user");
+            return StatusCode(500, ModelState);
+        }
+
+        return Ok(returnedUpdatedUser);
+    }
 }

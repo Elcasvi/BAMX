@@ -19,6 +19,7 @@ namespace Backend.Models.Interfaces
         public EntityEntry<User> AddUserCourse(int courseId, User user);
         public bool Exists(string email,string password);
         public bool Exists(int id);
+        public User UpdateUser(User user);
         public bool Save();
 
     }

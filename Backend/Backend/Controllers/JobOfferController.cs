@@ -81,4 +81,11 @@ public class JobOfferController:ControllerBase
         }
         return Ok(newJobOffer);
     }
+
+    
+    [HttpDelete]
+    public IActionResult DeleteJobOffer()
+    {
+        throw new NotImplementedException();
+    }
 }
