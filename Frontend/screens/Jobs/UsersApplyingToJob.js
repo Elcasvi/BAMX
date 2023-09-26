@@ -34,7 +34,7 @@ export default function UsersApplyingToJob()
             <Text>Users applying to the job</Text>
             <FlatList
                 data={users}
-                renderItem={({item})=><User user={item}/>}
+                renderItem={({item})=><User user={item} job={job}/>}
                 keyExtractor={item => item.id}
             />
         </View>
