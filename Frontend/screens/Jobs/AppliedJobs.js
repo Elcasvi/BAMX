@@ -11,6 +11,11 @@ export default function AppliedJobs()
     const [jobOffers,setJobOffers]=useState({})
     const {userInformation} = useContext(AuthContext)
     useEffect(() => {
+        getJobOffersByUser()
+
+    }, []);
+    const getJobOffersByUser=()=>
+    {
         const url=BASE_URL+"/User/jobOffers/"+userInformation.id
         axios.get(url)
             .then(res => {
@@ -19,8 +24,7 @@ export default function AppliedJobs()
             .catch((error) => {
                 alert("Error: "+error)
             })
-
-    }, []);
+    }
 
     return(
         <View>

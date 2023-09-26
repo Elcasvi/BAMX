@@ -8,7 +8,9 @@ import axios from "axios";
 import {AuthContext} from "../../context/AuthContext";
 import { Button } from 'react-native-paper';
 export default function JobsFeedScreen() {
-    const[jobOffers,setJobOffers]=useState(null)
+    const[jobOffers,setJobOffers]=useState({})
+    const [jobOffersByUser,setJobOffersByUser]=useState({})
+
     const {userInformation} = useContext(AuthContext)
     const navigation=useNavigation();
     /*
@@ -25,23 +27,58 @@ export default function JobsFeedScreen() {
         });
     },[]);
 */
-
-
     useEffect(() => {
+        getJobOffersByUser()
         getJobOffers()
+
     }, []);
-    const getJobOffers=()=>
+
+    const getJobOffersByUser=()=>
     {
-        const url=BASE_URL+"/JobOffer"
+        const url=BASE_URL+"/User/jobOffers/"+userInformation.id
         axios.get(url)
             .then(res => {
-                setJobOffers(res.data)
+                setJobOffersByUser(res.data)
             })
             .catch((error) => {
                 alert("Error: "+error)
             })
     }
+    const getJobOffers=()=>
+    {
+        const url=BASE_URL+"/JobOffer"
+        axios.get(url)
+            .then(res => {
+                setJobOffers(eraseAppliedJobs(res.data))
+            })
+            .catch((error) => {
+                alert("Error: "+error)
+            })
+    }
+    const eraseAppliedJobs=(jobs)=>
+    {
+        const filteredJobs = [];
+        for(let i=0;i<jobs.length; i++)
+        {
+            if(!jobAlreadyApplied(jobs[i].id))
+            {
+                filteredJobs.push(jobs[i])
+            }
+        }
+        return filteredJobs
+    }
 
+    const jobAlreadyApplied=(id)=>
+    {
+        for(let i=0;i<jobOffersByUser.length;i++)
+        {
+            if(jobOffersByUser[i].id===id)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
     return (
         <SafeAreaView style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
             {userInformation.role==="admin" && 
