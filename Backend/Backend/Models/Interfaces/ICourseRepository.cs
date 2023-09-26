@@ -13,6 +13,7 @@ namespace Backend.Models.Interfaces
         public EntityEntry<Course> Delete(Course course);
         public EntityEntry<Course> Update(Course course);
         public bool Exists(int id);
+        public Course UpdateCourse(Course course);
         public bool Save();
     }
 }

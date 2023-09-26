@@ -26,7 +26,8 @@ public class JobOfferController:ControllerBase
         {
             return NotFound();
         }
-        var jobOffer = _mapper.Map<JobOfferDto>(_jobOfferRepository.Get(id));
+        //var jobOffer = _mapper.Map<JobOfferDto>(_jobOfferRepository.Get(id));
+        var jobOffer = _jobOfferRepository.Get(id);
         return Ok(jobOffer);
     }
     
@@ -81,7 +82,42 @@ public class JobOfferController:ControllerBase
         }
         return Ok(newJobOffer);
     }
+    
+    [HttpPut("/update/jobOfferId/{jobOfferId}")]
+    [ProducesResponseType(400)]
+    [ProducesResponseType(404)]
+    [ProducesResponseType(200)]
+    public IActionResult UpdateUser(int jobOfferId,[FromBody]JobOffer updatedJobOffer)
+    {
+        if (updatedJobOffer == null)
+        {
+            return BadRequest(ModelState);
+        }
 
+        if (jobOfferId != updatedJobOffer.Id)
+        {
+            return BadRequest(ModelState);
+        }
+
+        if (!_jobOfferRepository.Exists(jobOfferId))
+        {
+            return NotFound();
+        }
+
+        if (!ModelState.IsValid)
+        {
+            return BadRequest();
+        }
+        JobOffer returnedUpdatedJobOffer = _jobOfferRepository.UpdateJobOffer(updatedJobOffer);
+        if (returnedUpdatedJobOffer==null)
+        {
+            ModelState.AddModelError("","Something went wrong updating the job offer");
+            return StatusCode(500, ModelState);
+        }
+
+        return Ok(returnedUpdatedJobOffer);
+    }
+    
     
     [HttpDelete]
     public IActionResult DeleteJobOffer()

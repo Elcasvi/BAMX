@@ -56,6 +56,12 @@ namespace Backend.Models.Repositories
             return _dbContext.Courses.Any(course => course.Id == id);
         }
 
+        public Course UpdateCourse(Course course)
+        {
+            Course updatedCourse=_dbContext.Courses.Update(course).Entity;
+            Save();
+            return updatedCourse;
+        }
         public bool Save()
         {
             var saved = _dbContext.SaveChanges();

@@ -173,11 +173,11 @@ public class UserController:ControllerBase
         return Ok(_hash.Verify(inputPassword, passwordHash));
     }
 
-    [HttpPut("/update/{userId}")]
+    [HttpPut("/update/userId/{userId}")]
     [ProducesResponseType(400)]
     [ProducesResponseType(404)]
     [ProducesResponseType(200)]
-    public IActionResult UpdateUser(int userId,User updatedUser)
+    public IActionResult UpdateUser(int userId,[FromBody]User updatedUser)
     {
         if (updatedUser == null)
         {
@@ -205,7 +205,6 @@ public class UserController:ControllerBase
             ModelState.AddModelError("","Something went wrong updating the user");
             return StatusCode(500, ModelState);
         }
-
         return Ok(returnedUpdatedUser);
     }
 }

@@ -8,7 +8,7 @@ namespace Backend.Controllers;
 
 [ApiController]
 [Route("[Controller]")]
-public class CourseController:ControllerBase
+public class CourseController : ControllerBase
 {
     private readonly ICourseRepository _courseRepository;
     private readonly IMapper _mapper;
@@ -26,6 +26,7 @@ public class CourseController:ControllerBase
         {
             return NotFound();
         }
+
         var course = _mapper.Map<CourseDto>(_courseRepository.Get(id));
         return Ok(course);
     }
@@ -34,11 +35,12 @@ public class CourseController:ControllerBase
     public IActionResult GetCourses()
     {
         //var courses = _mapper.Map<List<CourseDto>>(_courseRepository.GetAll());
-        var courses=_courseRepository.GetAll();
+        var courses = _courseRepository.GetAll();
         if (!ModelState.IsValid)
         {
             return BadRequest(ModelState);
         }
+
         return Ok(courses);
     }
 
@@ -49,33 +51,72 @@ public class CourseController:ControllerBase
         {
             return NotFound();
         }
+
         var courses = _mapper.Map<List<CourseDto>>(_courseRepository.GetAllUsersByCourseId(courseId));
         if (!ModelState.IsValid)
         {
             return BadRequest(ModelState);
         }
+
         return Ok(courses);
     }
 
     [HttpPost]
-    public IActionResult CreateCourse([FromBody]CourseDto courseDto)
+    public IActionResult CreateCourse([FromBody] CourseDto courseDto)
     {
-        if (courseDto==null)
+        if (courseDto == null)
         {
             return BadRequest();
         }
+
         if (!ModelState.IsValid)
         {
             return BadRequest(ModelState);
         }
 
-        var courseMap= _mapper.Map<Course>(courseDto);
+        var courseMap = _mapper.Map<Course>(courseDto);
         Course newCourse = _courseRepository.Add(courseMap).Entity;
         if (newCourse == null)
         {
-            ModelState.AddModelError("","Something went wrong while saving");
+            ModelState.AddModelError("", "Something went wrong while saving");
             return StatusCode(500, ModelState);
         }
+
         return Ok(newCourse);
+    }
+    
+    [HttpPut("/update/courseId/{courseId}")]
+    [ProducesResponseType(400)]
+    [ProducesResponseType(404)]
+    [ProducesResponseType(200)]
+    public IActionResult UpdateUser(int courseId,[FromBody]Course updatedCourse)
+    {
+        if (updatedCourse == null)
+        {
+            return BadRequest(ModelState);
+        }
+
+        if (courseId != updatedCourse.Id)
+        {
+            return BadRequest(ModelState);
+        }
+
+        if (!_courseRepository.Exists(courseId))
+        {
+            return NotFound();
+        }
+
+        if (!ModelState.IsValid)
+        {
+            return BadRequest();
+        }
+
+        Course returnedUpdatedCourse = _courseRepository.UpdateCourse(updatedCourse);
+        if (returnedUpdatedCourse==null)
+        {
+            ModelState.AddModelError("","Something went wrong updating the course");
+            return StatusCode(500, ModelState);
+        }
+        return Ok(returnedUpdatedCourse);
     }
 }

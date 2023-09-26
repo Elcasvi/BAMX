@@ -54,7 +54,13 @@ namespace Backend.Models.Repositories
         {
             return _dbContext.JobOffers.Any(J => J.Id == id);
         }
-        
+
+        public JobOffer UpdateJobOffer(JobOffer jobOffer)
+        {
+             JobOffer updatedJobOffer=_dbContext.JobOffers.Update(jobOffer).Entity;
+             Save();
+             return updatedJobOffer;
+        }
         public bool Save()
         {
             var saved = _dbContext.SaveChanges();

@@ -12,6 +12,7 @@ namespace Backend.Models.Interfaces
         public EntityEntry<JobOffer> Delete(JobOffer jobOffer);
         public EntityEntry<JobOffer> Update(JobOffer jobOffer);
         public bool Exists(int id);
+        public JobOffer UpdateJobOffer(JobOffer jobOffer);
         public bool Save();
     }
 }
