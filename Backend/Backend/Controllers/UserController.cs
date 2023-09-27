@@ -16,15 +16,17 @@ public class UserController:ControllerBase
 {
     private readonly IUserRepository _userRepository;
     private readonly IJobOfferRepository _jobOfferRepository;
+    private readonly IAssignedJobRepository _assignedJobRepository;
     private readonly IUserJobOfferRepository _userJobOfferRepository;
     private readonly IUserCourseRepository _userCourseRepository;
     private readonly IMapper _mapper;
     private readonly Hash _hash;
 
-    public UserController(IUserRepository userRepository, IJobOfferRepository jobOfferRepository, IUserJobOfferRepository userJobOfferRepository, IUserCourseRepository userCourseRepository, IMapper mapper, Hash hash)
+    public UserController(IUserRepository userRepository, IJobOfferRepository jobOfferRepository, IAssignedJobRepository assignedJobRepository, IUserJobOfferRepository userJobOfferRepository, IUserCourseRepository userCourseRepository, IMapper mapper, Hash hash)
     {
         _userRepository = userRepository;
         _jobOfferRepository = jobOfferRepository;
+        _assignedJobRepository = assignedJobRepository;
         _userJobOfferRepository = userJobOfferRepository;
         _userCourseRepository = userCourseRepository;
         _mapper = mapper;
@@ -259,6 +261,21 @@ public class UserController:ControllerBase
                 }
             }
         }
+        
+        //Deleting User from AssignedJobs table
+        if (!_userRepository.GetAllAssignedJobsByUserId(userId).IsNullOrEmpty())
+        {
+            var assignedJobs = _userRepository.GetAllAssignedJobsByUserId(userId);
+            foreach (var assignedJob in assignedJobs)
+            {
+                var deletedAssignedJob = _assignedJobRepository.Delete(assignedJob);
+                if (deletedAssignedJob == null)
+                {
+                    ModelState.AddModelError("","Something went wrong deleting the User in the assignedJobs table"); 
+                }
+            }
+        }
+        
         User deletedUser = _userRepository.Delete(userToDelete);
         if (deletedUser == null)
         {

@@ -81,7 +81,8 @@ public class AssignedJobController : ControllerBase
 
         var assignedJobMap = _mapper.Map<AssignedJob>(jobOfferDto);
         assignedJobMap.User = _userRepository.Get(userId);
-        Console.WriteLine("Assigned before entering the db: "+assignedJobMap);
+        assignedJobMap.Status = "In progress";
+        //Console.WriteLine("Assigned before entering the db: "+assignedJobMap);
         AssignedJob newAssignedJob = _assignedJobRepository.Add(assignedJobMap).Entity;
         if (newAssignedJob == null)
         {
@@ -90,5 +91,21 @@ public class AssignedJobController : ControllerBase
         }
         return Ok(newAssignedJob);
     }
-    
+
+    [HttpDelete("delete/{assignedJobId}")]
+    public IActionResult DeleteAssignedJob(int assignedJobId)
+    {
+        if (!_assignedJobRepository.Exists(assignedJobId))
+        {
+            return NotFound();
+        }
+        AssignedJob assignedJobToDelete = _assignedJobRepository.Get(assignedJobId);
+        if (!ModelState.IsValid)
+        {
+            return BadRequest(ModelState);
+        }
+
+        AssignedJob deletedAssignedJob=_assignedJobRepository.Delete(assignedJobToDelete);
+        return Ok(deletedAssignedJob);
+    }
 }

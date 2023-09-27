@@ -9,8 +9,8 @@ namespace Backend.Models.Interfaces
         public ICollection<AssignedJob>GetAll();
         public User GetUserFromAssignedJob(int assignedJobId);
         public EntityEntry<AssignedJob> Add(AssignedJob assignedJob);
-        public EntityEntry<AssignedJob> Delete(AssignedJob assignedJob);
-        public EntityEntry<AssignedJob> Update(AssignedJob assignedJob);
+        public AssignedJob Delete(AssignedJob assignedJob);
+        public AssignedJob Update(AssignedJob assignedJob);
         public bool Exists(int id);
         public bool Save();
     }

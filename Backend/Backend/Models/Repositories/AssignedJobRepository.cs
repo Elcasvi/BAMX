@@ -36,16 +36,16 @@ namespace Backend.Models.Repositories
             return newAssignedJob;
         }
 
-        public EntityEntry<AssignedJob> Delete(AssignedJob assignedJob)
+        public AssignedJob Delete(AssignedJob assignedJob)
         {
-            var deletedAssignedJob=_dbContext.AssignedJobs.Remove(assignedJob);
+            var deletedAssignedJob=_dbContext.AssignedJobs.Remove(assignedJob).Entity;
             Save();
             return deletedAssignedJob;
         }
 
-        public EntityEntry<AssignedJob> Update(AssignedJob assignedJob)
+        public AssignedJob Update(AssignedJob assignedJob)
         {
-            var updatedAssignedJob=_dbContext.AssignedJobs.Update(assignedJob);
+            var updatedAssignedJob=_dbContext.AssignedJobs.Update(assignedJob).Entity;
             Save();
             return updatedAssignedJob;
         }
