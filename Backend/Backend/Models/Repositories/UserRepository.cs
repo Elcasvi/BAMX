@@ -35,19 +35,12 @@ namespace Backend.Models.Repositories
         {
             return _dbContext.Users.ToList();
         }
-
-        public ICollection<JobOffer> GetAllJobOffersByUserId(int userId)
-        {
-            return _dbContext.UserJobOffers.Where(uj => uj.UserId == userId).Select(j => j.JobOffer).ToList();
-        }
-        public ICollection<Course> GetAllCoursesByUserId(int userId)
-        {
-            return _dbContext.UserCourses.Where(uc => uc.UserId == userId).Select(c => c.Course).ToList();
-        }
+        
         public ICollection<AssignedJob> GetAllAssignedJobsByUserId(int userId)
         {
             return _dbContext.AssignedJobs.Where(assignedJob => assignedJob.User.Id == userId).ToList();
         }
+       
         
         public EntityEntry<User> Add(User user)
         {
@@ -125,6 +118,14 @@ namespace Backend.Models.Repositories
             Save();
             return updatedUser;
         }
+
+        public User DeleteUser(User user)
+        {
+            User deletedUser=_dbContext.Users.Remove(user).Entity;
+            Save();
+            return deletedUser;
+        }
+        
         public bool Save()
         {
             var saved = _dbContext.SaveChanges();

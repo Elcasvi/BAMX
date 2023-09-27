@@ -11,14 +11,16 @@ namespace Backend.Controllers;
 public class JobOfferController:ControllerBase
 {
     private readonly IJobOfferRepository _jobOfferRepository;
+    private readonly IUserJobOfferRepository _userJobOfferRepository;
     private readonly IMapper _mapper;
 
-    public JobOfferController(IJobOfferRepository jobOfferRepository, IMapper mapper)
+    public JobOfferController(IJobOfferRepository jobOfferRepository, IUserJobOfferRepository userJobOfferRepository, IMapper mapper)
     {
         _jobOfferRepository = jobOfferRepository;
+        _userJobOfferRepository = userJobOfferRepository;
         _mapper = mapper;
     }
-    
+
     [HttpGet("{id}")]
     public IActionResult GetJobOffer(int id)
     {
@@ -46,7 +48,7 @@ public class JobOfferController:ControllerBase
     [HttpGet("users/{jobOfferId}")]
     public IActionResult GetUsersForJobOffer(int jobOfferId)
     {
-        ICollection<User> users= _jobOfferRepository.GetAllUsersByJobOfferId(jobOfferId);
+        ICollection<User> users= _userJobOfferRepository.GetAllUsersByJobOfferId(jobOfferId);
        if(!ModelState.IsValid)
        {
            return BadRequest(ModelState);

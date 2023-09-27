@@ -11,11 +11,13 @@ namespace Backend.Controllers;
 public class CourseController : ControllerBase
 {
     private readonly ICourseRepository _courseRepository;
+    private readonly IUserCourseRepository _userCourseRepository;
     private readonly IMapper _mapper;
 
-    public CourseController(ICourseRepository courseRepository, IMapper mapper)
+    public CourseController(ICourseRepository courseRepository, IUserCourseRepository userCourseRepository, IMapper mapper)
     {
         _courseRepository = courseRepository;
+        _userCourseRepository = userCourseRepository;
         _mapper = mapper;
     }
 
@@ -52,7 +54,7 @@ public class CourseController : ControllerBase
             return NotFound();
         }
 
-        var courses = _mapper.Map<List<CourseDto>>(_courseRepository.GetAllUsersByCourseId(courseId));
+        var courses = _mapper.Map<List<CourseDto>>(_userCourseRepository.GetAllUsersByCourseId(courseId));
         if (!ModelState.IsValid)
         {
             return BadRequest(ModelState);

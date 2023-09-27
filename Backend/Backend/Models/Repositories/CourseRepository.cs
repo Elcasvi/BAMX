@@ -24,11 +24,7 @@ namespace Backend.Models.Repositories
         {
             return _dbContext.Courses.ToList();
         }
-
-        public ICollection<User> GetAllUsersByCourseId(int courseId)
-        {
-            return _dbContext.UserCourses.Where(uc => uc.CourseId == courseId).Select(u => u.User).ToList();
-        }
+        
 
         public EntityEntry<Course> Add(Course course)
         {

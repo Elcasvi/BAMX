@@ -25,11 +25,6 @@ namespace Backend.Models.Repositories
         {
             return _dbContext.JobOffers.ToList();
         }
-
-        public ICollection<User> GetAllUsersByJobOfferId(int jobOfferId)
-        {
-            return _dbContext.UserJobOffers.Where(uj => uj.JobOfferId == jobOfferId).Select(u => u.User).ToList();
-        }
         public EntityEntry<JobOffer> Add(JobOffer jobOffer)
         {
             var newJobOffer=_dbContext.JobOffers.Add(jobOffer);

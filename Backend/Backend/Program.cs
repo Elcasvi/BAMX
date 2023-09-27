@@ -25,6 +25,8 @@ builder.Services.AddScoped<IUserRepository,UserRepository>();
 builder.Services.AddScoped<IJobOfferRepository,JobOfferRepository>();
 builder.Services.AddScoped<ICourseRepository,CourseRepository>();
 builder.Services.AddScoped<IAssignedJobRepository,AssignedJobRepository>();
+builder.Services.AddScoped<IUserJobOfferRepository,UserJobOfferRepository>();
+builder.Services.AddScoped<IUserCourseRepository,UserCourseRepository>();
 //Database connection
 builder.Services.AddDbContext<AppDbContext>(options =>
 {

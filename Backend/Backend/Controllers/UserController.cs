@@ -1,10 +1,12 @@
 ﻿using AutoMapper;
 using Backend.Models.Dtos;
 using Backend.Models.Entities;
+using Backend.Models.Entities.JoinTables;
 using Backend.Models.Interfaces;
 using Backend.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
+using Microsoft.IdentityModel.Tokens;
 
 namespace Backend.Controllers;
 
@@ -14,16 +16,18 @@ public class UserController:ControllerBase
 {
     private readonly IUserRepository _userRepository;
     private readonly IJobOfferRepository _jobOfferRepository;
+    private readonly IUserJobOfferRepository _userJobOfferRepository;
+    private readonly IUserCourseRepository _userCourseRepository;
     private readonly IMapper _mapper;
     private readonly Hash _hash;
 
-
-
-    public UserController(IUserRepository userRepository,IJobOfferRepository jobOfferRepository,IMapper mapper,Hash hash)
+    public UserController(IUserRepository userRepository, IJobOfferRepository jobOfferRepository, IUserJobOfferRepository userJobOfferRepository, IUserCourseRepository userCourseRepository, IMapper mapper, Hash hash)
     {
         _userRepository = userRepository;
         _jobOfferRepository = jobOfferRepository;
-        _mapper = mapper; 
+        _userJobOfferRepository = userJobOfferRepository;
+        _userCourseRepository = userCourseRepository;
+        _mapper = mapper;
         _hash = hash;
     }
 
@@ -69,7 +73,7 @@ public class UserController:ControllerBase
         {
             return NotFound();
         }
-        var jobOffers = _userRepository.GetAllJobOffersByUserId(userId);
+        var jobOffers = _userJobOfferRepository.GetAllJobOffersByUserId(userId);
         if(!ModelState.IsValid)
         {
             return BadRequest(ModelState);
@@ -84,7 +88,7 @@ public class UserController:ControllerBase
         {
             return NotFound();
         }
-        var courses = _userRepository.GetAllCoursesByUserId(userId);
+        var courses = _userCourseRepository.GetAllCoursesByUserId(userId);
         if(!ModelState.IsValid)
         {
             return BadRequest(ModelState);
@@ -160,7 +164,7 @@ public class UserController:ControllerBase
         return Ok(updatedUser);
     }
     
-    
+   /* 
     [HttpPost("{password}")]
     public IActionResult HashString(string password)
     {
@@ -171,7 +175,7 @@ public class UserController:ControllerBase
     public IActionResult CompareHashedString(string inputPassword, string passwordHash)
     {
         return Ok(_hash.Verify(inputPassword, passwordHash));
-    }
+    }*/
 
     [HttpPut("/update/userId/{userId}")]
     [ProducesResponseType(400)]
@@ -206,5 +210,44 @@ public class UserController:ControllerBase
             return StatusCode(500, ModelState);
         }
         return Ok(returnedUpdatedUser);
+    }
+
+    [HttpDelete("/delete/{userId}")]
+    public IActionResult DeleteUser(int userId)
+    {
+        if (!_userRepository.Exists(userId))
+        {
+            return NotFound();
+        }
+        User userToDelete = _userRepository.Get(userId);
+        //Deleting the user from jobOffers
+        if (!_userJobOfferRepository.GetAllJobOffersByUserId(userId).IsNullOrEmpty())
+        {
+            var userJobOffers=_userJobOfferRepository.GetAllUserJobOffersByUserId(userId);
+            if (userJobOffers.IsNullOrEmpty())
+            {
+                return NotFound();
+            }
+            foreach (UserJobOffer userJobOffer in userJobOffers)
+            {
+                _userJobOfferRepository.DeleteUserJobOffer(userJobOffer);
+            }
+        }
+        
+        //Deleting the user from courses
+        if (!_userCourseRepository.GetAllCoursesByUserId(userId).IsNullOrEmpty())
+        {
+            var userCourses=_userCourseRepository.GetAllUserCoursesByUserId(userId);
+            if (userCourses.IsNullOrEmpty())
+            {
+                return NotFound();
+            }
+            foreach (UserCourse userCourse in userCourses)
+            {
+                _userCourseRepository.DeleteUserCourse(userCourse);
+            }
+        }
+        User deletedUser = _userRepository.DeleteUser(userToDelete);
+        return Ok(deletedUser);
     }
 }
