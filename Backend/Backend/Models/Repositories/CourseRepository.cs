@@ -33,16 +33,16 @@ namespace Backend.Models.Repositories
             return addedCourse;
         }
 
-        public EntityEntry<Course> Delete(Course course)
+        public Course Delete(Course course)
         {
-            var deletedCourse= _dbContext.Courses.Remove(course);
+            var deletedCourse= _dbContext.Courses.Remove(course).Entity;
             Save();
             return deletedCourse;
         }
 
-        public EntityEntry<Course> Update(Course course)
+        public Course Update(Course course)
         {
-            var updatedCourse= _dbContext.Courses.Update(course);
+            var updatedCourse= _dbContext.Courses.Update(course).Entity;
             Save();
             return updatedCourse;
         }

@@ -1,8 +1,10 @@
 using AutoMapper;
 using Backend.Models.Dtos;
 using Backend.Models.Entities;
+using Backend.Models.Entities.JoinTables;
 using Backend.Models.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.Tokens;
 
 namespace Backend.Controllers;
 
@@ -110,7 +112,7 @@ public class JobOfferController:ControllerBase
         {
             return BadRequest();
         }
-        JobOffer returnedUpdatedJobOffer = _jobOfferRepository.UpdateJobOffer(updatedJobOffer);
+        JobOffer returnedUpdatedJobOffer = _jobOfferRepository.Update(updatedJobOffer);
         if (returnedUpdatedJobOffer==null)
         {
             ModelState.AddModelError("","Something went wrong updating the job offer");
@@ -121,9 +123,40 @@ public class JobOfferController:ControllerBase
     }
     
     
-    [HttpDelete]
-    public IActionResult DeleteJobOffer()
+    [HttpDelete("delete/{jobOfferId}")]
+    public IActionResult DeleteJobOffer(int jobOfferId)
     {
-        throw new NotImplementedException();
+        if (!_jobOfferRepository.Exists(jobOfferId))
+        {
+            return NotFound();
+        }
+        JobOffer jobOfferToDelete = _jobOfferRepository.Get(jobOfferId);
+        if (!ModelState.IsValid)
+        {
+            return BadRequest(ModelState);
+        }
+        //Deleting the jobOffer from UserJobOffers table
+        if (!_userJobOfferRepository.GetAllUserJobOffersByJobOfferId(jobOfferId).IsNullOrEmpty())
+        {
+            var userJobOffers=_userJobOfferRepository.GetAllUserJobOffersByJobOfferId(jobOfferId);
+            if (userJobOffers.IsNullOrEmpty())
+            {
+                return NotFound();
+            }
+            foreach (UserJobOffer userJobOffer in userJobOffers)
+            {
+                var deletedUserJobOffer = _userJobOfferRepository.DeleteUserJobOffer(userJobOffer);
+                if (deletedUserJobOffer == null)
+                {
+                    ModelState.AddModelError("","Something went wrong deleting the JobOffer in the UserJobOffer table");
+                }
+            }
+        }
+        JobOffer deletedJobOffer = _jobOfferRepository.Delete(jobOfferToDelete);
+        if (deletedJobOffer == null)
+        {
+            ModelState.AddModelError("","Something went wrong deleting the JobOffer");
+        }
+        return Ok(deletedJobOffer);
     }
 }

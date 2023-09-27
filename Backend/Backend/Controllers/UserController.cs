@@ -203,7 +203,7 @@ public class UserController:ControllerBase
             return BadRequest();
         }
 
-        User returnedUpdatedUser = _userRepository.UpdateUser(updatedUser);
+        User returnedUpdatedUser = _userRepository.Update(updatedUser);
         if (returnedUpdatedUser==null)
         {
             ModelState.AddModelError("","Something went wrong updating the user");
@@ -220,7 +220,11 @@ public class UserController:ControllerBase
             return NotFound();
         }
         User userToDelete = _userRepository.Get(userId);
-        //Deleting the user from jobOffers
+        if (!ModelState.IsValid)
+        {
+            return BadRequest(ModelState);
+        }
+        //Deleting the user from UserJobOffers table
         if (!_userJobOfferRepository.GetAllJobOffersByUserId(userId).IsNullOrEmpty())
         {
             var userJobOffers=_userJobOfferRepository.GetAllUserJobOffersByUserId(userId);
@@ -230,11 +234,15 @@ public class UserController:ControllerBase
             }
             foreach (UserJobOffer userJobOffer in userJobOffers)
             {
-                _userJobOfferRepository.DeleteUserJobOffer(userJobOffer);
+                var deletedUserJobOffer = _userJobOfferRepository.DeleteUserJobOffer(userJobOffer);
+                if (deletedUserJobOffer == null)
+                {
+                    ModelState.AddModelError("","Something went wrong deleting the User in the jobOffer table");
+                }
             }
         }
         
-        //Deleting the user from courses
+        //Deleting the user from UserCourses table
         if (!_userCourseRepository.GetAllCoursesByUserId(userId).IsNullOrEmpty())
         {
             var userCourses=_userCourseRepository.GetAllUserCoursesByUserId(userId);
@@ -244,10 +252,18 @@ public class UserController:ControllerBase
             }
             foreach (UserCourse userCourse in userCourses)
             {
-                _userCourseRepository.DeleteUserCourse(userCourse);
+                var deletedUserCourse = _userCourseRepository.DeleteUserCourse(userCourse);
+                if (deletedUserCourse == null)
+                {
+                    ModelState.AddModelError("","Something went wrong deleting the User in the course table");
+                }
             }
         }
-        User deletedUser = _userRepository.DeleteUser(userToDelete);
+        User deletedUser = _userRepository.Delete(userToDelete);
+        if (deletedUser == null)
+        {
+            ModelState.AddModelError("","Something went wrong deleting the User");
+        }
         return Ok(deletedUser);
     }
 }

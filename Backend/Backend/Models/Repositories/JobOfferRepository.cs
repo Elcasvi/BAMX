@@ -32,29 +32,22 @@ namespace Backend.Models.Repositories
             return newJobOffer;
         }
 
-        public EntityEntry<JobOffer> Delete(JobOffer jobOffer)
+        public JobOffer Delete(JobOffer jobOffer)
         {
-            var deletedJobOffer=_dbContext.JobOffers.Remove(jobOffer);
+            var deletedJobOffer=_dbContext.JobOffers.Remove(jobOffer).Entity;
             Save();
             return deletedJobOffer;
         }
 
-        public EntityEntry<JobOffer> Update(JobOffer jobOffer)
+        public JobOffer Update(JobOffer jobOffer)
         {
-            var updatedJobOffer=_dbContext.JobOffers.Update(jobOffer);
+            var updatedJobOffer=_dbContext.JobOffers.Update(jobOffer).Entity;
             Save();
             return updatedJobOffer;
         }
         public bool Exists(int id)
         {
             return _dbContext.JobOffers.Any(J => J.Id == id);
-        }
-
-        public JobOffer UpdateJobOffer(JobOffer jobOffer)
-        {
-             JobOffer updatedJobOffer=_dbContext.JobOffers.Update(jobOffer).Entity;
-             Save();
-             return updatedJobOffer;
         }
         public bool Save()
         {

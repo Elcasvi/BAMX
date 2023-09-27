@@ -22,6 +22,11 @@ public class UserJobOfferRepository:IUserJobOfferRepository
     {
         return _dbContext.UserJobOffers.Where(uj => uj.UserId == userId).Select(userJobOffer => userJobOffer).ToList();
     }
+
+    public ICollection<UserJobOffer> GetAllUserJobOffersByJobOfferId(int jobOfferId)
+    {
+        return _dbContext.UserJobOffers.Where(uj => uj.JobOfferId == jobOfferId).Select(userJobOffer => userJobOffer).ToList();
+    }
     public UserJobOffer DeleteUserJobOffer(UserJobOffer userJobOffer)
     {
         return _dbContext.UserJobOffers.Remove(userJobOffer).Entity;

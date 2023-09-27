@@ -21,6 +21,12 @@ public class UserCourseRepository :IUserCourseRepository
     {
         return _dbContext.UserCourses.Where(uc => uc.UserId == userId).Select(u => u).ToList();
     }
+
+    public ICollection<UserCourse> GetAllUserCoursesByCourseId(int courseId)
+    {
+        return _dbContext.UserCourses.Where(uc => uc.CourseId == courseId).Select(u => u).ToList();
+    }
+
     public UserCourse DeleteUserCourse(UserCourse userCourse)
     {
         return _dbContext.UserCourses.Remove(userCourse).Entity;

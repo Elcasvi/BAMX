@@ -11,14 +11,12 @@ namespace Backend.Models.Interfaces
         public ICollection<User>GetAll();
         public ICollection<AssignedJob> GetAllAssignedJobsByUserId(int userId);
         public EntityEntry<User> Add(User user);
-        public EntityEntry<User> Delete(User user);
-        public EntityEntry<User> Update(User user);
+        public User Delete(User user);
+        public User Update(User user);
         public EntityEntry<UserJobOffer> AddUserJobOffer(int jobOfferId,int userId);
         public EntityEntry<User> AddUserCourse(int courseId, User user);
         public bool Exists(string email,string password);
         public bool Exists(int id);
-        public User UpdateUser(User user);
-        public User DeleteUser(User user);
         public bool Save();
 
     }

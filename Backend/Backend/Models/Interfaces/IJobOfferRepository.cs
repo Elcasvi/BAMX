@@ -8,10 +8,9 @@ namespace Backend.Models.Interfaces
         public JobOffer Get(int id);
         public ICollection<JobOffer>GetAll();
         public EntityEntry<JobOffer> Add(JobOffer jobOffer);
-        public EntityEntry<JobOffer> Delete(JobOffer jobOffer);
-        public EntityEntry<JobOffer> Update(JobOffer jobOffer);
+        public JobOffer Delete(JobOffer jobOffer);
+        public JobOffer Update(JobOffer jobOffer);
         public bool Exists(int id);
-        public JobOffer UpdateJobOffer(JobOffer jobOffer);
         public bool Save();
     }
 }

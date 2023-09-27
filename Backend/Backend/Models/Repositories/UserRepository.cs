@@ -51,16 +51,16 @@ namespace Backend.Models.Repositories
             return newUser;
         }
 
-        public EntityEntry<User> Delete(User user)
+        public User Delete(User user)
         {
-            var deletedUser=_dbContext.Users.Remove(user);
+            var deletedUser=_dbContext.Users.Remove(user).Entity;
             Save();
             return deletedUser;
         }
 
-        public EntityEntry<User> Update(User user)
+        public User Update(User user)
         {
-            var updatedUser=_dbContext.Users.Update(user);
+            var updatedUser=_dbContext.Users.Update(user).Entity;
             Save();
             return updatedUser;
         }
@@ -110,20 +110,6 @@ namespace Backend.Models.Repositories
         public bool Exists(int id)
         {
             return _dbContext.Users.Any(user => user.Id == id);
-        }
-        
-        public User UpdateUser(User user)
-        {
-            User updatedUser=_dbContext.Users.Update(user).Entity;
-            Save();
-            return updatedUser;
-        }
-
-        public User DeleteUser(User user)
-        {
-            User deletedUser=_dbContext.Users.Remove(user).Entity;
-            Save();
-            return deletedUser;
         }
         
         public bool Save()

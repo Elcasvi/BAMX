@@ -1,8 +1,10 @@
 ﻿using AutoMapper;
 using Backend.Models.Dtos;
 using Backend.Models.Entities;
+using Backend.Models.Entities.JoinTables;
 using Backend.Models.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.Tokens;
 
 namespace Backend.Controllers;
 
@@ -120,5 +122,41 @@ public class CourseController : ControllerBase
             return StatusCode(500, ModelState);
         }
         return Ok(returnedUpdatedCourse);
+    }
+    [HttpDelete("delete/{courseId}")]
+    public IActionResult DeleteJCourse(int courseId)
+    {
+        if (!_courseRepository.Exists(courseId))
+        {
+            return NotFound();
+        }
+        Course courseToDelete = _courseRepository.Get(courseId);
+        if (!ModelState.IsValid)
+        {
+            return BadRequest(ModelState);
+        }
+        //Deleting the course from UserCourses table
+        if (!_userCourseRepository.GetAllUserCoursesByCourseId(courseId).IsNullOrEmpty())
+        {
+            var userCourses=_userCourseRepository.GetAllUserCoursesByCourseId(courseId);
+            if (userCourses.IsNullOrEmpty())
+            {
+                return NotFound();
+            }
+            foreach (UserCourse userCourse in userCourses)
+            {
+                var deletedUserCourse = _userCourseRepository.DeleteUserCourse(userCourse);
+                if (deletedUserCourse == null)
+                {
+                    ModelState.AddModelError("","Something went wrong deleting the Courses in the UserCourses table");
+                }
+            }
+        }
+        Course deletedCourse = _courseRepository.Delete(courseToDelete);
+        if (deletedCourse == null)
+        {
+            ModelState.AddModelError("","Something went wrong deleting the Course");
+        }
+        return Ok(deletedCourse);
     }
 }
