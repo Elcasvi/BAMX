@@ -13,7 +13,8 @@ namespace Backend.Models.Entities
         public string Role { get; set; }
         public string Gender { get; set; }
         public float Rating { get; set; }
-        public string? ProfilePicture { get; set; }
+        public string? ProfilePictureUrl { get; set; }
+        public string? NameOfProfilePicture { get; set; }
         public ICollection<AssignedJob>?AssignedJobs { get; set; }
         public ICollection<UserCourse>?UserCourses { get; set; }
         public ICollection<UserJobOffer>?UserJobOffers { get; set; }

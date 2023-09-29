@@ -8,5 +8,6 @@ public class UserDto
     public string Role { get; set; }
     public string Gender { get; set; }
     public float Rating { get; set; }
-    public string? ProfilePic { get; set; }
+    public string? ProfilePictureUrl { get; set; }
+    public string? NameOfProfilePicture { get; set; }
 }
