@@ -1,10 +1,11 @@
-import {FlatList, Text, View} from "react-native";
+import {FlatList, View} from "react-native";
 import {useRoute} from "@react-navigation/native";
 import Job from "../../components/Jobs/Job";
 import {useEffect, useState} from "react";
 import axios from "axios";
 import {BASE_URL} from "../../config";
 import User from "../../components/Users/User";
+import { Text } from "react-native-paper";
 
 export default function UsersApplyingToJob()
 {
@@ -29,9 +30,11 @@ export default function UsersApplyingToJob()
     }
     return(
         <View>
-            <Text>Job</Text>
-            <Job job={job}/>
-            <Text>Users applying to the job</Text>
+            <View style={{ alignItems: 'center', width: "100%", paddingVertical: 8, paddingHorizontal: 40 }}>
+                <Text style={{ fontWeight: "500" }} variant="headlineMedium">{job.title}</Text>
+                <Text style={{ fontWeight: "400" }} variant="titleMedium">{job.description}</Text>
+            </View>
+
             <FlatList
                 data={users}
                 renderItem={({item})=><User user={item} job={job}/>}

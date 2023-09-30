@@ -21,11 +21,10 @@ export default function Login()
     }
     return (
         <View style={{ flex: 1, alignItems: 'center', padding: 40 }}>
-            <Text variant="displayMedium">Login</Text>
-            <TextInput style={{width: "100%", margin: 20 }} mode="outlined" placeholder={"email"} onChangeText={setEmail} value={email}/>
+            <TextInput style={{width: "100%", margin: 10 }} mode="outlined" placeholder={"email"} onChangeText={setEmail} value={email}/>
             <TextInput secureTextEntry={true} style={{width: "100%" }} mode="outlined" placeholder={"password"} onChangeText={setPassword} value={password}/>
-            <Button style={{width: "40%", margin: 10 }} mode="contained" onPress={()=>login({email,password})}>Login</Button>
-            <Button style={{width: "40%" }} mode="contained-tonal" onPress={goToRegister}>Register</Button>
+            <Button style={{width: "50%", margin: 10 }} mode="contained" onPress={()=>login({email,password})}>Login</Button>
+            <Button style={{width: "50%" }} mode="contained-tonal" onPress={goToRegister}>Register</Button>
         </View>
     );
 };

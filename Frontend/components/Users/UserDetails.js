@@ -1,14 +1,15 @@
-import {Text, View} from "react-native";
+import { Card, Text } from "react-native-paper";
 
 export default function UserDetails({user})
 {
 
     return(
-        <View style={{ margin: 10 }} mode="outlined">
-            <Text>User details</Text>
-            <Text>{user.name}</Text>
-            <Text>{user.rating}</Text>
-            <Text>{user.gender}</Text>
-        </View>
+        <Card style={{ marginHorizontal: 8, marginVertical: 2 }} mode="outlined">
+            <Card.Title titleStyle={{ fontWeight: "500" }} titleVariant="headlineMedium" title={user.name} />
+            <Card.Content>
+                <Text variant="bodyMedium">Rating: {user.rating}</Text>
+                <Text variant="bodyMedium">Gender: {user.gender}</Text>
+            </Card.Content>
+        </Card>
     )
 }

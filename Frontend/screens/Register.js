@@ -30,11 +30,10 @@ export default function Register()
     }
     return(
         <View style={{ flex: 1, alignItems: 'center', padding: 40 }}>
-            <Text variant="displayMedium">Register</Text>
-            <TextInput style={{width: "100%", margin: 20 }} mode="outlined" placeholder={"email"} onChangeText={setEmail} value={email}/>
+            <TextInput style={{width: "100%", margin: 10 }} mode="outlined" placeholder={"email"} onChangeText={setEmail} value={email}/>
             <TextInput secureTextEntry={true} style={{width: "100%" }} mode="outlined" placeholder={"password"} onChangeText={setPassword} value={password}/>
-            <TextInput style={{width: "100%", margin: 20 }} mode="outlined" placeholder={"name"} onChangeText={setName} value={name}/>
-            <Button style={{width: "40%" }} mode="contained-tonal" onPress={handleRegisterBtn}>Register</Button>
+            <TextInput style={{width: "100%", margin: 10 }} mode="outlined" placeholder={"name"} onChangeText={setName} value={name}/>
+            <Button style={{width: "50%" }} mode="contained-tonal" onPress={handleRegisterBtn}>Register</Button>
         </View>
     );
 };

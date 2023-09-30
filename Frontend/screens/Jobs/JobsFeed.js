@@ -7,6 +7,7 @@ import {BASE_URL} from "../../config";
 import axios from "axios";
 import {AuthContext} from "../../context/AuthContext";
 import { Button } from 'react-native-paper';
+
 export default function JobsFeedScreen() {
     const[jobOffers,setJobOffers]=useState({})
     const [jobOffersByUser,setJobOffersByUser]=useState({})
@@ -83,12 +84,16 @@ export default function JobsFeedScreen() {
         <SafeAreaView style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
             {userInformation.role==="admin" && 
             <Button
-                style={{ margin: 10 }}
-                mode='contained'
-                onPress={()=>navigation.navigate("CreateJobScreen")}
-            >New Job</Button>
+            style={{ marginTop: 8 }}
+            icon="plus"
+            mode='contained'
+            onPress={() => navigation.navigate("CreateJobScreen")}
+                >
+                New Job
+            </Button>
             }
             <FlatList
+                style={{ width: "100%", marginTop: 6 }}
                 data={jobOffers}
                 renderItem={({item}) => <Job job={item}/>}
                 keyExtractor={item => item.id}

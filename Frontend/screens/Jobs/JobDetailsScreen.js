@@ -1,10 +1,11 @@
-import {Button, SafeAreaView, Text, View} from "react-native";
+import { View } from "react-native";
 import {useNavigation, useRoute} from "@react-navigation/native";
 import JobContent from "../../components/Jobs/JobContent";
 import {useContext, useLayoutEffect} from "react";
 import {AuthContext} from "../../context/AuthContext";
 import {BASE_URL} from "../../config";
 import axios from "axios";
+import { Button, Text } from "react-native-paper";
 
 export default function JobDetailsScreen() {
     const {userInformation}=useContext(AuthContext)
@@ -46,13 +47,12 @@ export default function JobDetailsScreen() {
     }
 
     return(
-        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-            <Text>{job.id}</Text>
-            <JobContent job={job}/>
-
+        <View style={{ alignItems: 'center', width: "100%", paddingVertical: 8, paddingHorizontal: 40 }}>
+            <Text style={{ fontWeight: "500" }} variant="headlineMedium">{job.title}</Text>
+            <Text style={{ fontWeight: "400" }} variant="titleMedium">{job.description}</Text>
             {userInformation.role==="admin"?
-                <Button title="See users apliying" onPress={()=>{navigate("UsersApplyingToJob",{job});}}/>:
-                <Button title="Aply" onPress={handelApplyBtn}/>}
+                <Button icon="account-group" mode="contained" style={{ width: "50%", marginTop: 8 }} onPress={()=>{navigate("UsersApplyingToJob",{job});}}>User</Button>:
+                <Button icon="pencil" mode="contained" style={{ width: "50%", marginTop: 8 }} onPress={handelApplyBtn}>Apply</Button>}
         </View>
     )
 }

@@ -27,8 +27,7 @@ export default function AppliedJobs()
     }
 
     return(
-        <View>
-            <Text>AppliedJobs Screen</Text>
+        <View style={{ paddingTop: 8 }}>
             <FlatList data={jobOffers}
                       renderItem={({item})=><Job job={item}/>}
             />

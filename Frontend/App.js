@@ -22,7 +22,9 @@ export default function App() {
   const currentTheme=useColorScheme();
   return (
       <AuthProvider>
-        <AppNavigation/>
+        <PaperProvider theme={theming}>
+          <AppNavigation/>
+        </PaperProvider>
       </AuthProvider>
 );
 }

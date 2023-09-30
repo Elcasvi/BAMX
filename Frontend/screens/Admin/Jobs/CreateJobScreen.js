@@ -31,11 +31,11 @@ export default function CreateJobScreen()
             })
     }
     return(
-        <View style={{ flex: 1, alignItems: 'center', padding: 40 }}>
-            <Text variant="displayMedium">Create Job</Text>
-            <TextInput style={{width: "100%", margin: 20 }} mode="outlined" placeholder={"Title"} onChangeText={setTitle} value={title}/>
+        <View style={{ flex: 1, alignItems: 'center', paddingHorizontal: 40, paddingVertical: 20 }}>
+            <Text style={{ fontWeight: "500" }} variant="displayMedium">Create Job</Text>
+            <TextInput style={{width: "100%", margin: 10 }} mode="outlined" placeholder={"Title"} onChangeText={setTitle} value={title}/>
             <TextInput style={{width: "100%" }} mode="outlined" placeholder={"Description"} onChangeText={setDescription} value={description}/>
-            <Button style={{width: "40%", margin: 10 }} mode="contained-tonal" onPress={createJob}>Create Job</Button>
+            <Button icon="plus" style={{width: "50%", margin: 10 }} mode="contained" onPress={createJob}>Create Job</Button>
         </View>
     );
 }
