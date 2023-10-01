@@ -1,5 +1,4 @@
-﻿using Backend.Models.Dtos;
-using Backend.Models.Helper;
+﻿using Backend.Models.Helper;
 using Backend.Services;
 using Microsoft.AspNetCore.Mvc;
 
@@ -30,8 +29,8 @@ namespace Backend.Controllers
         {
             List<string> data = new List<string>();
             (string,string)urlAndFileName=_blobStorageService.UpdateBlob(userId,fileName,fileModel);
-            data.Add(urlAndFileName.Item1);
-            data.Add(urlAndFileName.Item2);
+            data.Add(urlAndFileName.Item1);//url
+            data.Add(urlAndFileName.Item2);//fileName
             return Ok(data);
         }
 
