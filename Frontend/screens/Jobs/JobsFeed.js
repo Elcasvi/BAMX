@@ -1,12 +1,12 @@
 import * as React from 'react';
-import {FlatList, Image, Pressable, SafeAreaView, Text} from "react-native";
+import {FlatList, SafeAreaView, TouchableOpacity} from "react-native";
 import Job from "../../components/Jobs/Job";
 import {useNavigation} from "@react-navigation/native";
 import {useContext, useEffect, useLayoutEffect, useState} from "react";
 import {BASE_URL} from "../../config";
 import axios from "axios";
 import {AuthContext} from "../../context/AuthContext";
-import { Button } from 'react-native-paper';
+import { IconButton } from 'react-native-paper';
 
 export default function JobsFeedScreen() {
     const[jobOffers,setJobOffers]=useState({})
@@ -83,14 +83,17 @@ export default function JobsFeedScreen() {
     return (
         <SafeAreaView style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
             {userInformation.role==="admin" && 
-            <Button
-            style={{ marginTop: 8 }}
-            icon="plus"
-            mode='contained'
-            onPress={() => navigation.navigate("CreateJobScreen")}
+            <TouchableOpacity
+                style={{
+                    position: "absolute",
+                    right: 20,
+                    bottom: 20,
+                    zIndex: 50,
+                }}
+                onPress={() => navigation.navigate("CreateJobScreen")}
                 >
-                New Job
-            </Button>
+                <IconButton mode='contained' icon="plus"/>
+            </TouchableOpacity>
             }
             <FlatList
                 style={{ width: "100%", marginTop: 6 }}
