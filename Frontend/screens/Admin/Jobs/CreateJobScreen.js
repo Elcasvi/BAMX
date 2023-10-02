@@ -23,7 +23,7 @@ export default function CreateJobScreen()
         axios.post(url,jobOfferBody)
             .then(res => {
                 console.log(res.data)
-                navigation.navigate("JobsFeed")
+                navigation.goBack();
 
             })
             .catch((error) => {

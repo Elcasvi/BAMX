@@ -7,6 +7,8 @@ import {BASE_URL} from "../../config";
 import axios from "axios";
 import {AuthContext} from "../../context/AuthContext";
 import { IconButton } from 'react-native-paper';
+import { useFocusEffect } from '@react-navigation/native';
+
 
 export default function JobsFeedScreen() {
     const[jobOffers,setJobOffers]=useState({})
@@ -28,11 +30,12 @@ export default function JobsFeedScreen() {
         });
     },[]);
 */
-    useEffect(() => {
-        getJobOffersByUser()
-        getJobOffers()
-
-    }, []);
+    useFocusEffect(
+        React.useCallback(() => {
+            getJobOffersByUser();
+            getJobOffers();
+        }, [])
+    );
 
     const getJobOffersByUser=()=>
     {
