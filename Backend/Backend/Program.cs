@@ -1,4 +1,5 @@
 using System.Text.Json.Serialization;
+using Backend.Services.Interfaces;
 using Backend.Models.Data;
 using Backend.Models.Interfaces;
 using Backend.Models.Repositories;
@@ -18,6 +19,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 //Dependency injection for my database services
 builder.Services.AddScoped<BlobStorageService>();
+builder.Services.AddTransient<IEmailSenderService,EmailSenderService>();
 builder.Services.AddSingleton<Hash>();
 builder.Services.AddControllers()
     .AddJsonOptions(x => x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);//For many to many relationships
