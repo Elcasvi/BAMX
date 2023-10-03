@@ -6,7 +6,6 @@ import {AuthContext} from "../../context/AuthContext";
 import {BASE_URL} from "../../config";
 import axios from "axios";
 import { Button, Text } from "react-native-paper";
-
 export default function JobDetailsScreen() {
     const {userInformation}=useContext(AuthContext)
     const navigation=useNavigation();
@@ -15,7 +14,6 @@ export default function JobDetailsScreen() {
     const route=useRoute();
     const{params}=route;
     const job=params.job;
-
     useLayoutEffect(()=>
         {
             navigation.setOptions({
@@ -39,7 +37,8 @@ export default function JobDetailsScreen() {
         const url=BASE_URL+"/User/update/"+job.id+"/"+userInformation.id
         axios.post(url)
             .then(res => {
-                console.log(res.data)
+                //console.log(res.data)
+                navigation.goBack();
             })
             .catch((error) => {
                 alert("Error: "+error)
