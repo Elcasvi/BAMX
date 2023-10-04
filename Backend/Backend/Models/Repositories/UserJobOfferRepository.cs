@@ -18,6 +18,10 @@ public class UserJobOfferRepository:IUserJobOfferRepository
     {
         return _dbContext.UserJobOffers.Where(uj => uj.UserId == userId).Select(j => j.JobOffer).ToList();
     }
+    public ICollection<User> GetAllUsersByJobOfferId(int jobOfferId)
+    {
+        return _dbContext.UserJobOffers.Where(uj => uj.JobOfferId == jobOfferId).Select(u => u.User).ToList();
+    }
     public ICollection<UserJobOffer> GetAllUserJobOffersByUserId(int userId)
     {
         return _dbContext.UserJobOffers.Where(uj => uj.UserId == userId).Select(userJobOffer => userJobOffer).ToList();
@@ -30,10 +34,5 @@ public class UserJobOfferRepository:IUserJobOfferRepository
     public UserJobOffer DeleteUserJobOffer(UserJobOffer userJobOffer)
     {
         return _dbContext.UserJobOffers.Remove(userJobOffer).Entity;
-    }
-
-    public ICollection<User> GetAllUsersByJobOfferId(int jobOfferId)
-    {
-        return _dbContext.UserJobOffers.Where(uj => uj.JobOfferId == jobOfferId).Select(u => u.User).ToList();
     }
 }
