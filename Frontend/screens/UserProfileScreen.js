@@ -22,7 +22,15 @@ export default function (){
     }
     const declineEmployee=()=>
     {
-
+        console.log("Decline Employee")
+        const url=BASE_URL+"/UserJobOffer/"+job.id+"/"+user.id
+        axios.delete(url)
+            .then(res => {
+                console.log(res.data)
+            })
+            .catch((error) => {
+                alert("Error: "+error)
+            })
     }
 
     const assignJobOfferToUser=()=>
@@ -42,10 +50,6 @@ export default function (){
             .catch((error) => {
                 alert("Error: "+error)
             });
-    }
-    const deleteJobOffer=()=>
-    {
-
     }
 
     return(

@@ -1,6 +1,5 @@
 import { View } from "react-native";
 import {useFocusEffect, useNavigation, useRoute} from "@react-navigation/native";
-import JobContent from "../../components/Jobs/JobContent";
 import {useContext, useEffect, useLayoutEffect, useState} from "react";
 import {AuthContext} from "../../context/AuthContext";
 import {BASE_URL} from "../../config";
