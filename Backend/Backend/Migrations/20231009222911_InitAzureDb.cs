@@ -55,6 +55,9 @@ namespace Backend.Migrations
                     Role = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Gender = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Rating = table.Column<float>(type: "real", nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CVUrl = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    NameOfCV = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ProfilePictureUrl = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     NameOfProfilePicture = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
