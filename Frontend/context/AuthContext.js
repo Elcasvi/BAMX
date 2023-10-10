@@ -23,6 +23,7 @@ export const AuthProvider=({children})=>
             .then(res => {
                 let userInfo=res.data
                 setUserInformation(userInfo)
+                console.log(userInfo)
                 AsyncStorageNative.setItem('userInformation', JSON.stringify(userInfo))
                     .then(() => {
                         // Code to execute after successfully setting the 'token' item

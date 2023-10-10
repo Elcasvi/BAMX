@@ -5,9 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4d695a77-b978-4f13-8366-bf2b95423c61" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../Backend/.vs/Backend/DesignTimeBuild/.dtbcache.v2" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/.vs/Backend/DesignTimeBuild/.dtbcache.v2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/.vs/Backend/v17/.futdcache.v2" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/.vs/Backend/v17/.futdcache.v2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/.vs/Backend/v17/.suo" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/.vs/Backend/v17/.suo" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/.vs/ProjectEvaluation/backend.metadata.v7.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/.vs/ProjectEvaluation/backend.metadata.v7.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/.vs/ProjectEvaluation/backend.projects.v7.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/.vs/ProjectEvaluation/backend.projects.v7.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screens/Jobs/JobDetailsScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/Jobs/JobDetailsScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screens/UserProfileScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/UserProfileScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/context/AuthContext.js" beforeDir="false" afterPath="$PROJECT_DIR$/context/AuthContext.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screens/UserProfile.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/UserProfile.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,6 +108,9 @@
       <workItem from="1696259892792" duration="4762000" />
       <workItem from="1696384320315" duration="2902000" />
       <workItem from="1696425092135" duration="2999000" />
+      <workItem from="1696812757841" duration="305000" />
+      <workItem from="1696820530985" duration="613000" />
+      <workItem from="1696891288439" duration="4567000" />
     </task>
     <servers />
   </component>
