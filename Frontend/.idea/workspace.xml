@@ -10,33 +10,14 @@
       <change beforePath="$PROJECT_DIR$/../Backend/.vs/ProjectEvaluation/backend.metadata.v7.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/.vs/ProjectEvaluation/backend.metadata.v7.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Backend/.vs/ProjectEvaluation/backend.projects.v7.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/.vs/ProjectEvaluation/backend.projects.v7.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Backend/BAMXTesting/obj/Debug/net7.0/BAMXTesting.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/BAMXTesting/obj/Debug/net7.0/BAMXTesting.csproj.AssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Backend/Backend/Properties/PublishProfiles/BAMX - Web Deploy.pubxml.user" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/Backend/Properties/PublishProfiles/BAMX - Web Deploy.pubxml.user" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Backend/Backend/bin/Debug/net7.0/Backend.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/Backend/bin/Debug/net7.0/Backend.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Backend/Backend/bin/Debug/net7.0/Backend.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/Backend/bin/Debug/net7.0/Backend.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Backend/Backend/bin/Release/net7.0/Backend.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/Backend/bin/Release/net7.0/Backend.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Backend/Backend/bin/Release/net7.0/Backend.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/Backend/bin/Release/net7.0/Backend.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Backend/Backend/obj/Debug/net7.0/Backend.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/Backend/obj/Debug/net7.0/Backend.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Backend/Backend/obj/Debug/net7.0/Backend.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/Backend/obj/Debug/net7.0/Backend.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Backend/Backend/obj/Debug/net7.0/ref/Backend.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/Backend/obj/Debug/net7.0/ref/Backend.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Backend/Backend/obj/Debug/net7.0/refint/Backend.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/Backend/obj/Debug/net7.0/refint/Backend.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Backend/Backend/obj/Release/net7.0/Backend.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/Backend/obj/Release/net7.0/Backend.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Backend/Backend/obj/Release/net7.0/Backend.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/Backend/obj/Release/net7.0/Backend.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Backend/Backend/obj/Release/net7.0/PubTmp/Out/Backend.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/Backend/obj/Release/net7.0/PubTmp/Out/Backend.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Backend/Backend/obj/Release/net7.0/PubTmp/Out/Backend.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/Backend/obj/Release/net7.0/PubTmp/Out/Backend.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Backend/Backend/obj/Release/net7.0/ref/Backend.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/Backend/obj/Release/net7.0/ref/Backend.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Backend/Backend/obj/Release/net7.0/refint/Backend.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/Backend/obj/Release/net7.0/refint/Backend.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Courses/CourseContent.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/Courses/CourseContent.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navigation/CourseStackNavigation.js" beforeDir="false" afterPath="$PROJECT_DIR$/navigation/CourseStackNavigation.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navigation/DrawerNavigation.js" beforeDir="false" afterPath="$PROJECT_DIR$/navigation/DrawerNavigation.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navigation/JobStackNavigation.js" beforeDir="false" afterPath="$PROJECT_DIR$/navigation/JobStackNavigation.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/screens/Courses/CourseDetailsScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/Courses/CourseDetailsScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screens/Courses/CoursesFeed.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/Courses/CoursesFeed.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screens/Jobs/AppliedJobs.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/Jobs/AppliedJobs.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screens/Jobs/AssignedJobs.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/Jobs/AssignedJobs.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screens/Jobs/JobDetailsScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/Jobs/JobDetailsScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screens/Jobs/JobsFeed.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/Jobs/JobsFeed.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screens/UserProfile.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/UserProfile.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -134,7 +115,7 @@
       <workItem from="1696425092135" duration="2999000" />
       <workItem from="1696812757841" duration="305000" />
       <workItem from="1696820530985" duration="613000" />
-      <workItem from="1696891288439" duration="12611000" />
+      <workItem from="1696891288439" duration="13220000" />
     </task>
     <servers />
   </component>

@@ -33,7 +33,7 @@ export default function CourseDetailsScreen() {
 
     const handelEnrollBtn=()=>
     {
-        const url=BASE_URL+"/UserCourse/update/"+course.id+"/"+userInformation.id
+        const url=BASE_URL+"/UserCourses/update/"+course.id+"/"+userInformation.id
         axios.post(url)
             .then(res => {
                 navigation.goBack();
@@ -45,7 +45,7 @@ export default function CourseDetailsScreen() {
 
     const isUserEnrolled=()=>
     {
-        const url=BASE_URL+"/UserCourse/"+course.id
+        const url=BASE_URL+"/UserCourses/"+course.id
         axios.get(url)
             .then(res => {
                 userExistsInList(res.data)?setAlreadyEnrolled(true):setAlreadyEnrolled(false);
@@ -68,8 +68,8 @@ export default function CourseDetailsScreen() {
 
     return(
         <View style={{ alignItems: 'center', width: "100%", paddingVertical: 8, paddingHorizontal: 40 }}>
-            <Text style={{ fontWeight: "500" }} variant="headlineMedium">{job.title}</Text>
-            <Text style={{ fontWeight: "400" }} variant="titleMedium">{job.description}</Text>
+            <Text style={{ fontWeight: "500" }} variant="headlineMedium">{course.title}</Text>
+            <Text style={{ fontWeight: "400" }} variant="titleMedium">{course.description}</Text>
 
             {userInformation.role==="admin"?
                 <Button icon="account-group" mode="contained" style={{ width: "50%", marginTop: 8 }} onPress={()=>{navigate("UsersApplyingToJob",{job});}}>User</Button>:
@@ -77,7 +77,7 @@ export default function CourseDetailsScreen() {
                     alreadyEnrolled?
                         <Text>Application in process...</Text>
                         :
-                        <Button icon="pencil" mode="contained" style={{ width: "50%", marginTop: 8 }} onPress={handelEnrollBtn}>Apply</Button>
+                        <Button icon="pencil" mode="contained" style={{ width: "50%", marginTop: 8 }} onPress={handelEnrollBtn}>Enroll</Button>
                 )
             }
         </View>
