@@ -6,6 +6,7 @@ import {AuthContext} from "../context/AuthContext";
 import logo from "../lib/images/bamx.png"
 import FirstRegister from "../components/Register/FirstRegister";
 import SecondRegister from "../components/Register/SecondRegister";
+import * as DocumentPicker from "expo-document-picker";
 
 export default function Register()
 {
@@ -37,6 +38,15 @@ export default function Register()
       }
     };
 
+    const uploadFile = () => {
+        const pickDocument = async () => {
+          let result = await DocumentPicker.getDocumentAsync({});
+          console.log(result.uri);
+          console.log(result);
+        };
+        pickDocument()
+    }
+
     function handleRegisterBtn() {
         const userBody={
             Name: name,
@@ -57,15 +67,15 @@ export default function Register()
             {page === 0 &&
                 <>
                     <FirstRegister name={name} setName={setName} email={email} setEmail={setEmail} password={password} setPassword={setPassword}/>
-                    <Button style={{width: "50%" }} mode="contained" onPress={() => setPage(page => page + 1)}>Siguiente</Button>
+                    <Button style={{width: "50%" }} mode="outlined" onPress={() => setPage(page => page + 1)}>Siguiente</Button>
                 </>
             }
             {page === 1 &&
                 <>
                     <SecondRegister description={description} setDescription={setDescription}/>
                     <View style={{ flexDirection: "row", alignItems: 'center' }}>
-                        <Button style={{ marginHorizontal: 5 }} mode="contained" onPress={() => setPage(page => page - 1)}>Atrás</Button>
-                        <Button style={{ marginHorizontal: 5 }} mode="contained" onPress={() => setPage(page => page + 1)}>Siguiente</Button>
+                        <Button style={{ marginHorizontal: 5 }} mode="outlined" onPress={() => setPage(page => page - 1)}>Atrás</Button>
+                        <Button style={{ marginHorizontal: 5 }} mode="outlined" onPress={() => setPage(page => page + 1)}>Siguiente</Button>
                     </View>
                     
                 </>
@@ -75,8 +85,17 @@ export default function Register()
                     <Button style={{width: "50%", marginVertical: 10 }} mode="contained" icon="camera" onPress={pickImage}>Profile Picture</Button>
                     {image && <Image source={{ uri: image }} style={{ width: 200, height: 200, marginBottom: 10 }} />}
                     <View style={{ flexDirection: "row", alignItems: 'center' }}>
-                        <Button style={{ marginHorizontal: 5 }} mode="contained" onPress={() => setPage(page => page - 1)}>Atrás</Button>
-                        <Button style={{ marginHorizontal: 5 }} mode="contained" onPress={() => setPage(page => page + 1)}>Siguiente</Button>
+                        <Button style={{ marginHorizontal: 5 }} mode="outlined" onPress={() => setPage(page => page - 1)}>Atrás</Button>
+                        <Button style={{ marginHorizontal: 5 }} mode="outlined" onPress={() => setPage(page => page + 1)}>Siguiente</Button>
+                    </View>
+                </>
+            }
+            {page === 3 &&
+                <>
+                    <Button style={{width: "50%", marginVertical: 10 }} mode="contained" icon="file" onPress={uploadFile}>CV</Button>
+                    <View style={{ flexDirection: "row", alignItems: 'center' }}>
+                        <Button style={{ marginHorizontal: 5 }} mode="outlined" onPress={() => setPage(page => page - 1)}>Atrás</Button>
+                        <Button style={{ marginHorizontal: 5 }} mode="contained" onPress={handleRegisterBtn}>Register</Button>
                     </View>
                 </>
             }
