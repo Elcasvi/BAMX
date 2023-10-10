@@ -28,6 +28,10 @@ namespace Backend.Models.Repositories
         {
             return _dbContext.AssignedJobs.Where(assignedJob => assignedJob.Id == assignedJobId).Select(aj => aj.User).FirstOrDefault();
         }
+        public ICollection<AssignedJob> GetAssignedJobsByUserId(int userId)
+        {
+            return _dbContext.AssignedJobs.Where(job => job.User.Id == userId).Select(job=>job).ToList();
+        }
 
         public EntityEntry<AssignedJob> Add(AssignedJob assignedJob)
         {

@@ -59,6 +59,21 @@ public class AssignedJobController : ControllerBase
 
         return Ok(users);
     }
+    
+    [HttpGet("job/{userId}")]
+    public IActionResult GetAssignedJobsByUserId(int userId)
+    {
+        if (!_userRepository.Exists(userId))
+        {
+            return NotFound(userId);
+        }
+        var assignedJobs = _assignedJobRepository.GetAssignedJobsByUserId(userId);
+        if (!ModelState.IsValid)
+        {
+            return BadRequest(ModelState);
+        }
+        return Ok(assignedJobs);
+    }
 
     [HttpPost("{userId}")]
     public IActionResult AssignJobToUser(int userId,[FromBody]JobOfferDto jobOfferDto)

@@ -8,6 +8,7 @@ namespace Backend.Models.Interfaces
         public AssignedJob Get(int id);
         public ICollection<AssignedJob>GetAll();
         public User GetUserFromAssignedJob(int assignedJobId);
+        public  ICollection<AssignedJob> GetAssignedJobsByUserId(int userId);
         public EntityEntry<AssignedJob> Add(AssignedJob assignedJob);
         public AssignedJob Delete(AssignedJob assignedJob);
         public AssignedJob Update(AssignedJob assignedJob);

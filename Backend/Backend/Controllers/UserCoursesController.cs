@@ -17,7 +17,7 @@ public class UserCoursesController:ControllerBase
         _userRepository = userRepository;
     }
     
-    [HttpGet("{courseId}")]
+    [HttpGet("/Users/{courseId}")]
     public IActionResult GetAllUsers(int courseId)
     {
         if (!ModelState.IsValid)
@@ -33,7 +33,7 @@ public class UserCoursesController:ControllerBase
         return Ok(_userCourseRepository.GetAllUsersByCourseId(courseId));
     }
     
-    [HttpGet("{userId}")]
+    [HttpGet("/UserCourses/Courses/{userId}")]
     public IActionResult GetAllCoursesByUserId(int userId)
     {
         if (!ModelState.IsValid)
