@@ -7,6 +7,7 @@ import logo from "../lib/images/bamx.png"
 import FirstRegister from "../components/Register/FirstRegister";
 import SecondRegister from "../components/Register/SecondRegister";
 import * as DocumentPicker from "expo-document-picker";
+import * as ImagePicker from "expo-image-picker"
 
 export default function Register()
 {
