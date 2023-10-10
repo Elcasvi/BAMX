@@ -31,7 +31,7 @@ public class UserCourseRepository :IUserCourseRepository
     {
         return _dbContext.UserCourses.Where(uc => uc.CourseId == courseId).Select(u => u).ToList();
     }
-    public User AddUserCourse(int courseId,int userId)
+    public UserCourse AddUserCourse(int courseId,int userId)
     {
         var course = _courseRepository.Get(courseId);
         var user =_userRepository.Get(userId);
@@ -42,8 +42,7 @@ public class UserCourseRepository :IUserCourseRepository
             Course = course,
             CourseId = courseId
         };
-        _dbContext.UserCourses.Add(userCourse);
-        var newUserCourse=_dbContext.Users.Add(user).Entity;
+        var newUserCourse=_dbContext.Add(userCourse).Entity;
         Save();
         return newUserCourse;
     }

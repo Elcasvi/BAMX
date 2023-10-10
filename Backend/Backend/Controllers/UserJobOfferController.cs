@@ -48,7 +48,6 @@ public class UserJobOfferController:ControllerBase
             ModelState.AddModelError("","Job offer does not exists");
             return StatusCode(422, ModelState);
         }
-        //var userMap = _mapper.Map<User>(userDto);
         var updatedUser=_userJobOfferRepository.AddUserJobOffer(jobOfferId, userId);
         if (updatedUser == null)
         {
