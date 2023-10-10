@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {FlatList, Text, View} from "react-native";
+import {FlatList, SafeAreaView, Text, View} from "react-native";
 import {BASE_URL} from "../../config";
 import axios from "axios";
 import {useContext, useEffect, useState} from "react";
@@ -28,12 +28,15 @@ export default function AppliedJobs()
                 alert("Error: "+error)
             })
     }
-
     return(
-        <View style={{ paddingTop: 8 }}>
-            <FlatList data={jobOffers}
-                      renderItem={({item})=><Job job={item}/>}
-            />
-        </View>
+        <SafeAreaView style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+        {
+            jobOffers.length>0?(<View style={{ paddingTop: 8 }}>
+                <FlatList data={jobOffers}
+                          renderItem={({item})=><Job job={item}/>}
+                />
+            </View>):(<Text>No Applied Jobs</Text>)
+        }
+        </SafeAreaView>
     )
 }

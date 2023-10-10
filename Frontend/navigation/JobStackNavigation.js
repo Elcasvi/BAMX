@@ -3,7 +3,7 @@ import JobsFeed from "../screens/Jobs/JobsFeed";
 import CreateJobScreen from "../screens/Admin/Jobs/CreateJobScreen";
 import JobDetailsScreen from "../screens/Jobs/JobDetailsScreen";
 import UserProfile from "../screens/UserProfile";
-import {TopTabGroup} from "./DrawerNavigation";
+import {TopTabGroupJobs} from "./DrawerNavigation";
 import {Image, Pressable} from "react-native";
 import {useNavigation} from "@react-navigation/native";
 import AppliedJobs from "../screens/Jobs/AppliedJobs";
@@ -16,7 +16,7 @@ export default function JobStackNavigation() {
     const navigation=useNavigation();
     return(
         <JobFeedStack.Navigator>
-            <JobFeedStack.Screen name="JobsFeed" component={TopTabGroup}
+            <JobFeedStack.Screen name="JobsFeed" component={TopTabGroupJobs}
                                  options={{headerTitle:"Trabajos", headerRight:()=>(
                                          <Pressable onPress={()=> navigation.openDrawer()}>
                                              <Image

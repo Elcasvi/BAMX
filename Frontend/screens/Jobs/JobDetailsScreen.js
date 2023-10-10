@@ -31,17 +31,7 @@ export default function JobDetailsScreen() {
 
     const handelApplyBtn=()=>
     {
-        const userBody={
-            Id:userInformation.id,
-            Name:userInformation.name,
-            Email:userInformation.email,
-            Password:userInformation.password,
-            Role:userInformation.role,
-            Gender:userInformation.gender,
-            Rating:userInformation.rating,
-            ProfilePic:userInformation.profilePic
-        }
-        const url=BASE_URL+"/User/update/"+job.id+"/"+userInformation.id
+        const url=BASE_URL+"/UserJobOffer/update/"+job.id+"/"+userInformation.id
         axios.post(url)
             .then(res => {
                 navigation.goBack();

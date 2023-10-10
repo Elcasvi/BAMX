@@ -2,11 +2,11 @@ import {SafeAreaView, Text, useColorScheme, View} from "react-native";
 
 export default function CourseContent({course})
 {
-    const theme=useColorScheme();
+
     return(
         <View>
-            <Text style={[{color:theme==="dark"?"#FFF":"#000"}]}>{course.title}</Text>
-            <Text style={[{color:theme==="dark"?"#FFF":"#000"}]}>{course.description}</Text>
+            <Text>{course.title}</Text>
+            <Text>{course.description}</Text>
         </View>
     );
 }

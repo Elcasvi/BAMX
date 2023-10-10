@@ -43,7 +43,7 @@ export default function UserProfile({navigation}) {
     useFocusEffect(
         React.useCallback(() => {
             //getAssignedJobs();
-            getCourses();
+            //getCourses();
         }, [])
     );
 

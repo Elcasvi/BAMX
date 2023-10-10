@@ -13,29 +13,39 @@ import CourseStackNavigation from "./CourseStackNavigation";
 import {SafeAreaView} from "react-native";
 import JobsFeedScreen from "../screens/Jobs/JobsFeed";
 import JobStackNavigation from "./JobStackNavigation";
+import CoursesFeedScreen from "../screens/Courses/CoursesFeed";
 
 
 
-const TopTab=createMaterialTopTabNavigator();
-export const TopTabGroup=()=>
+const TopTabJobs=createMaterialTopTabNavigator();
+export const TopTabGroupJobs=()=>
 {
-    const{userInformation}=useContext(AuthContext)
 
     return(
-        <TopTab.Navigator>
-            <TopTab.Screen name="Jobs" component={JobsFeedScreen}/>
-            <TopTab.Screen name="AppliedJobs" component={AppliedJobs}/>
-            <TopTab.Screen name="AssignedJobs" component={AssignedJobs}/>
-        </TopTab.Navigator>
+        <TopTabJobs.Navigator>
+            <TopTabJobs.Screen name="Jobs" component={JobsFeedScreen}/>
+            <TopTabJobs.Screen name="AppliedJobs" component={AppliedJobs}/>
+            <TopTabJobs.Screen name="AssignedJobs" component={AssignedJobs}/>
+        </TopTabJobs.Navigator>
     )
 }
 
+const TopTabCourses=createMaterialTopTabNavigator();
+export const TopTabGroupCourses=()=>
+{
+
+    return(
+        <TopTabCourses.Navigator>
+            <TopTabCourses.Screen name="Courses" component={CoursesFeedScreen}/>
+        </TopTabCourses.Navigator>
+    )
+}
 
 //Tab navigation
 const Tab = createBottomTabNavigator();
 export const TabGroup=()=>
 {
-    const{userInformation}=useContext(AuthContext)
+
     return(
         <Tab.Navigator
             screenOptions={({route,navigation})=>({

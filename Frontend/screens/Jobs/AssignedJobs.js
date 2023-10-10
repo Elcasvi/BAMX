@@ -1,13 +1,41 @@
-import {Text, View} from "react-native";
+import {FlatList, SafeAreaView, Text, View} from "react-native";
 import axios from "axios";
 import {BASE_URL} from "../../config";
+import {useFocusEffect} from "@react-navigation/native";
+import * as React from "react";
+import {useContext, useState} from "react";
+import {AuthContext} from "../../context/AuthContext";
+import Job from "../../components/Jobs/Job";
 export default function ()
 {
-    const url=BASE_URL+"/"
-    axios.get()
+    const {userInformation} = useContext(AuthContext)
+    const[assignedJobs,setAssignedJobs]=useState({});
+    const getAssignedJobs=()=>
+    {
+        const url=BASE_URL+"/AssignedJob/job/"+userInformation.id
+        axios.get(url)
+            .then(res => {
+                setAssignedJobs(res.data)
+            })
+            .catch((error) => {
+                alert("Error: "+error)
+            })
+
+    }
+    useFocusEffect(
+        React.useCallback(() => {
+            getAssignedJobs();
+        }, [])
+    );
     return(
-        <View>
-            <Text>AssignedJobs Screen</Text>
-        </View>
+        <SafeAreaView style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+            {
+                assignedJobs.length>0?(<View style={{ paddingTop: 8 }}>
+                    <FlatList data={assignedJobs}
+                              renderItem={({item})=><Job job={item}/>}
+                    />
+                </View>):(<Text>No Assigned Jobs</Text>)
+            }
+        </SafeAreaView>
     )
 }

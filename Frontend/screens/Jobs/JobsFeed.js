@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {FlatList, SafeAreaView, TouchableOpacity} from "react-native";
+import {FlatList, SafeAreaView, Text, TouchableOpacity} from "react-native";
 import Job from "../../components/Jobs/Job";
 import {useNavigation} from "@react-navigation/native";
 import {useContext, useEffect, useLayoutEffect, useState} from "react";
@@ -54,6 +54,7 @@ export default function JobsFeedScreen() {
         axios.get(url)
             .then(res => {
                 setJobOffers(eraseAppliedJobs(res.data))
+
             })
             .catch((error) => {
                 alert("Error: "+error)
@@ -98,12 +99,15 @@ export default function JobsFeedScreen() {
                 <IconButton mode='contained' icon="plus"/>
             </TouchableOpacity>
             }
-            <FlatList
-                style={{ width: "100%", marginTop: 6 }}
-                data={jobOffers}
-                renderItem={({item}) => <Job job={item}/>}
-                keyExtractor={item => item.id}
-            />
+            {
+                jobOffers.length>0?( <FlatList
+                    style={{ width: "100%", marginTop: 6 }}
+                    data={jobOffers}
+                    renderItem={({item}) => <Job job={item}/>}
+                    keyExtractor={item => item.id}
+                />):(<Text>No Jobs available</Text>)
+            }
+
         </SafeAreaView>
 
     );
