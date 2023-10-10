@@ -8,6 +8,7 @@ public interface IUserCourseRepository
     public ICollection<Course> GetAllCoursesByUserId(int userId);
     public ICollection<UserCourse> GetAllUserCoursesByUserId(int userId);
     public ICollection<UserCourse> GetAllUserCoursesByCourseId(int courseId);
+    public User AddUserCourse(int courseId, int userId);
     public UserCourse DeleteUserCourse(UserCourse userCourse);
     public ICollection<User>GetAllUsersByCourseId(int courseId);
 

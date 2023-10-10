@@ -13,7 +13,6 @@ namespace Backend.Models.Interfaces
         public EntityEntry<User> Add(User user);
         public User Delete(User user);
         public User Update(User user);
-        public EntityEntry<UserJobOffer> AddUserJobOffer(int jobOfferId,int userId);
         public EntityEntry<User> AddUserCourse(int courseId, User user);
         public bool Exists(string email,string password);
         public bool Exists(int id);

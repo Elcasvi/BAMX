@@ -32,7 +32,6 @@ public class UserCoursesController:ControllerBase
         
         return Ok(_userCourseRepository.GetAllUsersByCourseId(courseId));
     }
-    
     [HttpGet("/UserCourses/Courses/{userId}")]
     public IActionResult GetAllCoursesByUserId(int userId)
     {
@@ -47,5 +46,28 @@ public class UserCoursesController:ControllerBase
         }
         
         return Ok(_userCourseRepository.GetAllCoursesByUserId(userId));
+    }
+    
+    [HttpPost("update/{courseId}/{userId}")]
+    public IActionResult UpdateUserJobOffer(int courseId,int userId)
+    {
+        
+        if (!_userRepository.Exists(userId))
+        {
+            ModelState.AddModelError("","User does not exists");
+            return StatusCode(422, ModelState);
+        }
+        if (!_courseRepository.Exists(courseId))
+        {
+            ModelState.AddModelError("","Course does not exists");
+            return StatusCode(422, ModelState);
+        }
+        var updatedUser=_userCourseRepository.AddUserCourse(courseId, userId);
+        if (updatedUser == null)
+        {
+            ModelState.AddModelError("","Something went wrong while saving");
+            return StatusCode(500, ModelState);
+        }
+        return Ok(updatedUser);
     }
 }

@@ -64,22 +64,6 @@ namespace Backend.Models.Repositories
             Save();
             return updatedUser;
         }
-        public EntityEntry<UserJobOffer> AddUserJobOffer(int jobOfferId,int userId)
-        {
-            var jobOffer = _dbContext.JobOffers.FirstOrDefault(j => j.Id == jobOfferId);
-            var user = Get(userId);
-            UserJobOffer userJobOffer = new UserJobOffer()
-            {
-                UserId = userId,
-                User = user,
-                JobOfferId = jobOfferId,
-                JobOffer = jobOffer,
-                
-            };
-            var newUserJobOffer=_dbContext.Add(userJobOffer);
-            Save();
-            return newUserJobOffer;
-        }
         public EntityEntry<User> AddUserCourse(int courseId,User user)
         {
             var course = _dbContext.Courses.FirstOrDefault(c => c.Id == courseId);

@@ -15,17 +15,15 @@ namespace Backend.Controllers;
 public class UserController:ControllerBase
 {
     private readonly IUserRepository _userRepository;
-    private readonly IJobOfferRepository _jobOfferRepository;
     private readonly IAssignedJobRepository _assignedJobRepository;
     private readonly IUserJobOfferRepository _userJobOfferRepository;
     private readonly IUserCourseRepository _userCourseRepository;
     private readonly IMapper _mapper;
     private readonly Hash _hash;
 
-    public UserController(IUserRepository userRepository, IJobOfferRepository jobOfferRepository, IAssignedJobRepository assignedJobRepository, IUserJobOfferRepository userJobOfferRepository, IUserCourseRepository userCourseRepository, IMapper mapper, Hash hash)
+    public UserController(IUserRepository userRepository, IAssignedJobRepository assignedJobRepository, IUserJobOfferRepository userJobOfferRepository, IUserCourseRepository userCourseRepository, IMapper mapper, Hash hash)
     {
         _userRepository = userRepository;
-        _jobOfferRepository = jobOfferRepository;
         _assignedJobRepository = assignedJobRepository;
         _userJobOfferRepository = userJobOfferRepository;
         _userCourseRepository = userCourseRepository;
@@ -140,30 +138,6 @@ public class UserController:ControllerBase
             return StatusCode(500, ModelState);
         }
         return Ok(newUser);
-    }
-    
-    [HttpPost("update/{jobOfferId}/{userId}")]
-    public IActionResult UpdateUserJobOffer(int jobOfferId,int userId)
-    {
-        
-        if (!_userRepository.Exists(userId))
-        {
-            ModelState.AddModelError("","User does not exists");
-            return StatusCode(422, ModelState);
-        }
-        if (!_jobOfferRepository.Exists(jobOfferId))
-        {
-            ModelState.AddModelError("","Job offer does not exists");
-            return StatusCode(422, ModelState);
-        }
-        //var userMap = _mapper.Map<User>(userDto);
-        var updatedUser=_userRepository.AddUserJobOffer(jobOfferId, userId).Entity;
-        if (updatedUser == null)
-        {
-            ModelState.AddModelError("","Something went wrong while saving");
-            return StatusCode(500, ModelState);
-        }
-        return Ok(updatedUser);
     }
     
    /* 
