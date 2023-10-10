@@ -17,7 +17,7 @@ public class UserCoursesController:ControllerBase
         _userRepository = userRepository;
     }
     
-    [HttpGet("/Users/{courseId}")]
+    [HttpGet("{courseId}")]
     public IActionResult GetAllUsers(int courseId)
     {
         if (!ModelState.IsValid)
