@@ -17,24 +17,17 @@ namespace Backend.Controllers
         [HttpPost("{userId}")]
         public IActionResult UploadFile(int userId,[FromForm]FileModel fileModel)
         {
-            List<string> data = new List<string>();
-            (string,string)urlAndFileName=_blobStorageService.AddBlobContent(userId, fileModel);
-            data.Add(urlAndFileName.Item1);
-            data.Add(urlAndFileName.Item2);
-            return Ok(data);
+            BlobInformation urlAndFileName=_blobStorageService.AddBlobContent(userId, fileModel);
+            return Ok(urlAndFileName);
         }
         
         [HttpPut("{userId}/{fileName}")]
         public IActionResult UpdateFile(int userId,string fileName,[FromForm]FileModel fileModel)
         {
-            List<string> data = new List<string>();
-            (string,string)urlAndFileName=_blobStorageService.UpdateBlob(userId,fileName,fileModel);
-            data.Add(urlAndFileName.Item1);//url
-            data.Add(urlAndFileName.Item2);//fileName
-            return Ok(data);
+           BlobInformation urlAndFileName=_blobStorageService.UpdateBlob(userId,fileName,fileModel);
+           return Ok(urlAndFileName);
         }
-
-        //-------------------
+        
         [HttpGet("{userId}/{fileName}")]
         public async Task<IActionResult> DownloadFile(int userId,string fileName)
         {

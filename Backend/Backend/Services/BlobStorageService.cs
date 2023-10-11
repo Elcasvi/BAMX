@@ -21,7 +21,7 @@ namespace Backend.Services
             _userRepository = userRepository;
 
         }
-        public (string,string)AddBlobContent(int userId, FileModel fileModel)
+        public BlobInformation AddBlobContent(int userId, FileModel fileModel)
         {
             // Get the name without extension
             //string nameWithoutExtension = Path.GetFileNameWithoutExtension(fileModel.file.FileName);
@@ -38,7 +38,12 @@ namespace Backend.Services
             containerClient.UploadBlob(newBlobName, fileModel.file.OpenReadStream());//I upload the file
 
             string url=GetUrl(loggedInUser,newBlobName);//I get the url of the file uploaded
-            return (url,newBlobName);
+            BlobInformation blobInformation = new BlobInformation()
+            {
+                Url = url,
+                FileName = newBlobName
+            };
+            return blobInformation;
         }
         public Stream Get(int userId, string fileName)
         {
@@ -52,10 +57,9 @@ namespace Backend.Services
             var downloadContent = blobInstance.Download();
             return downloadContent.Value.Content;
         }
-
-        public (string,string)UpdateBlob(int userId,string fileName,FileModel updatedFileModel)
+        public BlobInformation UpdateBlob(int userId,string fileName,FileModel updatedFileModel)
         {
-            (string,string) urlAndName=AddBlobContent(userId, updatedFileModel);
+            BlobInformation urlAndName=AddBlobContent(userId, updatedFileModel);
             int status=DeleteBlob(userId, fileName);
             return urlAndName;
         }
