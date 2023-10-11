@@ -45,6 +45,8 @@ export default function UserProfile({navigation}) {
     }
     useFocusEffect(
         React.useCallback(() => {
+            console.log(userInformation.cvUrl)
+            console.log(userInformation.profilePictureUrl)
             //getAssignedJobs();
             //getCourses();
         }, [])
