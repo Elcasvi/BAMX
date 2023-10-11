@@ -22,6 +22,8 @@ export default function Register()
     const [description,setDescription]=useState("")
     const [page, setPage] = useState(0)
     const [image, setImage] = useState(null);
+    const[formDataImg,setFormDataImg]=useState(null)
+    const[formDataCV,setFormDataCV]=useState(null)
 
     const pickImage = async () => {
       // No permissions request is necessary for launching the image library
@@ -33,29 +35,46 @@ export default function Register()
       });
   
       console.log(result);
-  
-      if (!result.canceled) {
-        setImage(result.assets[0].uri);
-      }
+
+        if (!result.canceled) {
+            setImage(result.assets[0].uri);
+            const  uri  = result.assets[0].uri;
+            // Create a FormData object to send the image
+            const formData = new FormData();
+            formData.append('file', {
+                uri: uri,
+                type: 'image/jpg', // Change the MIME type as per your image type
+                name: 'image.jpg',
+            });
+            setFormDataImg(formData);
+        }
     };
 
-    const uploadFile = () => {
-        const pickDocument = async () => {
-          let result = await DocumentPicker.getDocumentAsync({});
-          console.log(result.uri);
-          console.log(result);
-        };
-        pickDocument()
+    const uploadFile = async () => {
+            const result = await DocumentPicker.getDocumentAsync({});
+            const uri = result.assets.at(0).uri;
+            const name = result.assets.at(0).name;
+            // Create a FormData object to send the document
+            const formData = new FormData();
+            formData.append('file', {
+                uri: uri,
+                type: 'application/pdf', // Change the MIME type as per your document type
+                name: name,
+            });
+        setFormDataCV(formData);
     }
 
     function handleRegisterBtn() {
         const userBody={
             Name: name,
-            email: email,
-            password: password,
+            Email: email,
+            Password: password,
             Role: "employee",
             Gender: "Male",
-            Rating: 0
+            Rating: 0,
+            Description:description,
+            FormDataCV:formDataCV,
+            FormDataImg:formDataImg
         };
         register({userBody})
     }
