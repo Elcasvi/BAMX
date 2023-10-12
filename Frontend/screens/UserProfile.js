@@ -8,6 +8,7 @@ import {BASE_URL} from "../config";
 import axios from "axios";
 import * as DocumentPicker from "expo-document-picker";
 import * as ImagePicker from "expo-image-picker"
+import AssignedJob from "../components/Jobs/AssignedJob";
 
 export default function UserProfile({navigation}) {
     const{logout}=useContext(AuthContext)
@@ -23,7 +24,7 @@ export default function UserProfile({navigation}) {
         const url=BASE_URL+"/User/assignedJobs/"+userInformation.id
         axios.get(url)
             .then(res => {
-                console.log(res.data)
+
                 setAssignedJobs(res.data)
             })
             .catch((error) => {
@@ -36,7 +37,7 @@ export default function UserProfile({navigation}) {
         const url=BASE_URL+"/UserCourses/Courses/"+userInformation.id
         axios.get(url)
             .then(res => {
-                console.log(res.data)
+
                 setCourses(res.data)
             })
             .catch((error) => {
@@ -47,7 +48,7 @@ export default function UserProfile({navigation}) {
         React.useCallback(() => {
             console.log(userInformation.cvUrl)
             console.log(userInformation.profilePictureUrl)
-            //getAssignedJobs();
+            getAssignedJobs();
             //getCourses();
         }, [])
     );
@@ -98,11 +99,7 @@ export default function UserProfile({navigation}) {
             <FlatList
                 data={assignedJobs}
                 horizontal={true}
-                renderItem={({ item }) => (
-                    <View>
-                        <Text>{item.text}</Text>
-                    </View>
-                )}
+                renderItem={({ item }) => (<AssignedJob job={item}/>)}
                 keyExtractor={(item) => item.id}
             />
 

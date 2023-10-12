@@ -34,6 +34,7 @@ export default function ()
                 assignedJobs.length>0?(<View style={{ paddingTop: 8 }}>
                     <FlatList data={assignedJobs}
                               renderItem={({item})=><AssignedJob job={item}/>}
+                              keyExtractor={item => item.id}
                     />
                 </View>):(<Text>No Assigned Jobs</Text>)
             }

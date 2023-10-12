@@ -14,10 +14,8 @@
       <change beforePath="$PROJECT_DIR$/../Backend/BAMXTesting/obj/rider.project.model.nuget.info" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/BAMXTesting/obj/rider.project.model.nuget.info" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Backend/Backend/obj/rider.project.model.nuget.info" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/Backend/obj/rider.project.model.nuget.info" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navigation/JobStackNavigation.js" beforeDir="false" afterPath="$PROJECT_DIR$/navigation/JobStackNavigation.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screens/Jobs/AppliedJobs.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/Jobs/AppliedJobs.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/screens/Jobs/AssignedJobs.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/Jobs/AssignedJobs.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screens/UserProfileScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/UserProfileScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screens/UserProfile.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/UserProfile.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -117,7 +115,7 @@
       <workItem from="1696820530985" duration="613000" />
       <workItem from="1696891288439" duration="13220000" />
       <workItem from="1696978392694" duration="16217000" />
-      <workItem from="1697070150966" duration="6750000" />
+      <workItem from="1697070150966" duration="8358000" />
     </task>
     <servers />
   </component>
