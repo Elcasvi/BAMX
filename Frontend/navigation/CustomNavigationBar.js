@@ -1,14 +1,58 @@
-import { Appbar } from 'react-native-paper';
 import { getHeaderTitle } from '@react-navigation/elements';
+import React from 'react';
+import {
+  Icon,
+  Layout,
+  TopNavigation,
+  TopNavigationAction,
+} from '@ui-kitten/components';
+import { StyleSheet } from 'react-native';
+
+const BackIcon = (props) => (
+  <Icon
+    {...props}
+    name='arrow-back'
+  />
+);
+
+const PersonIcon = (props) => (
+  <Icon
+    {...props}
+    name='person-outline'
+  />
+);
 
 export default function CustomNavigationBar({ navigation, route, options, back }) {
   const title = getHeaderTitle(options, route.name);
 
-  return (
-    <Appbar.Header>
-      {back ? <Appbar.BackAction onPress={navigation.goBack} /> : null}
-      <Appbar.Content title={title} />
-      <Appbar.Action icon="account" onPress={() => { navigation.navigate('UserProfile') }} />
-    </Appbar.Header>
+  const renderProfileAction = () => (
+    <TopNavigationAction
+      icon={PersonIcon}
+      onPress={() => console.log("() => { navigation.navigate('UserProfile') }")}
+    />
   );
-}
+
+  const renderBackAction = () => (
+    <TopNavigationAction icon={BackIcon} />
+  );
+
+  return (
+    <Layout
+      style={styles.container}
+      level='1'
+    >
+      <TopNavigation
+        alignment='center'
+        title={title}
+        accessoryLeft={renderBackAction}
+        accessoryRight={renderProfileAction}
+      />
+    </Layout>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    minHeight: 128,
+  },
+});

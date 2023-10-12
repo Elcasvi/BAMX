@@ -1,6 +1,6 @@
 import { Image, useColorScheme, View} from "react-native";
-import { Text, TextInput, Button } from 'react-native-paper';
-import {useContext, useEffect, useState} from "react";
+import {useContext, useState} from "react";
+import { Button, Icon, ProgressBar } from '@ui-kitten/components';
 import {useNavigation} from "@react-navigation/native";
 import {AuthContext} from "../context/AuthContext";
 import logo from "../lib/images/bamx.png"
@@ -8,6 +8,21 @@ import FirstRegister from "../components/Register/FirstRegister";
 import SecondRegister from "../components/Register/SecondRegister";
 import * as DocumentPicker from "expo-document-picker";
 import * as ImagePicker from "expo-image-picker"
+import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
+
+const SiguienteIcon = (props) => (
+    <Icon
+      {...props}
+      name='arrow-forward-outline'
+    />
+);
+
+const AtrasIcon = (props) => (
+    <Icon
+        {...props}
+        name='arrow-back-outline'
+    />
+);
 
 export default function Register()
 {
@@ -79,34 +94,40 @@ export default function Register()
         register({userBody})
     }
     return(
+        <KeyboardAwareScrollView>
         <View style={{ flex: 1, alignItems: 'center', padding: 10 }}>
             <Image
                 style={{ width: 100, height: 100 }}
                 source={logo}
             />
+            <ProgressBar
+                style={{width: "80%", marginVertical: 14}}
+                size="medium"
+                status='success'
+                progress={(page + 1) / 5}
+                />
             {page === 0 &&
                 <>
                     <FirstRegister name={name} setName={setName} email={email} setEmail={setEmail} password={password} setPassword={setPassword}/>
-                    <Button style={{width: "50%" }} mode="outlined" onPress={() => setPage(page => page + 1)}>Siguiente</Button>
+                    <Button accessoryRight={SiguienteIcon} style={{width: 142, marginTop: 10 }} onPress={() => setPage(page => page + 1)}>Siguiente</Button>
                 </>
             }
             {page === 1 &&
                 <>
                     <SecondRegister description={description} setDescription={setDescription}/>
-                    <View style={{ flexDirection: "row", alignItems: 'center' }}>
-                        <Button style={{ marginHorizontal: 5 }} mode="outlined" onPress={() => setPage(page => page - 1)}>Atrás</Button>
-                        <Button style={{ marginHorizontal: 5 }} mode="outlined" onPress={() => setPage(page => page + 1)}>Siguiente</Button>
-                    </View>
-                    
+                    <View style={{ flexDirection: "row", alignItems: 'center', marginTop: 10 }}>
+                        <Button accessoryLeft={AtrasIcon} style={{ marginHorizontal: 5, width: 142 }} onPress={() => setPage(page => page - 1)}>Atrás</Button>
+                        <Button accessoryRight={SiguienteIcon} style={{ marginHorizontal: 5, width: 142 }} onPress={() => setPage(page => page + 1)}>Siguiente</Button>
+                    </View>   
                 </>
             }
             {page === 2 &&
                 <>
-                    <Button style={{width: "50%", marginVertical: 10 }} mode="contained" icon="camera" onPress={pickImage}>Profile Picture</Button>
+                    <Button style={{width: "50%" }} onPress={pickImage}>Profile Picture</Button>
                     {image && <Image source={{ uri: image }} style={{ width: 200, height: 200, marginBottom: 10 }} />}
-                    <View style={{ flexDirection: "row", alignItems: 'center' }}>
-                        <Button style={{ marginHorizontal: 5 }} mode="outlined" onPress={() => setPage(page => page - 1)}>Atrás</Button>
-                        <Button style={{ marginHorizontal: 5 }} mode="outlined" onPress={() => setPage(page => page + 1)}>Siguiente</Button>
+                    <View style={{ flexDirection: "row", alignItems: 'center', marginTop: 10 }}>
+                        <Button accessoryLeft={AtrasIcon} style={{ marginHorizontal: 5, width: 142 }} onPress={() => setPage(page => page - 1)}>Atrás</Button>
+                        <Button accessoryRight={SiguienteIcon} style={{ marginHorizontal: 5, width: 142 }} onPress={() => setPage(page => page + 1)}>Siguiente</Button>
                     </View>
                 </>
             }
@@ -114,11 +135,12 @@ export default function Register()
                 <>
                     <Button style={{width: "50%", marginVertical: 10 }} mode="contained" icon="file" onPress={uploadFile}>CV</Button>
                     <View style={{ flexDirection: "row", alignItems: 'center' }}>
-                        <Button style={{ marginHorizontal: 5 }} mode="outlined" onPress={() => setPage(page => page - 1)}>Atrás</Button>
+                        <Button style={{ marginHorizontal: 5 }} onPress={() => setPage(page => page - 1)}>Atrás</Button>
                         <Button style={{ marginHorizontal: 5 }} mode="contained" onPress={handleRegisterBtn}>Register</Button>
                     </View>
                 </>
             }
         </View>
+        </KeyboardAwareScrollView>
     );
 };

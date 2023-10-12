@@ -1,8 +1,7 @@
 import {useFocusEffect, useNavigation, useRoute} from "@react-navigation/native";
 import {useContext, useLayoutEffect, useState} from "react";
-import {SafeAreaView,View} from "react-native";
-import CourseContent from "../../components/Courses/CourseContent";
-import {Button, Text} from "react-native-paper";
+import { View } from "react-native";
+import {Button, Text} from '@ui-kitten/components';
 import * as React from "react";
 import {AuthContext} from "../../context/AuthContext";
 import {BASE_URL} from "../../config";
@@ -68,16 +67,16 @@ export default function CourseDetailsScreen() {
 
     return(
         <View style={{ alignItems: 'center', width: "100%", paddingVertical: 8, paddingHorizontal: 40 }}>
-            <Text style={{ fontWeight: "500" }} variant="headlineMedium">{course.title}</Text>
-            <Text style={{ fontWeight: "400" }} variant="titleMedium">{course.description}</Text>
+            <Text style={{ fontWeight: "500" }} category='s1'>{course.title}</Text>
+            <Text style={{ fontWeight: "400" }} category='s1'>{course.description}</Text>
 
             {userInformation.role==="admin"?
-                <Button icon="account-group" mode="contained" style={{ width: "50%", marginTop: 8 }} onPress={()=>{navigate("UsersApplyingToJob",{job});}}>User</Button>:
+                <Button style={{ width: "50%", marginTop: 8 }} onPress={()=>{navigate("UsersApplyingToJob",{job});}}>User</Button>:
                 (
                     alreadyEnrolled?
-                        <Text>Application in process...</Text>
+                        <Text category='s1'>Application in process...</Text>
                         :
-                        <Button icon="pencil" mode="contained" style={{ width: "50%", marginTop: 8 }} onPress={handelEnrollBtn}>Enroll</Button>
+                        <Button style={{ width: "50%", marginTop: 8 }} onPress={handelEnrollBtn}>Enroll</Button>
                 )
             }
         </View>

@@ -1,7 +1,7 @@
 import {FlatList, ScrollView, View} from "react-native";
 import {useContext, useState} from "react";
 import {AuthContext} from "../context/AuthContext";
-import { Button, Text, TextInput } from "react-native-paper";
+import { Button, Text, Input } from '@ui-kitten/components';
 import {useFocusEffect} from "@react-navigation/native";
 import * as React from "react";
 import {BASE_URL} from "../config";
@@ -82,17 +82,17 @@ export default function UserProfile({navigation}) {
         <ScrollView>
             <View style={{ flex: 1, alignItems: 'center', padding: 40 }}>
             <View style={{ width: "100%" }}>
-            <Text variant="titleSmall">Name</Text>
-            <TextInput style={{width: "100%" }} disabled mode="outlined">{userInformation.name}</TextInput>
-            <Text style={{ marginTop: 6 }} variant="titleSmall">Gender</Text>
-            <TextInput style={{width: "100%" }} disabled mode="outlined">{userInformation.gender}</TextInput>
-            <Text style={{ marginTop: 6 }} variant="titleSmall">Rating</Text>
-            <TextInput style={{width: "100%" }} disabled mode="outlined">{userInformation.rating}</TextInput>
-            <Text style={{ marginTop: 6 }} variant="titleSmall">Description</Text>
-            <TextInput multiline style={{width: "100%", height: 200 }} disabled mode="outlined">{description}</TextInput>
-            <Text style={{ marginTop: 6 }} variant="titleSmall">CV</Text>
+            <Text category='s1'>Name</Text>
+            <Input style={{width: "100%" }} disabled>{userInformation.name}</Input>
+            <Text style={{ marginTop: 6 }} category='s1'>Gender</Text>
+            <Input style={{width: "100%" }} disabled>{userInformation.gender}</Input>
+            <Text style={{ marginTop: 6 }} category='s1'>Rating</Text>
+            <Input style={{width: "100%" }} disabled>{userInformation.rating}</Input>
+            <Text style={{ marginTop: 6 }} category='s1'>Description</Text>
+            <Input multiline style={{width: "100%", height: 200 }} disabled>{description}</Input>
+            <Text style={{ marginTop: 6 }} category='s1'>CV</Text>
             <Button style={{width: "50%" }} mode="contained" icon="file" onPress={uploadFile}>CV</Button>
-            <Text style={{ marginTop: 6 }} variant="titleSmall">Profile Picture</Text>
+            <Text style={{ marginTop: 6 }} category='s1'>Profile Picture</Text>
             <Button style={{width: "50%" }} mode="contained" icon="camera" onPress={pickImage}>Profile Picture</Button>
                     {image && <Image source={{ uri: image }} style={{ width: 200, height: 200, marginBottom: 10 }} />}
             </View>

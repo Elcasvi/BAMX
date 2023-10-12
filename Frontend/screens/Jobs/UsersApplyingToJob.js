@@ -5,7 +5,7 @@ import {useEffect, useState} from "react";
 import axios from "axios";
 import {BASE_URL} from "../../config";
 import User from "../../components/Users/User";
-import { Text } from "react-native-paper";
+import { Text } from "@ui-kitten/components"
 
 export default function UsersApplyingToJob()
 {
@@ -31,8 +31,8 @@ export default function UsersApplyingToJob()
     return(
         <View>
             <View style={{ alignItems: 'center', width: "100%", paddingVertical: 8, paddingHorizontal: 40 }}>
-                <Text style={{ fontWeight: "500" }} variant="headlineMedium">{job.title}</Text>
-                <Text style={{ fontWeight: "400" }} variant="titleMedium">{job.description}</Text>
+                <Text style={{ fontWeight: "500" }} category='s1'>{job.title}</Text>
+                <Text style={{ fontWeight: "400" }} category='s1'>{job.description}</Text>
             </View>
 
             <FlatList

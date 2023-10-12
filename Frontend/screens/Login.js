@@ -1,10 +1,10 @@
-import { Image, useColorScheme, View} from "react-native";
-import { Text, TextInput, Button } from 'react-native-paper';
-import {useContext, useEffect, useState} from "react";
-import AsyncStorageNative from "@react-native-async-storage/async-storage/src/AsyncStorage.native";
-import {useNavigation} from "@react-navigation/native";
-import {AuthContext} from "../context/AuthContext";
+import { Image, useColorScheme, View } from "react-native";
+import { Input, Button } from '@ui-kitten/components';
+import { useContext, useState } from "react";
+import { useNavigation } from "@react-navigation/native";
+import { AuthContext } from "../context/AuthContext";
 import logo from "../lib/images/bamx.png"
+import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 
 export default function Login()
 {
@@ -16,20 +16,18 @@ export default function Login()
     const [email,setEmail]=useState("")
     const [password,setPassword]=useState("")
 
-    const goToRegister=()=>
-    {
-        navigation.navigate("Register")
-    }
     return (
-        <View style={{ flex: 1, alignItems: 'center', padding: 10 }}>
-            <Image
-                style={{ width: 100, height: 100 }}
-                source={logo}
-            />
-            <TextInput style={{width: "100%", margin: 10 }} mode="outlined" placeholder={"email"} onChangeText={setEmail} value={email}/>
-            <TextInput secureTextEntry={true} style={{width: "100%" }} mode="outlined" placeholder={"password"} onChangeText={setPassword} value={password}/>
-            <Button style={{width: "50%", margin: 10 }} mode="contained" onPress={()=>login({email,password})}>Login</Button>
-            <Button style={{width: "50%" }} mode="outlined" onPress={goToRegister}>Register</Button>
-        </View>
+        <KeyboardAwareScrollView>
+            <View style={{ flex: 1, alignItems: 'center', paddingVertical: 10, paddingHorizontal: 20 }}>
+                <Image
+                    style={{ width: 100, height: 100 }}
+                    source={logo}
+                />
+                <Input size="large" status="primary" label="E-Mail" style={{width: "100%", marginBottom: 10 }} placeholder={"E-Mail"} onChange={setEmail} value={email}/>
+                <Input size="large" status="primary" label="Password" secureTextEntry={true} style={{width: "100%" }} placeholder={"Password"} onChange={setPassword} value={password}/>
+                <Button style={{width: "50%", marginTop: 10, marginBottom: 5 }} onPress={()=>login({email,password})}>Login</Button>
+                <Button style={{width: "50%" }} size="small" appearance='ghost' onPress={() => navigation.navigate("Register")}>go to Register</Button>
+            </View>
+        </KeyboardAwareScrollView>
     );
 };

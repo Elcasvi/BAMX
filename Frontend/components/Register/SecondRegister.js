@@ -1,10 +1,10 @@
+import { Input } from '@ui-kitten/components'
 import React from 'react'
-import { TextInput } from 'react-native-paper'
 
 export default function SecondRegister({ description, setDescription }) {
   return (
     <>
-        <TextInput multiline={true} numberOfLines={10} style={{width: "100%", height: 200, margin: 10 }} mode="outlined" placeholder={"Description"} onChangeText={setDescription} value={description}/>
+        <Input size="large" status="primary" label="Description" textStyle={{minHeight: 174}} multiline={true} style={{width: "100%"}} placeholder={"Description"} onChangeText={setDescription} value={description}/>
     </>
   )
 }

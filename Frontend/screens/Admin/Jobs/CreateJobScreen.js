@@ -2,7 +2,7 @@ import {View} from "react-native";
 import {BASE_URL} from "../../../config";
 import axios from "axios";
 import {useState} from "react";
-import { Button, Text, TextInput } from "react-native-paper";
+import { Button, Text, Input } from "@ui-kitten/components"
 import {useNavigation} from "@react-navigation/native";
 
 export default function CreateJobScreen()
@@ -32,10 +32,10 @@ export default function CreateJobScreen()
     }
     return(
         <View style={{ flex: 1, alignItems: 'center', paddingHorizontal: 40, paddingVertical: 20 }}>
-            <Text style={{ fontWeight: "500" }} variant="displayMedium">Create Job</Text>
-            <TextInput style={{width: "100%", margin: 10 }} mode="outlined" placeholder={"Title"} onChangeText={setTitle} value={title}/>
-            <TextInput style={{width: "100%" }} mode="outlined" placeholder={"Description"} onChangeText={setDescription} value={description}/>
-            <Button icon="plus" style={{width: "50%", margin: 10 }} mode="contained" onPress={createJob}>Create Job</Button>
+            <Text style={{ fontWeight: "500" }} category='s1'>Create Job</Text>
+            <Input style={{width: "100%", margin: 10 }} placeholder={"Title"} onChangeText={setTitle} value={title}/>
+            <Input style={{width: "100%" }} placeholder={"Description"} onChangeText={setDescription} value={description}/>
+            <Button style={{width: "50%", margin: 10 }} onPress={createJob}>Create Job</Button>
         </View>
     );
 }

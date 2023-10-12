@@ -1,15 +1,12 @@
-import {Button, FlatList, Image, Pressable, SafeAreaView, Text, TouchableOpacity, View} from "react-native";
-import {useContext, useEffect, useLayoutEffect, useState} from "react";
+import {FlatList, SafeAreaView, Text, TouchableOpacity} from "react-native";
+import {useContext, useState} from "react";
 import {useFocusEffect, useNavigation} from "@react-navigation/native";
 import * as React from "react";
-import {CoursesDummy} from "../../data/CoursesDummy";
 import Course from "../../components/Courses/Course";
-import {UserDummy} from "../../data/UserDummy";
 import {BASE_URL} from "../../config";
 import axios from "axios";
 import {AuthContext} from "../../context/AuthContext";
-import {IconButton} from "react-native-paper";
-import Job from "../../components/Jobs/Job";
+import { Button } from "@ui-kitten/components";
 
 
 export default function CoursesFeedScreen() {
@@ -60,7 +57,7 @@ export default function CoursesFeedScreen() {
                     }}
                     onPress={() => navigation.navigate("CreateCourseScreen")}
                 >
-                    <IconButton mode='contained' icon="plus"/>
+                    <Button accessoryLeft={<Icon name="plus-outline"/>}/>
                 </TouchableOpacity>
             }
             {

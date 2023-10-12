@@ -1,6 +1,6 @@
 import * as React from "react";
 import {View} from "react-native";
-import {Button, Text} from "react-native-paper";
+import { Text } from "@ui-kitten/components"
 import {AuthContext} from "../../context/AuthContext";
 import {useFocusEffect, useNavigation, useRoute} from "@react-navigation/native";
 import {useContext, useLayoutEffect} from "react";
@@ -32,8 +32,8 @@ export default function AssignedJobDetailsScreen() {
 
     return(
         <View style={{ alignItems: 'center', width: "100%", paddingVertical: 8, paddingHorizontal: 40 }}>
-            <Text style={{ fontWeight: "500" }} variant="headlineMedium">{job.title}</Text>
-            <Text style={{ fontWeight: "400" }} variant="titleMedium">{job.description}</Text>
+            <Text style={{ fontWeight: "500" }} category='s1'>{job.title}</Text>
+            <Text style={{ fontWeight: "400" }} category='s1'>{job.description}</Text>
 
         </View>
     )

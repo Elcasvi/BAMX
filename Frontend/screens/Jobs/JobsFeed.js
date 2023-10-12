@@ -1,14 +1,13 @@
-import * as React from 'react';
+import { useState, useCallback } from 'react';
 import {FlatList, SafeAreaView, Text, TouchableOpacity} from "react-native";
 import Job from "../../components/Jobs/Job";
 import {useNavigation} from "@react-navigation/native";
-import {useContext, useEffect, useLayoutEffect, useState} from "react";
+import {useContext} from "react";
 import {BASE_URL} from "../../config";
 import axios from "axios";
 import {AuthContext} from "../../context/AuthContext";
-import { IconButton } from 'react-native-paper';
+import { Button, Icon } from '@ui-kitten/components';
 import { useFocusEffect } from '@react-navigation/native';
-
 
 export default function JobsFeedScreen() {
     const[jobOffers,setJobOffers]=useState({})
@@ -31,7 +30,7 @@ export default function JobsFeedScreen() {
     },[]);
 */
     useFocusEffect(
-        React.useCallback(() => {
+        useCallback(() => {
             getJobOffersByUser();
             getJobOffers();
         }, [])
@@ -96,7 +95,7 @@ export default function JobsFeedScreen() {
                 }}
                 onPress={() => navigation.navigate("CreateJobScreen")}
                 >
-                <IconButton mode='contained' icon="plus"/>
+                <Button accessoryLeft={<Icon name="plus-outline"/>}/>
             </TouchableOpacity>
             }
             {
