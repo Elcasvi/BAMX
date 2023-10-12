@@ -10,6 +10,7 @@ import AppliedJobs from "../screens/Jobs/AppliedJobs";
 import AssignedJobs from "../screens/Jobs/AssignedJobs";
 import UsersApplyingToJob from "../screens/Jobs/UsersApplyingToJob";
 import UserProfileScreen from "../screens/UserProfileScreen";
+import AssignedJobDetailsScreen from "../screens/Jobs/AssignedJobDetailsScreen";
 
 const JobFeedStack = createNativeStackNavigator();
 export default function JobStackNavigation() {
@@ -28,6 +29,8 @@ export default function JobStackNavigation() {
             <JobFeedStack.Screen name="CreateJobScreen" component={CreateJobScreen}
                                  options={{headerTitle:"Trabajos"}}/>
             <JobFeedStack.Screen name="JobDetailsScreen" component={JobDetailsScreen}
+                                 options={{presentation:"modal"}}/>
+            <JobFeedStack.Screen name="AssignedJobDetailsScreen" component={AssignedJobDetailsScreen}
                                  options={{presentation:"modal"}}/>
             <JobFeedStack.Screen name="UsersApplyingToJob" component={UsersApplyingToJob}
                                  options={{presentation:"modal"}}/>

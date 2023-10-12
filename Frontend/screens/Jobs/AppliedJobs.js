@@ -10,12 +10,15 @@ import {useFocusEffect} from "@react-navigation/native";
 export default function AppliedJobs()
 {
     const [jobOffers,setJobOffers]=useState({})
+    const [jobAssigned,setJobAssigned]=useState(false)
     const {userInformation} = useContext(AuthContext)
+
     useFocusEffect(
         React.useCallback(() => {
             getJobOffersByUser()
         }, [])
     );
+
 
     const getJobOffersByUser=()=>
     {

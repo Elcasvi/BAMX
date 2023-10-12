@@ -6,6 +6,7 @@ import * as React from "react";
 import {useContext, useState} from "react";
 import {AuthContext} from "../../context/AuthContext";
 import Job from "../../components/Jobs/Job";
+import AssignedJob from "../../components/Jobs/AssignedJob";
 export default function ()
 {
     const {userInformation} = useContext(AuthContext)
@@ -32,7 +33,7 @@ export default function ()
             {
                 assignedJobs.length>0?(<View style={{ paddingTop: 8 }}>
                     <FlatList data={assignedJobs}
-                              renderItem={({item})=><Job job={item}/>}
+                              renderItem={({item})=><AssignedJob job={item}/>}
                     />
                 </View>):(<Text>No Assigned Jobs</Text>)
             }

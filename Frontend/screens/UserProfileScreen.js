@@ -15,10 +15,8 @@ export default function (){
 
     const hireEmployee=()=>
     {
-        /*
         assignJobOfferToUser()
         deleteJobOffer()
-         */
     }
     const declineEmployee=()=>
     {
@@ -46,6 +44,17 @@ export default function (){
         axios.post(url,jobDto)
             .then(res => {
                 console.log(res.data)
+            })
+            .catch((error) => {
+                alert("Error: "+error)
+            });
+    }
+    const deleteJobOffer=()=>
+    {
+        const url=BASE_URL+"/JobOffer/delete/"+job.id
+        axios.delete(url)
+            .then(res => {
+                //console.log(res.data)
             })
             .catch((error) => {
                 alert("Error: "+error)
