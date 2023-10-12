@@ -109,7 +109,10 @@ export default function Register()
             {page === 0 &&
                 <>
                     <FirstRegister name={name} setName={setName} email={email} setEmail={setEmail} password={password} setPassword={setPassword}/>
-                    <Button accessoryRight={SiguienteIcon} style={{width: 142, marginTop: 10 }} onPress={() => setPage(page => page + 1)}>Siguiente</Button>
+                    <View style={{ flexDirection: "row", alignItems: 'center', marginTop: 10 }}>
+                        <Button accessoryLeft={AtrasIcon} style={{ marginHorizontal: 5, width: 142 }} onPress={() => navigation.navigate("Login")}>Atrás</Button>
+                        <Button accessoryRight={SiguienteIcon} style={{ marginHorizontal: 5, width: 142 }} onPress={() => setPage(page => page + 1)}>Siguiente</Button>
+                    </View> 
                 </>
             }
             {page === 1 &&
