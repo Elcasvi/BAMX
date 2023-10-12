@@ -5,17 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4d695a77-b978-4f13-8366-bf2b95423c61" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../Backend/.vs/Backend/DesignTimeBuild/.dtbcache.v2" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/.vs/Backend/DesignTimeBuild/.dtbcache.v2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/.vs/Backend/v17/.futdcache.v2" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/.vs/Backend/v17/.futdcache.v2" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Backend/.vs/Backend/v17/.suo" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/.vs/Backend/v17/.suo" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Backend/BAMXTesting/obj/Debug/net7.0/BAMXTesting.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/BAMXTesting/obj/Debug/net7.0/BAMXTesting.csproj.AssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Backend/Backend/bin/Debug/net7.0/Backend.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/Backend/bin/Debug/net7.0/Backend.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Backend/Backend/bin/Debug/net7.0/Backend.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/Backend/bin/Debug/net7.0/Backend.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Backend/Backend/obj/Debug/net7.0/Backend.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/Backend/obj/Debug/net7.0/Backend.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Backend/Backend/obj/Debug/net7.0/Backend.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/Backend/obj/Debug/net7.0/Backend.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Backend/Backend/obj/Debug/net7.0/ref/Backend.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/Backend/obj/Debug/net7.0/ref/Backend.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Backend/Backend/obj/Debug/net7.0/refint/Backend.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/Backend/obj/Debug/net7.0/refint/Backend.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/.vs/ProjectEvaluation/backend.metadata.v7.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/.vs/ProjectEvaluation/backend.metadata.v7.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/.vs/ProjectEvaluation/backend.projects.v7.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/.vs/ProjectEvaluation/backend.projects.v7.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/context/AuthContext.js" beforeDir="false" afterPath="$PROJECT_DIR$/context/AuthContext.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screens/Register.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/Register.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -114,7 +110,8 @@
       <workItem from="1696812757841" duration="305000" />
       <workItem from="1696820530985" duration="613000" />
       <workItem from="1696891288439" duration="13220000" />
-      <workItem from="1696978392694" duration="16027000" />
+      <workItem from="1696978392694" duration="16217000" />
+      <workItem from="1697070150966" duration="3750000" />
     </task>
     <servers />
   </component>

@@ -11,6 +11,7 @@ export const AuthProvider=({children})=>
     const[blobInformationCV,setBlobInformationCV]=useState(null);
     const[blobInformationImg,setBlobInformationImg]=useState(null);
     const[updatedUserInformation,setUpdatedUserInformation]=useState(null);
+    const[isBlobFinish,setIsBlobFinish]=useState(false)
     const login=({email,password})=>
     {
         setIsLoading(true)
@@ -39,8 +40,6 @@ export const AuthProvider=({children})=>
                     });
             })
             .catch((error) => {
-                // Handle fetch errors
-                //console.error("Fetch error:", error);
                 alert("Email or password not correct")
             })
     }
@@ -91,10 +90,8 @@ export const AuthProvider=({children})=>
         {
             updateUser(userBodyInfo);
             console.log("Outside of updateUser")
-
-            saveUserInfoInAsyncStorage();
         }
-    },[blobInformationImg])
+    },[isBlobFinish])
 
     useEffect(()=>{
         if(updatedUserInformation!==null)
@@ -107,38 +104,79 @@ export const AuthProvider=({children})=>
 
 
 
-    const addBlobStorage=async(userBody)=>
+    const addBlobStorage=async (userBody)=>
     {
-        const urlBlobCV = BASE_URL+"/BlobStorage/"+userInformation.id
-        axios.post(urlBlobCV,userBody.FormDataCV, {
-            headers: {
-                'Content-Type': 'multipart/form-data',
-            },
-        })
-            .then(res => {
-                setBlobInformationCV(res.data)
-            })
-            .catch((error) => {
-                alert("Error: "+error)
-            })
 
-        const urlBlobImg = BASE_URL+"/BlobStorage/"+userInformation.id
-        axios.post(urlBlobImg,userBody.FormDataImg, {
-            headers: {
-                'Content-Type': 'multipart/form-data',
-            },
-        })
-            .then(res => {
-                setBlobInformationImg(res.data)
-            })
-            .catch((error) => {
-                alert("Error: "+error)
-            })
+        if(userBody.FormDataCV===null && userBody.FormDataImg===null)
+        {
+
+            setIsBlobFinish(true)
+            const blobIfo={
+                url:null,
+                fileName:null
+            }
+            setBlobInformationCV(blobIfo);
+            setBlobInformationImg(blobIfo);
+        }
+        else
+        {
+
+            const urlBlob = BASE_URL + "/BlobStorage/" + userInformation.id;
+            if(userBody.FormDataCV!==null)
+            {
+
+                try {
+                    const response = await axios.post(urlBlob, userBody.FormDataCV, {
+                        headers: {
+                            'Content-Type': 'multipart/form-data',
+                        },
+                    });
+
+                    setBlobInformationCV(response.data);
+                } catch (error) {
+                    alert("Error: " + error);
+                }
+
+            }
+            else
+            {
+                const blobIfo={
+                    url:null,
+                    fileName:null
+                }
+                setBlobInformationCV(blobIfo);
+            }
+
+            if(userBody.FormDataImg!==null)
+            {
+
+                try {
+                    const response = await axios.post(urlBlob, userBody.FormDataImg, {
+                        headers: {
+                            'Content-Type': 'multipart/form-data',
+                        },
+                    });
+
+                    setBlobInformationImg(response.data);
+                } catch (error) {
+                    alert("Error: " + error);
+                }
+            }
+            else
+            {
+                const blobIfo={
+                    url:null,
+                    fileName:null
+                }
+                setBlobInformationImg(blobIfo);
+            }
+            setIsBlobFinish(true)
+        }
 
     }
     const updateUser=(userBody)=>
     {
-        console.log("Inside of updateUser")
+
         const urlUpdateUser=BASE_URL+"/update/userId/"+userInformation.id
         const userUpdatedBodyDto=
             {
