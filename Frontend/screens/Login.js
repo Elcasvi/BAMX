@@ -30,8 +30,8 @@ export default function Login()
                     style={{ width: 100, height: 100 }}
                     source={logo}
                 />
-                <Input size="large" status="primary" label="E-Mail" style={{width: "100%", marginBottom: 10 }} placeholder={"E-Mail"} onChange={setEmail} value={email}/>
-                <Input size="large" status="primary" label="Password" secureTextEntry={true} style={{width: "100%" }} placeholder={"Password"} onChange={setPassword} value={password}/>
+                <Input size="large" status="primary" label="E-Mail" style={{width: "100%", marginBottom: 10 }} placeholder={"E-Mail"} onChangeText={setEmail} value={email}/>
+                <Input size="large" status="primary" label="Password" secureTextEntry={true} style={{width: "100%" }} placeholder={"Password"} onChangeText={setPassword} value={password}/>
                 <Button accessoryRight={LogInIcon} style={{width: 142, marginTop: 10, marginBottom: 5 }} onPress={()=>login({email,password})}>Login</Button>
                 <Button style={{width: 142 }} size="small" appearance='ghost' onPress={() => navigation.navigate("Register")}>go to Register</Button>
             </View>

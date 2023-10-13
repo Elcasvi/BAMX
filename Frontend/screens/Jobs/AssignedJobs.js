@@ -1,12 +1,12 @@
-import {FlatList, SafeAreaView, Text, View} from "react-native";
+import { SafeAreaView, View} from "react-native";
 import axios from "axios";
 import {BASE_URL} from "../../config";
 import {useFocusEffect} from "@react-navigation/native";
 import * as React from "react";
 import {useContext, useState} from "react";
 import {AuthContext} from "../../context/AuthContext";
-import Job from "../../components/Jobs/Job";
-import AssignedJob from "../../components/Jobs/AssignedJob";
+import {JobAssigned} from "../../components/Jobs/Job";
+import { Divider, List, Text } from "@ui-kitten/components";
 export default function ()
 {
     const {userInformation} = useContext(AuthContext)
@@ -30,14 +30,14 @@ export default function ()
     );
     return(
         <SafeAreaView style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-            {
-                assignedJobs.length>0?(<View style={{ paddingTop: 8 }}>
-                    <FlatList data={assignedJobs}
-                              renderItem={({item})=><AssignedJob job={item}/>}
-                              keyExtractor={item => item.id}
-                    />
-                </View>):(<Text>No Assigned Jobs</Text>)
-            }
+         <List
+                style={{ width: "100%" }}
+                data={assignedJobs}
+                ItemSeparatorComponent={Divider}
+                renderItem={({item}) => <JobAssigned job={item}/>}
+                keyExtractor={item => item.id}
+                ListEmptyComponent={<View style={{ height: 200, width: "100%", flex: 1, justifyContent: "center", alignItems: "center"}}><Text appearance='hint' category='s1'>No assigned Jobs</Text></View>}
+                />
         </SafeAreaView>
     )
 }

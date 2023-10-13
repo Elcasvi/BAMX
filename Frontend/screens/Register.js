@@ -153,10 +153,10 @@ export default function Register()
                     {image ? 
                         <Image source={{ uri: image }} style={{ width: 160, height: 160, marginTop: 10, borderRadius: 100, borderWidth: 2, borderColor: "gray" }} />
                     :
-                        <View style={{ width: 160, height: 160, marginTop: 10, borderRadius: 100, borderWidth: 2, justifyContent: 'center', alignItems: 'center', borderColor: "gray" }}>
+                        <View style={{ width: 160, height: 160, marginTop: 10, borderRadius: 100, borderWidth: 2, justifyContent: 'center', alignItems: 'center', borderColor: "#575756" }}>
                             <Icon
                                 style={{ width: 42, height: 42 }}
-                                fill='gray'
+                                fill='#575756'
                                 name='cloud-upload-outline'
                             />
                         </View>
@@ -170,17 +170,17 @@ export default function Register()
             {page === 3 &&
                 <>
                     <Button accessoryLeft={CvIcon} style={{width: "50%" }} onPress={uploadFile}>CV</Button>
-                        <View style={{ width: 160, height: 160, marginTop: 10, borderRadius: 10, borderWidth: 2, justifyContent: 'center', alignItems: 'center', borderColor: "gray" }}>
+                        <View style={{ width: 160, height: 160, marginTop: 10, borderRadius: 10, borderWidth: 2, justifyContent: 'center', alignItems: 'center', borderColor: "#575756" }}>
                             {cv === null ?
                             <Icon
                                 style={{ width: 42, height: 42 }}
-                                fill='gray'
+                                fill='#575756'
                                 name= 'cloud-upload-outline'
                             />
                             :
                             <Icon
                                 style={{ width: 42, height: 42 }}
-                                fill='gray'
+                                fill='#00a039'
                                 name= 'checkmark-circle-outline'
                             />
                             }

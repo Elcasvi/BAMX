@@ -1,55 +1,24 @@
-import {FlatList, ScrollView, View} from "react-native";
+import {ScrollView, View} from "react-native";
 import {useContext, useState} from "react";
 import {AuthContext} from "../context/AuthContext";
 import { Button, Text, Input } from '@ui-kitten/components';
 import {useFocusEffect} from "@react-navigation/native";
 import * as React from "react";
-import {BASE_URL} from "../config";
-import axios from "axios";
 import * as DocumentPicker from "expo-document-picker";
 import * as ImagePicker from "expo-image-picker"
-import AssignedJob from "../components/Jobs/AssignedJob";
 
 export default function UserProfile({navigation}) {
     const{logout}=useContext(AuthContext)
     const{userInformation}=useContext(AuthContext)
     const [loading,setLoading]=useState(false)
-    const [assignedJobs,setAssignedJobs]=useState()
-    const [courses,setCourses]=useState()
     const [description, setDescription] = useState(userInformation.description)
     const [image, setImage] = useState(null);
 
-    const getAssignedJobs=()=>
-    {
-        const url=BASE_URL+"/User/assignedJobs/"+userInformation.id
-        axios.get(url)
-            .then(res => {
 
-                setAssignedJobs(res.data)
-            })
-            .catch((error) => {
-                alert("Error: "+error)
-            })
-    }
-
-    const getCourses=() =>
-    {
-        const url=BASE_URL+"/UserCourses/Courses/"+userInformation.id
-        axios.get(url)
-            .then(res => {
-
-                setCourses(res.data)
-            })
-            .catch((error) => {
-                alert("Error: "+error)
-            })
-    }
     useFocusEffect(
         React.useCallback(() => {
             console.log(userInformation.cvUrl)
             console.log(userInformation.profilePictureUrl)
-            getAssignedJobs();
-            //getCourses();
         }, [])
     );
 
@@ -96,24 +65,6 @@ export default function UserProfile({navigation}) {
             <Button style={{width: "50%" }} mode="contained" icon="camera" onPress={pickImage}>Profile Picture</Button>
                     {image && <Image source={{ uri: image }} style={{ width: 200, height: 200, marginBottom: 10 }} />}
             </View>
-            <FlatList
-                data={assignedJobs}
-                horizontal={true}
-                renderItem={({ item }) => (<AssignedJob job={item}/>)}
-                keyExtractor={(item) => item.id}
-            />
-
-            <FlatList
-                data={courses}
-                horizontal={true}
-                renderItem={({ item }) => (
-                    <View>
-                        <Text>{item.text}</Text>
-                    </View>
-                )}
-                keyExtractor={(item) => item.id}
-            />
-
             <Button style={{ margin: 10 }} mode="contained" onPress={()=>logout()}>Log out</Button>
             </View>
         </ScrollView>

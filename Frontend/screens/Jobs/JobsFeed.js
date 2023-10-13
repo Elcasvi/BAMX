@@ -1,12 +1,12 @@
 import { useState, useCallback } from 'react';
-import {FlatList, SafeAreaView, Text, TouchableOpacity} from "react-native";
-import Job from "../../components/Jobs/Job";
+import {SafeAreaView, TouchableOpacity, View} from "react-native";
+import {JobOffer} from "../../components/Jobs/Job";
 import {useNavigation} from "@react-navigation/native";
 import {useContext} from "react";
 import {BASE_URL} from "../../config";
 import axios from "axios";
 import {AuthContext} from "../../context/AuthContext";
-import { Button, Icon } from '@ui-kitten/components';
+import { Divider, Icon, List, Text } from '@ui-kitten/components';
 import { useFocusEffect } from '@react-navigation/native';
 
 export default function JobsFeedScreen() {
@@ -85,30 +85,31 @@ export default function JobsFeedScreen() {
     }
     return (
         <SafeAreaView style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-            {userInformation.role==="admin" && 
+            {userInformation.role === "admin" && 
             <TouchableOpacity
                 style={{
                     position: "absolute",
                     right: 20,
                     bottom: 20,
                     zIndex: 50,
+                    backgroundColor: "#00a039",
+                    borderRadius: 100,
+                    padding: 8
                 }}
                 onPress={() => navigation.navigate("CreateJobScreen")}
                 >
-                <Button accessoryLeft={<Icon name="plus-outline"/>}/>
+                <Icon style={{ width: 28, height: 28 }} name="plus-outline"/>
             </TouchableOpacity>
             }
-            {
-                jobOffers.length>0?( <FlatList
-                    style={{ width: "100%", marginTop: 6 }}
-                    data={jobOffers}
-                    renderItem={({item}) => <Job job={item}/>}
-                    keyExtractor={item => item.id}
-                />):(<Text>No Jobs available</Text>)
-            }
-
+                <List
+                style={{ width: "100%" }}
+                data={jobOffers}
+                ItemSeparatorComponent={Divider}
+                renderItem={({item}) => <JobOffer job={item}/>}
+                keyExtractor={item => item.id}
+                ListEmptyComponent={<View style={{ height: 200, width: "100%", flex: 1, justifyContent: "center", alignItems: "center"}}><Text appearance='hint' category='s1'>No Jobs available</Text></View>}
+                />
         </SafeAreaView>
-
     );
 }
 

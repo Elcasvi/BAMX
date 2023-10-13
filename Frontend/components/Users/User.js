@@ -1,5 +1,4 @@
 import {useNavigation} from "@react-navigation/native";
-import JobContent from "../Jobs/JobContent";
 import {Pressable} from "react-native";
 import UserDetails from "./UserDetails";
 

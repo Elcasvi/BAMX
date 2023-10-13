@@ -1,12 +1,64 @@
 import { Pressable } from "react-native";
 import {useNavigation} from "@react-navigation/native";
-import JobContent from "./JobContent";
+import { Icon, ListItem, Text } from "@ui-kitten/components";
 
-export default function Job({job}){
+const OfferIcon = (props) => (
+    <Icon
+      style={{ width: 32, height: 32, margin: 10, padding: 10 }}
+      fill="#8F9BB3"
+      name='briefcase-outline'
+    />
+);
+
+const ApplicationIcon = (props) => (
+    <Icon
+      style={{ width: 32, height: 32, margin: 10, padding: 10 }}
+      fill="#8F9BB3"
+      name='clock-outline'
+    />
+);
+
+const AssignedIcon = (props) => (
+    <Icon
+      style={{ width: 32, height: 32, margin: 10, padding: 10 }}
+      fill="#8F9BB3"
+      name='checkmark-circle-outline'
+    />
+);
+
+
+export function JobOffer({job}){
     const {navigate}=useNavigation();
     return(
-        <Pressable onPress={()=>{navigate("JobDetailsScreen",{ job });}}>
-            <JobContent job={job}/>
-        </Pressable>
+            <ListItem
+            title={() => <Text category='h4'>{job.title}</Text>}
+            description={() => <Text category='p1' appearance='hint'>{job.description}</Text>}
+            accessoryLeft={OfferIcon}
+            onPress={()=>{navigate("JobDetailsScreen",{ job });}}
+        />
+    );
+};
+
+export function JobApplication({job}){
+    const {navigate}=useNavigation();
+    return(
+            <ListItem
+            title={() => <Text category='h4'>{job.title}</Text>}
+            description={() => <Text category='p1' appearance='hint'>{job.description}</Text>}
+            accessoryLeft={ApplicationIcon}
+            onPress={()=>{navigate("JobDetailsScreen",{ job });}}
+        />
+    );
+};
+
+export function JobAssigned({job}){
+    const {navigate}=useNavigation();
+    return(
+            <ListItem
+            title={() => <Text category='h4'>{job.title}</Text>}
+            description={() => <Text category='p1' appearance='hint'>{job.description}</Text>}
+            accessoryLeft={AssignedIcon}
+            onPress={()=>{navigate("JobDetailsScreen",{ job });}}
+        />
     );
 };

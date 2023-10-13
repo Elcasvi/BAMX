@@ -2,8 +2,16 @@ import {View} from "react-native";
 import {BASE_URL} from "../../../config";
 import axios from "axios";
 import {useState} from "react";
-import { Button, Text, Input } from "@ui-kitten/components"
+import { Button, Text, Input, Icon } from "@ui-kitten/components"
 import {useNavigation} from "@react-navigation/native";
+import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
+
+const PlusIcon = (props) => (
+    <Icon
+        {...props}
+        name='plus-outline'
+    />
+);
 
 export default function CreateJobScreen()
 {
@@ -31,11 +39,13 @@ export default function CreateJobScreen()
             })
     }
     return(
-        <View style={{ flex: 1, alignItems: 'center', paddingHorizontal: 40, paddingVertical: 20 }}>
-            <Text style={{ fontWeight: "500" }} category='s1'>Create Job</Text>
-            <Input style={{width: "100%", margin: 10 }} placeholder={"Title"} onChangeText={setTitle} value={title}/>
-            <Input style={{width: "100%" }} placeholder={"Description"} onChangeText={setDescription} value={description}/>
-            <Button style={{width: "50%", margin: 10 }} onPress={createJob}>Create Job</Button>
-        </View>
+        <KeyboardAwareScrollView>
+            <View style={{ flex: 1, alignItems: 'center', paddingHorizontal: 40, paddingVertical: 20 }}>
+                <Text category='h4'>Create Job</Text>
+                <Input size="large" status="primary" label="Title" style={{width: "100%", margin: 10 }} placeholder={"Title"} onChangeText={setTitle} value={title}/>
+                <Input size="large" status="primary" textStyle={{minHeight: 175}} multiline={true} label="Description" style={{width: "100%" }} placeholder={"Description"} onChangeText={setDescription} value={description}/>
+                <Button accessoryLeft={PlusIcon} style={{margin: 10 }} onPress={createJob}>Create Job</Button>
+            </View>
+        </KeyboardAwareScrollView>
     );
 }
