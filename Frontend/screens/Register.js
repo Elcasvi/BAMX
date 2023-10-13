@@ -1,4 +1,4 @@
-import { Image, useColorScheme, View} from "react-native";
+import { Image, Text, useColorScheme, View} from "react-native";
 import {useContext, useState} from "react";
 import { Button, Icon, ProgressBar } from '@ui-kitten/components';
 import {useNavigation} from "@react-navigation/native";
@@ -14,6 +14,27 @@ const SiguienteIcon = (props) => (
     <Icon
       {...props}
       name='arrow-forward-outline'
+    />
+);
+
+const ProfilePictureIcon = (props) => (
+    <Icon
+      {...props}
+      name='camera-outline'
+    />
+);
+
+const CvIcon = (props) => (
+    <Icon
+      {...props}
+      name='book-open-outline'
+    />
+);
+
+const LogInIcon = (props) => (
+    <Icon
+        {...props}
+        name='log-in-outline'
     />
 );
 
@@ -37,8 +58,9 @@ export default function Register()
     const [description,setDescription]=useState("")
     const [page, setPage] = useState(0)
     const [image, setImage] = useState(null);
-    const[formDataImg,setFormDataImg]=useState(null)
-    const[formDataCV,setFormDataCV]=useState(null)
+    const [formDataImg, setFormDataImg] = useState(null)
+    const [formDataCV, setFormDataCV] = useState(null)
+    const [cv, setCv] = useState(null)
 
     const pickImage = async () => {
       // No permissions request is necessary for launching the image library
@@ -66,9 +88,10 @@ export default function Register()
     };
 
     const uploadFile = async () => {
-            const result = await DocumentPicker.getDocumentAsync({});
+            const result = await DocumentPicker.getDocumentAsync({ type: 'application/pdf' });
             const uri = result.assets.at(0).uri;
             const name = result.assets.at(0).name;
+            setCv(uri)
             // Create a FormData object to send the document
             const formData = new FormData();
             formData.append('file', {
@@ -104,7 +127,7 @@ export default function Register()
                 style={{width: "80%", marginVertical: 14}}
                 size="medium"
                 status='success'
-                progress={(page + 1) / 5}
+                progress={(page + 1) / 4}
                 />
             {page === 0 &&
                 <>
@@ -126,8 +149,18 @@ export default function Register()
             }
             {page === 2 &&
                 <>
-                    <Button style={{width: "50%" }} onPress={pickImage}>Profile Picture</Button>
-                    {image && <Image source={{ uri: image }} style={{ width: 200, height: 200, marginBottom: 10 }} />}
+                    <Button accessoryLeft={ProfilePictureIcon} style={{ width: "50%" }} onPress={pickImage}>Profile Picture</Button>
+                    {image ? 
+                        <Image source={{ uri: image }} style={{ width: 160, height: 160, marginTop: 10, borderRadius: 100, borderWidth: 2, borderColor: "gray" }} />
+                    :
+                        <View style={{ width: 160, height: 160, marginTop: 10, borderRadius: 100, borderWidth: 2, justifyContent: 'center', alignItems: 'center', borderColor: "gray" }}>
+                            <Icon
+                                style={{ width: 42, height: 42 }}
+                                fill='gray'
+                                name='cloud-upload-outline'
+                            />
+                        </View>
+                    }
                     <View style={{ flexDirection: "row", alignItems: 'center', marginTop: 10 }}>
                         <Button accessoryLeft={AtrasIcon} style={{ marginHorizontal: 5, width: 142 }} onPress={() => setPage(page => page - 1)}>Atrás</Button>
                         <Button accessoryRight={SiguienteIcon} style={{ marginHorizontal: 5, width: 142 }} onPress={() => setPage(page => page + 1)}>Siguiente</Button>
@@ -136,10 +169,25 @@ export default function Register()
             }
             {page === 3 &&
                 <>
-                    <Button style={{width: "50%", marginVertical: 10 }} mode="contained" icon="file" onPress={uploadFile}>CV</Button>
-                    <View style={{ flexDirection: "row", alignItems: 'center' }}>
-                        <Button style={{ marginHorizontal: 5 }} onPress={() => setPage(page => page - 1)}>Atrás</Button>
-                        <Button style={{ marginHorizontal: 5 }} mode="contained" onPress={handleRegisterBtn}>Register</Button>
+                    <Button accessoryLeft={CvIcon} style={{width: "50%" }} onPress={uploadFile}>CV</Button>
+                        <View style={{ width: 160, height: 160, marginTop: 10, borderRadius: 10, borderWidth: 2, justifyContent: 'center', alignItems: 'center', borderColor: "gray" }}>
+                            {cv === null ?
+                            <Icon
+                                style={{ width: 42, height: 42 }}
+                                fill='gray'
+                                name= 'cloud-upload-outline'
+                            />
+                            :
+                            <Icon
+                                style={{ width: 42, height: 42 }}
+                                fill='gray'
+                                name= 'checkmark-circle-outline'
+                            />
+                            }
+                        </View>
+                    <View style={{ flexDirection: "row", alignItems: 'center', marginTop: 10 }}>
+                        <Button accessoryLeft={AtrasIcon} style={{ marginHorizontal: 5, width: 142 }} onPress={() => setPage(page => page - 1)}>Atrás</Button>
+                        <Button accessoryRight={LogInIcon} style={{ marginHorizontal: 5, width: 142 }} onPress={handleRegisterBtn}>Register</Button>
                     </View>
                 </>
             }

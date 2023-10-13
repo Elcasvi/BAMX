@@ -1,10 +1,17 @@
 import { Image, useColorScheme, View } from "react-native";
-import { Input, Button } from '@ui-kitten/components';
+import { Input, Button, Icon } from '@ui-kitten/components';
 import { useContext, useState } from "react";
 import { useNavigation } from "@react-navigation/native";
 import { AuthContext } from "../context/AuthContext";
 import logo from "../lib/images/bamx.png"
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
+
+const LogInIcon = (props) => (
+    <Icon
+        {...props}
+        name='log-in-outline'
+    />
+);
 
 export default function Login()
 {
@@ -25,8 +32,8 @@ export default function Login()
                 />
                 <Input size="large" status="primary" label="E-Mail" style={{width: "100%", marginBottom: 10 }} placeholder={"E-Mail"} onChange={setEmail} value={email}/>
                 <Input size="large" status="primary" label="Password" secureTextEntry={true} style={{width: "100%" }} placeholder={"Password"} onChange={setPassword} value={password}/>
-                <Button style={{width: "50%", marginTop: 10, marginBottom: 5 }} onPress={()=>login({email,password})}>Login</Button>
-                <Button style={{width: "50%" }} size="small" appearance='ghost' onPress={() => navigation.navigate("Register")}>go to Register</Button>
+                <Button accessoryRight={LogInIcon} style={{width: 142, marginTop: 10, marginBottom: 5 }} onPress={()=>login({email,password})}>Login</Button>
+                <Button style={{width: 142 }} size="small" appearance='ghost' onPress={() => navigation.navigate("Register")}>go to Register</Button>
             </View>
         </KeyboardAwareScrollView>
     );
