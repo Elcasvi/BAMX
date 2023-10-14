@@ -7,6 +7,7 @@ import {useContext, useState} from "react";
 import {AuthContext} from "../../context/AuthContext";
 import {JobAssigned} from "../../components/Jobs/Job";
 import { Divider, List, Text } from "@ui-kitten/components";
+import CustomNavigationBar from "../../navigation/CustomNavigationBar";
 export default function ()
 {
     const {userInformation} = useContext(AuthContext)
@@ -29,6 +30,8 @@ export default function ()
         }, [])
     );
     return(
+        <>
+        <CustomNavigationBar/>
         <SafeAreaView style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
          <List
                 style={{ width: "100%" }}
@@ -39,5 +42,6 @@ export default function ()
                 ListEmptyComponent={<View style={{ height: 200, width: "100%", flex: 1, justifyContent: "center", alignItems: "center"}}><Text appearance='hint' category='s1'>No assigned Jobs</Text></View>}
                 />
         </SafeAreaView>
+        </>
     )
 }

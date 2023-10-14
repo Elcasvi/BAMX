@@ -7,6 +7,7 @@ import {AuthContext} from "../../context/AuthContext";
 import {JobApplication} from "../../components/Jobs/Job";
 import {useFocusEffect} from "@react-navigation/native";
 import { Divider, List, Text } from '@ui-kitten/components';
+import CustomNavigationBar from '../../navigation/CustomNavigationBar';
 
 export default function AppliedJobs()
 {
@@ -33,14 +34,17 @@ export default function AppliedJobs()
             })
     }
     return(
-        <SafeAreaView style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <List
-                style={{ width: "100%" }}
-                data={jobOffers}
-                ItemSeparatorComponent={Divider}
-                renderItem={({item}) => <JobApplication job={item}/>}
-                ListEmptyComponent={<View style={{ height: 200, width: "100%", flex: 1, justifyContent: "center", alignItems: "center"}}><Text appearance='hint' category='s1'>No applied Jobs</Text></View>}
-                />
-        </SafeAreaView>
+        <>
+        <CustomNavigationBar/>
+            <SafeAreaView style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+            <List
+                    style={{ width: "100%" }}
+                    data={jobOffers}
+                    ItemSeparatorComponent={Divider}
+                    renderItem={({item}) => <JobApplication job={item}/>}
+                    ListEmptyComponent={<View style={{ height: 200, width: "100%", flex: 1, justifyContent: "center", alignItems: "center"}}><Text appearance='hint' category='s1'>No applied Jobs</Text></View>}
+                    />
+            </SafeAreaView>
+        </>
     )
 }

@@ -1,12 +1,13 @@
-import { getHeaderTitle } from '@react-navigation/elements';
 import React from 'react';
 import {
+  Divider,
   Icon,
   Layout,
   TopNavigation,
   TopNavigationAction,
 } from '@ui-kitten/components';
 import { StyleSheet } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 const BackIcon = (props) => (
   <Icon
@@ -22,18 +23,14 @@ const PersonIcon = (props) => (
   />
 );
 
-export default function CustomNavigationBar({ navigation, route, options, back }) {
-  const title = getHeaderTitle(options, route.name);
+export default function CustomNavigationBar({ title }) {
+  const navigation = useNavigation()
 
   const renderProfileAction = () => (
     <TopNavigationAction
       icon={PersonIcon}
-      onPress={() => console.log("() => { navigation.navigate('UserProfile') }")}
+      onPress={() => { navigation.navigate('UserProfile') }}
     />
-  );
-
-  const renderBackAction = () => (
-    <TopNavigationAction icon={BackIcon} />
   );
 
   return (
@@ -44,15 +41,15 @@ export default function CustomNavigationBar({ navigation, route, options, back }
       <TopNavigation
         alignment='center'
         title={title}
-        accessoryLeft={renderBackAction}
         accessoryRight={renderProfileAction}
       />
+      <Divider />
     </Layout>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    minHeight: 128,
+    paddingTop: 30,
   },
 });

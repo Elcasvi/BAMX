@@ -1,13 +1,11 @@
 import {Button, Text, View} from "react-native";
 import {useRoute} from "@react-navigation/native";
-import {useContext} from "react";
-import {AuthContext} from "../context/AuthContext";
 import UserDetails from "../components/Users/UserDetails";
 import {BASE_URL} from "../config";
 import axios from "axios";
 
 
-export default function (){
+export function UserProfileScreen (){
     const route=useRoute();
     const{params}=route;
     const user=params.user;
