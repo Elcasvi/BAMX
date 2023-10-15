@@ -1,4 +1,6 @@
-﻿namespace Backend.Models.Entities.JoinTables;
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Backend.Models.Entities.JoinTables;
 
 public class UserJobOffer
 {

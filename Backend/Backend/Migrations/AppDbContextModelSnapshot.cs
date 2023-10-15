@@ -56,7 +56,7 @@ namespace Backend.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("AssignedJobs");
+                    b.ToTable("AssignedJobs", (string)null);
                 });
 
             modelBuilder.Entity("Backend.Models.Entities.Course", b =>
@@ -81,7 +81,7 @@ namespace Backend.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Courses");
+                    b.ToTable("Courses", (string)null);
                 });
 
             modelBuilder.Entity("Backend.Models.Entities.JobOffer", b =>
@@ -112,7 +112,7 @@ namespace Backend.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("JobOffers");
+                    b.ToTable("JobOffers", (string)null);
                 });
 
             modelBuilder.Entity("Backend.Models.Entities.JoinTables.UserCourse", b =>
@@ -127,7 +127,7 @@ namespace Backend.Migrations
 
                     b.HasIndex("CourseId");
 
-                    b.ToTable("UserCourses");
+                    b.ToTable("UserCourses", (string)null);
                 });
 
             modelBuilder.Entity("Backend.Models.Entities.JoinTables.UserJobOffer", b =>
@@ -142,7 +142,7 @@ namespace Backend.Migrations
 
                     b.HasIndex("JobOfferId");
 
-                    b.ToTable("UserJobOffers");
+                    b.ToTable("UserJobOffers", (string)null);
                 });
 
             modelBuilder.Entity("Backend.Models.Entities.User", b =>
@@ -193,7 +193,7 @@ namespace Backend.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Users");
+                    b.ToTable("Users", (string)null);
                 });
 
             modelBuilder.Entity("Backend.Models.Entities.AssignedJob", b =>

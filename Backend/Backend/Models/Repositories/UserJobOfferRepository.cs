@@ -53,7 +53,10 @@ public class UserJobOfferRepository:IUserJobOfferRepository
     }
     public UserJobOffer DeleteUserJobOffer(UserJobOffer userJobOffer)
     {
-        return _dbContext.UserJobOffers.Remove(userJobOffer).Entity;
+        var deletedUserJobOffer = _dbContext.UserJobOffers.Remove(userJobOffer).Entity;
+        Save();
+        return deletedUserJobOffer;
+
     }
     private bool Save()
     {

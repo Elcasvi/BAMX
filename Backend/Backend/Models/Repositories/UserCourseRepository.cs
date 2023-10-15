@@ -48,7 +48,10 @@ public class UserCourseRepository :IUserCourseRepository
     }
     public UserCourse DeleteUserCourse(UserCourse userCourse)
     {
-        return _dbContext.UserCourses.Remove(userCourse).Entity;
+        var deletedUserCourse= _dbContext.UserCourses.Remove(userCourse).Entity;
+        Save() ;
+        return deletedUserCourse;
+        
     }
     public ICollection<User> GetAllUsersByCourseId(int courseId)
     {
