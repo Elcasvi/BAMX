@@ -3,6 +3,7 @@ using Backend.Models.Dtos;
 using Backend.Models.Entities;
 using Backend.Models.Entities.JoinTables;
 using Backend.Models.Interfaces;
+using Backend.Models.Repositories;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 
@@ -51,18 +52,12 @@ public class CourseController : ControllerBase
     [HttpGet("users/{courseId}")]
     public IActionResult GetUsersForCourse(int courseId)
     {
-        if (!_courseRepository.Exists(courseId))
-        {
-            return NotFound();
-        }
-
-        var courses = _mapper.Map<List<CourseDto>>(_userCourseRepository.GetAllUsersByCourseId(courseId));
+        ICollection<User> users = _userCourseRepository.GetAllUsersByCourseId(courseId);
         if (!ModelState.IsValid)
         {
             return BadRequest(ModelState);
         }
-
-        return Ok(courses);
+        return Ok(users);
     }
 
     [HttpPost]
