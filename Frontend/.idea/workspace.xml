@@ -4,19 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4d695a77-b978-4f13-8366-bf2b95423c61" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../Backend/.vs/Backend/DesignTimeBuild/.dtbcache.v2" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/.vs/Backend/DesignTimeBuild/.dtbcache.v2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Backend/.vs/Backend/v17/.futdcache.v2" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/.vs/Backend/v17/.futdcache.v2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Backend/.vs/Backend/v17/.suo" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/.vs/Backend/v17/.suo" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Backend/.vs/ProjectEvaluation/backend.metadata.v7.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/.vs/ProjectEvaluation/backend.metadata.v7.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Backend/.vs/ProjectEvaluation/backend.projects.v7.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/.vs/ProjectEvaluation/backend.projects.v7.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Backend/BAMXTesting/obj/Debug/net7.0/BAMXTesting.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/BAMXTesting/obj/Debug/net7.0/BAMXTesting.csproj.AssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Backend/BAMXTesting/obj/rider.project.model.nuget.info" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/BAMXTesting/obj/rider.project.model.nuget.info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Backend/Backend/obj/rider.project.model.nuget.info" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/Backend/obj/rider.project.model.nuget.info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screens/Jobs/AssignedJobs.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/Jobs/AssignedJobs.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screens/UserProfile.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/UserProfile.js" afterDir="false" />
-    </list>
+    <list default="true" id="4d695a77-b978-4f13-8366-bf2b95423c61" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -46,13 +34,13 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Java/Spring/todo_list/todo_list_Spring_React/todo_list_frontend&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/carlos/Desktop/BAMX-e17accd925c677fad2f44b6dcf8564af3af64ad7/Frontend&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/Users/carlos/Applications/WebStorm.app/Contents/plugins/javascript-impl/jsLanguageServicesImpl/external&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Program Files\\JetBrains\\WebStorm 2022.3.1\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -116,6 +104,10 @@
       <workItem from="1696891288439" duration="13220000" />
       <workItem from="1696978392694" duration="16217000" />
       <workItem from="1697070150966" duration="8358000" />
+      <workItem from="1697324681178" duration="1644000" />
+      <workItem from="1697381495445" duration="36212000" />
+      <workItem from="1697428778347" duration="486000" />
+      <workItem from="1697469572780" duration="1218000" />
     </task>
     <servers />
   </component>

@@ -1,9 +1,10 @@
 import * as React from "react";
 import {View} from "react-native";
-import { Text } from "@ui-kitten/components"
+import {Button, Text} from "@ui-kitten/components"
 import {AuthContext} from "../../context/AuthContext";
 import {useFocusEffect, useNavigation, useRoute} from "@react-navigation/native";
 import {useContext, useLayoutEffect} from "react";
+import {Card} from "react-native-paper";
 
 export default function AssignedJobDetailsScreen() {
     const {userInformation}=useContext(AuthContext)
@@ -31,10 +32,19 @@ export default function AssignedJobDetailsScreen() {
 
 
     return(
-        <View style={{ alignItems: 'center', width: "100%", paddingVertical: 8, paddingHorizontal: 40 }}>
-            <Text style={{ fontWeight: "500" }} category='s1'>{job.title}</Text>
-            <Text style={{ fontWeight: "400" }} category='s1'>{job.description}</Text>
-
+        <View style={{ width: "100%", paddingVertical: 8, paddingHorizontal: 40 }}>
+            <Card style={{ marginHorizontal: 8, marginVertical: 2 }} mode="outlined">
+                <Card.Title titleStyle={{ fontWeight: "500" }} titleVariant="headlineMedium" title={job.title} />
+                <Card.Content>
+                    <Text variant="bodyMedium">{job.enterprise}</Text>
+                </Card.Content>
+            </Card>
+            <Card style={{ marginHorizontal: 8, marginVertical: 2 }} mode="outlined">
+                <Text style={{ fontWeight: 'bold', fontSize: 16 ,margin:10}}>Descripción</Text>
+                <Card.Content>
+                    <Text variant="bodyMedium">{job.description}</Text>
+                </Card.Content>
+            </Card>
         </View>
     )
 }

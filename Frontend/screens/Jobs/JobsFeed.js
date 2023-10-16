@@ -8,8 +8,6 @@ import axios from "axios";
 import {AuthContext} from "../../context/AuthContext";
 import { Divider, Icon, List, Text } from '@ui-kitten/components';
 import { useFocusEffect } from '@react-navigation/native';
-import { JobStackNavigation } from '../../navigation/JobStackNavigation';
-import CustomNavigationBar from '../../navigation/CustomNavigationBar';
 
 export default function JobsFeedScreen() {
     const[jobOffers,setJobOffers]=useState({})
@@ -86,8 +84,6 @@ export default function JobsFeedScreen() {
         return false;
     }
     return (
-        <>
-        <CustomNavigationBar/>
         <SafeAreaView style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
             {userInformation.role === "admin" && 
             <TouchableOpacity
@@ -114,7 +110,6 @@ export default function JobsFeedScreen() {
                 ListEmptyComponent={<View style={{ height: 200, width: "100%", flex: 1, justifyContent: "center", alignItems: "center"}}><Text appearance='hint' category='s1'>No Jobs available</Text></View>}
                 />
         </SafeAreaView>
-        </>
     );
 }
 

@@ -1,4 +1,3 @@
-import { Pressable } from "react-native";
 import {useNavigation} from "@react-navigation/native";
 import { Icon, ListItem, Text } from "@ui-kitten/components";
 
@@ -28,13 +27,13 @@ const AssignedIcon = (props) => (
 
 
 export function JobOffer({job}){
-    const {navigate}=useNavigation();
+    const navigation=useNavigation();
     return(
             <ListItem
             title={() => <Text category='h4'>{job.title}</Text>}
             description={() => <Text category='p1' appearance='hint'>{job.description}</Text>}
             accessoryLeft={OfferIcon}
-            onPress={()=>{navigate("JobDetailsScreen",{ job });}}
+            onPress={()=>{navigation.navigate("JobDetailsScreen",{ job });}}
         />
     );
 };
@@ -58,7 +57,7 @@ export function JobAssigned({job}){
             title={() => <Text category='h4'>{job.title}</Text>}
             description={() => <Text category='p1' appearance='hint'>{job.description}</Text>}
             accessoryLeft={AssignedIcon}
-            onPress={()=>{navigate("JobDetailsScreen",{ job });}}
+            onPress={()=>{navigate("AssignedJobDetailsScreen",{ job });}}
         />
     );
 };

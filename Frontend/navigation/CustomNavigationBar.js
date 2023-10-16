@@ -1,15 +1,19 @@
+import { getHeaderTitle } from '@react-navigation/elements';
 import React from 'react';
 import {
-  Divider,
   Icon,
   Layout,
-  Text,
   TopNavigation,
   TopNavigationAction,
 } from '@ui-kitten/components';
-import { StyleSheet, Image } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
-import logo from "../lib/images/bamx.png"
+import { StyleSheet } from 'react-native';
+
+const BackIcon = (props) => (
+  <Icon
+    {...props}
+    name='arrow-back'
+  />
+);
 
 const PersonIcon = (props) => (
   <Icon
@@ -18,21 +22,18 @@ const PersonIcon = (props) => (
   />
 );
 
-export default function CustomNavigationBar({ title }) {
-  const navigation = useNavigation()
+export default function CustomNavigationBar({ navigation, route, options, back }) {
+  const title = getHeaderTitle(options, route.name);
 
   const renderProfileAction = () => (
     <TopNavigationAction
       icon={PersonIcon}
-      onPress={() => { navigation.navigate('UserProfile') }}
+      onPress={() => console.log("() => { navigation.navigate('UserProfile') }")}
     />
   );
 
-  const Logo = () => (
-    <Image
-        style={{ width: 36, height: 36 }}
-        source={logo}
-    />
+  const renderBackAction = () => (
+    <TopNavigationAction icon={BackIcon} />
   );
 
   return (
@@ -43,16 +44,15 @@ export default function CustomNavigationBar({ title }) {
       <TopNavigation
         alignment='center'
         title={title}
+        accessoryLeft={renderBackAction}
         accessoryRight={renderProfileAction}
-        accessoryLeft={Logo}
       />
-      <Divider />
     </Layout>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: 30,
+    minHeight: 128,
   },
 });

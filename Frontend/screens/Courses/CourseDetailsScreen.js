@@ -6,6 +6,7 @@ import * as React from "react";
 import {AuthContext} from "../../context/AuthContext";
 import {BASE_URL} from "../../config";
 import axios from "axios";
+import {Card} from "react-native-paper";
 
 export default function CourseDetailsScreen() {
     const navigation=useNavigation();
@@ -13,16 +14,7 @@ export default function CourseDetailsScreen() {
     const{params}=route;
     const course=params.course;
     const {userInformation}=useContext(AuthContext)
-    const[alreadyEnrolled,setAlreadyEnrolled]=useState(true);
-
-
-    useLayoutEffect(()=>
-        {
-            navigation.setOptions({
-                headerTitle:course.name
-            })
-        }
-        ,[])
+    const[alreadyEnrolled,setAlreadyEnrolled]=useState(false);
 
     useFocusEffect(
         React.useCallback(() => {
@@ -30,24 +22,33 @@ export default function CourseDetailsScreen() {
         }, [])
     );
 
-    const handelEnrollBtn=()=>
-    {
-        const url=BASE_URL+"/UserCourses/update/"+course.id+"/"+userInformation.id
-        axios.post(url)
+    useLayoutEffect(()=>
+        {
+            navigation.setOptions({
+                headerTitle:""
+            })
+        }
+        ,[])
+
+    const isUserEnrolled=()=> {
+        const url=BASE_URL+"/UserCourses/"+course.id
+        axios.get(url)
             .then(res => {
-                navigation.goBack();
+                userExistsInList(res.data)?setAlreadyEnrolled(true):setAlreadyEnrolled(false);
             })
             .catch((error) => {
                 alert("Error: "+error)
             })
     }
 
-    const isUserEnrolled=()=>
+
+
+    const handleEnrollBtn=()=>
     {
-        const url=BASE_URL+"/UserCourses/"+course.id
-        axios.get(url)
+        const url=BASE_URL+"/UserCourses/update/"+course.id+"/"+userInformation.id
+        axios.post(url)
             .then(res => {
-                userExistsInList(res.data)?setAlreadyEnrolled(true):setAlreadyEnrolled(false);
+
             })
             .catch((error) => {
                 alert("Error: "+error)
@@ -66,17 +67,28 @@ export default function CourseDetailsScreen() {
     }
 
     return(
-        <View style={{ alignItems: 'center', width: "100%", paddingVertical: 8, paddingHorizontal: 40 }}>
-            <Text style={{ fontWeight: "500" }} category='s1'>{course.title}</Text>
-            <Text style={{ fontWeight: "400" }} category='s1'>{course.description}</Text>
+
+
+        <View style={{ width: "100%", paddingVertical: 8, paddingHorizontal: 40 }}>
+            <Card style={{ marginHorizontal: 8, marginVertical: 2 }} mode="outlined">
+                <Card.Title titleStyle={{ fontWeight: "500" }} titleVariant="headlineMedium" title={course.title} />
+                <Card.Content>
+                    <Text variant="bodyMedium">{course.author}</Text>
+                </Card.Content>
+            </Card>
+            <Card style={{ marginHorizontal: 8, marginVertical: 2 }} mode="outlined">
+                <Card.Content>
+                    <Text variant="bodyMedium">{course.description}</Text>
+                </Card.Content>
+            </Card>
 
             {userInformation.role==="admin"?
-                <Button style={{ width: "50%", marginTop: 8 }} onPress={()=>{navigate("UsersApplyingToJob",{job});}}>User</Button>:
+                <Button style={{ width: "50%", marginTop: 8 }} onPress={()=>{navigation.navigate("UsersEnrolledToCourse",{course});}}>Usuarios</Button>:
                 (
                     alreadyEnrolled?
-                        <Text category='s1'>Application in process...</Text>
+                        <Text category='s1'>Welcome again {userInformation.name}</Text>
                         :
-                        <Button style={{ width: "50%", marginTop: 8 }} onPress={handelEnrollBtn}>Enroll</Button>
+                        <Button style={{ width: "50%", marginTop: 8 }} onPress={handleEnrollBtn}>Enroll</Button>
                 )
             }
         </View>

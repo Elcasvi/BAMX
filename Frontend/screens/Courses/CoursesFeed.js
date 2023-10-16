@@ -1,4 +1,4 @@
-import {FlatList, SafeAreaView, Text, TouchableOpacity} from "react-native";
+import {FlatList, SafeAreaView, Text, TouchableOpacity, View} from "react-native";
 import {useContext, useState} from "react";
 import {useFocusEffect, useNavigation} from "@react-navigation/native";
 import * as React from "react";
@@ -6,7 +6,8 @@ import Course from "../../components/Courses/Course";
 import {BASE_URL} from "../../config";
 import axios from "axios";
 import {AuthContext} from "../../context/AuthContext";
-import { Button } from "@ui-kitten/components";
+import {Button, Divider, Icon, List} from "@ui-kitten/components";
+import {JobOffer} from "../../components/Jobs/Job";
 
 
 export default function CoursesFeedScreen() {
@@ -46,28 +47,31 @@ export default function CoursesFeedScreen() {
     }
 
     return (
-        <SafeAreaView style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-            {userInformation.role==="admin" &&
-                <TouchableOpacity
-                    style={{
-                        position: "absolute",
-                        right: 20,
-                        bottom: 20,
-                        zIndex: 50,
-                    }}
-                    onPress={() => navigation.navigate("CreateCourseScreen")}
-                >
-                    <Button accessoryLeft={<Icon name="plus-outline"/>}/>
-                </TouchableOpacity>
-            }
-            {
-                courses.length>0?(<FlatList
-                    style={{ width: "100%", marginTop: 6 }}
-                    data={courses}
-                    renderItem={({item}) => <Course course={item}/>}
-                    keyExtractor={item => item.id}
-                />):(<Text>No Courses Available</Text>)
-            }
-        </SafeAreaView>
+    <SafeAreaView style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+        {userInformation.role === "admin" &&
+            <TouchableOpacity
+                style={{
+                    position: "absolute",
+                    right: 20,
+                    bottom: 20,
+                    zIndex: 50,
+                    backgroundColor: "#00a039",
+                    borderRadius: 100,
+                    padding: 8
+                }}
+                onPress={() => navigation.navigate("CreateCourseScreen")}
+            >
+                <Icon style={{ width: 28, height: 28 }} name="plus-outline"/>
+            </TouchableOpacity>
+        }
+        <List
+            style={{ width: "100%" }}
+            data={courses}
+            ItemSeparatorComponent={Divider}
+            renderItem={({item}) => <Course course={item}/>}
+            keyExtractor={item => item.id}
+            ListEmptyComponent={<View style={{ height: 200, width: "100%", flex: 1, justifyContent: "center", alignItems: "center"}}><Text appearance='hint' category='s1'>No Courses Available</Text></View>}
+        />
+    </SafeAreaView>
     );
 }

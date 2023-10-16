@@ -1,12 +1,15 @@
 import {Button, Text, View} from "react-native";
-import {useRoute} from "@react-navigation/native";
+import {useNavigation, useRoute} from "@react-navigation/native";
+import {useContext} from "react";
+import {AuthContext} from "../context/AuthContext";
 import UserDetails from "../components/Users/UserDetails";
 import {BASE_URL} from "../config";
 import axios from "axios";
 
 
-export function UserProfileScreen (){
+export default function (){
     const route=useRoute();
+    const navigate=useNavigation();
     const{params}=route;
     const user=params.user;
     const job=params.job;
@@ -23,6 +26,8 @@ export function UserProfileScreen (){
         axios.delete(url)
             .then(res => {
                 console.log(res.data)
+                navigate.goBack();
+
             })
             .catch((error) => {
                 alert("Error: "+error)
@@ -32,6 +37,7 @@ export function UserProfileScreen (){
     const assignJobOfferToUser=()=>
     {
         const url=BASE_URL+"/AssignedJob/"+user.id
+
         const jobDto={
             Title:job.title,
             Description:job.description,
@@ -53,18 +59,46 @@ export function UserProfileScreen (){
         axios.delete(url)
             .then(res => {
                 //console.log(res.data)
+                navigate.goBack();
             })
             .catch((error) => {
                 alert("Error: "+error)
             });
     }
 
-    return(
-        <View>
-            <Text>User profile screen</Text>
-            <UserDetails user={user}/>
-            <Button title="Hire" onPress={hireEmployee}/>
-            <Button title="Decline" onPress={declineEmployee}/>
+    return (
+        <View style={{
+            margin: 16,
+            padding: 16,
+            borderWidth: 1,
+            borderColor: '#E0E0E0',
+            borderRadius: 8,
+        }}>
+            <UserDetails user={user} />
+            <View style={{
+                flexDirection: 'row',
+                justifyContent: 'space-between',
+                marginTop: 16,
+            }}>
+                <Button
+                    title="Hire"
+                    onPress={hireEmployee}
+                    color="#00a039"
+                    style={{
+                        flex: 1,
+                        marginHorizontal: 8,
+                    }}
+                />
+                <Button
+                    title="Decline"
+                    onPress={declineEmployee}
+                    color="#e3022e"
+                    style={{
+                        flex: 1,
+                        marginHorizontal: 8,
+                    }}
+                />
+            </View>
         </View>
-    )
+    );
 }
