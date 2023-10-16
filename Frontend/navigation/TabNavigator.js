@@ -10,7 +10,8 @@ import CreateJobScreen from '../screens/Admin/Jobs/CreateJobScreen';
 import JobDetailsScreen from '../screens/Jobs/JobDetailsScreen';
 import AssignedJobDetailsScreen from '../screens/Jobs/AssignedJobDetailsScreen';
 import UsersApplyingToJob from '../screens/Jobs/UsersApplyingToJob';
-import { UserProfileScreen } from '../screens/UserProfileScreen';
+import UserProfile from '../screens/UserProfile';
+
 
 const OfferIcon = (props) => (
     <Icon
@@ -60,8 +61,8 @@ function JobStackNavigation() {
         <Stack.Navigator>
             <Stack.Screen options={{ headerShown: false }} name='JobsFeedScreen' component={JobsFeedScreen}/> 
             <Stack.Screen name="JobDetailsScreen" component={JobDetailsScreen}
-                                 options={{presentation:"modal", headerShown: false }}/>
-            <Stack.Screen options={{ headerShown: false }} name='UserProfile' component={UserProfileScreen}/> 
+                                 options={{headerShown: false }}/>
+            <Stack.Screen options={{ headerShown: false }} name='UserProfile' component={UserProfile}/> 
         </Stack.Navigator>
     )
 }
@@ -71,8 +72,8 @@ function ApplicationStackNavigation() {
         <Stack.Navigator>
             <Stack.Screen options={{ headerShown: false }} name='AppliedJobs' component={AppliedJobs}/>
             <Stack.Screen name="UsersApplyingToJob" component={UsersApplyingToJob}
-                        options={{presentation:"modal", headerShown: false}}/>
-            <Stack.Screen options={{ headerShown: false }} name='UserProfile' component={UserProfileScreen}/> 
+                        options={{headerShown: false}}/>
+            <Stack.Screen options={{ headerShown: false }} name='UserProfile' component={UserProfile}/> 
         </Stack.Navigator>
     )
 }
@@ -82,8 +83,8 @@ function AppliedStackNavigation() {
         <Stack.Navigator>
             <Stack.Screen options={{ headerShown: false }} name='AssignedJobs' component={AssignedJobs}/>
             <Stack.Screen name="AssignedJobDetailsScreen" component={AssignedJobDetailsScreen}
-                                 options={{presentation:"modal", headerShown: false}}/>
-            <Stack.Screen options={{ headerShown: false }} name='UserProfile' component={UserProfileScreen}/> 
+                                 options={{headerShown: false}}/>
+            <Stack.Screen options={{ headerShown: false }} name='UserProfile' component={UserProfile}/> 
         </Stack.Navigator>
     )
 }

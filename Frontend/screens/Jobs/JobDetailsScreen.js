@@ -1,11 +1,18 @@
-import { View } from "react-native";
+import { ScrollView, View } from "react-native";
 import {useFocusEffect, useNavigation, useRoute} from "@react-navigation/native";
 import {useContext, useLayoutEffect, useState} from "react";
 import {AuthContext} from "../../context/AuthContext";
 import {BASE_URL} from "../../config";
 import axios from "axios";
-import { Button, Text } from "@ui-kitten/components"
+import { Button, Divider, Icon, Layout, Text, TopNavigation, TopNavigationAction } from "@ui-kitten/components"
 import * as React from "react";
+
+const BackIcon = (props) => (
+    <Icon
+      {...props}
+      name='arrow-back'
+    />
+  );
 
 export default function JobDetailsScreen() {
     const {userInformation}=useContext(AuthContext)
@@ -66,7 +73,19 @@ export default function JobDetailsScreen() {
     }
 
     return(
-        <View style={{ alignItems: 'center', width: "100%", paddingVertical: 8, paddingHorizontal: 40 }}>
+        <>
+            <Layout
+            style={{ paddingTop: 30 }}
+            level='1'
+            >
+            <TopNavigation
+            accessoryLeft={() => <TopNavigationAction onPress={() => navigation.goBack()} icon={BackIcon} />}
+            title='Atrás'
+            />
+            <Divider />
+        </Layout>
+        <ScrollView>
+            <View style={{ flex: 1, alignItems: 'center', paddingHorizontal: 20 }}>
             <Text style={{ fontWeight: "500" }} category='s1'>{job.title}</Text>
             <Text style={{ fontWeight: "400" }} category='s1'>{job.description}</Text>
 
@@ -79,6 +98,8 @@ export default function JobDetailsScreen() {
                 <Button style={{ width: "50%", marginTop: 8 }} onPress={handelApplyBtn}>Apply</Button>
                 )
             }
-        </View>
+            </View>
+        </ScrollView>
+        </>
     )
 }

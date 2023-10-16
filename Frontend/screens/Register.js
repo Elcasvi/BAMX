@@ -127,7 +127,7 @@ export default function Register()
                 style={{width: "80%", marginVertical: 14}}
                 size="medium"
                 status='success'
-                progress={(page + 1) / 4}
+                progress={(page) / 3}
                 />
             {page === 0 &&
                 <>

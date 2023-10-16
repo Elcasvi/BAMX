@@ -3,18 +3,13 @@ import {
   Divider,
   Icon,
   Layout,
+  Text,
   TopNavigation,
   TopNavigationAction,
 } from '@ui-kitten/components';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Image } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-
-const BackIcon = (props) => (
-  <Icon
-    {...props}
-    name='arrow-back'
-  />
-);
+import logo from "../lib/images/bamx.png"
 
 const PersonIcon = (props) => (
   <Icon
@@ -33,6 +28,13 @@ export default function CustomNavigationBar({ title }) {
     />
   );
 
+  const Logo = () => (
+    <Image
+        style={{ width: 36, height: 36 }}
+        source={logo}
+    />
+  );
+
   return (
     <Layout
       style={styles.container}
@@ -42,6 +44,7 @@ export default function CustomNavigationBar({ title }) {
         alignment='center'
         title={title}
         accessoryRight={renderProfileAction}
+        accessoryLeft={Logo}
       />
       <Divider />
     </Layout>

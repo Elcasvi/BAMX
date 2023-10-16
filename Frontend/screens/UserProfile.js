@@ -1,19 +1,38 @@
-import {ScrollView, View} from "react-native";
+import {ScrollView, View, Image} from "react-native";
 import {useContext, useState} from "react";
 import {AuthContext} from "../context/AuthContext";
-import { Button, Text, Input } from '@ui-kitten/components';
-import {useFocusEffect} from "@react-navigation/native";
+import { Button, Text, Input, Icon, TopNavigation, TopNavigationAction, Divider, Layout } from '@ui-kitten/components';
+import {useFocusEffect, useNavigation} from "@react-navigation/native";
 import * as React from "react";
 import * as DocumentPicker from "expo-document-picker";
-import * as ImagePicker from "expo-image-picker"
 
-export default function UserProfile({navigation}) {
+const BackIcon = (props) => (
+  <Icon
+    {...props}
+    name='arrow-back'
+  />
+);
+
+const CvIcon = (props) => (
+  <Icon
+    {...props}
+    name='book-open-outline'
+  />
+);
+
+const LogOutIcon = (props) => (
+  <Icon
+      {...props}
+      name='log-out-outline'
+  />
+);
+
+export default function UserProfile({}) {
+    const navigation = useNavigation()
     const{logout}=useContext(AuthContext)
     const{userInformation}=useContext(AuthContext)
     const [loading,setLoading]=useState(false)
-    const [description, setDescription] = useState(userInformation.description)
-    const [image, setImage] = useState(null);
-
+    const [cv, setCv] = useState(null)
 
     useFocusEffect(
         React.useCallback(() => {
@@ -29,45 +48,63 @@ export default function UserProfile({navigation}) {
           console.log(result);
         };
         pickDocument()
-    }
-
-    const pickImage = async () => {
-      // No permissions request is necessary for launching the image library
-      let result = await ImagePicker.launchImageLibraryAsync({
-        mediaTypes: ImagePicker.MediaTypeOptions.All,
-        allowsEditing: true,
-        aspect: [4, 3],
-        quality: 1,
-      });
-  
-      console.log(result);
-  
-      if (!result.canceled) {
-        setImage(result.assets[0].uri);
       }
-    };
 
     return (
+      <>
+      <Layout
+        style={{ paddingTop: 30 }}
+        level='1'
+      >
+        <TopNavigation
+          accessoryLeft={() => <TopNavigationAction onPress={() => navigation.goBack()} icon={BackIcon} />}
+          title='Atrás'
+        />
+        <Divider />
+      </Layout>
         <ScrollView>
-            <View style={{ flex: 1, alignItems: 'center', padding: 40 }}>
-            <View style={{ width: "100%" }}>
-            <Text category='s1'>Name</Text>
-            <Input style={{width: "100%" }} disabled>{userInformation.name}</Input>
-            <Text style={{ marginTop: 6 }} category='s1'>Gender</Text>
-            <Input style={{width: "100%" }} disabled>{userInformation.gender}</Input>
-            <Text style={{ marginTop: 6 }} category='s1'>Rating</Text>
-            <Input style={{width: "100%" }} disabled>{userInformation.rating}</Input>
-            <Text style={{ marginTop: 6 }} category='s1'>Description</Text>
-            <Input multiline style={{width: "100%", height: 200 }} disabled>{description}</Input>
-            <Text style={{ marginTop: 6 }} category='s1'>CV</Text>
-            <Button style={{width: "50%" }} mode="contained" icon="file" onPress={uploadFile}>CV</Button>
-            <Text style={{ marginTop: 6 }} category='s1'>Profile Picture</Text>
-            <Button style={{width: "50%" }} mode="contained" icon="camera" onPress={pickImage}>Profile Picture</Button>
-                    {image && <Image source={{ uri: image }} style={{ width: 200, height: 200, marginBottom: 10 }} />}
+            <View style={{ flex: 1, alignItems: 'center', paddingHorizontal: 20 }}>
+              <View style={{ width: "100%" }}>
+                <View style={{ flex: 1, alignItems: "center" }} >
+                  <Text style={{ marginTop: 20, marginBottom: 12 }} category='h1'>Profile</Text>
+                  <Image source={{ uri: userInformation.profilePictureUrl }} style={{ width: 100, height: 100, marginTop: 10, borderRadius: 100, borderWidth: 2, borderColor: "gray" }} />
+                  <View style={{ flex: 1, flexDirection: "row", marginTop: 10 }}>
+                  <Text category="h5">{userInformation.rating}</Text>
+                  <Icon
+                    style={{ width: 24, height: 24, }}
+                    fill='orange'
+                    name='star'
+                  />
+                </View>
+                </View>
+                <Input size="large" status="primary" label="Name" style={{width: "100%", marginVertical: 4 }} disabled value={userInformation.name}/>
+                <Input size="large" status="primary" label="E-Mail" style={{width: "100%", marginVertical: 4 }} disabled value={userInformation.email}/>
+                <Input size="large" status="primary" label="Gender" style={{width: "100%", marginVertical: 4 }} disabled value={userInformation.gender}/>
+                <Input size="large" status="primary" label="Description" textStyle={{minHeight: 175}} disabled multiline={true} style={{width: "100%", marginVertical: 4}} value={userInformation.description}/>
+                <View style={{ flex: 1, alignItems: "center", marginTop: 10 }}>
+                  <Button accessoryLeft={CvIcon} style={{width: "50%" }} onPress={uploadFile}>CV</Button>
+                  <View style={{ width: 160, height: 160, marginTop: 10, borderRadius: 10, borderWidth: 2, justifyContent: 'center', alignItems: 'center', borderColor: "#575756" }}>
+                      {cv === null ?
+                      <Icon
+                          style={{ width: 42, height: 42 }}
+                          fill='#575756'
+                          name= 'cloud-upload-outline'
+                      />
+                      :
+                      <Icon
+                          style={{ width: 42, height: 42 }}
+                          fill='#00a039'
+                          name= 'checkmark-circle-outline'
+                      />
+                      }
+                  </View>
+                </View>
+                
             </View>
-            <Button style={{ margin: 10 }} mode="contained" onPress={()=>logout()}>Log out</Button>
+            <Button size="large" accessoryLeft={LogOutIcon} style={{ margin: 20, width: "100%" }} mode="contained" onPress={()=>logout()}>Log out</Button>
             </View>
         </ScrollView>
+        </>
     );
 }
 
