@@ -2,10 +2,18 @@ import {Image, View} from "react-native";
 import {BASE_URL} from "../../../config";
 import axios from "axios";
 import {useState} from "react";
-import { Button, Text, Input, Icon } from "@ui-kitten/components"
+import { Button, Text, Input, Icon, TopNavigation, TopNavigationAction, Layout, Divider } from "@ui-kitten/components"
 import {useNavigation} from "@react-navigation/native";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import * as ImagePicker from "expo-image-picker";
+
+const BackIcon = (props) => (
+    <Icon
+      {...props}
+      name='arrow-back'
+    />
+  );
+
 export default function CreateJobScreen()
 {
     const [image, setImage] = useState(null);
@@ -72,9 +80,20 @@ export default function CreateJobScreen()
             })
     }
     return(
-        <KeyboardAwareScrollView>
+        <>
+            <Layout
+                style={{ paddingTop: 30 }}
+                level='1'
+                >
+                <TopNavigation
+                accessoryLeft={() => <TopNavigationAction onPress={() => navigation.goBack()} icon={BackIcon} />}
+                title='Atrás'
+                />
+                <Divider />
+            </Layout>
+        <KeyboardAwareScrollView style={{ backgroundColor: "#F7F9FC" }}>
             <View style={{ flex: 1, alignItems: 'center', paddingHorizontal: 40, paddingVertical: 20 }}>
-                <Text category='h4'>Create Job</Text>
+                <Text category='h1'>Create Job</Text>
                 <Input size="large" status="primary" label="Title" style={{width: "100%", margin: 10 }} placeholder={"Title"} onChangeText={setTitle} value={title}/>
                 <Input size="large" status="primary" textStyle={{minHeight: 175}} multiline={true} label="Description" style={{width: "100%" }} placeholder={"Description"} onChangeText={setDescription} value={description}/>
 
@@ -92,8 +111,9 @@ export default function CreateJobScreen()
                 }
 
 
-                <Button accessoryLeft={PlusIcon} style={{margin: 10 }} onPress={createJob}>Create Job</Button>
+                <Button size="large" accessoryLeft={PlusIcon} style={{margin: 20, width: "100%" }} onPress={createJob}>Create Job</Button>
             </View>
         </KeyboardAwareScrollView>
+        </>
     );
 }

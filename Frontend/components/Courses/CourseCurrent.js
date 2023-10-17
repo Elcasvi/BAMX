@@ -1,15 +1,16 @@
 import {useNavigation} from "@react-navigation/native";
+
 import {Icon,ListItem, Text} from "@ui-kitten/components";
 
 const OfferIcon = (props) => (
     <Icon
         style={{ width: 32, height: 32, margin: 10, padding: 10 }}
         fill="#8F9BB3"
-        name='book-outline'
+        name='edit-2-outline'
     />
 );
 
-export default function Course({course})
+export default function CourseCurrent({course})
 {
     const navigation=useNavigation();
     /*

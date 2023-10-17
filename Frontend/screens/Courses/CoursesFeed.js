@@ -1,4 +1,4 @@
-import {FlatList, SafeAreaView, Text, TouchableOpacity, View} from "react-native";
+import {FlatList, SafeAreaView, TouchableOpacity, View} from "react-native";
 import {useContext, useState} from "react";
 import {useFocusEffect, useNavigation} from "@react-navigation/native";
 import * as React from "react";
@@ -6,7 +6,7 @@ import Course from "../../components/Courses/Course";
 import {BASE_URL} from "../../config";
 import axios from "axios";
 import {AuthContext} from "../../context/AuthContext";
-import {Button, Divider, Icon, List} from "@ui-kitten/components";
+import {Button, Divider, Icon, List, Text} from "@ui-kitten/components";
 import {JobOffer} from "../../components/Jobs/Job";
 
 

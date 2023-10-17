@@ -1,13 +1,12 @@
-import {SafeAreaView, Text, View} from "react-native";
+import {SafeAreaView, View} from "react-native";
 import {useFocusEffect} from "@react-navigation/native";
 import {useContext, useState} from "react";
 import {AuthContext} from "../../context/AuthContext";
 import {BASE_URL} from "../../config";
 import axios from "axios";
-import {Divider, List} from "@ui-kitten/components";
-import {JobAssigned} from "../../components/Jobs/Job";
+import {Divider, List, Text} from "@ui-kitten/components";
 import * as React from "react";
-import Course from "../../components/Courses/Course";
+import CourseCurrent from "../../components/Courses/CourseCurrent";
 
 export default function CurrentCoursesScreen()
 {
@@ -38,7 +37,7 @@ export default function CurrentCoursesScreen()
                   style={{ width: "100%" }}
                   data={courses}
                   ItemSeparatorComponent={Divider}
-                  renderItem={({item}) => <Course course={item}/>}
+                  renderItem={({item}) => <CourseCurrent course={item}/>}
                   keyExtractor={item => item.id}
                   ListEmptyComponent={<View style={{ height: 200, width: "100%", flex: 1, justifyContent: "center", alignItems: "center"}}><Text appearance='hint' category='s1'>No current courses</Text></View>}
               />

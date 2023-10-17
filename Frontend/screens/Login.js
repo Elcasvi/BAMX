@@ -24,16 +24,15 @@ export default function Login()
     const [password,setPassword]=useState("")
 
     return (
-        <KeyboardAwareScrollView>
+        <KeyboardAwareScrollView style={{ backgroundColor: "#F7F9FC" }}>
             <View style={{ flex: 1, alignItems: 'center', paddingVertical: 10, paddingHorizontal: 20 }}>
                 <Image
-                    style={{ width: 100, height: 100 }}
+                    style={{ width: 100, height: 100, marginVertical: 20 }}
                     source={logo}
                 />
                 <Input size="large" status="primary" label="E-Mail" style={{width: "100%", marginBottom: 10 }} placeholder={"E-Mail"} onChangeText={setEmail} value={email}/>
                 <Input size="large" status="primary" label="Password" secureTextEntry={true} style={{width: "100%" }} placeholder={"Password"} onChangeText={setPassword} value={password}/>
                 <Button accessoryRight={LogInIcon} style={{width: 142, marginTop: 10, marginBottom: 5 }} onPress={()=>login({email,password})}>Login</Button>
-                <Button style={{width: 142 }} size="small" appearance='ghost' onPress={() => navigation.navigate("Register")}>go to Register</Button>
             </View>
         </KeyboardAwareScrollView>
     );

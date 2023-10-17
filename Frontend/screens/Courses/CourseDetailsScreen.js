@@ -1,12 +1,48 @@
 import {useFocusEffect, useNavigation, useRoute} from "@react-navigation/native";
 import {useContext, useLayoutEffect, useState} from "react";
-import { View } from "react-native";
-import {Button, Text} from '@ui-kitten/components';
+import { ScrollView, View } from "react-native";
+import {Button, Divider, Icon, Layout, Text, TopNavigation, TopNavigationAction} from '@ui-kitten/components';
 import * as React from "react";
 import {AuthContext} from "../../context/AuthContext";
 import {BASE_URL} from "../../config";
 import axios from "axios";
-import {Card} from "react-native-paper";
+
+const BackIcon = (props) => (
+    <Icon
+      {...props}
+      name='arrow-back'
+    />
+  );
+
+const CourseIcon = (props) => (
+    <Icon
+      style={{ width: 32, height: 32, margin: 10, padding: 10 }}
+      fill="#8F9BB3"
+      name='book-outline'
+    />
+);
+
+const EnrolledIcon = (props) => (
+    <Icon
+      style={{ width: 32, height: 32, margin: 10, padding: 10 }}
+      fill="#8F9BB3"
+      name='edit-2-outline'
+    />
+);
+
+const UsersIcon = (props) => (
+    <Icon
+      {...props}
+      name='people-outline'
+    />
+  );
+
+const ApplyIcon = (props) => (
+<Icon
+    {...props}
+    name='paper-plane-outline'
+/>
+);
 
 export default function CourseDetailsScreen() {
     const navigation=useNavigation();
@@ -67,30 +103,36 @@ export default function CourseDetailsScreen() {
     }
 
     return(
-
-
-        <View style={{ width: "100%", paddingVertical: 8, paddingHorizontal: 40 }}>
-            <Card style={{ marginHorizontal: 8, marginVertical: 2 }} mode="outlined">
-                <Card.Title titleStyle={{ fontWeight: "500" }} titleVariant="headlineMedium" title={course.title} />
-                <Card.Content>
-                    <Text variant="bodyMedium">{course.author}</Text>
-                </Card.Content>
-            </Card>
-            <Card style={{ marginHorizontal: 8, marginVertical: 2 }} mode="outlined">
-                <Card.Content>
-                    <Text variant="bodyMedium">{course.description}</Text>
-                </Card.Content>
-            </Card>
-
-            {userInformation.role==="admin"?
-                <Button style={{ width: "50%", marginTop: 8 }} onPress={()=>{navigation.navigate("UsersEnrolledToCourse",{course});}}>Usuarios</Button>:
+        <>
+        <Layout
+            style={{ paddingTop: 30 }}
+            level='1'
+            >
+            <TopNavigation
+            accessoryLeft={() => <TopNavigationAction onPress={() => navigation.goBack()} icon={BackIcon} />}
+            title='Atrás'
+            />
+            <Divider />
+        </Layout>
+        <ScrollView style={{ backgroundColor: "#F7F9FC" }}>
+        <View style={{ width: "100%", paddingVertical: 18, paddingHorizontal: 30 }}>
+            <View style={{ flex: 1, flexDirection: "row", alignItems: "center" }}>
+                {alreadyEnrolled ?
+                    <EnrolledIcon/> : <CourseIcon/>
+                }
+                <Text category='h1'>{course.title}</Text>
+            </View>
+            <Text style={{ marginTop: 20, marginBottom: 6, fontWeight: 700 }} category="h6">Description</Text>
+            <Text style={{ fontWeight: "400" }} category='s1'>{course.description}</Text>
+            {userInformation.role === "admin"?
+                <Button accessoryLeft={<UsersIcon/>} size="large" style={{ width: "100%", marginTop: 20 }} onPress={() => navigation.navigate("UsersEnrolledToCourse",{course})}>Usuarios</Button>:
                 (
-                    alreadyEnrolled?
-                        <Text category='s1'>Welcome again {userInformation.name}</Text>
-                        :
-                        <Button style={{ width: "50%", marginTop: 8 }} onPress={handleEnrollBtn}>Enroll</Button>
+                    !alreadyEnrolled &&
+                <Button accessoryLeft={<ApplyIcon/>} size="large" style={{ width: "100%", marginTop: 20 }} onPress={handleEnrollBtn}>Enroll</Button>
                 )
             }
         </View>
+    </ScrollView>
+    </>
     )
 }

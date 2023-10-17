@@ -1,25 +1,62 @@
-import { View } from "react-native";
+import { ScrollView, View } from "react-native";
 import {useFocusEffect, useNavigation, useRoute} from "@react-navigation/native";
 import {useContext, useLayoutEffect, useState} from "react";
 import {AuthContext} from "../../context/AuthContext";
 import {BASE_URL} from "../../config";
 import axios from "axios";
-import {Card} from "react-native-paper";
-import {Button, Text} from "@ui-kitten/components"
+import { Button, Divider, Icon, Layout, Text, TopNavigation, TopNavigationAction } from "@ui-kitten/components"
 import * as React from "react";
+
+const ApplyIcon = (props) => (
+    <Icon
+      {...props}
+      name='paper-plane-outline'
+    />
+  );
+
+const UsersIcon = (props) => (
+    <Icon
+      {...props}
+      name='people-outline'
+    />
+  );
+
+const BackIcon = (props) => (
+    <Icon
+      {...props}
+      name='arrow-back'
+    />
+  );
+
+const OfferIcon = (props) => (
+    <Icon
+        style={{ width: 32, height: 32, margin: 10, padding: 10 }}
+        fill="#8F9BB3"
+        name='briefcase-outline'
+    />
+);
+
+const ApplicationIcon = (props) => (
+    <Icon
+      style={{ width: 32, height: 32, margin: 10, padding: 10 }}
+      fill="#8F9BB3"
+      name='clock-outline'
+    />
+);
 
 export default function JobDetailsScreen() {
     const {userInformation}=useContext(AuthContext)
     const navigation=useNavigation();
+    const {navigate}=useNavigation();
+
     const route=useRoute();
     const{params}=route;
     const job=params.job;
     const[alreadyApplied,setAlreadyApplied]=useState(true);
-
     useLayoutEffect(()=>
         {
             navigation.setOptions({
-                headerTitle:""
+                headerTitle:job.name
             })
         }
         ,[])
@@ -65,28 +102,37 @@ export default function JobDetailsScreen() {
         return false;
     }
 
-    return (
-        <View style={{ width: "100%", paddingVertical: 8, paddingHorizontal: 40 }}>
-            <Card style={{ marginHorizontal: 8, marginVertical: 2 }} mode="outlined">
-                <Card.Title titleStyle={{ fontWeight: "500" }} titleVariant="headlineMedium" title={job.title} />
-                <Card.Content>
-                    <Text variant="bodyMedium">{job.enterprise}</Text>
-                </Card.Content>
-            </Card>
-            <Card style={{ marginHorizontal: 8, marginVertical: 2 }} mode="outlined">
-                <Text style={{ fontWeight: 'bold', fontSize: 16 ,margin:10}}>Descripción</Text>
-                <Card.Content>
-                    <Text variant="bodyMedium">{job.description}</Text>
-                </Card.Content>
-            </Card>
-
-            {userInformation.role === "admin" ? (
-                <Button style={{ width: "50%", marginTop: 8 }} onPress={() => navigation.navigate("UsersApplyingToJob", { job })}>User</Button>
-            ) : alreadyApplied ? (
-                <Text style={{ fontWeight: 'bold', fontSize: 16, color: 'green' }}>Application in process...</Text>
-            ) : (
-                <Button style={{ width: "50%", marginTop: 8 }} onPress={handelApplyBtn}>Apply</Button>
-            )}
-        </View>
-    );
+    return(
+        <>
+            <Layout
+                style={{ paddingTop: 30 }}
+                level='1'
+                >
+                <TopNavigation
+                accessoryLeft={() => <TopNavigationAction onPress={() => navigation.goBack()} icon={BackIcon} />}
+                title='Atrás'
+                />
+                <Divider />
+            </Layout>
+            <ScrollView style={{ backgroundColor: "#F7F9FC" }}>
+            <View style={{ width: "100%", paddingVertical: 18, paddingHorizontal: 30 }}>
+                <View style={{ flex: 1, flexDirection: "row", alignItems: "center" }}>
+                    {alreadyApplied ?
+                        <ApplicationIcon/> : <OfferIcon/>
+                    }
+                    <Text category='h1'>{job.title}</Text>
+                </View>
+                <Text style={{ marginTop: 20, marginBottom: 6, fontWeight: 700 }} category="h6">Description</Text>
+                <Text style={{ fontWeight: "400" }} category='s1'>{job.description}</Text>
+                {userInformation.role === "admin"?
+                    <Button accessoryLeft={<UsersIcon/>} size="large" style={{ width: "100%", marginTop: 20 }} onPress={()=>{navigate("UsersApplyingToJob",{job});}}>Usuarios</Button>:
+                    (
+                        !alreadyApplied &&
+                    <Button accessoryLeft={<ApplyIcon/>} size="large" style={{ width: "100%", marginTop: 20 }} onPress={handelApplyBtn}>Apply</Button>
+                    )
+                }
+            </View>
+        </ScrollView>
+        </>
+    )
 }

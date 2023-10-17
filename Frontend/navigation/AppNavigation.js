@@ -2,7 +2,7 @@ import {AuthContext} from "../context/AuthContext";
 import {View,ActivityIndicator} from "react-native";
 import React, {useContext} from "react";
 import {NavigationContainer} from "@react-navigation/native";
-import LoginScreenStackNavigator from "./LoginScreenStackNavigator";
+import { LoginTabNavigator } from "./LoginTabNavigator";
 import DrawerNavigation from "./DrawerNavigation";
 
 export default function AppNavigation()
@@ -17,7 +17,7 @@ export default function AppNavigation()
     }
     return(
         <NavigationContainer>
-            {userInformation!==null?<DrawerNavigation/>:<LoginScreenStackNavigator/>}
+            {userInformation!==null?<DrawerNavigation/>:<LoginTabNavigator/>}
         </NavigationContainer>
     );
 }

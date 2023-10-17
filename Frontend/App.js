@@ -9,10 +9,10 @@ import { default as theme } from './lib/custom-theme.json';
 export default function App() {
   return (
       <AuthProvider>
-        <IconRegistry icons={EvaIconsPack} />
-        <ApplicationProvider {...eva} theme={{...eva.light,...theme}}>
-            <AppNavigation/>
-        </ApplicationProvider>
+          <IconRegistry icons={EvaIconsPack} />
+          <ApplicationProvider {...eva} theme={{...eva.light,...theme}}>
+              <AppNavigation/>
+          </ApplicationProvider>
       </AuthProvider>
 );
 }

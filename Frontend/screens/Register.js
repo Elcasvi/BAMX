@@ -117,17 +117,17 @@ export default function Register()
         register({userBody})
     }
     return(
-        <KeyboardAwareScrollView>
+        <KeyboardAwareScrollView style={{ backgroundColor: "#F7F9FC" }}>
         <View style={{ flex: 1, alignItems: 'center', padding: 10 }}>
             <Image
-                style={{ width: 100, height: 100 }}
+                style={{ width: 100, height: 100, marginVertical: 20 }}
                 source={logo}
             />
             <ProgressBar
                 style={{width: "80%", marginVertical: 14}}
                 size="medium"
                 status='success'
-                progress={(page + 1) / 4}
+                progress={(page) / 3}
                 />
             {page === 0 &&
                 <>
