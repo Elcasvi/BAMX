@@ -38,6 +38,7 @@ export default function CreateCourseScreen()
         axios.post(url,courseBody)
             .then(res => {
                 console.log(res.data)
+                navigation.goBack()
             })
             .catch((error) => {
                 alert("Error: "+error)

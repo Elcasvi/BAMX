@@ -58,7 +58,7 @@ export default function UsersApplyingToJob()
             />
             <Divider />
         </Layout>
-        <ScrollView style={{ backgroundColor: "#F7F9FC" }}>
+        <View style={{ backgroundColor: "#F7F9FC" }}>
         <View style={{ width: "100%", paddingVertical: 18 }}>
             <View style={{ flex: 1, flexDirection: "row", alignItems: "center", paddingHorizontal: 30 }}>
                 <UsersIcon/>
@@ -67,11 +67,8 @@ export default function UsersApplyingToJob()
             <View style={{ paddingHorizontal: 30 }}>
                 <Text style={{ marginTop: 20, marginBottom: 6, fontWeight: 700 }} category="h6">Usuarios</Text>
             </View>
-
-
-
         </View>
-    </ScrollView>
+    </View>
             <List
                 style={{ width: "100%" }}
                 data={users}

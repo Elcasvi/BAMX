@@ -56,7 +56,7 @@ export default function UsersEnrolledToCourse()
             />
             <Divider />
         </Layout>
-        <ScrollView style={{ backgroundColor: "#F7F9FC" }}>
+        <View style={{ backgroundColor: "#F7F9FC" }}>
         <View style={{ width: "100%", paddingVertical: 18 }}>
             <View style={{ flex: 1, flexDirection: "row", alignItems: "center", paddingHorizontal: 30 }}>
                 <UsersIcon/>
@@ -77,7 +77,7 @@ export default function UsersEnrolledToCourse()
                 />
 
         </View>
-    </ScrollView>
+    </View>
     </>
     );
 }

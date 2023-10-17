@@ -84,7 +84,7 @@ export default function CourseDetailsScreen() {
         const url=BASE_URL+"/UserCourses/update/"+course.id+"/"+userInformation.id
         axios.post(url)
             .then(res => {
-
+                navigation.goBack()
             })
             .catch((error) => {
                 alert("Error: "+error)
