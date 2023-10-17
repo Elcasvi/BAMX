@@ -7,11 +7,9 @@ export const AuthProvider=({children})=>
 {
     const[isLoading,setIsLoading]=useState(false)
     const[userInformation,setUserInformation]=useState(null);
-    const[userBodyInfo,setUserBodyInfo]=useState(null);
-    const[blobInformationCV,setBlobInformationCV]=useState(null);
-    const[blobInformationImg,setBlobInformationImg]=useState(null);
-    const[updatedUserInformation,setUpdatedUserInformation]=useState(null);
-    const[isBlobFinish,setIsBlobFinish]=useState(false)
+
+
+
     const login=({email,password})=>
     {
         setIsLoading(true)
@@ -43,10 +41,11 @@ export const AuthProvider=({children})=>
                 alert("Email or password not correct")
             })
     }
+
+
     const register=({userBody})=>
     {
         setIsLoading(true)
-        setUserBodyInfo(userBody)
         registerUser(userBody)
         setIsLoading(false)
     }
@@ -67,8 +66,15 @@ export const AuthProvider=({children})=>
         axios.post(urlUser, userBodyDto)
             .then(res => {
                 let userInfo = res.data
-                setUserInformation(userInfo)
-                console.log("After useState")
+
+                if(userBody.FormDataCV!==null || userBody.FormDataImg!==null)
+                {
+                    console.log("Inside of adding blob storage")
+                    addBlobStorage(userBody,userInfo)
+                }
+                else{
+                    saveUserInfoInAsyncStorage(userInfo)
+                }
             })
             .catch((error) => {
                 // Handle fetch errors
@@ -78,137 +84,198 @@ export const AuthProvider=({children})=>
 
     }
 
-    useEffect(()=>{
-        if(userInformation!==null)
-        {
-            addBlobStorage(userBodyInfo);
-        }
-    },[userInformation])
-
-    useEffect(()=>{
-        if(userInformation!==null)
-        {
-            updateUser(userBodyInfo);
-            console.log("Outside of updateUser")
-        }
-    },[isBlobFinish])
-
-    useEffect(()=>{
-        if(updatedUserInformation!==null)
-        {
-            saveUserInfoInAsyncStorage();
-        }
-    },[updatedUserInformation])
-
-
-
-
-
-    const addBlobStorage=async (userBody)=>
+    const addBlobStorage=async (userBody,userInfo)=>
     {
-
-        if(userBody.FormDataCV===null && userBody.FormDataImg===null)
+        console.log("userBody:")
+        console.log(userBody)
+        const urlBlob = BASE_URL + "/BlobStorage/" + userInfo.id;
+        if(userBody.FormDataCV!==null && userBody.FormDataImg!==null)
         {
+            console.log("Inside of FormDataCV!==null && FormDataImg!==null")
+            axios.post(urlBlob, userBody.FormDataCV, {
+                headers: {
+                    'Content-Type': 'multipart/form-data',
+                },
+            })
+                .then(res => {
+                    const blobInfo={
+                        CVUrl:res.data.url,
+                        NameOfCV:res.data.fileName,
+                        ProfilePictureUrl:null,
+                        NameOfProfilePicture:null
+                    }
 
-            setIsBlobFinish(true)
-            const blobIfo={
-                url:null,
-                fileName:null
-            }
-            setBlobInformationCV(blobIfo);
-            setBlobInformationImg(blobIfo);
-        }
-        else
-        {
-
-            const urlBlob = BASE_URL + "/BlobStorage/" + userInformation.id;
-            if(userBody.FormDataCV!==null)
-            {
-
-                try {
-                    const response = await axios.post(urlBlob, userBody.FormDataCV, {
+                    //-------------------------------------------------------------------------------------
+                    axios.post(urlBlob, userBody.FormDataImg, {
                         headers: {
                             'Content-Type': 'multipart/form-data',
                         },
-                    });
+                    })
+                        .then(response=>{
+                            blobInfo.ProfilePictureUrl=response.data.url
+                            blobInfo.NameOfProfilePicture=response.data.fileName
+                            updateUser(userInfo,blobInfo,"Both")
+                        })
 
-                    setBlobInformationCV(response.data);
-                } catch (error) {
-                    alert("Error: " + error);
-                }
+                })
+                .catch((er)=>{
+                    alert(er);
+                })
+                //-------------------------------------------------------------------------------------
 
-            }
-            else
-            {
-                const blobIfo={
-                    url:null,
-                    fileName:null
-                }
-                setBlobInformationCV(blobIfo);
-            }
 
-            if(userBody.FormDataImg!==null)
-            {
 
-                try {
-                    const response = await axios.post(urlBlob, userBody.FormDataImg, {
-                        headers: {
-                            'Content-Type': 'multipart/form-data',
-                        },
-                    });
-
-                    setBlobInformationImg(response.data);
-                } catch (error) {
-                    alert("Error: " + error);
-                }
-            }
-            else
-            {
-                const blobIfo={
-                    url:null,
-                    fileName:null
-                }
-                setBlobInformationImg(blobIfo);
-            }
-            setIsBlobFinish(true)
+                .catch((error) => {
+                    alert(error);
+                })
         }
 
-    }
-    const updateUser=(userBody)=>
-    {
-
-        const urlUpdateUser=BASE_URL+"/update/userId/"+userInformation.id
-        const userUpdatedBodyDto=
-            {
-                Id:userInformation.id,
-                Name: userBody.Name,
-                Email: userBody.Email,
-                Password: userInformation.password,
-                Role:userBody.Role,
-                Gender: userBody.Gender,
-                Rating: userBody.Rating,
-                Description:userBody.Description,
-                CVUrl:blobInformationCV.url,
-                NameOfCV:blobInformationCV.fileName,
-                ProfilePictureUrl:blobInformationImg.url,
-                NameOfProfilePicture:blobInformationImg.fileName
-            }
-        axios.put(urlUpdateUser,userUpdatedBodyDto)
-            .then(res => {
-                let userInfo=res.data
-                setUpdatedUserInformation(userInfo)
-
+        if(userBody.FormDataCV!==null && userBody.FormDataImg===null)
+        {
+            console.log("Inside of FormDataCV!==null && FormDataImg===null")
+            axios.post(urlBlob, userBody.FormDataCV, {
+                headers: {
+                    'Content-Type': 'multipart/form-data',
+                },
             })
-            .catch((error) => {
-                console.error("Fetch error:", error);
+                .then(res => {
+                    const blobInfo=res.data
+                    updateUser(userInfo,blobInfo,"FormDataCV")
+                })
+                .catch((error) => {
+                    alert(error);
+                })
+        }
+
+        if(userBody.FormDataCV===null && userBody.FormDataImg!==null)
+        {
+            console.log("Inside of FormDataCV===null && FormDataImg!==null")
+            axios.post(urlBlob, userBody.FormDataImg, {
+                headers: {
+                    'Content-Type': 'multipart/form-data',
+                },
             })
+                .then(res => {
+                    const blobInfo=res.data
+                    updateUser(userInfo,blobInfo,"FormDataImg")
+                })
+                .catch((error) => {
+                    alert(error);
+                })
+        }
     }
-    const saveUserInfoInAsyncStorage=()=>
+
+
+    const updateUser=(userInfo,blobInfo,identifier)=>
     {
-        AsyncStorageNative.setItem('userInformation', JSON.stringify(userInformation))
+        console.log("Inside of Update user")
+
+        const urlUpdateUser=BASE_URL+"/update/userId/"+userInfo.id
+        if(identifier==="FormDataCV")
+        {
+            console.log("Case FormDataCV")
+            const userUpdatedBodyDto=
+                {
+                    Id: userInfo.id,
+                    Name: userInfo.name,
+                    Email: userInfo.email,
+                    Password: userInfo.password,
+                    Role: userInfo.role,
+                    Gender: userInfo.gender,
+                    Rating: userInfo.rating,
+                    Description: userInfo.description,
+                    CvUrl: blobInfo.url,
+                    NameOfCV: blobInfo.fileName,
+                    ProfilePictureUrl: null,
+                    NameOfProfilePicture: null,
+                    AssignedJobs: null,
+                    UserCourses: null,
+                    UserJobOffers: null
+                }
+            axios.put(urlUpdateUser,userUpdatedBodyDto)
+                .then(res => {
+                    let updatedUserInfo=res.data
+                    saveUserInfoInAsyncStorage(updatedUserInfo)
+
+                })
+                .catch((error) => {
+                    console.error("Fetch error:", error);
+                })
+        }
+        else if(identifier==="FormDataImg")
+        {
+            console.log("Case FormDataImg")
+            const userUpdatedBodyDto=
+                {
+                    Id: userInfo.id,
+                    Name: userInfo.name,
+                    Email: userInfo.email,
+                    Password: userInfo.password,
+                    Role: userInfo.role,
+                    Gender: userInfo.gender,
+                    Rating: userInfo.rating,
+                    Description: userInfo.description,
+                    CvUrl: null,
+                    NameOfCV: null,
+                    ProfilePictureUrl: blobInfo.url,
+                    NameOfProfilePicture: blobInfo.fileName,
+                    AssignedJobs: null,
+                    UserCourses: null,
+                    UserJobOffers: null
+                }
+            axios.put(urlUpdateUser,userUpdatedBodyDto)
+                .then(res => {
+                    let updatedUserInfo=res.data
+                    saveUserInfoInAsyncStorage(updatedUserInfo)
+
+                })
+                .catch((error) => {
+                    console.error("Fetch error:", error);
+                })
+        }
+        else if(identifier==="Both")
+        {
+            console.log("case Both")
+            const userUpdatedBodyDto=
+                {
+                    Id: userInfo.id,
+                    Name: userInfo.name,
+                    Email: userInfo.email,
+                    Password: userInfo.password,
+                    Role: userInfo.role,
+                    Gender: userInfo.gender,
+                    Rating: userInfo.rating,
+                    Description: userInfo.description,
+                    CvUrl: blobInfo.CVUrl,
+                    NameOfCV: blobInfo.NameOfCV,
+                    ProfilePictureUrl: blobInfo.ProfilePictureUrl,
+                    NameOfProfilePicture: blobInfo.NameOfProfilePicture,
+                    AssignedJobs: null,
+                    UserCourses: null,
+                    UserJobOffers: null
+                }
+            axios.put(urlUpdateUser,userUpdatedBodyDto)
+                .then(res => {
+                    let updatedUserInfo=res.data
+                    saveUserInfoInAsyncStorage(updatedUserInfo)
+
+                })
+                .catch((error) => {
+                    console.error("Fetch error:", error);
+                })
+        }
+
+
+
+    }
+    const saveUserInfoInAsyncStorage=(updatedUserInfo)=>
+    {
+        console.log("Inside of asyncStorage")
+        AsyncStorageNative.setItem('userInformation', JSON.stringify(updatedUserInfo))
             .then(() => {
                 // Code to execute after successfully setting the 'token' item
-                console.log("user' information set successfully");
+                console.log("user information set successfully");
+                setUserInformation(updatedUserInfo)
             })
             .catch((error) => {
                 // Handle any errors that occur during the set operation
