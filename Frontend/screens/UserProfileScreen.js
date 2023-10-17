@@ -5,11 +5,13 @@ import {AuthContext} from "../context/AuthContext";
 import UserDetails from "../components/Users/UserDetails";
 import {BASE_URL} from "../config";
 import axios from "axios";
+import { StackActions } from '@react-navigation/native';
+
 
 
 export default function (){
     const route=useRoute();
-    const navigate=useNavigation();
+    const navigation=useNavigation();
     const{params}=route;
     const user=params.user;
     const job=params.job;
@@ -26,7 +28,7 @@ export default function (){
         axios.delete(url)
             .then(res => {
                 console.log(res.data)
-                navigate.goBack();
+                navigation.goBack()
 
             })
             .catch((error) => {
@@ -59,7 +61,10 @@ export default function (){
         axios.delete(url)
             .then(res => {
                 //console.log(res.data)
-                navigate.goBack();
+                navigation.goBack();
+                navigation.dispatch(
+                    StackActions.replace('JobsFeed')
+                );
             })
             .catch((error) => {
                 alert("Error: "+error)

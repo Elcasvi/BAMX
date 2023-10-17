@@ -69,17 +69,17 @@ export default function UsersApplyingToJob()
             </View>
 
 
+
+        </View>
+    </ScrollView>
             <List
                 style={{ width: "100%" }}
                 data={users}
                 ItemSeparatorComponent={Divider}
-                renderItem={({item}) => <UserDetails user={item}/>}
+                renderItem={({item}) => <UserDetails job={job} user={item}/>}
                 keyExtractor={item => item.id}
                 ListEmptyComponent={<View style={{ height: 200, width: "100%", flex: 1, justifyContent: "center", alignItems: "center"}}><Text appearance='hint' category='s1'>No Users applied</Text></View>}
-                />
-
-        </View>
-    </ScrollView>
+            />
     </>
     )
 }
