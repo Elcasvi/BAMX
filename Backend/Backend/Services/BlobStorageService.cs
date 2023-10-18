@@ -94,7 +94,7 @@ namespace Backend.Services
         private String GetUserContainerName(int userId)
         {
             User user = _userRepository.Get(userId);//I get the user object from my db
-            string loggedInUser = user.Name.ToLower()+user.Id.ToString();//I create a name for its particular container in azure
+            string loggedInUser = (user.Name + user.Id.ToString()).Replace(" ", "").ToLower();//I create a name for its particular container in azure
             return loggedInUser;
         }
     }
