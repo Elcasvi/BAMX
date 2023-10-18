@@ -15,12 +15,17 @@ public class EmailController:ControllerBase
     {
         _emailSenderService = emailSenderService;
     }
-
     [HttpPost]
-    public async Task<IActionResult> sendEmail([FromBody] Email email)
+    public async Task<IActionResult> SendEmail([FromBody] Email email)
     {
         try
         {
+            if (email.IsHtml) // Check if the email content is in HTML format
+            {
+                // Set IsHtml property to true for HTML emails
+                email.IsHtml = true;
+            }
+
             await _emailSenderService.SendEmailAsync(email);
             return Ok("Email sent successfully");
         }
