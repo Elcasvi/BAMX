@@ -5,13 +5,32 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4d695a77-b978-4f13-8366-bf2b95423c61" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../Backend/BAMXTesting/bin/Debug/net7.0/CoverletSourceRootsMapping_BAMXTesting" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/BAMXTesting/bin/Debug/net7.0/CoverletSourceRootsMapping_BAMXTesting" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/BAMXTesting/obj/BAMXTesting.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/BAMXTesting/obj/BAMXTesting.csproj.nuget.dgspec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/BAMXTesting/obj/BAMXTesting.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/BAMXTesting/obj/BAMXTesting.csproj.nuget.g.props" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/BAMXTesting/obj/BAMXTesting.csproj.nuget.g.targets" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/BAMXTesting/obj/BAMXTesting.csproj.nuget.g.targets" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/BAMXTesting/obj/Debug/net7.0/BAMXTesting.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/BAMXTesting/obj/Debug/net7.0/BAMXTesting.AssemblyInfo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/BAMXTesting/obj/Debug/net7.0/BAMXTesting.GeneratedMSBuildEditorConfig.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/BAMXTesting/obj/Debug/net7.0/BAMXTesting.GeneratedMSBuildEditorConfig.editorconfig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/BAMXTesting/obj/Debug/net7.0/BAMXTesting.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/BAMXTesting/obj/Debug/net7.0/BAMXTesting.assets.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/BAMXTesting/obj/Debug/net7.0/BAMXTesting.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/BAMXTesting/obj/Debug/net7.0/BAMXTesting.csproj.AssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/BAMXTesting/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/BAMXTesting/obj/project.assets.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/BAMXTesting/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/BAMXTesting/obj/project.nuget.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/BAMXTesting/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/BAMXTesting/obj/project.packagespec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/BAMXTesting/obj/rider.project.model.nuget.info" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/BAMXTesting/obj/rider.project.model.nuget.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/BAMXTesting/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/BAMXTesting/obj/rider.project.restore.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/Backend/obj/Backend.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/Backend/obj/Backend.csproj.nuget.dgspec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/Backend/obj/Backend.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/Backend/obj/Backend.csproj.nuget.g.props" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/Backend/obj/Backend.csproj.nuget.g.targets" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/Backend/obj/Backend.csproj.nuget.g.targets" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/Backend/obj/Debug/net7.0/Backend.GeneratedMSBuildEditorConfig.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/Backend/obj/Debug/net7.0/Backend.GeneratedMSBuildEditorConfig.editorconfig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/Backend/obj/Debug/net7.0/Backend.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/Backend/obj/Debug/net7.0/Backend.assets.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/Backend/obj/Debug/net7.0/Backend.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/Backend/obj/Debug/net7.0/Backend.csproj.AssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/Backend/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/Backend/obj/project.assets.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/Backend/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/Backend/obj/project.nuget.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/Backend/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/Backend/obj/project.packagespec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/Backend/obj/rider.project.model.nuget.info" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/Backend/obj/rider.project.model.nuget.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/Backend/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/Backend/obj/rider.project.restore.info" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Users/UserDetails.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/Users/UserDetails.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screens/Admin/Courses/CreateCourseScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/Admin/Courses/CreateCourseScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screens/Courses/CourseDetailsScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/Courses/CourseDetailsScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screens/Courses/UsersEnrolledToCourse.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/Courses/UsersEnrolledToCourse.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Users/UserListItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/Users/UserListItem.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/screens/Jobs/UsersApplyingToJob.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/Jobs/UsersApplyingToJob.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -37,22 +56,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "/Users/carlos/Desktop/BAMX-e17accd925c677fad2f44b6dcf8564af3af64ad7/Frontend",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "ts.external.directory.path": "/Users/carlos/Applications/WebStorm.app/Contents/plugins/javascript-impl/jsLanguageServicesImpl/external",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/carlos/Desktop/BAMX-e17accd925c677fad2f44b6dcf8564af3af64ad7/Frontend&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Users/carlos/Applications/WebStorm.app/Contents/plugins/javascript-impl/jsLanguageServicesImpl/external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/navigation/employeeNavigation" />
@@ -118,7 +137,8 @@
       <workItem from="1697428778347" duration="486000" />
       <workItem from="1697469572780" duration="1218000" />
       <workItem from="1697555402456" duration="3648000" />
-      <workItem from="1697564398106" duration="4531000" />
+      <workItem from="1697564398106" duration="4758000" />
+      <workItem from="1697640742763" duration="5899000" />
     </task>
     <servers />
   </component>
