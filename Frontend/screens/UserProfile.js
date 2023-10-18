@@ -75,10 +75,10 @@ export default function UserProfile({}) {
                   />
                 </View>
                 </View>
-                <Input size="large" status="primary" label="Name" style={{width: "100%", marginVertical: 4 }} disabled value={userInformation.name}/>
-                <Input size="large" status="primary" label="E-Mail" style={{width: "100%", marginVertical: 4 }} disabled value={userInformation.email}/>
-                <Input size="large" status="primary" label="Gender" style={{width: "100%", marginVertical: 4 }} disabled value={userInformation.gender}/>
-                <Input size="large" status="primary" label="Description" textStyle={{minHeight: 175}} disabled multiline={true} style={{width: "100%", marginVertical: 4}} value={userInformation.description}/>
+                <Input size="large" status="primary" label="Name" style={{width: "100%", marginVertical: 4 }} value={userInformation.name}/>
+                <Input size="large" status="primary" label="E-Mail" style={{width: "100%", marginVertical: 4 }} value={userInformation.email}/>
+                <Input size="large" status="primary" label="Gender" style={{width: "100%", marginVertical: 4 }} value={userInformation.gender}/>
+                <Input size="large" status="primary" label="Personal descripción" textStyle={{minHeight: 175}} multiline={true} style={{width: "100%", marginVertical: 4}} value={userInformation.description}/>
                 <View style={{ flex: 1, alignItems: "center", marginTop: 10 }}>
                   <Button accessoryLeft={CvIcon} style={{width: "50%" }} onPress={uploadFile}>CV</Button>
                   <View style={{ width: 160, height: 160, marginTop: 10, borderRadius: 10, borderWidth: 2, justifyContent: 'center', alignItems: 'center', borderColor: "#575756" }}>

@@ -1,6 +1,6 @@
 import { Image, Text, useColorScheme, View} from "react-native";
 import {useContext, useState} from "react";
-import { Button, Icon, ProgressBar } from '@ui-kitten/components';
+import { Button, Icon, ProgressBar, Spinner } from '@ui-kitten/components';
 import {useNavigation} from "@react-navigation/native";
 import {AuthContext} from "../context/AuthContext";
 import logo from "../lib/images/bamx.png"
@@ -47,7 +47,7 @@ const AtrasIcon = (props) => (
 
 export default function Register()
 {
-    const {register}=useContext(AuthContext);
+    const {register, isLoading}=useContext(AuthContext);
     const navigation=useNavigation();
     const theme=useColorScheme();
     const [user,setUser]=useState({})
@@ -61,6 +61,12 @@ export default function Register()
     const [formDataImg, setFormDataImg] = useState(null)
     const [formDataCV, setFormDataCV] = useState(null)
     const [cv, setCv] = useState(null)
+
+    const LoadingIndicator = (props) => (
+        <View style={[props.styles]}>
+          <Spinner />
+        </View>
+      );
 
     const pickImage = async () => {
       // No permissions request is necessary for launching the image library
@@ -187,7 +193,8 @@ export default function Register()
                         </View>
                     <View style={{ flexDirection: "row", alignItems: 'center', marginTop: 10 }}>
                         <Button accessoryLeft={AtrasIcon} style={{ marginHorizontal: 5, width: 142 }} onPress={() => setPage(page => page - 1)}>Atrás</Button>
-                        <Button accessoryRight={LogInIcon} style={{ marginHorizontal: 5, width: 142 }} onPress={handleRegisterBtn}>Register</Button>
+                        {isLoading ? <Button accessoryRight={LoadingIndicator} disabled style={{ marginHorizontal: 5, width: 142 }}>Register</Button> :
+                        <Button accessoryRight={LogInIcon} style={{ marginHorizontal: 5, width: 142 }} onPress={handleRegisterBtn}>Register</Button>}
                     </View>
                 </>
             }

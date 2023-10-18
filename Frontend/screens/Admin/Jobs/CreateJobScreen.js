@@ -95,7 +95,7 @@ export default function CreateJobScreen()
             <View style={{ flex: 1, alignItems: 'center', paddingHorizontal: 40, paddingVertical: 20 }}>
                 <Text category='h1'>Create Job</Text>
                 <Input size="large" status="primary" label="Title" style={{width: "100%", margin: 10 }} placeholder={"Title"} onChangeText={setTitle} value={title}/>
-                <Input size="large" status="primary" textStyle={{minHeight: 175}} multiline={true} label="Description" style={{width: "100%" }} placeholder={"Description"} onChangeText={setDescription} value={description}/>
+                <Input size="large" status="primary" textStyle={{minHeight: 175}} multiline={true} label="Job descripción" style={{width: "100%" }} placeholder={"Job descripción"} onChangeText={setDescription} value={description}/>
 
                 <Button accessoryLeft={ProfilePictureIcon} style={{ width: "50%",margin:10 }} onPress={pickImage}>Job Picture</Button>
                 {image ?

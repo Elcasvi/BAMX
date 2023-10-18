@@ -1,5 +1,5 @@
 import { Image, useColorScheme, View } from "react-native";
-import { Input, Button, Icon } from '@ui-kitten/components';
+import { Input, Button, Icon, Spinner } from '@ui-kitten/components';
 import { useContext, useState } from "react";
 import { useNavigation } from "@react-navigation/native";
 import { AuthContext } from "../context/AuthContext";
@@ -13,9 +13,15 @@ const LogInIcon = (props) => (
     />
 );
 
+const LoadingIndicator = (props) => (
+    <View style={[props.styles]}>
+      <Spinner />
+    </View>
+  );
+
 export default function Login()
 {
-    const {login}= useContext(AuthContext);
+    const {login, isLoading}= useContext(AuthContext);
     const navigation=useNavigation();
     const theme=useColorScheme();
     const [user,setUser]=useState({})
@@ -32,7 +38,8 @@ export default function Login()
                 />
                 <Input size="large" status="primary" label="E-Mail" style={{width: "100%", marginBottom: 10 }} placeholder={"E-Mail"} onChangeText={setEmail} value={email}/>
                 <Input size="large" status="primary" label="Password" secureTextEntry={true} style={{width: "100%" }} placeholder={"Password"} onChangeText={setPassword} value={password}/>
-                <Button accessoryRight={LogInIcon} style={{width: 142, marginTop: 10, marginBottom: 5 }} onPress={()=>login({email,password})}>Login</Button>
+                {isLoading ? <Button accessoryRight={LoadingIndicator} disabled style={{width: 142, marginTop: 10, marginBottom: 5 }}>Login</Button> :
+                <Button accessoryRight={LogInIcon} style={{width: 142, marginTop: 10, marginBottom: 5 }} onPress={()=>login({email,password})}>Login</Button>}
             </View>
         </KeyboardAwareScrollView>
     );

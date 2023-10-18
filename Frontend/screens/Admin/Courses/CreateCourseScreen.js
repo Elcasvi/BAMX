@@ -61,7 +61,7 @@ export default function CreateCourseScreen()
             <Text category='h1'>Create Course</Text>
             <Input size="large" status="primary" label="Titulo" style={{width: "100%", margin: 10 }} placeholder={"Titulo"} onChangeText={setTitle} value={title}/>
             <Input size="large" status="primary" label="Autor" style={{width: "100%", margin: 10 }} placeholder={"Autor"} onChangeText={setAuthor} value={author}/>
-            <Input size="large" status="primary" textStyle={{minHeight: 175}} multiline={true} label="Descripción" style={{width: "100%" }} placeholder={"Descripción"} onChangeText={setDescription} value={description}/>
+            <Input size="large" status="primary" textStyle={{minHeight: 175}} multiline={true} label="Course descripción" style={{width: "100%" }} placeholder={"Course descripción"} onChangeText={setDescription} value={description}/>
             <Button size="large" accessoryLeft={PlusIcon} style={{margin: 20, width: "100%" }} onPress={createJob}>Crear Curso</Button>
         </View>
     </KeyboardAwareScrollView>

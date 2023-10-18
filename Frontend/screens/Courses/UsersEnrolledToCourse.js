@@ -3,8 +3,8 @@ import {useFocusEffect, useNavigation, useRoute} from "@react-navigation/native"
 import {useCallback, useState} from "react";
 import {BASE_URL} from "../../config";
 import axios from "axios";
-import UserDetails from "../../components/Users/UserDetails";
 import { Divider, Icon, Layout, List, TopNavigation, TopNavigationAction, Text } from "@ui-kitten/components";
+import UserListItem from "../../components/Users/UserListItem";
 
 const BackIcon = (props) => (
     <Icon
@@ -71,7 +71,7 @@ export default function UsersEnrolledToCourse()
                 style={{ width: "100%" }}
                 data={users}
                 ItemSeparatorComponent={Divider}
-                renderItem={({item}) => <UserDetails user={item}/>}
+                renderItem={({item}) => <UserListItem user={item}/>}
                 keyExtractor={item => item.id}
                 ListEmptyComponent={<View style={{ height: 200, width: "100%", flex: 1, justifyContent: "center", alignItems: "center"}}><Text appearance='hint' category='s1'>No Users enrolled</Text></View>}
                 />

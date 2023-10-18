@@ -6,6 +6,7 @@ import axios from "axios";
 import {BASE_URL} from "../../config";
 import { Divider, Icon, Layout, List, Text, TopNavigation, TopNavigationAction } from "@ui-kitten/components"
 import UserDetails from "../../components/Users/UserDetails";
+import UserListItem from "../../components/Users/UserListItem";
 
 const BackIcon = (props) => (
     <Icon
@@ -73,7 +74,7 @@ export default function UsersApplyingToJob()
                 style={{ width: "100%" }}
                 data={users}
                 ItemSeparatorComponent={Divider}
-                renderItem={({item}) => <UserDetails job={job} user={item}/>}
+                renderItem={({item}) => <UserListItem user={item}/>}
                 keyExtractor={item => item.id}
                 ListEmptyComponent={<View style={{ height: 200, width: "100%", flex: 1, justifyContent: "center", alignItems: "center"}}><Text appearance='hint' category='s1'>No Users applied</Text></View>}
             />

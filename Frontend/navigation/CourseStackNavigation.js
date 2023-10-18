@@ -6,6 +6,7 @@ import UserProfile from "../screens/UserProfile";
 import {TopTabGroupCourses} from "./DrawerNavigation";
 import CurrentCoursesScreen from "../screens/Courses/CurrentCoursesScreen";
 import UsersEnrolledToCourse from "../screens/Courses/UsersEnrolledToCourse";
+import UserProfileScreen from "../screens/UserProfileScreen";
 
 const CourseFeedStack = createNativeStackNavigator();
 export default function CourseStackNavigation() {
@@ -22,6 +23,7 @@ export default function CourseStackNavigation() {
             <CourseFeedStack.Screen name="UsersEnrolledToCourse" component={UsersEnrolledToCourse}
                                     options={{headerShown: false}}/>
             <CourseFeedStack.Screen options={{ headerShown: false }} name="UserProfile" component={UserProfile} />
+            <CourseFeedStack.Screen options={{ headerShown: false }} name="UserProfileScreen" component={UserProfileScreen} />
         </CourseFeedStack.Navigator>
 
     );
