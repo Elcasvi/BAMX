@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "GJTBo5TevpQ=",
+  "dgSpecHash": "VjMgQfY9jNEyg8XATAolippVyoEX3+4D4NMGJVo1dTDoo+zZSAtW1u3uMgVVlVbPBHh0ZFX6RHQELDisWQlB5Q==",
   "success": true,
   "projectFilePath": "C:\\React Native\\BAMX\\Backend\\Backend\\Backend.csproj",
   "expectedPackageFiles": [
@@ -95,7 +95,7 @@
       "message": "Package 'Microsoft.AspNetCore.Components' 7.0.11 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-3fx3-85r4-8j3w",
       "libraryId": "Microsoft.AspNetCore.Components",
       "targetGraphs": [
-        "net7.0"
+        "net8.0"
       ]
     },
     {
@@ -105,7 +105,7 @@
       "message": "Package 'Microsoft.Data.SqlClient' 5.1.1 has a known high severity vulnerability, https://github.com/advisories/GHSA-98g6-xh36-x2p7",
       "libraryId": "Microsoft.Data.SqlClient",
       "targetGraphs": [
-        "net7.0"
+        "net8.0"
       ]
     }
   ]
