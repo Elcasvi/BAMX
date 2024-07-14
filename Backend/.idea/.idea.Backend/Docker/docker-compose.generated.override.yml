@@ -1,0 +1,40 @@
+# This is a generated file. Not intended for manual editing.
+services:
+  backend:
+    build:
+      context: "C:\\React Native\\BAMX\\Backend"
+      dockerfile: "Backend/Dockerfile"
+      target: "base"
+    command: []
+    entrypoint:
+    - "dotnet"
+    - "/app/bin/Debug/net7.0/Backend.dll"
+    environment:
+      ASPNETCORE_ENVIRONMENT: "Development"
+      DOTNET_USE_POLLING_FILE_WATCHER: "true"
+    image: "backend:dev"
+    ports: []
+    volumes:
+    - "C:\\Users\\carlos\\.nuget\\packages:/root/.nuget/packages"
+    - "C:\\React Native\\BAMX\\Backend\\Backend:/app:rw"
+    - "C:\\React Native\\BAMX\\Backend:/src:rw"
+    working_dir: "/app"
+  backend-1:
+    build:
+      context: "C:\\React Native\\BAMX\\Backend"
+      dockerfile: "Backend/Dockerfile"
+      target: "base"
+    command: []
+    entrypoint:
+    - "dotnet"
+    - "/app/bin/Debug/net7.0/Backend.dll"
+    environment:
+      ASPNETCORE_ENVIRONMENT: "Development"
+      DOTNET_USE_POLLING_FILE_WATCHER: "true"
+    image: "backend-1:dev"
+    ports: []
+    volumes:
+    - "C:\\Users\\carlos\\.nuget\\packages:/root/.nuget/packages"
+    - "C:\\React Native\\BAMX\\Backend\\Backend:/app:rw"
+    - "C:\\React Native\\BAMX\\Backend:/src:rw"
+    working_dir: "/app"
